@@ -1,0 +1,67 @@
+# ---- OS / editors ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# ---- Secrets (never commit) ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---- Node / web starters ----
+node_modules/
+dist/
+build/
+.vite/
+.cache/
+*.log
+npm-debug.log*
+
+# ---- Render output and heavy media (keep out of git) ----
+out/
+renders/
+masters/
+frames/
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.exr
+*.wav
+*.aiff
+*.psd
+# Small images used in docs can be force-added: git add -f path/to/image.png
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---- Blender ----
+*.blend1
+*.blend2
+*.blend@
+
+# ---- Unreal Engine ----
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+*.sln
+*.uproject.*.bak
+
+# ---- ComfyUI ----
+models/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
