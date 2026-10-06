@@ -60,7 +60,8 @@ Saved/
 *.uproject.*.bak
 
 # ---- ComfyUI ----
-models/
+/models/
+comfyui/models/
 *.safetensors
 *.ckpt
 *.pt
