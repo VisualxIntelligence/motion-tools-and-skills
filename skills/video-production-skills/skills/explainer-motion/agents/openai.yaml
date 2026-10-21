@@ -1,0 +1,4 @@
+interface:
+  display_name: "机制解释动画 / Explainer Motion"
+  short_description: "Animate mechanisms with clear state changes."
+  default_prompt: "Use $explainer-motion to show this mechanism through observable state changes, suitable 2D/3D and a representative preview. Reply in the language requested by the user. / 按用户要求的语言输出。"

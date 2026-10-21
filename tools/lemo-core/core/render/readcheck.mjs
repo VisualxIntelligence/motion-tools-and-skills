@@ -26,7 +26,7 @@ const res = await page.evaluate(({ STEP }) => {
       if (!(b.x0 >= 0 && b.y0 >= 0 && b.x1 <= W && b.y1 <= H)) { partial[key] ??= { id: b.id, text: b.text, t0: t }; continue; }
       vis.add(key);
       const s = seen[key] ??= { id: b.id, text: b.text, t0: t, run: 0, done: false };
-      if (!s.done) s.run = t - s.t0 + STEP;
+      if (!s.done) s.run = Math.min(t + STEP, window.DUR) - s.t0;
     }
     for (const k in seen) if (!vis.has(k)) seen[k].done = true;   // 只算第一次连续在画的时长
   }

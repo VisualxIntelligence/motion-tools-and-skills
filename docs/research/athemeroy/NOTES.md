@@ -1,6 +1,6 @@
 # athemeroy research — notes and attribution
 
-**Source:** "Awesome Claude 5.5 Videos" by athemeroy, [athemeroy/awesome-opus-5-5-videos](https://github.com/athemeroy/awesome-opus-5-5-videos) @ `0b96ca1` (3 October 2026).
+**Source:** "Awesome Claude 5.5 Videos" by athemeroy, [athemeroy/awesome-claude-5-5-videos](https://github.com/athemeroy/awesome-claude-5-5-videos) (renamed from `awesome-opus-5-5-videos`). First copied at `0b96ca1` (3 October 2026); updated from `87e5cbf` (11 October 2026), which added the four new documents marked *new* below and a revised `data/cases.csv`.
 
 **Licence:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ([LICENSE](LICENSE)). The licence covers the repo's own writing, annotations, tables and diagrams only. Creator posts, prompts, videos, stills and linked repositories are excluded and stay with their owners (upstream `THIRD_PARTY.md`).
 
@@ -15,6 +15,11 @@
 | `color-modes.md` + `data/color-mode-swatches.csv` | 53 palette modes measured across the videos, grouped by style and by domain, with hex swatches and pixel share. | Palette starting points |
 | `domain-style-atlas.md` + `data/domain-style.csv` | 1,401 posts classified by domain (product ad, music video, data viz…), style, topic and duration. Labels are machine-assigned. | Seeing what kinds of pieces get made and how long they run |
 | `statistics.md` | Corpus statistics. | Context |
+| `production-resources.md` *(new)* | Seven production paths with an example each, and the open-source production systems the author reviewed (with licences checked on 11 October): Lemo-Opuscar, Papermotion, ClaudeAnimationBase, the motion-graphics music-video skill, 3d-product, Video Production Skills, SwiftUI text animations. | Finding a reusable system for a kind of piece; the first four and the next two are in this repo |
+| `workflow-analysis.md` *(new)* | What the newer examples show about production: multi-agent assembly (one planner, many scene agents), footage-led edits, the turntable product film, how inputs change the task. | Planning who (which model or agent) does what in a pipeline |
+| `research-guide.md` *(new)* | Five findings from the collection, as advice: content–style pairings, how inputs change the task, how much work sits behind "one prompt", how to read reported costs. | A short read before scoping an agent-made piece |
+| `evidence-examples.md` *(new)* | Fourteen paired cases where a similar look came from different production chains (code, supplied media, video models, captured apps). | Judging what a reference video really needed before promising it |
+| `data/resource-review-2026-10-11.csv` *(new)* | The licence and file-tree review of those open-source systems. | Provenance |
 | `data/cases.csv` | 168 hand-reviewed cases: production path, the creator's disclosure (summarised), the reviewer's observation, duration. | Finding real examples of a technique, with links |
 
 The main finding is worth keeping in mind: many videos presented as "one prompt" relied on prebuilt skills, assets on disk, or several rounds of revision. Credit and judge accordingly.

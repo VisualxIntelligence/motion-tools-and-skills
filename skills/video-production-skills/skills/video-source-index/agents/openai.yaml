@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频素材索引 / Source Index"
+  short_description: "Index source clips with timecodes and evidence."
+  default_prompt: "Use $video-source-index to create source records, a timecoded content index and reusable intervals for the supplied assets. Reply in the language requested by the user. / 按用户要求的语言输出。"

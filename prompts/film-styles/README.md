@@ -1,6 +1,6 @@
 # Film-style prompts (from Lemo-Opuscar)
 
-43 style prompts, one per visual style, each a fixed set of rules an agent follows to make a short film entirely in code. Copied from [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) at commit `b65efe6` under the MIT licence (© 2026 LemoLab, see [LICENSE](LICENSE)). Only `STYLE.md` and `style.json` are copied; the demo source, stills and fonts stay upstream (follow the *Demo* link).
+51 style prompts, one per visual style, each a fixed set of rules an agent follows to make a short film entirely in code. Copied from [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) at commit `b65efe6` (43 styles, 6 October 2026), with the eight Evidence Films styles and the updated guides added from commit `b5e8ef9` (21 October 2026) under the MIT licence (© 2026 LemoLab, see [LICENSE](LICENSE)). Only `STYLE.md` and `style.json` are copied; the demo source, stills and fonts stay upstream (follow the *Demo* link).
 
 ## How to use a style prompt
 
@@ -11,7 +11,7 @@
 
 Every `STYLE.md` follows the same 11-section schema (see [`_template/STYLE.md`](_template/STYLE.md)): essence and what it is not; materials and rendering; colour logic; type and subtitles; motion quality; camera grammar; sound palette; native moves; pitfalls; engine; variation space. The schema is a good model for writing your own house-style prompts (for example a channel graphics package).
 
-## The 43 styles
+## The 51 styles
 
 | # | Style | Folder | Category | Original stack | Good for | Demo film |
 |---|---|---|---|---|---|---|
@@ -58,5 +58,15 @@ Every `STYLE.md` follows the same 11-section schema (see [`_template/STYLE.md`](
 | 52 | Sci-fi Hologram HUD | [`hologram-hud`](hologram-hud/STYLE.md) | Information & Keynote | Canvas 2D wireframe engine | Product spec walkthroughs, Launch & crowdfunding videos, Trade-show screens | [Volt · Spec Scan](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/hologram-hud) (39 s) |
 | 53 | Copperplate Engraving | [`engraving`](engraving/STYLE.md) | Print & Printmaking | Canvas 2D burin hatching | Museum labels, Science explainers, Brand heritage | [The Honeybee, Plate VII](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/engraving) (40 s) |
 | 54 | Silkscreen Travel Poster | [`silkscreen-poster`](silkscreen-poster/STYLE.md) | Print & Printmaking | Canvas 2D Path2D ink pulls | Trail & destination guides, Tourism promos, Event posters | [Three Trails](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/silkscreen-poster) (38 s) |
+| 55 | Satellite Briefing | [`satellite-briefing`](satellite-briefing/STYLE.md) | Evidence Films | WebGL2 plate shader over Landsat scenes (Python STAC fetch, water masks, areas) | Climate & environment, Investigations & news explainers, Geography & history | [The Map Still Says Sea](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/satellite-briefing) (38 s) |
+| 56 | Engineering Briefing Board | [`briefing-board`](briefing-board/STYLE.md) | Evidence Films | Layered 2.5D board kit (`board.js`): enamel, marker ink, matted photo prints, parallax camera | Engineering decisions, Option comparisons, Briefings & explainers | [The Ship Decides](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/briefing-board) (40 s) |
+| 57 | LiDAR Survey | [`lidar-survey`](lidar-survey/STYLE.md) | Evidence Films | WebGL point and surface shaders over public laser scans (laspy, terrain and relief tools) | Archaeology & heritage, Forestry & environment, Infrastructure & site surveys | [The Fields Under the Forest](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/lidar-survey) (40 s) |
+| 58 | Projection on White Model | [`white-model`](white-model/STYLE.md) | Evidence Films | three.js projection material on a city mesh built from open building data, solar shadow | Urban planning & real estate, Exhibitions & showrooms, City data & history | [How a Flattened City Grew Back](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/white-model) (40 s) |
+| 59 | Data Physicalization | [`data-physical`](data-physical/STYLE.md) | Evidence Films | three.js instanced pieces on a studio set (HDRI), cylindrical camera, material foley | Annual reports & ESG, Investor communications, Energy & climate statistics | [Two Spirals](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/data-physical) (39 s) |
+| 60 | Exploded Teardown | [`teardown`](teardown/STYLE.md) | Evidence Films | three.js lofted parts from real board outlines, one-orbit explode, dimension marks | Hardware launches, E-commerce product pages, Technical marketing & spec explainers | [21 Keys, Opened](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/teardown) (39 s) |
+| 61 | Microscope Story | [`microscope`](microscope/STYLE.md) | Evidence Films | WebGL plates from whole-slide scans, log-spiral camera, measured readings | Biomedicine & pathology, Materials & surface science, Skincare & cosmetic science | [Measured Blue](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/microscope) (40 s) |
+| 62 | Archive Light Table | [`archive-lighttable`](archive-lighttable/STYLE.md) | Evidence Films | WebGL light-table shader over archive scans, loupe dives, measurement overlays | Brand history & anniversaries, Documentary & archive explainers, Museum & collection stories | [Two Seconds Short](https://github.com/lemomo-ai/lemo-opuscar/tree/main/styles/archive-lighttable) (40 s) |
 
-Most relevant for broadcast news and current-affairs graphics: `swiss-motion`, `dataviz`, `iso-infographic`, `dark-keynote`, `hologram-hud`, `blueprint`, `whiteboard`, `halftone-dossier`, `spy-titles` (title sequences), `glass-product` (product renders) and `tilt-shift`.
+**Evidence Films** (55–62) are built from real, sourced material (satellite scenes, laser scans, open building data, archive scans, slide scans) and keep every on-screen number in a `FACTS.md` with its source. They are the closest styles to news and documentary explainers; each needs extra data packages that its *Engine* section lists.
+
+Most relevant for broadcast news and current-affairs graphics: `satellite-briefing`, `briefing-board`, `archive-lighttable`, `white-model`, `data-physical`, `swiss-motion`, `dataviz`, `iso-infographic`, `dark-keynote`, `hologram-hud`, `blueprint`, `whiteboard`, `halftone-dossier`, `spy-titles` (title sequences), `glass-product` (product renders) and `tilt-shift`.

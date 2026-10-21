@@ -1,6 +1,6 @@
 # Techniques for agent-made motion graphics
 
-What the ten surveyed repos ([`../SOURCES.md`](../SOURCES.md)) have in common, written up as working rules for our stack: HyperFrames, Three.js + GSAP, Remotion, Blender, Unreal and ComfyUI. Each rule names where to see it done. Paths starting with `skills/`, `tools/`, `starters/`, `prompts/` or `docs/` are in this repo; anything marked *(ref)* is reference-only, see [`reference-only.md`](reference-only.md).
+What the surveyed repos ([`../SOURCES.md`](../SOURCES.md)) have in common, written up as working rules for our stack: HyperFrames, Three.js + GSAP, Remotion, Blender, Unreal and ComfyUI. Each rule names where to see it done. Paths starting with `skills/`, `tools/`, `starters/`, `prompts/` or `docs/` are in this repo; anything marked *(ref)* is reference-only, see [`reference-only.md`](reference-only.md).
 
 ---
 
@@ -20,6 +20,7 @@ Supporting rules:
 - **Closed-form motion.** Write springs, jumps and overshoots as formulas of `t` (`spring`, `jump`, `take` in `skills/painted-animation/template/src/core.js`; `spring` and monotone cubic tracks in `tools/lemo-core/core/lib.js`), not as physics integrated frame by frame.
 - **Seeded randomness.** Hash a stable key per element (`boilSeed(key)` in the painted-animation core; `mulberry32` in tidewater and the demo games). Re-seeding per element stops a moving object from re-randomising everything else.
 - **Animate on twos, keep the camera on ones.** Step characters at 12 fps when the style wants a hand-made feel (`floor(t * 12) / 12`), but move camera and light every frame (`docs/guides/lemo-opuscar/TECHNIQUE.md` §2).
+- **Flicker on frames, not on time.** Anything that should change once per frame (jitter, boil, noise) must key off a frame index that stays constant across the shutter (`frameIdx(t)` in `starters/pdoom-video-engine/src/engine/util.ts`), or motion-blurred frames double-expose it.
 - **Test it.** Render the same frame after seeking forwards and backwards, and compare. athemeroy calls this a seek-order repeatability check (`docs/research/athemeroy/production-brief.md`). Our own QC harness already checks determinism.
 
 ## 2. Rendering: headless Chrome, parallel, resumable, then ffmpeg
@@ -30,6 +31,8 @@ All of the code-rendered pipelines look the same: a page in headless Chrome → 
 - **Check the GPU.** Headless Chrome silently falls back to the SwiftShader software renderer, which is very slow for WebGL. `tools/headless-render/gpu_probe.mjs` prints which GPU each flag set lands on. Useful flags: `--use-angle=d3d11` (Windows), `metal` (macOS), `--use-angle=vulkan` or `gl-egl` (headless NVIDIA on Linux). This applies to HyperFrames and Three.js renders as well.
 - **Grain belongs in ffmpeg, not in the page.** Grain drawn in the page makes every frame incompressible and slows capture. Add it in the final encode (`tools/lemo-core/core/render/mux.sh`).
 - **Pure WebGPU without a browser.** tidewater renders WebGPU in Node with the `webgpu` (Dawn) package and writes PNGs (`starters/tidewater-webgpu-fx/test/`). A browserless path for GPU frame rendering.
+- **Real motion blur from sub-frames.** Average several renders spread over a shutter instead of faking blur in the page. Three levels: a fixed 3–4 sub-frames blended with ffmpeg `tmix` (the `@twoclipping` prompts in `prompts/video-prompts/yihui-prompt-index.md`); a `--mb N --shutter s` flag in the render harness (`starters/mg-styles-15/harness/render.mjs`); and **adaptive sampling per 32×32 tile**, 4 → 324 sub-frames until a tile stops changing, with converged tiles masked out on the GPU (`starters/pdoom-video-engine/`, `--samples auto`). Still frames stop at 12, fast whips need 108+.
+- **4K from a 1080p layout.** Lay out in 1920×1080 logical pixels and render every target at the physical scale, so one scene file serves both. Hairlines drawn from `fwidth` thin out at 4K unless written in logical pixels (`pxLine` in the pdoom engine's GLSL).
 - **Single-file hand-off.** Bundling a piece into one self-contained HTML file (esbuild, in the demo games *(ref)*) makes it easy to archive or hand to a renderer.
 
 ## 3. Let the agent look at its own frames
@@ -48,11 +51,17 @@ The agent cannot watch a video, but it can read images. Every strong pipeline ma
 | Visual hit vs music cue | Hits that land off the beat (reports milliseconds) | `tools/lemo-core/tools/cuecheck.py` |
 | Final file | Loudness and blank frames | ffmpeg `ebur128` and `blackdetect` |
 
+**A jury with calibrated scores.** `starters/mg-styles-15/rubric.md` is a ready prompt for the independent reviewer: extract sheets and strips, check the spec numbers, score seven dimensions against fixed anchors (5 = student, 7 = solid professional, 8 = high-end agency, 9 = award shortlist; "most first renders deserve 5–7"), then 5–10 fixes with timecodes and numbers, at least one aimed at the wow factor. Its second prompt feeds the review back for a revision round; the 15 films there went through two rounds.
+
+**Measured gates.** `skills/3d-product/` closes every stage with numbers before moving on (model residuals against the drawings, noise at a target, a composition score for every frame, motion QA on every camera move, loudness steps), so expensive renders only start once the cheap previews pass.
+
 **Separate builder and judge.** A reviewer that did not write the code finds more (the demo games' sub-agent review fixed 12 issues; the `motion-graphics-music-video` skill reviews each wave of sub-agent work; our own benchmark uses an independent critic).
 
 ## 4. Timing
 
 - **Lock the music grid first.** Detect tempo and beat phase before storyboarding, then place cuts and hits on the grid. Tools: `skills/painted-animation/scripts/beat_grid.py` (tempo, phase, LRC lyric lines → beats), `skills/motion-graphics-music-video/scripts/tools/python/beats.py` (beats, onsets, bar position) and `audio_energy.py` (loudness and vocal presence per window).
+- **Go deeper than the beat grid when the piece needs it.** `tools/song-analysis/` separates stems (Demucs) and writes kick, snare and hat onsets, per-stem loudness envelopes at 100 fps, sections on downbeats and, for songs with vocals, word-level lyric timing. Then cut on downbeats, flash on kicks and drive glow from the bass envelope. For an instrumental score (ElevenLabs Music), `analyze.py` alone is enough.
+- **Find cuts by content, not by seconds.** The pdoom-video edit places each scene at "the last beat before the first word of this line" (*(ref)* `timeline.ts`). Cuts written that way survive a re-timed or re-aligned song.
 - **One timeline drives everything.** Picture, score, sound effects, subtitles and the cue check all read the same cue file, so a hit lands on its frame (`skills/kinetic-reel/template/reel/cues.js` feeds both `reel.js` and `music/score.mjs`; lemo's `timeline.js`).
 - **Model the viewer.** For each shot, write the "reads": what the viewer should understand, and from when to when. One read at a time; fast actions, slow meanings. The worked example at the end of `skills/painted-animation/template/ANIMATION_GUIDE.md` is the best short training text on this in any of the repos.
 - **Transitions always.** Every shot names how it leaves (the *Out* column in a storyboard). Catalogues: `skills/kinetic-reel/references/style-guide.md` (shape-continuity transitions), the brush wipe and iris in the painted-animation core.
@@ -61,6 +70,8 @@ The agent cannot watch a video, but it can read images. Every strong pipeline ma
 
 - **Synthesise when you have no library.** `skills/kinetic-reel/template/music/score.mjs` is a dependency-free Node synth that writes a beat-locked score from the cue file. `tools/lemo-core/core/audio/sfx.py` makes procedural foley (clicks, whooshes, thumps), and `pluck.py` plucked strings.
 - **Loudness.** Web and social deliveries in these repos master to −14 LUFS (`mux.sh` does two-pass `loudnorm` to −14 LUFS, −1.2 dBTP). Broadcast is EBU R128, −23 LUFS, which is what our benchmark and tidewater's `tools/tidewater-asset-pipeline/audio/lib.mjs` use. Set the target per delivery.
+- **Give every sound a sync point.** In `mgaudio` (`starters/mg-styles-15/lib/audio/`) a whoosh syncs on its pass-by peak and a riser on its hit, so you pass the visual event time and never compute offsets; SFX come loudness-normalised and the music ducks 3 dB around each one.
+- **Let the picture's events make the sound.** In `starters/papermotion/` a footstep sounds where a foot lands, because the simulation fires the cue. Any physics-driven scene can do the same.
 - **Place a sound effect by its measured peak, not its file start** (pattern in several yihui prompts; `sfx_mix.py` in the music-video skill mixes from a cue list).
 
 ## 6. Look-development notes
@@ -80,6 +91,9 @@ The agent cannot watch a video, but it can read images. Every strong pipeline ma
 - **Don't clone the demo.** Before opening a style's demo, write your own treatment; a new film must differ in at least 4 of 6 dimensions: structure, opening, signature shot, camera path, score shape, ending (`docs/guides/lemo-opuscar/DIRECTOR.md`).
 - **Split long films across sub-agents** with a shared brief: chapter contract, shared API, style rules, a per-frame time budget (PDoomVideo *(ref)*; `skills/painted-animation/references/music-video.md`; the wave contract in `skills/motion-graphics-music-video/references/production.md`).
 - **Keep keys out of the chat.** The music-video skill runs paid API calls through a small local MCP server, so the key never appears in the conversation.
+- **Facts file for anything factual.** Keep every on-screen number, name and claim in a `FACTS.md` with its source, and treat it as the only source the agent may use (the Evidence Films styles in `prompts/film-styles/`, the `@everestchris6` brief in the yihui index, `skills/video-production-skills/skills/evidence-story-script/`). This is the newsroom rule applied to code-made graphics.
+- **Wireframe first.** Build each beat as colourless boxes and outlined text, lock timing on one still per beat, then skin it from the design system without moving the layout (`@ArchiveExplorer` in the yihui index). A cheap approval gate before the look.
+- **House styles that survive updates.** Lemo's `MY-STYLES.md` (`docs/guides/lemo-opuscar/`) turns a library style into a named style of your own outside the library, with a style frame and a 15–30 s test film. The route to a channel graphics package.
 - **Credit honestly.** Record what the agent wrote and what produced the pixels and sound (athemeroy's main finding is that many "one-shot" videos relied on prebuilt skills, assets or many revisions).
 
 ## Writing video prompts
@@ -103,10 +117,11 @@ Patterns behind the strongest prompts in the two video collections ([`../prompts
 
 | Our tool | Most useful from this repo |
 |---|---|
-| HyperFrames / Three.js + GSAP | `tools/headless-render/` (review sheets, strips, GPU probe); `skills/kinetic-reel/` (three.js layers, post pass, transitions, synth score); `prompts/film-styles/` (look and motion rules); lemo `readcheck` and `mux.sh` |
+| HyperFrames / Three.js + GSAP | `tools/headless-render/` (review sheets, strips, GPU probe); `skills/kinetic-reel/` (three.js layers, post pass, transitions, synth score); `starters/mg-styles-15/` (15 worked films, `renderAt(t)` harness with sub-frame blur, jury rubric); `starters/pdoom-video-engine/` (adaptive motion blur, 4K, HDR post); `prompts/film-styles/` (look and motion rules); lemo `readcheck` and `mux.sh` |
 | Remotion | The same review loop and prompt patterns; `prompts/video-prompts/` (Remotion is the most-named stack in the collections) |
-| Blender | `tools/tidewater-asset-pipeline/blender/` (FBX → GLB retarget and NLA bake, glTF decimation) |
+| Blender | `skills/3d-product/` (the full product-film pipeline: modelling from drawings, sets, light, compositions, Cycles or Octane, overnight render supervisor, measured gates); `starters/mg-styles-15/demos/04-3d-render/blender/` (a bpy scene, simulation and render script, with type and grain added on top in a web page); `tools/tidewater-asset-pipeline/blender/` (FBX → GLB retarget and NLA bake, glTF decimation) |
 | Unreal | `prompts/film-styles/` (camera grammar, motion quality, pitfalls sections translate to Sequencer work) |
 | ComfyUI / video models | `skills/motion-graphics-music-video/references/prompts.md` (identity sheets; character on green, world in code; prompt order) |
-| Audio | `tools/lemo-core/core/audio/`, `tts/`; `skills/kinetic-reel/template/music/score.mjs`; `beat_grid.py`, `beats.py` |
+| Audio | `tools/song-analysis/` (stems, per-instrument onsets, envelopes, lyric timing); `starters/mg-styles-15/lib/audio/` (mgaudio recipes and sync-point SFX); `tools/lemo-core/core/audio/`, `tts/`; `skills/kinetic-reel/template/music/score.mjs`; `beat_grid.py`, `beats.py` |
+| News and documentary explainers | `prompts/film-styles/` Evidence Films (satellite, archive light table, briefing board, white model, data physicalization); `skills/video-production-skills/` (evidence-linked script, explainer-motion brief, caption timing, release QA); `docs/research/athemeroy/evidence-examples.md` |
 | WebGPU / real-time ocean and sky | `starters/tidewater-webgpu-fx/` |

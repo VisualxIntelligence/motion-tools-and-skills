@@ -1,0 +1,4 @@
+interface:
+  display_name: "证据故事口播 / Evidence Story Script"
+  short_description: "Write story voiceovers grounded in evidence."
+  default_prompt: "Use $evidence-story-script to turn verified sources into a voiceover, retaining qualifiers and mapping the opening to its payoff. Reply in the language requested by the user. / 按用户要求的语言输出。"

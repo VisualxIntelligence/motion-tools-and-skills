@@ -1,0 +1,4 @@
+interface:
+  display_name: "配音与字幕同步 / Voice and Subtitles"
+  short_description: "Sync authorized voice and reviewed subtitles."
+  default_prompt: "Use $voice-subtitle-sync to check original audio and captions, verify names and numbers, and rebuild timing from actual audio. Reply in the language requested by the user. / 按用户要求的语言输出。"

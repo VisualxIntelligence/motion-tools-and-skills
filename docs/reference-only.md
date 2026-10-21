@@ -1,12 +1,12 @@
 # Reference only: useful, but not licensed for this repo
 
-These are the useful things found while surveying the ten source repos ([`../SOURCES.md`](../SOURCES.md)) that **could not be copied here**. Either the repo has no licence, or the item is third-party material that the repo's licence does not cover. Each entry says what it is, why it is useful, and exactly where it lives upstream, so you can study it, link it, or ask the author for a licence.
+These are the useful things found while surveying the source repos ([`../SOURCES.md`](../SOURCES.md)) that **could not be copied here**. Either the repo has no licence, or the item is third-party material that the repo's licence does not cover. Each entry says what it is, why it is useful, and exactly where it lives upstream, so you can study it, link it, or ask the author for a licence.
 
 **How to use this page.** Read the upstream code and learn from it. Re-implement the ideas in your own code and words, and credit the source. Do not paste the upstream code or text into this repo or into delivered work. A repo on GitHub with no licence is "all rights reserved" by default: GitHub's terms let you view and fork it on GitHub, nothing more. An `"license": "ISC"` line in a `package.json` next to an empty `author` is npm's `init` default, not a grant.
 
 To unlock any item, open an issue on the upstream repo asking the author to add a licence (MIT or Apache-2.0).
 
-Commit hashes are the versions surveyed on 6 October 2026.
+Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4) and 21 October 2026 (sections 5–6). PDoomVideo was rechecked on 21 October: same commit, still no licence.
 
 ---
 
@@ -75,3 +75,26 @@ The repos below are MIT or CC BY, but these particular items are owned by someon
 | Demo films, stills, fonts, sample packs, HDRIs | [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) (`styles/*/demo/`, `core/fonts/`, `tools/fetch.sh`) | Third-party assets with their own licences (OFL fonts, CC BY/CC0 instrument libraries, Poly Haven CC0), and about 70 MB of media. Fetch them from upstream when needed and keep their `CREDITS`. The demo *source* is MIT and can be copied later if a specific demo is wanted. |
 | Game assets | [dgreenheck/tidewater](https://github.com/dgreenheck/tidewater) `public/` | About 100 MB of models, audio, textures and cloud volumes under mixed licences (CC0, MIT, OFL; one AI-generated texture). Only the two small SMAA lookup textures were copied (three.js, MIT). |
 | Animated previews | `*.gif` in opus-video-skills; `docs/emotions.webp` in ClaudeAnimationBase | Size only (2–7 MB each). Viewable upstream. |
+| Sample pack, films, textures, fonts | [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) `lib/audio/samples/`, `videos/`, `assets/`, demo images | Size only: 57 MB of CC0 VCSL samples, 18 MB of CC0 textures and HDRI, 420 MB of films. [`../starters/mg-styles-15/NOTES.md`](../starters/mg-styles-15/NOTES.md) shows how to fetch the samples. |
+| Demo films and example scenes with Clawd | [francozanardi/papermotion](https://github.com/francozanardi/papermotion) | The example code is included in [`../starters/papermotion/`](../starters/papermotion/), but several films star the Clawd character (see the Clawd row above). |
+
+## 5. pdoom-video — third-party song material
+
+[mexicat/pdoom-video](https://github.com/mexicat/pdoom-video) @ `fa164b7` is MIT, but its README excludes the song, the lyrics and `data/lyrics.json`, which belong to the song's authors. The engine and the analysis tools are in this repo ([`../starters/pdoom-video-engine/`](../starters/pdoom-video-engine/NOTES.md), [`../tools/song-analysis/`](../tools/song-analysis/NOTES.md)). These parts were left upstream because they quote or encode the lyrics:
+
+| What | Upstream path | Why it is useful |
+|---|---|---|
+| Treatment and style bible | `docs/TREATMENT.md` (25 KB) | The best written treatment in any surveyed repo: one-paragraph idea ("plates from an illustrated treatise"), tone rules including an explicit "not slop" list (no neon cyberpunk, glowing brains, code rain, lens-flare soup, stock AI imagery), a five-colour palette with one rare accent owned by one moment, a typography system where each typeface is a "voice", then plate-by-plate direction. A model for writing a house style bible. It quotes lyric lines, so it is not copied. |
+| The edit | `app/src/timeline.ts` | Scene boundaries found by lyric content and snapped to the beat grid (`cut('a line')` = the last beat before that line's first word; `after()` = the downbeat nearest a line's end). The right way to make an edit survive a re-timed or re-aligned song. |
+| The 17 scenes | `app/src/scenes/*.ts` | Worked examples of every engine feature: ray-marched rooms with a half-res G-buffer (`room.ts`, `shoggoth.ts`), engraving shaders, maps and Gantt charts (`leftturn-*.ts`), a typewriter prompt UI (`prompt.ts`), a GPU text press (`dense-press.ts`), an outro rewind montage. They reference lyric lines by content. |
+| Timing data | `data/audio.json`, `data/lyrics.json` | Example output of the analysis tools (the second is the song's lyrics with word timings). |
+
+## 6. opus-video-prompts — no licence
+
+[joeseesun/opus-video-prompts](https://github.com/joeseesun/opus-video-prompts) @ `7977c80`. A Chinese-language index of 18 copy-ready prompts and 54 public cases from the first week after Opus 5.5's release, with links to each original post. It has no licence file, and the README states that every prompt and video belongs to its creator.
+
+Most of its best prompts are already indexed by link in [`../prompts/video-prompts/yihui-prompt-index.md`](../prompts/video-prompts/yihui-prompt-index.md) (for example the two `@twoclipping` templates, #13–15, and `@alex_prompter`, #23). What it adds, summarised in our words:
+
+- **A table of nine production routes** with a representative case each: single-file Canvas/JS, p5.js with a brush library, Remotion, HyperFrames, Manim for maths and papers, Python drawing frame by frame, three.js/WebGL scenes, driving professional software (After Effects, Blender, Higgsfield, Runway through MCP, Seedance API), and editing existing footage.
+- **Cost and time figures reported by creators**, from a few dollars for a one-line launch clip to about 200 dollars (or 7–10 % of a weekly Max allowance) for a multi-minute music video, with the warning that most "one-shot" results took two or more runs.
+- **Writing tips** that match [`techniques.md`](techniques.md#writing-video-prompts): storyboard before code, structure like a director, ban the clichés, deterministic `seek(t)` rendering, review frames before the full render, put API keys in `.env` and deny the agent read access to it in `.claude/settings.json`.

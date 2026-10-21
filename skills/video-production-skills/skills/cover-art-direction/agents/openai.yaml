@@ -1,0 +1,4 @@
+interface:
+  display_name: "封面视觉导演 / Cover Art Direction"
+  short_description: "Design covers with clear ideas and readable copy."
+  default_prompt: "Use $cover-art-direction to design a cover from the final copy and reference images, with a clear headline and target-ratio exports. Reply in the language requested by the user. / 按用户要求的语言输出。"

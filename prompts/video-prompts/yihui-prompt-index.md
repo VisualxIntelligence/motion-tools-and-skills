@@ -1,6 +1,6 @@
 # Motion-design prompt index (from yihui-dev/awesome-opus5-5-videos)
 
-Source: https://github.com/yihui-dev/awesome-opus5-5-videos (commit 3d54892, 2026-09-30), `data/videos.json`, 475 entries. Repository licence: MIT (c) 2026 yihui-dev, but the repo states that **every video and prompt belongs to its creator**. For that reason this public index does **not** reproduce prompt text. Each entry links to the creator's original post and to the upstream prompt file.
+Source: https://github.com/yihui-dev/awesome-opus5-5-videos (commit 3d54892, 2026-09-30), `data/videos.json`, 475 entries; entries 41–64 added from commit 92aee2f (703 entries) on 2026-10-21. Repository licence: MIT (c) 2026 yihui-dev, but the repo states that **every video and prompt belongs to its creator**. For that reason this public index does **not** reproduce prompt text. Each entry links to the creator's original post and to the upstream prompt file.
 
 Selection: 40 entries most useful to a broadcast motion-design team, chosen on 2026-10-06. Category, stack, word count and notes are our own summary. "Skillry remake tags" are upstream `tech_tags` and describe Skillry's remake, not necessarily the original stack. `partial=true` upstream means only part of the prompt, or only a post about it, was shared.
 
@@ -409,3 +409,249 @@ For the prompt-writing patterns these entries share, see [`../../docs/techniques
 - Notes: Portuguese; tool-restriction phrasing used by several creators.
 
 - Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/felipemoller-936736.md
+
+---
+
+## Added in the 21 October update
+
+Second pass over upstream commit `92aee2f` (703 entries; 328 added since the first pass). Same rules as above: link-only, notes are our own. Selection favours briefs that carry a reusable technique for our stack.
+
+## 41. Motion-video system brief (GSAP + three.js): @everestchris6
+
+- Original post: https://x.com/everestchris6/status/2104965415164399895
+- Author: [@everestchris6](https://x.com/everestchris6)
+- Repo category: 3d | Skillry remake tags: none | partial=false | 1404 words
+- Stated stack: GSAP + three.js, kit-based, unattended
+- Notes: A full operating brief rather than a film: role, brief fields (audience, call to action, sizes, brand, a facts file as the only source of on-screen numbers, style references), a kit, and checks the video must pass while the user is away. Closest to how our HyperFrames/GSAP + three.js pipeline already works; compare it with our own brief.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/everestchris6-399895.md
+
+## 42. Self-introduction showreel, one continuous line: @heyiamnick
+
+- Original post: https://x.com/heyiamnick/status/2109174851412119558
+- Author: [@heyiamnick](https://x.com/heyiamnick)
+- Repo category: motion | Skillry remake tags: canvas | partial=false | 1382 words
+- Stated stack: Canvas; 30 s loop; Geist; locked camera
+- Notes: One pencil line promoted three times (graphite → blueprint wire → light). Strong example of a closed design system: one typeface with weights and tracking in numbers, six hex colours, each stage's accent becoming the next stage's colour, no cuts and no fades, a 150 px empty border.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/heyiamnick-119558.md
+
+## 43. Kinetic typography of a historic speech: @Gdgtify
+
+- Original post: https://x.com/Gdgtify/status/2105669567036989608
+- Author: [@Gdgtify](https://x.com/Gdgtify)
+- Repo category: 3d | Skillry remake tags: none | partial=false | 691 words
+- Stated stack: Single HTML, 1080×1080, 60 fps; Canvas/SVG/WebGL
+- Notes: Speech excerpt staged as a sentence that changes its own trajectory. Shows how to brief exact display text (order preserved, omissions marked, attribution separate) and a four-colour palette. A model for archive-quote graphics.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/gdgtify-989608.md
+
+## 44. Kinetic spoken-word film: @Gdgtify
+
+- Original post: https://x.com/Gdgtify/status/2105570411870130294
+- Author: [@Gdgtify](https://x.com/Gdgtify)
+- Repo category: explainer | Skillry remake tags: none | partial=false | 452 words
+- Stated stack: Single HTML, 1080×1080, 60 fps; SVG/Canvas
+- Notes: Companion to the above with an original text: a 'field' metaphor carried by streamlines, type staying crisp while particles are only atmosphere, and an explicit list of clichés to avoid.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/gdgtify-130294.md
+
+## 45. Product launch inside a wordmark: @twoclipping
+
+- Original post: https://x.com/twoclipping/status/2105927781678747965
+- Author: [@twoclipping](https://x.com/twoclipping)
+- Repo category: motion | Skillry remake tags: none | partial=false | 781 words
+- Stated stack: 1440×1440, 60 fps, 2D, one take, loops
+- Notes: The whole film happens inside the period of a wordmark; day outside, night inside under glass panels; aligned day and night photos crossfaded as a real sunrise. Inputs with defaults, so it runs unattended.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/twoclipping-747965.md
+
+## 46. Launch trailer, loud poster style: @twoclipping
+
+- Original post: https://x.com/twoclipping/status/2106101258834551116
+- Author: [@twoclipping](https://x.com/twoclipping)
+- Repo category: motion | Skillry remake tags: none | partial=false | 841 words
+- Stated stack: 1440×1440, 60 fps; real clips and portraits
+- Notes: Five-colour palette, condensed and expanded weights of one family, op-art sunburst, film grain; real footage plays inside the design. Lists default free sources for every input.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/twoclipping-551116.md
+
+## 47. UI launch film, one shape: @0xnicc0
+
+- Original post: https://x.com/0xnicc0/status/2107217691505516612
+- Author: [@0xnicc0](https://x.com/0xnicc0)
+- Repo category: motion | Skillry remake tags: none | partial=false | 461 words
+- Stated stack: Square, 120 BPM, 24 beats
+- Notes: Prompt bar → button → progress ring → preview window → full screen → toast → prompt bar, driven by cursor clicks, no cuts. A compact version of the morphing-shape briefs already in this index (#13).
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/0xnicc0-516612.md
+
+## 48. Seamless UI motion loop with numbers: @flxrnc
+
+- Original post: https://x.com/flxrnc/status/2108242454105251921
+- Author: [@flxrnc](https://x.com/flxrnc)
+- Repo category: motion | Skillry remake tags: none | partial=false | 343 words
+- Stated stack: 1440×1440, 60 fps, 14 s; closed-form springs
+- Notes: Asks for hex codes, seconds, damping ratios and pixel sizes instead of adjectives: shape damping 0.72 settling in 0.35 s, camera damping 1.0 in 0.6 s, 12 px blur on content swaps, a 0.5 s beat grid. The clearest example of 'motion in numbers'.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/flxrnc-251921.md
+
+## 49. Brand film from archive material: @notdwd
+
+- Original post: https://x.com/notdwd/status/2103995183255998633
+- Author: [@notdwd](https://x.com/notdwd)
+- Repo category: motion | Skillry remake tags: none | partial=false | 701 words
+- Stated stack: ~55 s; archival clips, archived web pages, narrator via ElevenLabs
+- Notes: Sells one idea, never features; real archival footage and real web pages only (public-domain sources named), one hero 3D object as the only saturated colour. Useful pattern for archive-led promos.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/notdwd-998633.md
+
+## 50. Voice-led film cut to the words: @twoclipping
+
+- Original post: https://x.com/twoclipping/status/2107822293653041659
+- Author: [@twoclipping](https://x.com/twoclipping)
+- Repo category: interactive | Skillry remake tags: none | partial=false | 1034 words
+- Stated stack: 1440×1080, 60 fps, 20 s
+- Notes: Cut to a voice-over transcript; every scene hands off on the exact last frame of the one before; a handheld float plus a slow push in every scene. Pattern for VO-driven explainers.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/twoclipping-041659.md
+
+## 51. 12-second film with the full technical spec: @notdwd
+
+- Original post: https://x.com/notdwd/status/2105031774904766641
+- Author: [@notdwd](https://x.com/notdwd)
+- Repo category: motion | Skillry remake tags: none | partial=false | 224 words
+- Stated stack: 1920×1080, 30 fps; single HTML, `seek(t)`, Playwright + ffmpeg, synthesised sound
+- Notes: Short and complete: story beats on a 120 BPM grid, plus motion rules in numbers ('arrive fast, land soft: cover 12–19 % of the remaining distance per frame'; 'nothing ever freezes'). A good minimal template.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/notdwd-766641.md
+
+## 52. The method in seven steps (post): @yankis0x
+
+- Original post: https://x.com/yankis0x/status/2103502194578174321
+- Author: [@yankis0x](https://x.com/yankis0x)
+- Repo category: explainer | Skillry remake tags: none | partial=false | 170 words
+- Stated stack: numpy beat grid → one HTML → Playwright → ffmpeg tmix
+- Notes: Not a prompt but the clearest summary of the method: every frame a pure function of time, closed-form springs, sounds on measured peaks, 4 sub-frames per frame for motion blur, one still per beat before the full render, and the arithmetic (14 s × 60 fps × 4 = 3,360 browser renders).
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/yankis0x-174321.md
+
+## 53. Music-first motion video: @diamai_
+
+- Original post: https://x.com/diamai_/status/2104195085508157697
+- Author: [@diamai_](https://x.com/diamai_)
+- Repo category: motion | Skillry remake tags: none | partial=false | 100 words
+- Stated stack: 1080×1080, 60 fps, 30 s
+- Notes: Measure the track with numpy first (BPM, beats, drop), start on the first downbeat, springs with small overshoot, a cursor before every change, 4-sub-frame blur. A short brief for music-first pieces.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/diamai-157697.md
+
+## 54. Lyric music video, multi-agent: @okazaky
+
+- Original post: https://x.com/okazaky/status/2107826563786084783
+- Author: [@okazaky](https://x.com/okazaky)
+- Repo category: 3d | Skillry remake tags: none | partial=false | 108 words
+- Stated stack: three.js, 1080×1920, 60 fps; Demucs, Whisper, 4 sub-agents
+- Notes: The full lyric-MV pipeline in eight steps: stems, transcription aligned to lyrics, one scene per line, a storyboard table, four parallel scene agents, a 16-frame contact sheet check, −14 LUFS. Pairs with `tools/song-analysis/`.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/okazaky-084783.md
+
+## 55. Music video on an existing starter kit: @thewevr
+
+- Original post: https://x.com/thewevr/status/2106774417732681887
+- Author: [@thewevr](https://x.com/thewevr)
+- Repo category: motion | Skillry remake tags: none | partial=false | 397 words
+- Stated stack: JavaScript on a linked starter kit (README, `ANIMATION_GUIDE.md`, `render.mjs`: the ClaudeAnimationBase layout); no paid APIs
+- Notes: Shows how to brief an agent onto an existing kit: clone it into a subfolder, read its README and guide completely, use its renderer instead of inventing one, ask before system-wide installs. Applies to any of the skills in this repo.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/thewevr-681887.md
+
+## 56. Wireframe-first launch ad: @ArchiveExplorer
+
+- Original post: https://x.com/ArchiveExplorer/status/2106732275685560622
+- Author: [@ArchiveExplorer](https://x.com/ArchiveExplorer)
+- Repo category: explainer | Skillry remake tags: none | partial=false | 94 words
+- Stated stack: HyperFrames; 9 beats
+- Notes: Script as nine named beats with three headline options each, built first as a colourless wireframe with one still per beat to lock timing, then skinned from a `DESIGN.md` without moving the layout; final rendered side by side with the wireframe. A useful approval gate.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/archiveexplorer-560622.md
+
+## 57. GSAP timing with a frame-check loop: @fleyta88
+
+- Original post: https://x.com/fleyta88/status/2108249741125443662
+- Author: [@fleyta88](https://x.com/fleyta88)
+- Repo category: explainer | Skillry remake tags: none | partial=false | 60 words
+- Stated stack: GSAP + Playwright
+- Notes: Exact durations (280 / 220 / 160 ms, 60 ms stagger), then a loop that steps the animation frame by frame in Playwright, compares screenshots for overshoot and patches the code until it passes.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/fleyta88-443662.md
+
+## 58. Deterministic frame rendering, explained (post): @0xKarmi
+
+- Original post: https://x.com/0xKarmi/status/2108495927988129839
+- Author: [@0xKarmi](https://x.com/0xKarmi)
+- Repo category: motion | Skillry remake tags: none | partial=false | 259 words
+- Stated stack: Canvas, `draw(f)`, ffmpeg, three checks
+- Notes: Frame-number-pure drawing (frame 720 equals frame 0 for a loop), a fixed canvas with fonts baked in, declared pixel aspect, and three automatic checks after every build. The model writes only the drawing program; the stage, renderer and checks are reused.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/0xkarmi-129839.md
+
+## 59. Launch video in a real city model: @riyadbkhsh
+
+- Original post: https://x.com/riyadbkhsh/status/2106467130963300736
+- Author: [@riyadbkhsh](https://x.com/riyadbkhsh)
+- Repo category: 3d | Skillry remake tags: none | partial=false | 38 words
+- Stated stack: three.js; real NYC data; synthesised music
+- Notes: One line: a 3D Times Square built from real city data with 605 billboards lighting on the beat. Directly relevant to landmark and city pieces.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/riyadbkhsh-300736.md
+
+## 60. One-shot future timeline in space: @theSethian
+
+- Original post: https://x.com/theSethian/status/2106447666519384517
+- Author: [@theSethian](https://x.com/theSethian)
+- Repo category: motion | Skillry remake tags: threejs, shader | partial=false | 72 words
+- Stated stack: three.js + shaders; real planet maps
+- Notes: Five stops in one continuous camera flight, every frame from real planet maps. A model for a one-take 'journey' explainer.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/thesethian-384517.md
+
+## 61. Audio-reactive fractal demo: @Xanares
+
+- Original post: https://x.com/Xanares/status/2105770390924738984
+- Author: [@Xanares](https://x.com/Xanares)
+- Repo category: 3d | Skillry remake tags: none | partial=false | 230 words
+- Stated stack: One WebGL2 fragment shader; beat map JSON
+- Notes: Analyse the track first into a JSON beat map (hits, breaks, kick, snare, hat); kicks pulse the light, hats add detail, each hit adds a fractal level. Path-traced look in a single shader.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/xanares-738984.md
+
+## 62. Blender scene from one Python script: @wikiwayne
+
+- Original post: https://x.com/wikiwayne/status/2107951058584486055
+- Author: [@wikiwayne](https://x.com/wikiwayne)
+- Repo category: 3d | Skillry remake tags: none | partial=false | 34 words
+- Stated stack: Blender (bpy), 96 frames on twos
+- Notes: A minimal agent-driven Blender brief: one script builds and animates a looping claymation scene. Useful as a smoke test for our Blender MCP setup.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/wikiwayne-486055.md
+
+## 63. Remotion product film from real screenshots: @punit_io
+
+- Original post: https://x.com/punit_io/status/2104468472344584518
+- Author: [@punit_io](https://x.com/punit_io)
+- Repo category: motion | Skillry remake tags: none | partial=false | 31 words
+- Stated stack: Remotion v4, React + TypeScript
+- Notes: Short Remotion brief: no generated images or video, built from attached high-resolution app screenshots.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/punit-io-584518.md
+
+## 64. Documentary-trailer explainer with a coded score: @linke1427832
+
+- Original post: https://x.com/linke1427832/status/2104099543839343079
+- Author: [@linke1427832](https://x.com/linke1427832)
+- Repo category: explainer | Skillry remake tags: none | partial=false | 86 words
+- Stated stack: 1920×1080, 60 fps, 2 min
+- Notes: Asks for a fully synthesised soundtrack (no samples, no VSTs) and cuts to the music. A test of long-form pacing.
+
+- Full prompt: https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/linke1427832-343079.md

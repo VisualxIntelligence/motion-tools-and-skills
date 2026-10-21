@@ -1,10 +1,10 @@
 # lemo-core — notes
 
-**Source:** [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) @ `b65efe6`: the `core/` folder, `package.json`, `requirements*.txt`, `tools/web_cuts.sh` and `styles/microgame/demo/tools/cuecheck.py`. MIT, © 2026 LemoLab ([LICENSE](LICENSE)). Code comments are partly in Chinese; the command reference is [`core/README.md`](core/README.md).
+**Source:** [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) @ `b65efe6` (`core/render/readcheck.mjs` updated from `b5e8ef9`, 21 October 2026: the last line of a film is now timed against the film's end): the `core/` folder, `package.json`, `requirements*.txt`, `tools/web_cuts.sh` and `styles/microgame/demo/tools/cuecheck.py`. MIT, © 2026 LemoLab ([LICENSE](LICENSE)). Code comments are partly in Chinese; the command reference is [`core/README.md`](core/README.md).
 
 ## What it is
 
-The shared production toolkit behind the 43 Lemo-Opuscar film styles. Any page that follows its **page contract** can use it:
+The shared production toolkit behind the 51 Lemo-Opuscar film styles. Any page that follows its **page contract** can use it:
 
 | Global | Meaning |
 |---|---|

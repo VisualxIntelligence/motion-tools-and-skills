@@ -17,6 +17,11 @@ Work in `styles/<slug>/` (lowercase letters, digits, hyphens; unique). Start fro
 
 Assets are CC0, CC BY or OFL only, each in `demo/CREDITS`. No watermark on any film. Real people, brands and events appear only in an unofficial fan film; its `DEMO.md` says so.
 
+Rules for library demos only (a user's film follows `DIRECTOR.md`, not these):
+
+- **Bilingual subtitles, one line per language.** Each cue has one Chinese line and one English line, never wrapped. When a line is too long, split it into two cues.
+- **Comparisons hold still before the verdict.** When the film compares options (four bridges, three plans), each one is fully in frame and held at least 2.5 s before it is judged, so the viewer can read it.
+
 ## Register
 
 1. **Number.** `num` in `style.json` is the next free number after the highest in `styles/*/style.json` (two digits as a string, e.g. `"55"`); it orders the gallery within a category.
@@ -42,3 +47,13 @@ Don't push before the upload has finished, and don't commit `tools/assets.json` 
 ## Revise a style
 
 Back up first (old versions move out of the repository, not into git). Re-render, replace `<slug>.mp4`, and run `sh tools/publish.sh`: it re-uploads the film and refreshes its web cut.
+
+## Directory edition
+
+The Claude plugin directory lists a self-contained build of the plugin, on the orphan branch `directory` (the submission tracks that branch; `main` stays what visitors see). It carries the guides, every `STYLE.md` / `style.json` / `DEMO.md`, `core/` (without the Poly Haven models, which only demo code uses) and its own `README.md`, `SECURITY.md` and `SKILL.md`: nothing is cloned or fetched to tell the agent what to do, there are no demo sources, and Chinese edge-tts narration is used only with the user's consent. The sources of the plugin-only files are in `tools/directory/`; the build and its checks (file sizes, personal info) are in `tools/directory.py`.
+
+After a release on `main` (new styles, changed guides or tools):
+
+1. `git worktree add ../lemo-opuscar-directory directory` (once; reuse it afterwards).
+2. `python3 tools/directory.py <version> --into ../lemo-opuscar-directory`, with a version above the branch's current `.claude-plugin/plugin.json` (new styles or features: 1.1.0; fixes only: 1.0.1). The directory treats each version number as a release, so the script refuses the same or a lower one; `--same-version` is only for fixing a version that was never published. It also stops when a guide changed so much that one of its edits no longer applies: update `EDITS` in the script.
+3. `claude plugin validate ../lemo-opuscar-directory`, then commit there (`Lemo-Opuscar <version>, plugin directory edition`) and push `directory`. The directory scans each push and publishes the new version.
