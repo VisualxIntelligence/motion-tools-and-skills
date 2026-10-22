@@ -1,0 +1,694 @@
+{
+ "video": {
+  "file": "talk.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "duration": 41
+ },
+ "engine": "whisper",
+ "words": [
+  {
+   "text": "How",
+   "start": 0.17,
+   "end": 0.19
+  },
+  {
+   "text": "long",
+   "start": 0.19,
+   "end": 0.42
+  },
+  {
+   "text": "does",
+   "start": 0.42,
+   "end": 0.7
+  },
+  {
+   "text": "it",
+   "start": 0.7,
+   "end": 0.78
+  },
+  {
+   "text": "take",
+   "start": 0.78,
+   "end": 1.02
+  },
+  {
+   "text": "to",
+   "start": 1.02,
+   "end": 1.16
+  },
+  {
+   "text": "get",
+   "start": 1.16,
+   "end": 1.32
+  },
+  {
+   "text": "to",
+   "start": 1.32,
+   "end": 1.44
+  },
+  {
+   "text": "the",
+   "start": 1.44,
+   "end": 1.61
+  },
+  {
+   "text": "moon,",
+   "start": 1.61,
+   "end": 1.98
+  },
+  {
+   "text": "Mars,",
+   "start": 1.98,
+   "end": 2.34
+  },
+  {
+   "text": "or",
+   "start": 2.34,
+   "end": 2.49
+  },
+  {
+   "text": "Jupiter?",
+   "start": 2.49,
+   "end": 2.66
+  },
+  {
+   "text": "It",
+   "start": 3.33,
+   "end": 3.53
+  },
+  {
+   "text": "depends.",
+   "start": 3.53,
+   "end": 3.89
+  },
+  {
+   "text": "The",
+   "start": 4.36,
+   "end": 4.56
+  },
+  {
+   "text": "fastest",
+   "start": 4.56,
+   "end": 4.86
+  },
+  {
+   "text": "Apollo",
+   "start": 4.86,
+   "end": 5.18
+  },
+  {
+   "text": "mission,",
+   "start": 5.18,
+   "end": 5.75
+  },
+  {
+   "text": "Apollo",
+   "start": 5.75,
+   "end": 6.04
+  },
+  {
+   "text": "8,",
+   "start": 6.04,
+   "end": 6.34
+  },
+  {
+   "text": "took",
+   "start": 6.67,
+   "end": 6.79
+  },
+  {
+   "text": "just",
+   "start": 6.79,
+   "end": 7.28
+  },
+  {
+   "text": "under",
+   "start": 7.28,
+   "end": 7.48
+  },
+  {
+   "text": "three",
+   "start": 7.48,
+   "end": 7.52
+  },
+  {
+   "text": "days",
+   "start": 7.52,
+   "end": 7.76
+  },
+  {
+   "text": "to",
+   "start": 7.76,
+   "end": 7.85
+  },
+  {
+   "text": "reach",
+   "start": 7.85,
+   "end": 8.08
+  },
+  {
+   "text": "the",
+   "start": 8.08,
+   "end": 8.22
+  },
+  {
+   "text": "moon.",
+   "start": 8.22,
+   "end": 8.67
+  },
+  {
+   "text": "Mars",
+   "start": 9.26,
+   "end": 9.46
+  },
+  {
+   "text": "is",
+   "start": 9.46,
+   "end": 9.66
+  },
+  {
+   "text": "about",
+   "start": 9.66,
+   "end": 9.86
+  },
+  {
+   "text": "50%",
+   "start": 9.86,
+   "end": 10.01
+  },
+  {
+   "text": "further",
+   "start": 10.01,
+   "end": 10.52
+  },
+  {
+   "text": "from",
+   "start": 10.52,
+   "end": 10.86
+  },
+  {
+   "text": "the",
+   "start": 10.86,
+   "end": 11.08
+  },
+  {
+   "text": "sun",
+   "start": 11.08,
+   "end": 11.32
+  },
+  {
+   "text": "than",
+   "start": 11.32,
+   "end": 11.64
+  },
+  {
+   "text": "Earth",
+   "start": 11.64,
+   "end": 11.84
+  },
+  {
+   "text": "is.",
+   "start": 11.84,
+   "end": 12.14
+  },
+  {
+   "text": "Getting",
+   "start": 12.62,
+   "end": 12.84
+  },
+  {
+   "text": "there",
+   "start": 12.84,
+   "end": 13.36
+  },
+  {
+   "text": "takes",
+   "start": 13.36,
+   "end": 13.49
+  },
+  {
+   "text": "seven",
+   "start": 13.49,
+   "end": 13.65
+  },
+  {
+   "text": "to",
+   "start": 13.65,
+   "end": 13.79
+  },
+  {
+   "text": "ten",
+   "start": 13.79,
+   "end": 14.08
+  },
+  {
+   "text": "months.",
+   "start": 14.08,
+   "end": 14.53
+  },
+  {
+   "text": "NASA's",
+   "start": 15.27,
+   "end": 15.47
+  },
+  {
+   "text": "Mars",
+   "start": 15.47,
+   "end": 15.67
+  },
+  {
+   "text": "Reconnaissance",
+   "start": 15.67,
+   "end": 16.01
+  },
+  {
+   "text": "Orbiter",
+   "start": 16.01,
+   "end": 16.44
+  },
+  {
+   "text": "took",
+   "start": 16.44,
+   "end": 16.7
+  },
+  {
+   "text": "about",
+   "start": 16.7,
+   "end": 17.03
+  },
+  {
+   "text": "seven",
+   "start": 17.03,
+   "end": 17.35
+  },
+  {
+   "text": "and",
+   "start": 17.35,
+   "end": 17.61
+  },
+  {
+   "text": "a",
+   "start": 17.61,
+   "end": 17.62
+  },
+  {
+   "text": "half",
+   "start": 17.62,
+   "end": 17.92
+  },
+  {
+   "text": "months.",
+   "start": 17.92,
+   "end": 18.64
+  },
+  {
+   "text": "Maven",
+   "start": 19.47,
+   "end": 19.67
+  },
+  {
+   "text": "took",
+   "start": 19.67,
+   "end": 19.87
+  },
+  {
+   "text": "about",
+   "start": 19.87,
+   "end": 20.07
+  },
+  {
+   "text": "ten.",
+   "start": 20.07,
+   "end": 20.54
+  },
+  {
+   "text": "Jupiter",
+   "start": 21.25,
+   "end": 21.5
+  },
+  {
+   "text": "is",
+   "start": 21.5,
+   "end": 21.62
+  },
+  {
+   "text": "five",
+   "start": 21.62,
+   "end": 21.85
+  },
+  {
+   "text": "times",
+   "start": 21.85,
+   "end": 22.1
+  },
+  {
+   "text": "further",
+   "start": 22.1,
+   "end": 22.6
+  },
+  {
+   "text": "from",
+   "start": 22.6,
+   "end": 22.68
+  },
+  {
+   "text": "the",
+   "start": 22.68,
+   "end": 22.9
+  },
+  {
+   "text": "sun",
+   "start": 22.9,
+   "end": 23.1
+  },
+  {
+   "text": "than",
+   "start": 23.1,
+   "end": 23.33
+  },
+  {
+   "text": "Earth.",
+   "start": 23.33,
+   "end": 23.63
+  },
+  {
+   "text": "To",
+   "start": 24.33,
+   "end": 24.53
+  },
+  {
+   "text": "save",
+   "start": 24.53,
+   "end": 24.73
+  },
+  {
+   "text": "fuel,",
+   "start": 24.73,
+   "end": 25.05
+  },
+  {
+   "text": "spacecraft",
+   "start": 25.3,
+   "end": 25.54
+  },
+  {
+   "text": "fly",
+   "start": 25.54,
+   "end": 25.73
+  },
+  {
+   "text": "past",
+   "start": 25.73,
+   "end": 25.98
+  },
+  {
+   "text": "Earth",
+   "start": 25.98,
+   "end": 26.3
+  },
+  {
+   "text": "or",
+   "start": 26.3,
+   "end": 26.42
+  },
+  {
+   "text": "Venus",
+   "start": 26.42,
+   "end": 26.74
+  },
+  {
+   "text": "first",
+   "start": 26.74,
+   "end": 27.18
+  },
+  {
+   "text": "to",
+   "start": 27.18,
+   "end": 27.43
+  },
+  {
+   "text": "pick",
+   "start": 27.43,
+   "end": 27.48
+  },
+  {
+   "text": "up",
+   "start": 27.48,
+   "end": 27.58
+  },
+  {
+   "text": "speed.",
+   "start": 27.58,
+   "end": 28.26
+  },
+  {
+   "text": "That",
+   "start": 28.88,
+   "end": 28.98
+  },
+  {
+   "text": "way,",
+   "start": 28.98,
+   "end": 29.3
+  },
+  {
+   "text": "it",
+   "start": 29.3,
+   "end": 29.43
+  },
+  {
+   "text": "takes",
+   "start": 29.43,
+   "end": 29.75
+  },
+  {
+   "text": "five",
+   "start": 29.75,
+   "end": 30.01
+  },
+  {
+   "text": "to",
+   "start": 30.01,
+   "end": 30.14
+  },
+  {
+   "text": "six",
+   "start": 30.14,
+   "end": 30.33
+  },
+  {
+   "text": "years.",
+   "start": 30.33,
+   "end": 30.54
+  },
+  {
+   "text": "Galileo",
+   "start": 31.07,
+   "end": 31.41
+  },
+  {
+   "text": "took",
+   "start": 31.41,
+   "end": 32.01
+  },
+  {
+   "text": "just",
+   "start": 32.01,
+   "end": 32.04
+  },
+  {
+   "text": "over",
+   "start": 32.04,
+   "end": 32.31
+  },
+  {
+   "text": "six.",
+   "start": 32.31,
+   "end": 32.53
+  },
+  {
+   "text": "Juno",
+   "start": 33.01,
+   "end": 33.12
+  },
+  {
+   "text": "took",
+   "start": 33.12,
+   "end": 33.44
+  },
+  {
+   "text": "just",
+   "start": 33.44,
+   "end": 33.65
+  },
+  {
+   "text": "under",
+   "start": 33.65,
+   "end": 33.92
+  },
+  {
+   "text": "five.",
+   "start": 33.92,
+   "end": 34.15
+  },
+  {
+   "text": "So,",
+   "start": 34.7,
+   "end": 34.87
+  },
+  {
+   "text": "the",
+   "start": 35.31,
+   "end": 35.51
+  },
+  {
+   "text": "moon,",
+   "start": 35.51,
+   "end": 35.59
+  },
+  {
+   "text": "a",
+   "start": 35.95,
+   "end": 36.15
+  },
+  {
+   "text": "few",
+   "start": 36.15,
+   "end": 36.23
+  },
+  {
+   "text": "days.",
+   "start": 36.23,
+   "end": 36.48
+  },
+  {
+   "text": "Mars,",
+   "start": 37.12,
+   "end": 37.48
+  },
+  {
+   "text": "seven",
+   "start": 37.76,
+   "end": 37.95
+  },
+  {
+   "text": "to",
+   "start": 37.95,
+   "end": 38.05
+  },
+  {
+   "text": "ten",
+   "start": 38.05,
+   "end": 38.25
+  },
+  {
+   "text": "months.",
+   "start": 38.25,
+   "end": 38.6
+  },
+  {
+   "text": "Jupiter,",
+   "start": 39.18,
+   "end": 39.56
+  },
+  {
+   "text": "five",
+   "start": 39.93,
+   "end": 40.13
+  },
+  {
+   "text": "to",
+   "start": 40.13,
+   "end": 40.33
+  },
+  {
+   "text": "six",
+   "start": 40.33,
+   "end": 40.53
+  },
+  {
+   "text": "years.",
+   "start": 40.53,
+   "end": 40.74
+  }
+ ],
+ "lines": [
+  {
+   "start": 0.17,
+   "end": 2.66,
+   "text": "How long does it take to get to the moon, Mars, or Jupiter?"
+  },
+  {
+   "start": 3.33,
+   "end": 3.89,
+   "text": "It depends."
+  },
+  {
+   "start": 4.36,
+   "end": 8.67,
+   "text": "The fastest Apollo mission, Apollo 8, took just under three days to reach the moon."
+  },
+  {
+   "start": 9.26,
+   "end": 12.14,
+   "text": "Mars is about 50% further from the sun than Earth is."
+  },
+  {
+   "start": 12.62,
+   "end": 14.53,
+   "text": "Getting there takes seven to ten months."
+  },
+  {
+   "start": 15.27,
+   "end": 18.64,
+   "text": "NASA's Mars Reconnaissance Orbiter took about seven and a half months."
+  },
+  {
+   "start": 19.47,
+   "end": 20.54,
+   "text": "Maven took about ten."
+  },
+  {
+   "start": 21.25,
+   "end": 23.63,
+   "text": "Jupiter is five times further from the sun than Earth."
+  },
+  {
+   "start": 24.33,
+   "end": 28.26,
+   "text": "To save fuel, spacecraft fly past Earth or Venus first to pick up speed."
+  },
+  {
+   "start": 28.88,
+   "end": 30.54,
+   "text": "That way, it takes five to six years."
+  },
+  {
+   "start": 31.07,
+   "end": 32.53,
+   "text": "Galileo took just over six."
+  },
+  {
+   "start": 33.01,
+   "end": 34.15,
+   "text": "Juno took just under five."
+  },
+  {
+   "start": 34.7,
+   "end": 36.48,
+   "text": "So, the moon, a few days."
+  },
+  {
+   "start": 37.12,
+   "end": 38.6,
+   "text": "Mars, seven to ten months."
+  },
+  {
+   "start": 39.18,
+   "end": 40.74,
+   "text": "Jupiter, five to six years."
+  }
+ ]
+}

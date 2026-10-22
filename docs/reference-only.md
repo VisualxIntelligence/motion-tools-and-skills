@@ -6,7 +6,7 @@ These are the useful things found while surveying the source repos ([`../SOURCES
 
 To unlock any item, open an issue on the upstream repo asking the author to add a licence (MIT or Apache-2.0).
 
-Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4), 21 October 2026 (sections 5–6) and 22 October 2026 (sections 7–9). PDoomVideo was rechecked on 21 October: same commit, still no licence.
+Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4), 21 October 2026 (sections 5–6) and 22 October 2026 (sections 7–11). PDoomVideo was rechecked on 21 October: same commit, still no licence.
 
 ---
 
@@ -143,4 +143,43 @@ The same pattern maps onto OpenTimelineIO, FCPXML, Premiere XML or DaVinci Resol
 | Extraction | `motion2mixamorig/extract.py`, `checks.py` | Video or still → YOLOv8 person → RTMPose 2D → GVHMR world-grounded SMPL-X → 24 SMPL joints in metres, Y-up. A still is repeated into a 32-frame clip because GVHMR is temporal. A preflight checks one person, fully in frame. |
 | Blender extension | `blender_extension/motion2mixamorig_blender/` | A pattern worth copying: a thin add-on UI that installs an external Python runtime with a sha256-pinned `uv` download, runs the heavy pipeline there, reads progress back as JSONL, tracks weight downloads and imports the result. It keeps torch out of Blender's Python. |
 | Character swap | `cli.py` `--skeleton` | Reuses an earlier extraction to put the same motion on another character in seconds. |
+
+## 10. Fourth survey: reviewed, not copied
+
+Repos from the 22 October survey of 20 motion-skill repos that are not copied, or copied only in part, with what is worth knowing from each. Commits as surveyed.
+
+| Repo | Licence | Why not copied | Worth knowing |
+|---|---|---|---|
+| [remotion-dev/skills](https://github.com/remotion-dev/skills) @ `039e8a2` | No licence file in this public mirror | The same 12 skills as the installed Remotion plugin (v4.0.537) | Its Arabic-text rules are paraphrased in [`techniques.md`](techniques.md#arabic-and-right-to-left-text). Its maps skill compares static, Mapbox, MapLibre, MapTiler and Cesium routes |
+| [siyuanfeng636-cpu/agentic-motion-graphics](https://github.com/siyuanfeng636-cpu/agentic-motion-graphics) @ `a0f146b` | MIT | A write-up of a third-party YouTube demo, not a tested pipeline. "Whisper drives every cut" is only a word-highlight loop, and scenes are not timed from the voice. Its HyperFrames boilerplate (`hyperframes.json`, `window.seekTo`, `__ANIMATION_READY__`) does not match HyperFrames' `window.__timelines` / `hf-seek` contract. Its case study holds frames of the third-party video | The idea of word timings driving a GSAP timeline. Do it with per-scene TTS clips and [`../skills/video-production-skills/`](../skills/video-production-skills/NOTES.md) voice-subtitle sync, or lemo-core's TTS with a Whisper back-check |
+| [iart-ai/map-animation-skills](https://github.com/iart-ai/map-animation-skills) @ `390ca98` | MIT | The code is Remotion | Vector editorial maps with d3-geo (Mercator, Equal Earth, Natural Earth, orthographic; `geoInterpolate` for great-circle arcs) from Natural Earth or world-atlas data. A 12 fps "stutter" by holding frames (`f = floor(frame / step) × step`). Earth Studio camera → After Effects import. All of it ports to GSAP/SVG. It has no disputed-borders or naming policy, which news needs |
+| [iart-ai/data-animation-skills](https://github.com/iart-ai/data-animation-skills) @ `8ce2709` | MIT | The code is Remotion | Bar-chart-race rank interpolation; pacing of 0.3–0.6 s per row with a 2–3 s final hold; at most about 12 bars; `Intl.NumberFormat` with tabular figures; CSV validation rules |
+| [haidrrrry/claude-remotion-skill](https://github.com/haidrrrry/claude-remotion-skill) @ `1dcbe5e` | MIT | Remotion-only, and mostly covered by [`../skills/video-shotcraft/`](../skills/video-shotcraft/NOTES.md) | A five-layer scene stack (background, assets, graphics, grade, grain and vignette), and Ken Burns on every still |
+| [Liamrjohnston/remotion-motion-graphics-skill](https://github.com/Liamrjohnston/remotion-motion-graphics-skill) @ `b860c79` | MIT; bundles third-party logos | House style for one company's Instagram inserts. Three files are in [`guides/news-insert-rules/`](guides/news-insert-rules/NOTES.md) | A camera rig as one keyframe timeline over one large world; hold, move, hold; terminal-demo grammar (one character per frame, a blinking cursor, rotateX 18–22°); a fail-closed delivery gate that requires a separate critic's scores |
+| [whaleyxbt/claude-motion](https://github.com/whaleyxbt/claude-motion) @ `e627941` | MIT | The skills and two scripts are in [`../skills/claude-motion/`](../skills/claude-motion/NOTES.md); the rest is a Remotion project | Its `sims/kit/director.js`: cuts on bar lines, punch-ins on kicks, shake and flash on the drop |
+| [howseen-ai/claude-motion-design](https://github.com/howseen-ai/claude-motion-design) @ `3d90d34` | MIT | Kept as a guide in [`guides/howseen-motion-design/`](guides/howseen-motion-design/NOTES.md) | Its "remake" mode rebuilds a third-party launch video frame for frame. Not for newsroom use |
+| [frankxai/awesome-motion-design-agent-skills](https://github.com/frankxai/awesome-motion-design-agent-skills) @ `b45d60f` | CC0 | Its five skills are thin workflow lists. The token and rubric files are in [`guides/motion-tokens/`](guides/motion-tokens/NOTES.md) | Its curated list; the leads not yet reviewed are in section 11 |
+| [dylantarre/animation-principles](https://github.com/dylantarre/animation-principles) @ `8359713` | MIT | 144 skills that apply Disney's 12 principles to domains, roles and tools; mostly templated, and many have no numbers. Two are in [`guides/disney-principles-applied/`](guides/disney-principles-applied/NOTES.md) | — |
+| [greensock/gsap-skills](https://github.com/greensock/gsap-skills) @ `aed9cfd` | MIT | The same 8 skills as the installed GSAP set | Nothing on frame-by-frame rendering of a paused timeline. Its README tells agents to recommend GSAP |
+| [freshtechbro/claudedesignskills](https://github.com/freshtechbro/claudedesignskills) @ `1da73fe` | MIT | 22 generic web-dev skills, each stored five times; last updated Nov 2025 | `easing_guide.md` and an easing visualiser page; overviews of Babylon.js, PlayCanvas, A-Frame and PixiJS |
+| [199-biotechnologies/motion-dev-animations-skill](https://github.com/199-biotechnologies/motion-dev-animations-skill) @ `3feedfb` | MIT | Interactive React UI with Motion.dev, not video; covered by the installed framer-motion skill | A Motion.dev spring preset table |
+| [iart-ai/motion-skills](https://github.com/iart-ai/motion-skills) @ `bb5a3ce` | MIT | An index of 18 pack repos; its verify scripts are weaker than [`../tools/headless-render/`](../tools/headless-render/NOTES.md) | — |
+| [iart-ai/kinetic-typography-skills](https://github.com/iart-ai/kinetic-typography-skills) @ `fccc94b` | MIT | Generic; covered by the installed GSAP SplitText skill and [`../skills/kinetic-reel/`](../skills/kinetic-reel/NOTES.md). Its letter splitting breaks Arabic | — |
+| [iart-ai/web-animation-skills](https://github.com/iart-ai/web-animation-skills) @ `b6dba3e` | MIT | Product-UI web animation, largely covered by installed skills | `lottie-animation` (Lottie playback) and `svg-animation` (stroke draw, morph) if Lottie or SVG work comes up |
+| [iart-ai/webgl-animation-skills](https://github.com/iart-ai/webgl-animation-skills) @ `50697d6` | MIT | Real-time loops with `THREE.Clock` and `Math.random`, not seek-safe. The GLSL cookbook is in [`guides/iart-motion-fundamentals/`](guides/iart-motion-fundamentals/NOTES.md) | `threejs-animation/references/resource-disposal.md` on freeing GPU memory |
+| [wilwaldon/Claude-Code-Video-Toolkit](https://github.com/wilwaldon/Claude-Code-Video-Toolkit) @ `a6e9e52` | No licence file | A README of links | Two leads in section 11 |
+| [tuzhechen2005/opus-video-skills](https://github.com/tuzhechen2005/opus-video-skills) @ `59744a6` | MIT | Already copied; upstream unchanged | — |
+
+## 11. Leads not yet reviewed
+
+Named in the repos above and worth a look in a later survey:
+
+| Lead | What it is |
+|---|---|
+| [Yusuke710/manim-skill](https://github.com/Yusuke710/manim-skill) | Manim for maths and science explainers |
+| [digitalsamba/claude-code-video-toolkit](https://github.com/digitalsamba/claude-code-video-toolkit) | Lower thirds, transitions and brand profiles. Remotion-based, so check its licence |
+| [Orkas-AI/Orkas-VideoStudio](https://github.com/Orkas-AI/Orkas-VideoStudio) | MIT, per the list. A 14-skill video pack driven by `plan.json` |
+| [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | Apache-2.0, per the list. Scans skill packs before install; useful for vetting surveys like this one |
+| [garrytan/gstack](https://github.com/garrytan/gstack) | Design and motion QA passes |
+| [AbubakrChan/product-launch-motion](https://github.com/AbubakrChan/product-launch-motion) | URL → 60 fps launch video with sound effects |
 

@@ -1,0 +1,674 @@
+{
+ "video": {
+  "file": "talk.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "duration": 43.04
+ },
+ "engine": "whisper",
+ "words": [
+  {
+   "text": "Here's",
+   "start": 0.18,
+   "end": 0.4
+  },
+  {
+   "text": "why",
+   "start": 0.4,
+   "end": 0.51
+  },
+  {
+   "text": "starting",
+   "start": 0.51,
+   "end": 0.98
+  },
+  {
+   "text": "early",
+   "start": 0.98,
+   "end": 1.26
+  },
+  {
+   "text": "matters",
+   "start": 1.26,
+   "end": 1.66
+  },
+  {
+   "text": "more",
+   "start": 1.66,
+   "end": 1.89
+  },
+  {
+   "text": "than",
+   "start": 1.89,
+   "end": 2.12
+  },
+  {
+   "text": "starting",
+   "start": 2.12,
+   "end": 2.68
+  },
+  {
+   "text": "big.",
+   "start": 2.68,
+   "end": 2.9
+  },
+  {
+   "text": "Say",
+   "start": 2.9,
+   "end": 3.08
+  },
+  {
+   "text": "you",
+   "start": 3.08,
+   "end": 3.2
+  },
+  {
+   "text": "put",
+   "start": 3.2,
+   "end": 3.35
+  },
+  {
+   "text": "$10,000",
+   "start": 3.35,
+   "end": 4.3
+  },
+  {
+   "text": "somewhere,",
+   "start": 4.3,
+   "end": 4.79
+  },
+  {
+   "text": "it",
+   "start": 4.79,
+   "end": 4.86
+  },
+  {
+   "text": "grows",
+   "start": 4.86,
+   "end": 5.06
+  },
+  {
+   "text": "7%",
+   "start": 5.06,
+   "end": 5.64
+  },
+  {
+   "text": "a",
+   "start": 5.64,
+   "end": 5.87
+  },
+  {
+   "text": "year,",
+   "start": 5.87,
+   "end": 6.24
+  },
+  {
+   "text": "and",
+   "start": 6.24,
+   "end": 6.44
+  },
+  {
+   "text": "you",
+   "start": 6.44,
+   "end": 6.67
+  },
+  {
+   "text": "never",
+   "start": 6.67,
+   "end": 7.06
+  },
+  {
+   "text": "touch",
+   "start": 7.06,
+   "end": 7.45
+  },
+  {
+   "text": "it.",
+   "start": 7.45,
+   "end": 7.86
+  },
+  {
+   "text": "After",
+   "start": 7.86,
+   "end": 8.26
+  },
+  {
+   "text": "10",
+   "start": 8.26,
+   "end": 8.67
+  },
+  {
+   "text": "years,",
+   "start": 8.67,
+   "end": 9.18
+  },
+  {
+   "text": "you",
+   "start": 9.18,
+   "end": 9.4
+  },
+  {
+   "text": "have",
+   "start": 9.4,
+   "end": 9.69
+  },
+  {
+   "text": "about",
+   "start": 9.69,
+   "end": 10.06
+  },
+  {
+   "text": "$19,700.",
+   "start": 10.06,
+   "end": 11.42
+  },
+  {
+   "text": "After",
+   "start": 11.42,
+   "end": 11.82
+  },
+  {
+   "text": "20",
+   "start": 11.82,
+   "end": 12.3
+  },
+  {
+   "text": "years,",
+   "start": 12.3,
+   "end": 12.86
+  },
+  {
+   "text": "about",
+   "start": 12.86,
+   "end": 13.25
+  },
+  {
+   "text": "$38,700,",
+   "start": 13.25,
+   "end": 14.91
+  },
+  {
+   "text": "after",
+   "start": 14.91,
+   "end": 15.08
+  },
+  {
+   "text": "30",
+   "start": 15.08,
+   "end": 15.36
+  },
+  {
+   "text": "years,",
+   "start": 15.36,
+   "end": 15.7
+  },
+  {
+   "text": "about",
+   "start": 15.7,
+   "end": 16.11
+  },
+  {
+   "text": "$76,000.",
+   "start": 16.11,
+   "end": 17.84
+  },
+  {
+   "text": "Now",
+   "start": 17.84,
+   "end": 18.02
+  },
+  {
+   "text": "compare",
+   "start": 18.02,
+   "end": 18.38
+  },
+  {
+   "text": "that",
+   "start": 18.38,
+   "end": 18.6
+  },
+  {
+   "text": "to",
+   "start": 18.6,
+   "end": 18.71
+  },
+  {
+   "text": "simple",
+   "start": 18.71,
+   "end": 19.04
+  },
+  {
+   "text": "interest,",
+   "start": 19.04,
+   "end": 19.55
+  },
+  {
+   "text": "where",
+   "start": 19.55,
+   "end": 19.7
+  },
+  {
+   "text": "you",
+   "start": 19.7,
+   "end": 19.85
+  },
+  {
+   "text": "only",
+   "start": 19.85,
+   "end": 20.05
+  },
+  {
+   "text": "earn",
+   "start": 20.05,
+   "end": 20.24
+  },
+  {
+   "text": "on",
+   "start": 20.24,
+   "end": 20.5
+  },
+  {
+   "text": "the",
+   "start": 20.5,
+   "end": 20.8
+  },
+  {
+   "text": "original",
+   "start": 20.8,
+   "end": 20.91
+  },
+  {
+   "text": "$10,000.",
+   "start": 20.91,
+   "end": 22.06
+  },
+  {
+   "text": "After",
+   "start": 22.06,
+   "end": 22.3
+  },
+  {
+   "text": "30",
+   "start": 22.3,
+   "end": 22.59
+  },
+  {
+   "text": "years,",
+   "start": 22.59,
+   "end": 22.92
+  },
+  {
+   "text": "that's",
+   "start": 22.92,
+   "end": 23.2
+  },
+  {
+   "text": "$31,000.",
+   "start": 23.2,
+   "end": 24.31
+  },
+  {
+   "text": "Same",
+   "start": 24.31,
+   "end": 24.98
+  },
+  {
+   "text": "rate,",
+   "start": 24.98,
+   "end": 25.15
+  },
+  {
+   "text": "same",
+   "start": 25.15,
+   "end": 25.55
+  },
+  {
+   "text": "money.",
+   "start": 25.55,
+   "end": 26.22
+  },
+  {
+   "text": "Compounding",
+   "start": 26.22,
+   "end": 26.99
+  },
+  {
+   "text": "more",
+   "start": 26.99,
+   "end": 27.27
+  },
+  {
+   "text": "than",
+   "start": 27.27,
+   "end": 27.55
+  },
+  {
+   "text": "doubles",
+   "start": 27.55,
+   "end": 28.04
+  },
+  {
+   "text": "it.",
+   "start": 28.04,
+   "end": 28.42
+  },
+  {
+   "text": "There's",
+   "start": 28.6,
+   "end": 28.86
+  },
+  {
+   "text": "a",
+   "start": 28.86,
+   "end": 28.92
+  },
+  {
+   "text": "shortcut",
+   "start": 28.92,
+   "end": 29.44
+  },
+  {
+   "text": "for",
+   "start": 29.44,
+   "end": 29.63
+  },
+  {
+   "text": "this",
+   "start": 29.63,
+   "end": 29.89
+  },
+  {
+   "text": "called",
+   "start": 29.89,
+   "end": 30.28
+  },
+  {
+   "text": "the",
+   "start": 30.28,
+   "end": 30.47
+  },
+  {
+   "text": "Rule",
+   "start": 30.47,
+   "end": 30.73
+  },
+  {
+   "text": "of",
+   "start": 30.73,
+   "end": 30.85
+  },
+  {
+   "text": "72.",
+   "start": 30.85,
+   "end": 31.48
+  },
+  {
+   "text": "Divide",
+   "start": 31.48,
+   "end": 31.88
+  },
+  {
+   "text": "72",
+   "start": 31.88,
+   "end": 32.18
+  },
+  {
+   "text": "by",
+   "start": 32.18,
+   "end": 32.3
+  },
+  {
+   "text": "your",
+   "start": 32.3,
+   "end": 32.54
+  },
+  {
+   "text": "growth",
+   "start": 32.54,
+   "end": 32.89
+  },
+  {
+   "text": "rate,",
+   "start": 32.89,
+   "end": 33.28
+  },
+  {
+   "text": "and",
+   "start": 33.28,
+   "end": 33.4
+  },
+  {
+   "text": "that's",
+   "start": 33.4,
+   "end": 33.63
+  },
+  {
+   "text": "roughly",
+   "start": 33.63,
+   "end": 33.92
+  },
+  {
+   "text": "how",
+   "start": 33.92,
+   "end": 34.12
+  },
+  {
+   "text": "many",
+   "start": 34.12,
+   "end": 34.45
+  },
+  {
+   "text": "years",
+   "start": 34.45,
+   "end": 34.54
+  },
+  {
+   "text": "it",
+   "start": 34.54,
+   "end": 34.61
+  },
+  {
+   "text": "takes",
+   "start": 34.61,
+   "end": 34.84
+  },
+  {
+   "text": "your",
+   "start": 34.84,
+   "end": 34.97
+  },
+  {
+   "text": "money",
+   "start": 34.97,
+   "end": 35.16
+  },
+  {
+   "text": "to",
+   "start": 35.16,
+   "end": 35.33
+  },
+  {
+   "text": "double.",
+   "start": 35.33,
+   "end": 36.12
+  },
+  {
+   "text": "At",
+   "start": 36.12,
+   "end": 36.3
+  },
+  {
+   "text": "7%,",
+   "start": 36.3,
+   "end": 36.8
+  },
+  {
+   "text": "that's",
+   "start": 36.8,
+   "end": 37.22
+  },
+  {
+   "text": "about",
+   "start": 37.22,
+   "end": 37.62
+  },
+  {
+   "text": "10",
+   "start": 37.62,
+   "end": 38.08
+  },
+  {
+   "text": "years.",
+   "start": 38.08,
+   "end": 38.76
+  },
+  {
+   "text": "The",
+   "start": 38.76,
+   "end": 38.94
+  },
+  {
+   "text": "math",
+   "start": 38.94,
+   "end": 39.16
+  },
+  {
+   "text": "doesn't",
+   "start": 39.16,
+   "end": 39.54
+  },
+  {
+   "text": "care",
+   "start": 39.54,
+   "end": 39.76
+  },
+  {
+   "text": "how",
+   "start": 39.76,
+   "end": 39.93
+  },
+  {
+   "text": "much",
+   "start": 39.93,
+   "end": 40.15
+  },
+  {
+   "text": "you",
+   "start": 40.15,
+   "end": 40.36
+  },
+  {
+   "text": "start",
+   "start": 40.36,
+   "end": 40.6
+  },
+  {
+   "text": "with,",
+   "start": 40.6,
+   "end": 41.01
+  },
+  {
+   "text": "it",
+   "start": 41.01,
+   "end": 41.13
+  },
+  {
+   "text": "cares",
+   "start": 41.13,
+   "end": 41.67
+  },
+  {
+   "text": "how",
+   "start": 41.67,
+   "end": 41.73
+  },
+  {
+   "text": "long",
+   "start": 41.73,
+   "end": 41.94
+  },
+  {
+   "text": "you",
+   "start": 41.94,
+   "end": 42.14
+  },
+  {
+   "text": "leave",
+   "start": 42.14,
+   "end": 42.48
+  },
+  {
+   "text": "it",
+   "start": 42.48,
+   "end": 42.61
+  },
+  {
+   "text": "alone.",
+   "start": 42.61,
+   "end": 43.22
+  }
+ ],
+ "lines": [
+  {
+   "start": 0.18,
+   "end": 2.9,
+   "text": "Here's why starting early matters more than starting big."
+  },
+  {
+   "start": 2.9,
+   "end": 7.86,
+   "text": "Say you put $10,000 somewhere, it grows 7% a year, and you never touch it."
+  },
+  {
+   "start": 7.86,
+   "end": 11.42,
+   "text": "After 10 years, you have about $19,700."
+  },
+  {
+   "start": 11.42,
+   "end": 17.84,
+   "text": "After 20 years, about $38,700, after 30 years, about $76,000."
+  },
+  {
+   "start": 17.84,
+   "end": 22.06,
+   "text": "Now compare that to simple interest, where you only earn on the original $10,000."
+  },
+  {
+   "start": 22.06,
+   "end": 24.31,
+   "text": "After 30 years, that's $31,000."
+  },
+  {
+   "start": 24.31,
+   "end": 26.22,
+   "text": "Same rate, same money."
+  },
+  {
+   "start": 26.22,
+   "end": 28.42,
+   "text": "Compounding more than doubles it."
+  },
+  {
+   "start": 28.6,
+   "end": 31.48,
+   "text": "There's a shortcut for this called the Rule of 72."
+  },
+  {
+   "start": 31.48,
+   "end": 36.12,
+   "text": "Divide 72 by your growth rate, and that's roughly how many years it takes your money to double."
+  },
+  {
+   "start": 36.12,
+   "end": 38.76,
+   "text": "At 7%, that's about 10 years."
+  },
+  {
+   "start": 38.76,
+   "end": 43.22,
+   "text": "The math doesn't care how much you start with, it cares how long you leave it alone."
+  }
+ ]
+}
