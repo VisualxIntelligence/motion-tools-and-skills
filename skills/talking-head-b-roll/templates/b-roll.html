@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>B-roll</title>
+<!-- One family per <link>, with the weights you draw in. Nothing else is loaded. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=block">
+<style>
+  html, body { margin: 0; height: 100%; background: #111; }
+  body { display: grid; place-items: center; font: 13px system-ui, sans-serif; color: #ccc; }
+  #stage { position: relative; width: min(96vw, calc(88vh * var(--ar))); aspect-ratio: var(--ar); }
+  #stage video, #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  #bar { position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%); background: #000c; padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
+  #scrub { position: fixed; left: 2vw; right: 2vw; bottom: 34px; height: 14px; background: #333; cursor: pointer; }
+  #scrub span { position: absolute; top: 0; bottom: 0; }
+  #scrub i { position: absolute; top: -3px; bottom: -3px; width: 2px; background: #fff; }
+</style>
+</head>
+<body>
+<div id="stage"><video playsinline preload="auto"></video><canvas></canvas></div>
+<div id="scrub"></div>
+<div id="bar">space: play/pause (with sound) · ←/→: 1 s (shift: 1 frame) · click the bar to jump · F: face box</div>
+<script>
+// ─── The recording (from transcribe.mjs) ─────────────────────────────────────
+const VIDEO = 'talk.mp4';                     // path relative to this page; it plays under the canvas in the preview
+const W = 1920, H = 1080;                     // the video's shape; 9:16 footage is 1080 x 1920. A 4K file can keep a
+                                              // 1920 x 1080 page: render.mjs scales the drawing up to the video.
+const VISUAL_LEAD_FRAMES = 6;                 // structure only; facts use s.audioNow. 0 for exact sync.
+const FPS = 30, DURATION = 30;                // the video's frame rate and length in seconds
+
+// Where the speaker's head is (with hair, and a little room around it), as fractions of the frame [left, top, right, bottom], read from a
+// still (render.mjs --stills 2s --face). Overlays stay out of it; render.mjs --check measures that.
+const FACE = [0.36, 0.08, 0.64, 0.62];
+
+// ─── The plan: one entry per stretch of b-roll, with times from the transcript ─
+// kind 'overlay': drawn over the speaker, who stays visible. kind 'cover': fills the whole frame, opaque.
+// Between scenes, and before the first and after the last, the frame shows only the speaker.
+// Times are original speech anchors, between words. The drawing clock applies the visual lead once.
+// SCENES is built when the page loads, before the code below it runs: write the drawings as `function` declarations
+// (like keyword() and bigNumber() below), or define what SCENES uses above it.
+const SCENES = [
+  { from: 3.0, to: 7.5, kind: 'overlay', draw: keyword('Placeholder', 'a keyword the speaker says', 3.0) },
+  { from: 9.0, to: 15.0, kind: 'cover', draw: bigNumber(10000, 'a number the speaker says', 10.2) },
+];
+
+// ─── Look ────────────────────────────────────────────────────────────────────
+const LOOK = {
+  display: 'Inter', body: 'Inter',
+  paper: '#f6f3ee', ink: '#16181d', soft: '#6b6f78', accent: '#2f6df6',
+};
+// Every face you draw with: weight (and 'italic' when used) + family. Keep in step with the <link> above.
+const FONTS = ['800 Inter', '700 Inter', '500 Inter'];
+
+// ─── Machinery (keep) ────────────────────────────────────────────────────────
+const params = new URLSearchParams(location.search);
+const SCALE = Number(params.get('scale')) || 1;
+document.documentElement.style.setProperty('--ar', W / H);
+const canvas = document.querySelector('canvas');
+canvas.width = Math.round(W * SCALE); canvas.height = Math.round(H * SCALE);
+const ctx = canvas.getContext('2d');
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, p) => a + (b - a) * p;
+const ease = {
+  out: t => 1 - Math.pow(1 - t, 3),
+  inOut: t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+  in: t => t * t * t,
+  back: t => { const c = 1.4; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); },
+};
+// progress of a move that starts at `start` seconds and lasts `len`, eased
+const move = (t, start, len, fn = ease.out) => fn(clamp((t - start) / len));
+// the largest font size (≤ max) at which `text` fits in `width`
+function fit(text, weight, family, max, width) {
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+  let s = max; ctx.font = `${weight} ${s}px "${family}"`;
+  while (s > 8 && ctx.measureText(text).width > width) { s -= 1; ctx.font = `${weight} ${s}px "${family}"`; }
+  return s;
+}
+// the side of the frame away from the face, for overlays: 'left' or 'right'
+const awaySide = () => (FACE[0] + FACE[2]) / 2 > 0.5 ? 'left' : 'right';
+const fmt = n => Math.round(n).toLocaleString('en-US');
+
+// ─── The b-roll: write one drawing per scene ─────────────────────────────────
+// Each draw(t, s) gets t = seconds since the scene started and s = { now, audioNow, dur, in, out, from, to }:
+// s.now leads for structure; s.audioNow is actual playback time for key facts and withheld reveals.
+// Keep word anchors unchanged. Sync means readable/settled on the word, not the start of a long fade.
+// s.in rises 0 → 1 over the first IN seconds, s.out falls 1 → 0 over the last OUT. Use them for the entrance and exit.
+// These two are examples of the structure, not the look: write each scene for what its line says.
+
+function keyword(word, note, said) {                 // overlay: one word on a card, on the side away from the face
+  return (t, s) => {
+    const side = awaySide(), w = W * 0.3, x = side === 'left' ? W * 0.06 : W * 0.94 - w;
+    const size = fit(word, 800, LOOK.display, 88, w - 80), h = size * 1.3 + 110;
+    const y = H * 0.5 - h / 2 + (1 - s.in) * 30;
+    ctx.globalAlpha = Math.min(s.in, s.out);
+    ctx.fillStyle = LOOK.paper; ctx.beginPath(); ctx.roundRect(x, y, w, h, 18); ctx.fill();
+    ctx.fillStyle = LOOK.accent; ctx.fillRect(x, y + 28, 8, h - 56);
+    if (s.audioNow < said) { ctx.globalAlpha = 1; return; }
+    ctx.fillStyle = LOOK.ink; ctx.textBaseline = 'alphabetic';
+    ctx.font = `800 ${size}px "${LOOK.display}"`; ctx.fillText(word, x + 40, y + 40 + size);
+    ctx.fillStyle = LOOK.soft; ctx.font = `500 ${fit(note, 500, LOOK.body, Math.round(size * 0.32), w - 80)}px "${LOOK.body}"`;
+    ctx.fillText(note, x + 40, y + h - 36);
+    ctx.globalAlpha = 1;
+  };
+}
+
+function bigNumber(value, label, said) {       // structure early; final number readable on its word
+  // `said` is the key fact's original word start in transcript.json.
+  return (t, s) => {
+    const wipe = Math.min(s.in, s.out);         // the cover slides in and out; while it is moving the speaker shows
+    ctx.save(); ctx.beginPath(); ctx.rect(0, H * (1 - wipe), W, H * wipe); ctx.clip();
+    ctx.fillStyle = LOOK.paper; ctx.fillRect(0, 0, W, H);
+    if (s.audioNow < said) { ctx.restore(); return; }
+    ctx.fillStyle = LOOK.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    const size = fit('$' + fmt(value), 800, LOOK.display, 300, W * 0.8);
+    ctx.font = `800 ${size}px "${LOOK.display}"`; ctx.fillText('$' + fmt(value), W / 2, H * 0.56);
+    ctx.fillStyle = LOOK.soft; ctx.font = `500 44px "${LOOK.body}"`; ctx.fillText(label, W / 2, H * 0.56 + 90);
+    ctx.restore(); ctx.textAlign = 'left';
+  };
+}
+
+// ─── Frame (keep) ────────────────────────────────────────────────────────────
+const IN = 0.5, OUT = 0.4;                    // entrance and exit length; a cover must be opaque once IN is over
+function draw(frame) {
+  const t = (frame + VISUAL_LEAD_FRAMES) / FPS; // voice/video retain their original clock
+  ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
+  ctx.clearRect(0, 0, W, H);                   // transparent: where nothing is drawn, the speaker shows
+  for (const sc of SCENES) {
+    if (t < sc.from || t >= sc.to) continue;
+    const dur = sc.to - sc.from, lt = t - sc.from;
+    const s = { audioNow: frame / FPS, now: t, dur, from: sc.from, to: sc.to, in: move(lt, 0, IN), out: 1 - move(lt, dur - OUT, OUT, ease.in) };
+    ctx.save(); sc.draw(lt, s); ctx.restore();
+  }
+  if (showFace && !SCENES.some(sc => t >= sc.from && t < sc.to && sc.kind === 'cover')) {
+    ctx.save(); ctx.setLineDash([16, 10]); ctx.lineWidth = 4; ctx.strokeStyle = '#ff2d55';
+    ctx.strokeRect(FACE[0] * W, FACE[1] * H, (FACE[2] - FACE[0]) * W, (FACE[3] - FACE[1]) * H); ctx.restore();
+  }
+}
+let showFace = params.has('face');
+// render.mjs --check records where every visible piece of text lands, to find text off the frame or on other text
+const __fillText = ctx.fillText.bind(ctx);
+ctx.fillText = (text, x, y, maxWidth) => {
+  if (window.__texts && ctx.globalAlpha > 0.5 && String(text).trim()) {
+    const m = ctx.measureText(text), T = ctx.getTransform();
+    const pts = [[x - m.actualBoundingBoxLeft, y - m.actualBoundingBoxAscent], [x + m.actualBoundingBoxRight, y + m.actualBoundingBoxDescent]]
+      .map(([px, py]) => [(T.a * px + T.c * py + T.e) / SCALE, (T.b * px + T.d * py + T.f) / SCALE]);
+    window.__texts.push({ text: String(text), box: [Math.min(pts[0][0], pts[1][0]), Math.min(pts[0][1], pts[1][1]), Math.max(pts[0][0], pts[1][0]), Math.max(pts[0][1], pts[1][1])] });
+  }
+  return __fillText(text, x, y, maxWidth);
+};
+window.draw = draw; window.FPS = FPS; window.FRAMES = Math.round(DURATION * FPS);
+window.SCENES = SCENES.map(({ from, to, kind }) => ({
+  from: Math.max(0, from - VISUAL_LEAD_FRAMES / FPS),
+  to: Math.min(DURATION, to - VISUAL_LEAD_FRAMES / FPS),
+  speechFrom: from, speechTo: to, kind,
+})).filter(sc => sc.to > sc.from);
+window.VISUAL_LEAD_FRAMES = VISUAL_LEAD_FRAMES;
+Object.assign(window, { VIDEO, FACE, W, H, IN, OUT });
+window.ready = Promise.all(FONTS.map(async f => {
+  const [, italic, weight, family] = f.match(/^(italic )?(\d+) (.+)$/);
+  const faces = await document.fonts.load(`${italic || ''}${weight} 40px "${family}"`);
+  const covers = w => { const [lo, hi = lo] = String(w).split(' ').map(Number); return +weight >= lo && +weight <= hi; };
+  if (!faces.some(x => covers(x.weight) && (x.style === 'italic') === !!italic)) console.warn('font not loaded: ' + f);
+})).then(() => document.fonts.ready);
+
+// ─── Preview: the recording plays under the canvas (skipped when rendering) ──
+if (!params.has('render')) {
+  const video = document.querySelector('video'), scrub = document.getElementById('scrub');
+  video.src = VIDEO;
+  const colors = { overlay: '#2f6df6aa', cover: '#f6a52faa' };
+  for (const sc of window.SCENES) {
+    const el = document.createElement('span');
+    el.style.cssText = `left:${sc.from / DURATION * 100}%;width:${(sc.to - sc.from) / DURATION * 100}%;background:${colors[sc.kind]}`;
+    el.title = `${sc.kind} ${sc.from}–${sc.to}s`; scrub.appendChild(el);
+  }
+  const head = document.createElement('i'); scrub.appendChild(head);
+  scrub.onclick = e => { const r = scrub.getBoundingClientRect(); video.currentTime = (e.clientX - r.left) / r.width * DURATION; };
+  addEventListener('keydown', e => {
+    if (e.key === ' ') { e.preventDefault(); video.paused ? video.play() : video.pause(); }
+    else if (e.key === 'ArrowRight') { video.pause(); video.currentTime = Math.min(DURATION, video.currentTime + (e.shiftKey ? 1 / FPS : 1)); }
+    else if (e.key === 'ArrowLeft') { video.pause(); video.currentTime = Math.max(0, video.currentTime - (e.shiftKey ? 1 / FPS : 1)); }
+    else if (e.key === 'f' || e.key === 'F') showFace = !showFace;
+  });
+  window.ready.then(() => (function tick() {
+    draw(Math.round(video.currentTime * FPS));
+    head.style.left = (video.currentTime / DURATION * 100) + '%';
+    requestAnimationFrame(tick);
+  })());
+}
+</script>
+</body>
+</html>

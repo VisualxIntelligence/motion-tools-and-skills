@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rooted lower thirds</title>
+<!-- One family per <link>, with the weights you draw in. Nothing else is loaded. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,400&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=block">
+<style>
+  html, body { margin: 0; height: 100%; }
+  /* The page is transparent too, so it also works as an OBS Browser Source (see the SKILL's delivery notes). */
+  body { background: transparent; display: grid; place-items: center; font: 13px system-ui, sans-serif; color: #444; }
+  canvas { width: min(96vw, 170vh); height: auto; display: block; }
+  /* Preview grounds, behind the canvas only: never drawn into it, so they never reach the file. */
+  body.checker canvas { background: repeating-conic-gradient(#d6d6d6 0 25%, #fff 0 50%) 0 0 / 32px 32px; }
+  body.dark canvas { background: linear-gradient(135deg, #1d2430, #3a3f38 55%, #0c0d10); }
+  body.light canvas { background: linear-gradient(135deg, #f4efe6, #bfcad3 50%, #fbfbfb); }
+  #bar { position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%); background: #fffc; padding: 4px 10px; border-radius: 6px; }
+</style>
+</head>
+<body class="checker">
+<canvas></canvas>
+<div id="bar">space: play/pause · B: background · ←/→: step · 1-9: card</div>
+<script>
+// ─── What it says ────────────────────────────────────────────────────────────
+// One entry per card: a person, a scripture reference, a song, a topic. The same design renders one file
+// per entry (render.mjs --card N). Replace these placeholders with the user's words, exactly as given.
+const CARDS = [
+  { title: 'Pastor Grace Owens', label: 'Sermon series', sub: 'Rooted' },
+  { title: 'Psalm 1:3', label: 'Scripture reading', sub: '' },
+];
+
+// ─── Frame and timing ────────────────────────────────────────────────────────
+const W = 1920, H = 1080, FPS = 30;          // design size; ?scale=2 renders 3840x2160 from the same drawing
+const IN = 1.0, HOLD = 5.8, OUT = 0.7;         // seconds: build in, stay still and readable, clear
+const LEAD = 0.2, TAIL = 0.3;                // empty frames at both ends, so the clip never pops on or cuts off
+const DUR = LEAD + IN + HOLD + OUT + TAIL;
+const SAFE = 0.06;                           // keep everything this far in from every edge (title-safe is 5%)
+
+// ─── Look ────────────────────────────────────────────────────────────────────
+const LOOK = {
+  display: 'Lora', body: 'Jost',
+  panel: 'rgba(40,27,20,0.9)', panelEdge: 'rgba(58,40,29,0.9)',
+  text: '#f7efe2', gold: '#d4ad6a', sub: '#ecdcc0',
+};
+// Every face you draw with: weight (and 'italic' when used) + family. Each is loaded before the first frame;
+// a face missing here can silently render in a fallback font. Keep in step with the <link> above.
+const FONTS = ['500 Lora', 'italic 400 Lora', '500 Jost'];
+
+// ─── Machinery (keep) ────────────────────────────────────────────────────────
+const params = new URLSearchParams(location.search);
+const SCALE = Number(params.get('scale')) || 1;
+let card = Number(params.get('card')) || 0;
+const canvas = document.querySelector('canvas');
+canvas.width = W * SCALE; canvas.height = H * SCALE;
+const ctx = canvas.getContext('2d');
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = {
+  out: t => 1 - Math.pow(1 - t, 3),
+  inOut: t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+  in: t => t * t * t,
+  back: t => { const c = 1.4; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); },
+};
+// progress of a move that starts at `start` seconds and lasts `len`, eased
+const move = (t, start, len, fn = ease.out) => fn(clamp((t - start) / len));
+// the largest font size (≤ max) at which `text` fits in `width`
+function fit(text, weight, family, max, width) {
+  let s = max; ctx.font = `${weight} ${s}px "${family}"`;
+  while (s > 8 && ctx.measureText(text).width > width) { s -= 1; ctx.font = `${weight} ${s}px "${family}"`; }
+  return s;
+}
+const tIn = LEAD, tOut = LEAD + IN + HOLD;   // when the build-in starts, when the build-out starts
+
+// ─── The graphic: rewrite this for the brief ─────────────────────────────────
+function drawGraphic(t, c) {
+  const x = W * SAFE, bottom = H * (1 - SAFE) - 30;
+  const padX = 44, padTop = 26, padBot = 30, maxText = 820;
+  const nameSize = fit(c.title, 500, LOOK.display, 68, maxText);
+  ctx.font = `500 ${nameSize}px "${LOOK.display}"`;
+  const nameW = ctx.measureText(c.title).width;
+  // second line: small gold caps label, then the italic series title
+  const labelSize = 22, subSize = 34, track = labelSize * 0.22;
+  const label = c.label.toUpperCase();
+  ctx.font = `500 ${labelSize}px "${LOOK.body}"`;
+  const labelW = ctx.measureText(label).width + track * label.length;
+  ctx.font = `italic 400 ${subSize}px "${LOOK.display}"`;
+  const subW = c.sub ? ctx.measureText(c.sub).width : 0;
+  const gap = 18, dotW = c.sub ? 10 : 0;
+  const line2W = labelW + (c.sub ? gap * 2 + dotW + subW : 0);
+  const contentW = Math.max(nameW, line2W);
+  const panelW = contentW + padX * 2;
+  const nameLine = nameSize * 1.12, line2H = 44;
+  const panelH = padTop + nameLine + 10 + line2H + padBot;
+  const panelY = bottom - panelH;
+
+  // in: a gold rule draws left to right, the panel fades up behind it, then the words settle in; out: all fade together
+  const rule = move(t, tIn, .7, ease.inOut);
+  const panel = move(t, tIn + .15, .6, ease.out);
+  const name = move(t, tIn + .35, .6, ease.out);
+  const line2 = move(t, tIn + .5, .5, ease.out);
+  const out = 1 - move(t, tOut, OUT, ease.inOut);
+  if (rule <= 0 || out <= 0) return;
+
+  ctx.save();
+  ctx.globalAlpha = out;
+  // panel, soft shadow, subtle warm vertical gradient
+  ctx.save();
+  ctx.globalAlpha = out * panel;
+  ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 8;
+  const g = ctx.createLinearGradient(0, panelY, 0, panelY + panelH);
+  g.addColorStop(0, LOOK.panelEdge); g.addColorStop(1, LOOK.panel);
+  ctx.fillStyle = g; ctx.fillRect(x, panelY + (1 - panel) * 12, panelW, panelH - (1 - panel) * 12);
+  ctx.restore();
+  // the gold rule along the top edge
+  ctx.fillStyle = LOOK.gold; ctx.fillRect(x, panelY, panelW * rule, 3);
+
+  const tx = x + padX;
+  ctx.textBaseline = 'alphabetic';
+  ctx.globalAlpha = out * name;
+  ctx.fillStyle = LOOK.text; ctx.font = `500 ${nameSize}px "${LOOK.display}"`;
+  const nameBase = panelY + padTop + nameSize * 0.95;
+  ctx.fillText(c.title, tx, nameBase + (1 - name) * 10);
+
+  ctx.globalAlpha = out * line2;
+  const base2 = nameBase + 10 + line2H * 0.82 + (1 - line2) * 8;
+  ctx.fillStyle = LOOK.gold; ctx.font = `500 ${labelSize}px "${LOOK.body}"`;
+  if ('letterSpacing' in ctx) ctx.letterSpacing = `${track}px`;
+  ctx.fillText(label, tx, base2 - 3);
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+  if (c.sub) {
+    const dx = tx + labelW + gap;
+    ctx.beginPath(); ctx.arc(dx + dotW / 2, base2 - labelSize * 0.38, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = LOOK.sub; ctx.font = `italic 400 ${subSize}px "${LOOK.display}"`;
+    ctx.fillText(c.sub, dx + dotW + gap, base2);
+  }
+  ctx.restore();
+}
+
+// ─── Frame (keep) ────────────────────────────────────────────────────────────
+function draw(frame) {
+  ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
+  ctx.clearRect(0, 0, W, H);                   // transparent: never fill the ground
+  drawGraphic(frame / FPS, CARDS[Math.min(card, CARDS.length - 1)]);
+}
+window.draw = draw; window.FPS = FPS; window.FRAMES = Math.round(DUR * FPS);
+window.PHASES = { in: [tIn, tIn + IN], out: [tOut, tOut + OUT] };   // render.mjs --sheet --in / --out
+window.ready = Promise.all(FONTS.map(f => { const [, style, weight, family] = f.match(/^(italic )?(\d+) (.+)$/); return document.fonts.load(`${style || ''}${weight} 40px "${family}"`); }))
+  .then(faces => { faces.forEach((l, i) => l.length || console.warn('font not loaded: ' + FONTS[i])); return document.fonts.ready; });
+
+// ─── Preview (skipped when rendering) ────────────────────────────────────────
+if (!params.has('render')) {
+  const grounds = ['checker', 'dark', 'light', 'none'];
+  let f = 0, playing = true, g = 0;
+  if (params.has('obs')) { document.body.className = ''; document.getElementById('bar').remove(); }
+  addEventListener('keydown', e => {
+    if (e.key === ' ') playing = !playing;
+    else if (e.key === 'b' || e.key === 'B') document.body.className = grounds[g = (g + 1) % grounds.length];
+    else if (e.key === 'ArrowRight') { playing = false; f = Math.min(window.FRAMES - 1, f + 1); }
+    else if (e.key === 'ArrowLeft') { playing = false; f = Math.max(0, f - 1); }
+    else if (/^[1-9]$/.test(e.key) && Number(e.key) <= CARDS.length) { card = Number(e.key) - 1; f = 0; }
+  });
+  window.ready.then(() => {
+    let last = performance.now();
+    (function tick(now) {
+      if (playing && now - last >= 1000 / FPS) {
+        last = now; f += 1;
+        if (f >= window.FRAMES) { if (params.has('obs') && !params.has('loop')) { playing = false; f = window.FRAMES - 1; } else f = 0; }
+      }
+      draw(f); requestAnimationFrame(tick);
+    })(last);
+  });
+}
+</script>
+</body>
+</html>
