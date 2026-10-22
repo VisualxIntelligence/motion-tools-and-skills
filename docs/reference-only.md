@@ -6,7 +6,7 @@ These are the useful things found while surveying the source repos ([`../SOURCES
 
 To unlock any item, open an issue on the upstream repo asking the author to add a licence (MIT or Apache-2.0).
 
-Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4) and 21 October 2026 (sections 5–6). PDoomVideo was rechecked on 21 October: same commit, still no licence.
+Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4), 21 October 2026 (sections 5–6) and 22 October 2026 (sections 7–9). PDoomVideo was rechecked on 21 October: same commit, still no licence.
 
 ---
 
@@ -77,6 +77,8 @@ The repos below are MIT or CC BY, but these particular items are owned by someon
 | Animated previews | `*.gif` in opus-video-skills; `docs/emotions.webp` in ClaudeAnimationBase | Size only (2–7 MB each). Viewable upstream. |
 | Sample pack, films, textures, fonts | [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) `lib/audio/samples/`, `videos/`, `assets/`, demo images | Size only: 57 MB of CC0 VCSL samples, 18 MB of CC0 textures and HDRI, 420 MB of films. [`../starters/mg-styles-15/NOTES.md`](../starters/mg-styles-15/NOTES.md) shows how to fetch the samples. |
 | Demo films and example scenes with Clawd | [francozanardi/papermotion](https://github.com/francozanardi/papermotion) | The example code is included in [`../starters/papermotion/`](../starters/papermotion/), but several films star the Clawd character (see the Clawd row above). |
+| Promo media, screenshots, audio | [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) `assets/audio/`, `demos/_textures/`, `template/public/`, `assets/brand/`, `gallery/` | 36 MB of Mixkit audio (its `ATTRIBUTION.md` cannot trace several files), screenshots of an internal tool, the upstream brand and sponsor logos, and preview films. The code and cards are in [`../skills/video-shotcraft/`](../skills/video-shotcraft/NOTES.md), which lists the 15 demos that need the textures. |
+| Generated models and images | [blendi-remade/dioramas](https://github.com/blendi-remade/dioramas) `public/` | 329 MB of Meshy GLBs and Nano Banana images, CC BY 4.0 (credit "Dioramas (github.com/blendi-remade/dioramas)"). Size only; [`../starters/dioramas/NOTES.md`](../starters/dioramas/NOTES.md) shows how to fetch them. |
 
 ## 5. pdoom-video — third-party song material
 
@@ -98,3 +100,47 @@ Most of its best prompts are already indexed by link in [`../prompts/video-promp
 - **A table of nine production routes** with a representative case each: single-file Canvas/JS, p5.js with a brush library, Remotion, HyperFrames, Manim for maths and papers, Python drawing frame by frame, three.js/WebGL scenes, driving professional software (After Effects, Blender, Higgsfield, Runway through MCP, Seedance API), and editing existing footage.
 - **Cost and time figures reported by creators**, from a few dollars for a one-line launch clip to about 200 dollars (or 7–10 % of a weekly Max allowance) for a multi-minute music video, with the warning that most "one-shot" results took two or more runs.
 - **Writing tips** that match [`techniques.md`](techniques.md#writing-video-prompts): storyboard before code, structure like a director, ban the clichés, deterministic `seek(t)` rendering, review frames before the full render, put API keys in `.env` and deny the agent read access to it in `.claude/settings.json`.
+
+## 7. jianying-headless — non-commercial licence
+
+[mcncarl/jianying-headless](https://github.com/mcncarl/jianying-headless) @ `27c2627` (0.2.0 "source preview"). A custom *Personal Learning and Non-Commercial Use* licence: no revenue-generating or business use without the author's written permission, and no republishing as a public skill collection, template bundle or company toolkit. It **cannot be used at work or copied here**. It is also of limited use to us: it automates **Chinese Jianying Professional on Apple Silicon Macs** only (its docs say international CapCut is not supported), apart from a contributed FFmpeg renderer for Windows that makes an MP4 without a Jianying draft.
+
+What it does, and the ideas worth reusing in our own tools (described in our words):
+
+- **An edit plan compiles into an editable timeline.** One JSON plan (canvas, typed tracks, segments in microseconds with speed, volume, position, scale and text style) becomes a native project the editor can open. The editable draft is the default deliverable; a render happens only when asked for.
+- **Never touch the original.** An existing project is first inspected, returning track, segment and material IDs. Edits are named operations (`set_segment`, `replace_text`, `replace_media`, `duplicate_segment`, `remove_segment`) applied to a copy. The source is pinned by ID plus a SHA-256 of its timeline, and the tool stops if the source changes at any step.
+- **Freeze, then export.** What is rendered is a hash-locked snapshot, in a sandboxed process with no network access. The result must have the exact frame count (a missing last frame is a failure, not rounding), pass a full ffmpeg decode with errors fatal, and have the expected codecs and container.
+- **Talking-head editing.** Every span is marked KEEP / DELETE / CHECK, with "protected" word ranges so a cut never clips speech. Unsure cuts go back to the user, and a second transcription checks the first cut.
+- **Licence-aware SFX.** For commercial jobs, only CC0 or CC BY effects are used, with attribution written to a credits file.
+- **Strict refusal.** Unknown app versions, library hashes and effects are rejected rather than loosening the checks.
+
+The same pattern maps onto OpenTimelineIO, FCPXML, Premiere XML or DaVinci Resolve's scripting API, which suit a Premiere / After Effects / Resolve newsroom.
+
+## 8. DSH × Blender plugin — not usable from Claude Code
+
+[sixtysevenlf/dsh-blender-plugin](https://github.com/sixtysevenlf/dsh-blender-plugin) @ `55a9597` (v2.6.0, BSD-3-Clause; its modelling skill MIT). DSH is DeepSeek Harness, a separate agent host. The plugin's 15 tools register with DSH, not with MCP, so Claude Code cannot use them. Its portable modelling notes are translated in [`../skills/3d-product/references/dsh-blender-modeling/`](../skills/3d-product/references/dsh-blender-modeling/NOTES.md). The rest stays upstream:
+
+| What | Upstream path | Notes |
+|---|---|---|
+| The op-based modelling workflow | `skills/blender-modeling/SKILL.md` sections 0–12 | Catalogue first, then op, verdict and gate. Freeze a spec and manifest before parallel modelling. "Degraded" never counts as a pass. No millimetres without calibration. A multi-agent role split and a 10-line task card. Good ideas; the ops themselves (`rt_plan`, 33 families, 217 ops) only run inside DSH. |
+| Reference-sheet idea | same | Four orthographic or isometric views plus a turntable MP4 of the finished model, as a reference pack for a video model (for example Seedance). |
+| Evidence and modelling cookbooks | `docs/证据分级与读图纪律.md`, `docs/假设驱动建模-cookbook.md` | Grading evidence and an image-reading budget; hypothesis-driven modelling. Chinese only. |
+| EEVEE notes | `docs/EEVEE-工作要点.md` | Sections 2–4 come from unlicensed third-party notes. |
+| The runtime and addon | `runtime/`, `addon/dsh_blender_bridge.py` | The addon is a renamed derivative of ahujasid/blender-mcp. |
+
+**Do not install it alongside our Blender bridge.**
+
+- **Remote code execution.** Its backend accepts `POST /act` on `127.0.0.1:9877` without authentication and runs a body that is not JSON as Python (`runtime/server.mjs` line 466), so a web page open in the browser could run code in Blender.
+- **Port clash.** The addon listens on port 9876, like other Blender bridges, and starts automatically.
+- **Leftovers from blender-mcp.** It still carries a premium endpoint and a hard-coded trial key inherited from blender-mcp.
+
+## 9. Motion2MixamoRig pipeline — non-commercial dependencies
+
+[MaxLiu22/Motion2MixamoRig](https://github.com/MaxLiu22/Motion2MixamoRig) @ `443b703` (v0.1.7). Its own code is Apache-2.0, and its numpy retarget core is in [`../tools/mixamo-retarget/`](../tools/mixamo-retarget/NOTES.md). The video-to-motion half is not, because of what it depends on: GVHMR (non-commercial research licence), the SMPL-X body model (non-commercial; commercial terms through Meshcapade) and YOLOv8 (AGPL-3.0). Its NOTICE says the end-to-end pipeline is restricted to non-commercial or research use. Fine for internal previs and research; **not for on-air work** without those licences.
+
+| What | Upstream path | Why it is useful |
+|---|---|---|
+| Extraction | `motion2mixamorig/extract.py`, `checks.py` | Video or still → YOLOv8 person → RTMPose 2D → GVHMR world-grounded SMPL-X → 24 SMPL joints in metres, Y-up. A still is repeated into a 32-frame clip because GVHMR is temporal. A preflight checks one person, fully in frame. |
+| Blender extension | `blender_extension/motion2mixamorig_blender/` | A pattern worth copying: a thin add-on UI that installs an external Python runtime with a sha256-pinned `uv` download, runs the heavy pipeline there, reads progress back as JSONL, tracks weight downloads and imports the result. It keeps torch out of Blender's Python. |
+| Character swap | `cli.py` `--skeleton` | Reuses an earlier extraction to put the same motion on another character in seconds. |
+
