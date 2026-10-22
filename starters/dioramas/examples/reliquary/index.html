@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Reliquary — The Museum of the Unlit</title>
+  <meta name="description" content="An after-hours museum. Six objects, two thousand years, one small light.">
+  <meta name="theme-color" content="#070605">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="flash" aria-hidden="true"></div>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-wick"><i></i></div>
+    <p class="loader-line">Lighting the lantern <span class="loader-pct">0</span>%</p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Reliquary home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.6 3.4 4 6.2 4 8.6a4 4 0 0 1-8 0C8 8.2 9.4 5.4 12 2Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M6 21h12M8 21l1-6h6l1 6" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+      <span>Reliquary</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#collection">Collection</a>
+      <a href="#hours">Night hours</a>
+      <a href="#membership">Membership</a>
+    </nav>
+    <a class="btn btn-ghost" href="#visit" data-magnetic>Book a night visit</a>
+  </header>
+
+  <main id="top">
+    <section class="walk" id="collection">
+      <div class="hero">
+        <p class="eyebrow mono">Open 21:00 — 04:00 &nbsp;·&nbsp; Lanterns issued at the door</p>
+        <h1 class="title" aria-label="Reliquary"><span>Reli</span><span>quary</span></h1>
+        <p class="sub">An after-hours museum. Six objects, two thousand years,<br> and the small light in your hand.</p>
+      </div>
+      <div class="hint mono" aria-hidden="true">
+        <span><kbd>Move</kbd> to aim the lantern</span>
+        <span><kbd>Click</kbd> to photograph a relic</span>
+        <span><kbd>Scroll</kbd> to walk the hall</span>
+      </div>
+    </section>
+
+    <section class="panel hours" id="hours">
+      <div class="panel-inner">
+        <p class="eyebrow mono">The night hours</p>
+        <h2>We turned the lights off <em>on purpose.</em></h2>
+        <p class="lede">Under museum floodlight, every object looks the same: flat, catalogued, finished. By a single moving light they look the way their makers saw them — by lamp, by fire, by moon. Relief comes back. Gold wakes up. You notice the chisel.</p>
+        <div class="grid3">
+          <article>
+            <span class="num mono">01</span>
+            <h3>One lantern each</h3>
+            <p>A warm 2,700 K beam, weighted for the hand. There are no other lights in the building until you earn them.</p>
+          </article>
+          <article>
+            <span class="num mono">02</span>
+            <h3>Photograph to illuminate</h3>
+            <p>Each relic you document switches on its own exhibit lamp. By dawn, the hall is lit by the people who walked it.</p>
+          </article>
+          <article>
+            <span class="num mono">03</span>
+            <h3>Silence after midnight</h3>
+            <p>Conversation stops at twelve. What remains is footsteps, the tick of the building cooling, and the objects.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel quotes">
+      <div class="panel-inner">
+        <blockquote>
+          <p>“I have walked past that helmet a hundred times in daylight. At two in the morning it looked back.”</p>
+          <cite class="mono">— Member since 2019</cite>
+        </blockquote>
+        <div class="stats">
+          <div><b>6</b><span class="mono">relics on the night floor</span></div>
+          <div><b>2,300</b><span class="mono">years between the oldest and youngest</span></div>
+          <div><b>40</b><span class="mono">visitors admitted per night</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel membership" id="membership">
+      <div class="panel-inner">
+        <p class="eyebrow mono">Membership</p>
+        <h2>Keep a key to <em>the dark.</em></h2>
+        <div class="tiers">
+          <article class="tier">
+            <header><h3>Night Visitor</h3><p class="price">€18 <span class="mono">/ night</span></p></header>
+            <ul><li>One lantern, one evening</li><li>Entry until 01:00</li><li>Your photographs, printed at the door</li></ul>
+            <a class="btn btn-ghost" href="#visit" data-magnetic>Reserve a night</a>
+          </article>
+          <article class="tier tier-lit">
+            <header><h3>Keeper</h3><p class="price">€240 <span class="mono">/ year</span></p></header>
+            <ul><li>Unlimited nights, any hour</li><li>Your own engraved brass lantern</li><li>Quarterly new-moon openings</li><li>Bring one guest, always</li></ul>
+            <a class="btn btn-solid" href="#visit" data-magnetic>Become a Keeper</a>
+          </article>
+          <article class="tier">
+            <header><h3>Patron</h3><p class="price">€1,200 <span class="mono">/ year</span></p></header>
+            <ul><li>Everything a Keeper has</li><li>A private hour with a curator</li><li>Name on the lamp you light first</li></ul>
+            <a class="btn btn-ghost" href="#visit" data-magnetic>Speak to us</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="panel foot" id="visit">
+      <div class="panel-inner">
+        <h2 class="foot-title">See you <em>after dark.</em></h2>
+        <div class="foot-cols">
+          <p class="mono">Reliquary<br>14 Rue des Lanternes<br>Doors 21:00 — Dawn</p>
+          <p class="mono">Nights: Thursday to Sunday<br>New moon: every hall open</p>
+          <a class="btn btn-solid" href="#top" data-magnetic>Book a night visit</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="cards" aria-live="polite"></div>
+  <aside class="journal" aria-label="Your field journal">
+    <p class="journal-title mono"><span class="journal-count">0</span>/6 documented</p>
+    <ol class="journal-slots"></ol>
+  </aside>
+  <div class="toast mono" role="status"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
