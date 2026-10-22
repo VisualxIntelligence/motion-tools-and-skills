@@ -1,6 +1,6 @@
 # motion-graphics-music-video — notes
 
-**Source:** [makevoid/motion-graphics-music-video-skill](https://github.com/makevoid/motion-graphics-music-video-skill) @ `759ba6a` (plugin v0.2.5). MIT, © 2026 makevoid ([LICENSE](LICENSE)). The upstream README is kept as [UPSTREAM-README.md](UPSTREAM-README.md).
+**Source:** [makevoid/motion-graphics-music-video-skill](https://github.com/makevoid/motion-graphics-music-video-skill) @ `75aafbe` (plugin v0.2.5; first copied at `759ba6a`, updated 22 October 2026 for the FFmpeg 9 `-fps_mode` fix). MIT, © 2026 makevoid ([LICENSE](LICENSE)). The upstream README is kept as [UPSTREAM-README.md](UPSTREAM-README.md).
 
 ## What it makes
 
