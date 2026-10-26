@@ -2,7 +2,7 @@
 
 Tools, agent skills, prompts and starters for making motion graphics with AI agents (Claude Code). The focus is code-rendered motion (Three.js + GSAP, HyperFrames, Remotion, Canvas, WebGL/WebGPU, p5.js) and agent-driven DCC tools (Blender, Unreal Engine, ComfyUI).
 
-The first collection was gathered from ten open-source Opus 5.5 video projects on 6 October 2026, and a second pass on 21 October added six more and refreshed three ([`SOURCES.md`](SOURCES.md)). Everything copied here carries its upstream licence, and every folder has a `NOTES.md` that says what it does, when to use it, what it needs, and what was changed.
+The first collection was gathered from ten open-source Opus 5.5 video projects on 6 October 2026, and a second pass on 21 October added six more and refreshed three; on 26 October the OGL WebGL library was checked and yielded one starter and one skill ([`SOURCES.md`](SOURCES.md)). Everything copied here carries its upstream licence, and every folder has a `NOTES.md` that says what it does, when to use it, what it needs, and what was changed.
 
 **New here? Read [`docs/techniques.md`](docs/techniques.md) first.** It distils the shared method behind all of these projects into working rules for our stack.
 
@@ -18,6 +18,7 @@ The first collection was gathered from ten open-source Opus 5.5 video projects o
 | [`lemo-opuscar`](skills/lemo-opuscar/NOTES.md) | Short films in any of 51 film styles, made entirely in code, including Evidence Films from real data; turn a style into a house style |
 | [`3d-product`](skills/3d-product/NOTES.md) | Product and object films in Blender (Cycles or Octane), from a patent, photos or CAD to a graded film, with a measured gate at every stage |
 | [`video-production-skills`](skills/video-production-skills/NOTES.md) | Eleven editorial skills: evidence-linked script, shot plan, explainer-motion brief, voice and caption sync, cover, release QA |
+| [`ogl-post-chain`](skills/ogl-post-chain/NOTES.md) | An HDR post chain (bloom, tone map, grade, grain, FXAA) for OGL scenes, kept stateless for frame-exact rendering |
 
 ### [`prompts/`](prompts/README.md) — prompts and briefs
 
@@ -39,6 +40,7 @@ The first collection was gathered from ten open-source Opus 5.5 video projects o
 - [`pdoom-video-engine/`](starters/pdoom-video-engine/NOTES.md): a three.js engine for audio-driven films with adaptive per-tile motion blur, true 4K from a 1080p layout and an HDR post chain.
 - [`mg-styles-15/`](starters/mg-styles-15/NOTES.md): 15 motion-design films with full source, a `renderAt(t)` render harness and the mgaudio soundtrack toolkit.
 - [`papermotion/`](starters/papermotion/NOTES.md): a paper-cutout film engine with rigs, physics and simulation-driven sound, plus its skill.
+- [`ogl-time-pure/`](starters/ogl-time-pure/NOTES.md): a time-pure scaffold on OGL (minimal WebGL) with the render contract, a determinism check and an instanced-shader demo; pairs with the `ogl-post-chain` skill.
 - Pointers to the kinetic-reel, painted-cartoon, web-intro and p5-overlay templates inside the skills.
 
 ### [`docs/`](docs/README.md) — guides and research

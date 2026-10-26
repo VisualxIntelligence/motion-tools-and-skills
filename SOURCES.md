@@ -1,6 +1,6 @@
 # Sources
 
-The repositories surveyed on 6 October 2026 (1–10) and 21 October 2026 (11–19), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
+The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19) and 26 October 2026 (20), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
 
 | # | Repository | What it is | Licence | Commit | In this repo |
 |---|---|---|---|---|---|
@@ -24,6 +24,7 @@ The repositories surveyed on 6 October 2026 (1–10) and 21 October 2026 (11–1
 | 17 | [JohnHeibel/PDoomVideo](https://github.com/JohnHeibel/PDoomVideo) | (#1, rechecked) | **None** | `fa546a3` | Unchanged; still reference only |
 | 18 | [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) | (#6, rechecked) | MIT | `0ac8bf2` | Unchanged since our copy |
 | 19 | X post by @beamnxw, "Motion Engineering with Opus 5.5: Build Launch Videos You Can Sell" | A post, not a repo | — | — | Not reachable for automated reading (X blocks it); not reviewed |
+| 20 | [oframe/ogl](https://github.com/oframe/ogl) | A minimal WebGL library (29 KB, three.js-like API) with about 50 examples; no agent skills, prompts or starters of its own | Unlicense (public domain; grant is in the README and `package.json`, no LICENSE file in the repo root); example assets not covered | `385ce65` (v1.0.11) | [`starters/ogl-time-pure/`](starters/ogl-time-pure/NOTES.md) (library vendored unmodified, plus a time-pure harness written here), [`skills/ogl-post-chain/`](skills/ogl-post-chain/NOTES.md) (new code; FXAA adapted from its example). Assets, models and the stateful examples (flowmap, fluid, GPGPU) not included |
 
 Repos 13–15 were found through athemeroy's resource list (#7), which checked their licences on 11 October; we checked them again on 21 October.
 

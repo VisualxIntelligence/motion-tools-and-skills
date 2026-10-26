@@ -1,0 +1,11 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>ogl-time-pure</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; font: 13px/1 system-ui, sans-serif; color: #ccc; }
+  canvas { display: block; width: 100vw; height: calc(100vh - 36px); object-fit: contain; }
+  #bar { height: 36px; display: flex; align-items: center; gap: 12px; padding: 0 12px; box-sizing: border-box; }
+  #scrub { flex: 1; }
+</style>
+<div id="bar"><input id="scrub" type="range" min="0" max="8" step="any" value="0"><span id="tt"></span></div>
+<script type="module" src="src/main.js"></script>
