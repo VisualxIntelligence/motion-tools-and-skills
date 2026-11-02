@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Keeper — A four-room lighthouse on Sgeir Dubh</title>
+  <meta name="description" content="Four rooms. One light. No one else for nine miles. A working lighthouse hotel on a black rock in the North Atlantic.">
+  <meta name="theme-color" content="#05080c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%2305080c%22/%3E%3Cpath d=%22M16 9 L30 6 L30 12 Z M16 9 L2 6 L2 12 Z%22 fill=%22%23ffd27a%22/%3E%3Cpath d=%22M13.5 12h5l1.3 14h-7.6z%22 fill=%22%23ece7dc%22/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="flash" aria-hidden="true"></div>
+  <div class="grade" aria-hidden="true"></div>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-lamp" aria-hidden="true"><i class="loader-beam"></i><i class="loader-beam b2"></i><b></b></div>
+    <p class="loader-name">The Keeper</p>
+    <p class="loader-line"><span>Lighting the lamp</span> <span class="loader-pct">0</span></p>
+    <p class="loader-char">Sgeir Dubh · Fl W 7s · 36 m · 18 M</p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="The Keeper — home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path class="brand-beam" d="M16 8 L31 4.5 L31 11.5 Z M16 8 L1 4.5 L1 11.5 Z" />
+        <path d="M13.2 11h5.6l1.4 15h-8.4z M12 26h8 M14.6 6.5h2.8v4.5h-2.8z M13.8 6.5 16 4.6l2.2 1.9" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+        <path d="M13 16.5h6 M12.6 21h6.8" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+      <span>The Keeper</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#storm">The storm</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#crossing">The crossing</a>
+      <a href="#dawn">Rates</a>
+    </nav>
+    <div class="nav-right">
+      <button class="sound" type="button" aria-pressed="false" data-cursor="link"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">Sound off</span></button>
+      <a class="btn btn-lamp" href="#reserve" data-magnetic><span class="cta-long">Reserve a night</span><span class="cta-short">Reserve</span></a>
+    </div>
+  </header>
+
+  <!-- live conditions, updated as the night passes -->
+  <aside class="log" aria-label="Conditions at the light">
+    <div><span class="k">Time</span><span class="v" data-log="time">02:47</span></div>
+    <div><span class="k">Wind</span><span class="v" data-log="wind">SW 9, severe gale</span></div>
+    <div><span class="k">Sea</span><span class="v" data-log="sea">Very high</span></div>
+    <div><span class="k">Visibility</span><span class="v" data-log="vis">0.4 NM, rain</span></div>
+  </aside>
+
+  <main id="top">
+    <section class="hero" data-kf="0">
+      <div class="hero-inner">
+        <div class="hero-top">
+        <p class="eyebrow">Sgeir Dubh Light <i>·</i> 57°41′N 8°19′W <i>·</i> Fl W 7s</p>
+        <h1 class="title">
+          <span class="l1">Four rooms.</span>
+          <span class="l2">One light.</span>
+          <span class="l3">No one else for nine miles.</span>
+        </h1>
+        </div>
+        <div class="hero-foot">
+          <p class="sub">A working lighthouse on a black rock in the North Atlantic, with one keeper, four rooms, and the weather as the main event.</p>
+          <div class="ctas">
+            <a class="btn btn-lamp" href="#reserve" data-magnetic>Reserve a night</a>
+            <a class="btn btn-ghost" href="#storm" data-magnetic>Take the light <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+      </div>
+      <p class="hero-hint"><span class="dot"></span><span class="hint-desktop">Move your cursor — the light is yours</span><span class="hint-touch">Touch the sea — the light is yours</span></p>
+    </section>
+
+    <section class="storm" id="storm">
+      <div class="storm-sticky" data-kf="1">
+        <div class="storm-copy">
+          <p class="eyebrow"><span class="num">01</span> The storm</p>
+          <h2>Take the light.</h2>
+          <p class="lede">Somewhere out there a boat has lost the coast. The lamp is yours now: aim the beam, find her, and hold it on her for two seconds. She'll find her way in.</p>
+          <ul class="how">
+            <li><kbd class="k-desk">Move</kbd><kbd class="k-touch">Touch</kbd> aim the beam</li>
+            <li><kbd>Hold 2s</kbd> on the boat — guide her home</li>
+          </ul>
+          <p class="storm-foot">Since 1861 the lamp on Sgeir Dubh has been lit every night of the year. It has never once been late.</p>
+        </div>
+        <div class="tally" aria-live="polite">
+          <p class="tally-k">Boats guided home</p>
+          <p class="tally-v"><span class="tally-n">0</span></p>
+          <ol class="tally-log"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="rooms" id="rooms">
+      <div class="rooms-sticky">
+        <header class="rooms-head">
+          <p class="eyebrow"><span class="num">02</span> The rooms</p>
+          <h2>Four rooms, <em>stacked up a tower.</em></h2>
+        </header>
+        <div class="room-stage">
+          <article class="room" data-room="0">
+            <figure><img src="/img/keeper/room-quarters.webp" alt="The keeper's quarters: a peat stove, a box bed and a small window onto the sea" loading="lazy" width="900" height="1125"></figure>
+            <div class="room-text">
+              <p class="room-meta"><span>I</span> Ground floor · Sleeps 2 · 24 m²</p>
+              <h3>Keeper’s Quarters</h3>
+              <p>The cottage the keepers lived in for a hundred and forty years. A peat stove, a bed built into the wall, and a window the sea comes right up to on a spring tide. The original log books are on the shelf. Read them.</p>
+              <ul><li>Peat stove</li><li>Box bed</li><li>Log books, 1861–2002</li></ul>
+            </div>
+          </article>
+          <article class="room" data-room="1">
+            <figure><img src="/img/keeper/room-fog.webp" alt="The fog signal room: a brass horn through the wall above a copper bath" loading="lazy" width="900" height="1125"></figure>
+            <div class="room-text">
+              <p class="room-meta"><span>II</span> Seaward end · Sleeps 2 · 30 m²</p>
+              <h3>The Fog Signal</h3>
+              <p>The old engine house for the horn, which still sounds at noon on the first Monday of the month. A copper bath under the horn’s brass mouth, walls a metre thick, and a window at the height of the surf.</p>
+              <ul><li>Copper bath</li><li>The horn still works</li><li>Surf-level window</li></ul>
+            </div>
+          </article>
+          <article class="room" data-room="2">
+            <figure><img src="/img/keeper/room-watch.webp" alt="The watch room: a curved window seat, a brass telescope and old sea charts" loading="lazy" width="900" height="1125"></figure>
+            <div class="room-text">
+              <p class="room-meta"><span>III</span> Level five · Sleeps 2 · 19 m²</p>
+              <h3>The Watch</h3>
+              <p>The room where the keeper stayed awake. Six small windows all the way round, a brass telescope, and a chart of every wreck on this reef. It is the first room on the rock to catch the dawn.</p>
+              <ul><li>Windows all round</li><li>Brass telescope</li><li>Wreck charts</li></ul>
+            </div>
+          </article>
+          <article class="room" data-room="3">
+            <figure><img src="/img/keeper/room-lamp.webp" alt="The lamp room: a bed beside the great glass lens, with the sea on every side" loading="lazy" width="900" height="1125"></figure>
+            <div class="room-text">
+              <p class="room-meta"><span>IV</span> The top · Sleeps 2 · 16 m² · 118 steps</p>
+              <h3>The Lamp Room</h3>
+              <p>You sleep beside the lens. It turns all night, because it’s a working light, and a blackout curtain rings the bed. Almost everyone leaves it open.</p>
+              <ul><li>Beside a working lens</li><li>Glass on every side</li><li>No signal, anywhere</li></ul>
+            </div>
+          </article>
+        </div>
+        <div class="room-pins" aria-hidden="true">
+          <div class="pin" data-pin="0"><i></i><span>Keeper’s Quarters</span></div>
+          <div class="pin" data-pin="1"><i></i><span>The Fog Signal</span></div>
+          <div class="pin" data-pin="2"><i></i><span>The Watch</span></div>
+          <div class="pin" data-pin="3"><i></i><span>The Lamp Room</span></div>
+        </div>
+        <ol class="room-index" aria-hidden="true"><li>I</li><li>II</li><li>III</li><li>IV</li></ol>
+      </div>
+    </section>
+
+    <section class="crossing" id="crossing">
+      <div class="crossing-sticky">
+        <div class="crossing-copy">
+          <p class="eyebrow"><span class="num">03</span> The crossing</p>
+          <h2>Nine miles, <em>weather permitting.</em></h2>
+          <p class="lede">The <i>Morag Ann</i> leaves Ardcarra Quay at ten on Tuesdays and Fridays. It is fifty-eight minutes across if the sea agrees. The keeper makes the call at seven each morning, and the keeper’s call is final.</p>
+        </div>
+        <div class="route" aria-hidden="true">
+          <span class="route-a">Ardcarra Quay</span>
+          <div class="route-line"><i class="route-boat"></i><span class="route-nm">9 NM · 58 min</span></div>
+          <span class="route-b">Sgeir Dubh</span>
+        </div>
+        <dl class="facts">
+          <div><dt>Tue &amp; Fri</dt><dd>Out at 10:00 from Ardcarra Quay, back from the rock at 15:00.</dd></div>
+          <div><dt>Two bags</dt><dd>Soft ones. They are passed up the landing ladder by hand.</dd></div>
+          <div><dt>If the sea says no</dt><dd>We pay for your night at the Harbour Inn and try again in the morning.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="dawn" id="dawn">
+      <div class="dawn-sticky">
+        <div class="dawn-copy">
+          <p class="eyebrow"><span class="num">04</span> Dawn</p>
+          <h2>And then, <em>the morning.</em></h2>
+          <p class="lede">At sunrise the keeper puts out the light. The sea goes flat and pink, the gannets come back, and you realise how far away everything is.</p>
+        </div>
+        <div class="rates" id="reserve">
+          <p class="rates-from">Rates from <b>£420</b> a night</p>
+          <table id="rates-table">
+            <caption class="sr">Nightly rates for two guests</caption>
+            <tbody>
+              <tr><th scope="row">Keeper’s Quarters</th><td>£420</td></tr>
+              <tr><th scope="row">The Fog Signal</th><td>£460</td></tr>
+              <tr><th scope="row">The Watch</th><td>£540</td></tr>
+              <tr><th scope="row">The Lamp Room</th><td>£680</td></tr>
+            </tbody>
+          </table>
+          <p class="rates-note">Per night for two. Every meal, the crossing and the keeper’s tour of the lamp included. Two nights minimum; the sea sometimes makes it three.</p>
+          <div class="ctas">
+            <a class="btn btn-lamp" href="#reserve" data-magnetic>Reserve a night</a>
+            <a class="btn btn-ghost rates-write" href="#footer" data-magnetic>Write to the keeper</a>
+            <button class="btn btn-ghost rates-toggle" type="button" aria-expanded="false" aria-controls="rates-table">All rooms <span aria-hidden="true">+</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot" id="footer">
+      <h2 class="foot-title">Hold the <em>light.</em></h2>
+      <div class="foot-cols">
+        <p><b>The Keeper</b><br>Sgeir Dubh Light<br>Nine miles west of Ardcarra</p>
+        <p><b>Season</b><br>March to November<br>Crossings Tuesday &amp; Friday</p>
+        <p><b>The light</b><br>Lit at sunset, out at sunrise<br>A working aid to navigation</p>
+        <a class="btn btn-lamp" href="#reserve" data-magnetic>Reserve a night</a>
+      </div>
+      <p class="foot-small"><span>© The Keeper, Sgeir Dubh</span><span>Four rooms · One light</span></p>
+    </footer>
+  </main>
+
+  <!-- 3D-anchored UI -->
+  <div class="boat-mark" aria-hidden="true">
+    <svg viewBox="0 0 80 80"><circle class="bm-track" cx="40" cy="40" r="30"/><circle class="bm-fill" cx="40" cy="40" r="30"/></svg>
+    <span class="bm-label">Boat in distress</span>
+  </div>
+  <div class="toast" role="status"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

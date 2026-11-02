@@ -1,0 +1,902 @@
+{
+ "assemble-then-type-flyin": {
+  "card": "assemble-then-type-flyin",
+  "label_suffix": "",
+  "description": "On an empty dark grid, text-free component skeletons fly in from all sides and snap into place; then the text flies in character by character, rotating through 3D space and landing in place, headline first, small labels after, until the page is complete",
+  "use": ""
+ },
+ "aurora-bloom-bg-flip": {
+  "card": "aurora-bloom-bg-flip",
+  "label_suffix": "",
+  "description": "On a light gray background, soft-focus purple-orange blobs rise from the bottom; then within about 0.36s the whole background darkens to near-black and the blobs compress into an afterglow; copy swaps in sync with blur-out then blur-in, with a gap between phrases and no cross-fade",
+  "use": ""
+ },
+ "autolayout-gap-dial": {
+  "card": "autolayout-gap-dial",
+  "label_suffix": "",
+  "description": "A spacing dial drives the layout: a row of link blocks with selection outlines and gap-spacing annotations, badge numbers ticking up step by step, blocks pushed apart live by the parameter and then springing back into place; a visualization of 'parameter-driven layout'",
+  "use": ""
+ },
+ "avatar-bracket-carousel": {
+  "card": "avatar-bracket-carousel",
+  "label_suffix": "",
+  "description": "A 'Your ___ agent' fill-in-the-blank layout with four corner focus brackets pinned in place mid-sentence; a queue of avatars rotates vertically with spring easing three times inside the brackets, scaling up and sharpening as it enters the frame and shrinking, fading and blurring by distance as it leaves; role labels swap in sync, and the brackets breathe 7% at each switch",
+  "use": ""
+ },
+ "basic-3d-scene": {
+  "card": "basic-3d-scene",
+  "label_suffix": "",
+  "description": "impress.js-style spatial presentation: cards scattered through 3D space at different positions/rotations/scales; the camera takes the inverse of each step's pose and flies to align with each in turn, with the final step pulling out to an OVERVIEW",
+  "use": ""
+ },
+ "paparazzi-flash": {
+  "card": "beat-cut-moves",
+  "label_suffix": "Flash-burst freeze",
+  "description": "Hard cuts as a beat instrument, flash-burst freeze: three white flashes each hard-cut to a different crop of the same frame (wide shot → card → close-up); after the shutter afterglow settles, it holds on the close-up to close",
+  "use": "Ceremonial highlight moments: award-show burst shots, crowning a key number"
+ },
+ "beat-step-list-theme-cycle": {
+  "card": "beat-step-list-theme-cycle",
+  "label_suffix": "",
+  "description": "Three-channel metronome: on a dark field, an adjective list moves up one row per beat while a fixed pill in the viewport center 'catches' the next word and changes color, and the whole background color switches on the same beat; row, color and field channels are locked to the same beat points",
+  "use": ""
+ },
+ "before-after-slider-scrub": {
+  "card": "before-after-slider-scrub",
+  "label_suffix": "",
+  "description": "Before/after comparison slider: 'before' and 'after' versions are stacked, and the divider handle first whips fast then sweeps slowly, with the new version 'developing' into view behind the handle",
+  "use": ""
+ },
+ "bezier-source-converge-merge": {
+  "card": "bezier-source-converge-merge",
+  "label_suffix": "",
+  "description": "Four source nodes on the left each connect to a single convergence point on the right via a thin Bezier curve; the curves draw on from left to right with stagger, nodes slide along their own curves toward the convergence point and shrink to nothing with a three-stage acceleration, and an accent-color data packet glides along the paths throughout; once the merge completes, the curves erase backward from the left end, leaving only the brand mark (demo: a white porcelain disc holding the video-shotcraft mark)",
+  "use": ""
+ },
+ "blur-slide": {
+  "card": "blur-slide",
+  "label_suffix": "",
+  "description": "Headline enters word by word, with y 0.38em→0 + blur 18→0 + opacity 0→1 converging in sync on the same ease-out curve and about 4f between words; the subtitle follows with stagger before the headline finishes",
+  "use": ""
+ },
+ "bottom-push-stack-wipe": {
+  "card": "bottom-push-stack-wipe",
+  "label_suffix": "",
+  "description": "Bottom-edge push for chapter changes: the new scene, background color included, pushes up from the bottom edge as a full screen and physically shoves the old scene off frame; several chapters push in succession, each with its own saturated background color, and the content is pinned to each color field's coordinate system and travels with it",
+  "use": ""
+ },
+ "brace-expand": {
+  "card": "brace-expand",
+  "label_suffix": "",
+  "description": "A tight pair of small curly braces first appears at center, then springs apart left and right with one overshoot and scales up to headline size; the text's clip width is strictly bound to the braces' inner edges, revealing from the middle like a curtain being drawn open, and after settling the letter-spacing relaxes slightly",
+  "use": ""
+ },
+ "brand-frame-snap": {
+  "card": "brand-frame-snap",
+  "label_suffix": "",
+  "description": "Brand-color frame grammar: a thick solid-color frame grows ahead of the content to enclose the full screen, and the screen-recording window drops inside it; on a mode switch the whole frame hard-flips color on the same frame as the in-window layout changes, so a single borderColor handles chapter navigation, status signaling and brand exposure",
+  "use": ""
+ },
+ "brand-ink-open": {
+  "card": "brand-ink-open",
+  "label_suffix": "",
+  "description": "Ink-line crosshair draws on → wordmark stamps in character by character → typewriter subtitle → holds still for a full second, then floats up and dissipates",
+  "use": ""
+ },
+ "panel-to-canvas": {
+  "card": "canvas-materialize-moves",
+  "label_suffix": "Rows to cards",
+  "description": "Checkboxes tick automatically one by one → button press → three rows fly out with stagger along an upward-tossed arc, cross-fading from row form to card form in flight and landing with random tilt angles; the panel's row slots collapse into dashed empty space",
+  "use": "Bulk import / one-click place on board: content migrating from list state to spatial state"
+ },
+ "diagram-cascade": {
+  "card": "canvas-materialize-moves",
+  "label_suffix": "Cascading generated tree",
+  "description": "Prompt types out character by character (outline darkens once typing finishes to confirm) → root (dark) → 2 children → 4 grandchildren pop in level by level, with elbow connectors drawing on 8f ahead of each level, and once the tree forms the whole tree breathes for one beat",
+  "use": "AI-generated structure/mind-map/ER diagrams: one sentence grows a tree"
+ },
+ "card-flip-reveal": {
+  "card": "card-flip-reveal",
+  "label_suffix": "",
+  "description": "3D flip reveal of feature cards: each card flips 180° around the Y axis, a highlight that moves with the angle grazes the front UI at the thinnest point on the edge, and the back reveals a large conclusion number; cards flip with stagger, sweeping across the whole row",
+  "use": ""
+ },
+ "card-flock-tumble": {
+  "card": "card-flock-tumble",
+  "label_suffix": "",
+  "description": "Three UI page cards tumble in 3D from their thin edges and settle into a staircase (sharp throughout, smooth spline-continuous motion); once settled they keep rotating slowly, then rapidly converge and get sucked into the center, burst into a single turbulent smoke ring that expands, and giant text sweeps across to close",
+  "use": ""
+ },
+ "card-stack": {
+  "card": "card-stack",
+  "label_suffix": "",
+  "description": "A set of template cards (9 in the demo) spring in one by one from below the screen, landing faster and faster into a pile; once all are in place, the whole pile fans out at once, each card rotated by 6.5° and shifted 138px per index, and finally the center card is pulled out",
+  "use": ""
+ },
+ "carousel-3d": {
+  "card": "carousel-3d",
+  "label_suffix": "",
+  "description": "8 cards arranged in a ring rotate as a whole through one full turn (constant-speed base plus a stepped stop every 45°); each card orbits only around Y and billboards outward, with front and back layers textured in the same direction plus backface-visibility:hidden so cards are always upright, never inverted; the card at the front lights up and the caption beneath the ring changes text accordingly, with the camera pinned at a shallow high angle throughout",
+  "use": ""
+ },
+ "oscilloscope-stream": {
+  "card": "chart-live-moves",
+  "label_suffix": "",
+  "description": "Sampling window pans 8px/f + cosine-envelope spikes + a braking stop to true stillness",
+  "use": "Monitoring / real-time products: a 'living' system"
+ },
+ "unit-dot-swarm-regroup": {
+  "card": "chart-live-moves",
+  "label_suffix": "",
+  "description": "Three-act spring staggered migration (stiffness 150, stagger 8f), with the dot matrix forming a number in the final act",
+  "use": "User-count / composition narratives: 'every dot is a person'"
+ },
+ "axis-rescale-shock": {
+  "card": "chart-live-moves",
+  "label_suffix": "",
+  "description": "Breaks out of the frame by 220px + a three-part linked rescale (ticks change / grid densifies / old line flattens) + 8px shake",
+  "use": "Growth-curve highlight: taking 'off the charts' literally"
+ },
+ "chip-grid-single-select-blackout": {
+  "card": "chip-grid-single-select-blackout",
+  "label_suffix": "",
+  "description": "Five option chips fade in one by one, centered in a 3+2 layout; on selection a gray pressed block is inserted for one frame, then within a few frames the fill turns ink-black and the text turns white with a very light 1→1.04→1 rebound, while the other chips fade to 18% with positions locked; the remaining options then go to zero, the black chip moves up and narrows, and a settled price rises below it",
+  "use": ""
+ },
+ "circle-match-iris": {
+  "card": "circle-match-iris",
+  "label_suffix": "",
+  "description": "Circle-center match iris cut: the iris bursts open from the center of a circular element on the page, and the circular chart on the new page inside the iris continues from the same circle; the match cut gives the iris a semantic anchor",
+  "use": ""
+ },
+ "cloner-depth-echo": {
+  "card": "cloner-depth-echo",
+  "label_suffix": "",
+  "description": "Cloner column: the main card instantly 'photocopies' 7 semi-transparent duplicates that line up in a diagonal depth column, hold for a beat, then all accelerate back into the original, merging with a bounce",
+  "use": ""
+ },
+ "cast-ensemble": {
+  "card": "collab-cursor-moves",
+  "label_suffix": "",
+  "description": "Collaborative cursors as actors: cast-ensemble, an ambient layer of five extra cursors (staggered fly-in + sine drift + typing cameo + gathering to watch)",
+  "use": "Ambient layer across the whole video for canvas/whiteboard products; background liveliness when you need 'others are here too' beyond the main content"
+ },
+ "countdown-arc-scatter": {
+  "card": "countdown-arc-scatter",
+  "label_suffix": "",
+  "description": "Nine equal-size numbers on a paper dial are laid out tangent to a large arc; the whole dial sweeps through 96° then decelerates to a hard stop, '5' stops at the top of the arc and then translates into place as the first character of the title, the other numbers disperse in place with blur, and the title fades in word by word with blur, the last word turning to the accent color",
+  "use": ""
+ },
+ "crane-rise-reveal": {
+  "card": "crane-rise-reveal",
+  "label_suffix": "",
+  "description": "Crane-rise reveal: opens tight on a single row of data, the camera rises along the Y axis with deceleration and pulls back, rows surge in until the whole dashboard fills the full frame",
+  "use": ""
+ },
+ "crash-zoom-punch": {
+  "card": "crash-zoom-punch",
+  "label_suffix": "",
+  "description": "A wide shot crash-zooms to the target close-up in one beat (6f), with a choice of landing: overshoot rebound (elasticity) or a hard stop with screen shake (weight)",
+  "use": ""
+ },
+ "cursor-flyover": {
+  "card": "cursor-flyover",
+  "label_suffix": "",
+  "description": "After an overhead view of the whole page, the camera flies in turn to four feature areas with zoom-in close-ups; an SVG cursor arrives a beat ahead to point, clicks leave ripples and trigger UI responses, and finally the camera pulls back to the overhead view",
+  "use": ""
+ },
+ "dataviz-landscape-open": {
+  "card": "dataviz-landscape-open",
+  "label_suffix": "",
+  "description": "Dark-field tributary-flow landscape opening: multiple streamlines merge into a main trunk, fictional ID labels float on the lines, and the camera flies over slowly with heavy depth of field",
+  "use": ""
+ },
+ "deck-deal-flyin": {
+  "card": "deck-deal-flyin",
+  "label_suffix": "",
+  "description": "Opens with an orbiting close-up of a physical card deck on a dark graphite tabletop; the light moves from the deck to the page board beside it, a stack of cards is flung into the grid with hard acceleration like a deal, and the camera chases the deal, rising and tilting back, to freeze on a runway-style overhead of the fully loaded board",
+  "use": ""
+ },
+ "multiplane": {
+  "card": "depth-layer-moves",
+  "label_suffix": "",
+  "description": "Layered depth camera move: a multi-layer parallax slider where 3 layers with a speed gradient slide sideways to create depth, and the hero lifts up as the slider settles",
+  "use": ""
+ },
+ "doc-park-left-pill-deal": {
+  "card": "doc-park-left-pill-deal",
+  "label_suffix": "",
+  "description": "The document does not fade out but slides left until only about 35% of its width shows and shrinks slightly to 0.92; on the right, three white outlined pills are dealt slowly to the narration rhythm (outBack spring-in), the subtitle beneath each one deepens word by word after it lands and fades out as a whole line before the next arrives, while the left document auto-scrolls very slowly throughout to stay 'being read'",
+  "use": ""
+ },
+ "document-typewriter-reveal": {
+  "card": "document-typewriter-reveal",
+  "label_suffix": "",
+  "description": "A fully typeset document window floating in a dark field 'writes' itself behind a cursor, the sidebar follows, history entries drop one by one into their track, and the camera pulls back from an angled title close-up to the full window",
+  "use": ""
+ },
+ "draw-svg-trace": {
+  "card": "draw-svg-trace",
+  "label_suffix": "",
+  "description": "Stroke-growth callout: an ink line with a pen tip runs once around an element's outline to 'draw' it; at the moment it closes it flashes black as a handoff and the content fades in; the same technique can draw an underline beneath a title",
+  "use": ""
+ },
+ "contact-shadow-lift": {
+  "card": "element-body-moves",
+  "label_suffix": "",
+  "description": "Element body feel: contact-shadow-lift, where a card lifts off the surface while its shadow on the table scales up and fades in sync, the shadow proving the paper has left the desk",
+  "use": "Calling out cards one by one for emphasis; off-surface setup for 2.5D sections"
+ },
+ "flying-words": {
+  "card": "flying-words",
+  "label_suffix": "",
+  "description": "22 keywords are laid out at the golden angle on a flat elliptical cross-section and fly along the z axis from far away to brush past the camera, with opacity following a [0,1,0.5,0.2,0] lifecycle curve, running exactly 2 full loops with a seamless start and end",
+  "use": ""
+ },
+ "fracture": {
+  "card": "fracture",
+  "label_suffix": "",
+  "description": "5×5 tiles reassemble from a 3D shattered state in rings by center ripple into a full poster, hold a beat while the text lights up, then all shards accelerate away from center, spinning out of frame",
+  "use": ""
+ },
+ "reticle-lock-on": {
+  "card": "fui-hud-moves",
+  "label_suffix": "",
+  "description": "FUI/HUD reticle lock: reticle-lock-on, a viewfinder made of four L-shaped corner marks flies in from off-screen, overshoots and rebounds, then snaps onto the target and locks",
+  "use": "Calling out a target; hitting a sound-effect downbeat"
+ },
+ "needle-sweep-selftest": {
+  "card": "gauge-readout-moves",
+  "label_suffix": "",
+  "description": "Needle outbound ~12f ease-out whipping to a full-arc sweep, return ~20f with a 5-8° overshoot swing-back settling on the true value; multiple gauges staggered 3-5f; the readout below the dial pops up on the same frame as settling",
+  "use": "Dashboard opening / system-ready ceremony"
+ },
+ "tape-scroll-fixed-pointer": {
+  "card": "gauge-readout-moves",
+  "label_suffix": "",
+  "description": "Long tick-mark tape translate: slow-crawl segment → 45px/f sprint for ~25f → spring brake with overshoot swing-back to a stop; the readout in the window refreshes in sync",
+  "use": "A single large metric jump (performance doubled / quota raised)"
+ },
+ "glass-pill-dictation-typing": {
+  "card": "glass-pill-dictation-typing",
+  "label_suffix": "",
+  "description": "A fixed-width glass pill pops in at about 1.25x size and eases down into place, with a layer of accent-color warm glow inside fading from light on the left to dense on the right; the cursor leads, then a dictated sentence types out at a constant rate, and the glow (along with the ambient light behind the pill) gradually recedes with typing progress, ending as a neutral frosted-glass bar",
+  "use": ""
+ },
+ "glitch-cycle": {
+  "card": "glitch-cycle",
+  "label_suffix": "",
+  "description": "A single row of monospace slots cycles through 4 status phrases; at the head and tail of each, a probability keyframe [1,0,0,0.1,0,0,1] fully scrambles the characters, with occasional single-character jitter in the middle, and the moment of switching adds RGB split and whole-row displacement; the last phrase's probability is set to 0 so the ending is clean",
+  "use": ""
+ },
+ "glow-orb-ambient": {
+  "card": "glow-flyline-moves",
+  "label_suffix": "",
+  "description": "Three 500-700px radial light blobs + blur(100px) drifting on dual sine waves; card-edge glow is driven by the weighted max of blob distance [180,720]px→[1,0]",
+  "use": "Base layer for dark-field sections; card breathing feel"
+ },
+ "flyline-arc": {
+  "card": "glow-flyline-moves",
+  "label_suffix": "",
+  "description": "Hand-written Bezier sampled at 100 segments, grown over 22f with out-cubic; a glowing head is conditionally mounted to lead, and segment opacity fades by distance from the head; the landing point gets an outline pulse and can hand off in relay",
+  "use": "Data flow direction / metric relationships; dashboard storytelling"
+ },
+ "orb-flyline-relay": {
+  "card": "glow-flyline-moves",
+  "label_suffix": "",
+  "description": "A+B welded: the blob surge and card pulse share the landing frame, brightening by 1+1.6×surge, rising over 5f and dissipating over 15f",
+  "use": "Dark-field highlight sections; closing with a three-card relay"
+ },
+ "gradient-transition": {
+  "card": "gradient-transition",
+  "label_suffix": "",
+  "description": "The background transitions smoothly between linear, radial and conic CSS gradients, interpolating angle, color stops, center and radius parameter by parameter, with cross-fades between segments to change the type",
+  "use": ""
+ },
+ "gradient-word-sweep": {
+  "card": "gradient-word-sweep",
+  "label_suffix": "",
+  "description": "On a black-background tagline, a keyword is swept quickly from left to right by a gradient light and 'charged up': characters at the wave front glow strongest and decay behind it; once filled, thin purple-red lightning links the characters and the whole word breathes with a steady glow",
+  "use": ""
+ },
+ "grain-dissolve": {
+  "card": "grain-dissolve",
+  "label_suffix": "",
+  "description": "A full line of text bursts into boiling grain noise and a diagonal-hatched selection box appears; the noise cloud rapidly condenses into a larger glowing short wordmark, and displacement decays to zero and freezes",
+  "use": ""
+ },
+ "graze-face-tour": {
+  "card": "graze-face-tour",
+  "label_suffix": "",
+  "description": "Steep-angle surface-hugging tour close-up: the camera flies low across the UI surface (sidebar tree / top bar / list as terrain), with page text initially hovering above the interface casting a matching soft shadow, then accelerating down onto the interface one after another as the camera advances",
+  "use": ""
+ },
+ "hashtag-to-pill-materialize": {
+  "card": "hashtag-to-pill-materialize",
+  "label_suffix": "",
+  "description": "Hashtag typing materializes: '#word' is typed at center (solid red cursor always lit), hard-cuts in 1 frame to a wide pill tag, and after a hold shrinks and moves left to land in the page's tag slot, then hard-cuts again in 1 frame to reveal the finished page; a rhythm skeleton of 'two hard cuts, one slide'",
+  "use": ""
+ },
+ "icon-field-colorize": {
+  "card": "icon-field-colorize",
+  "label_suffix": "",
+  "description": "A grid of grayscale small icons fades in with stagger to fill the full screen, holds a beat, then several brand-color horizontal bands ripple across and flip the whole field extremely fast from top to bottom; an opening/closing card for 'lay out the full feature landscape first, light up the brand in an instant'",
+  "use": ""
+ },
+ "attention-bounce": {
+  "card": "icon-performance-moves",
+  "label_suffix": "",
+  "description": "Icon performance: attention-bounce, an attention-seeking bounce (the icon jumps in increasing height with squash on landing, and the camera is drawn to it)",
+  "use": "Introducing a new feature: 'look at me' → camera looks at it → it opens a panel"
+ },
+ "hit-counter": {
+  "card": "impact-feedback",
+  "label_suffix": "Combo counter",
+  "description": "Three cards slam in one after another; each hit = 2f hit-stop + a damage number floating up + a ×N counter incrementing with escalating emphasis",
+  "use": "Rapid-fire feature-point segments, telling 'many features' through combos; strong gamification language"
+ },
+ "anime-impact": {
+  "card": "impact-feedback",
+  "label_suffix": "Impact frames",
+  "description": "3f of full-frame negative inversion + radial speed lines + red-cyan chromatic split on the crash-zoom hard stop, all removed on the 4th frame",
+  "use": "The single climactic punch of the whole video; the cap on emphasis level"
+ },
+ "integration-hub-map": {
+  "card": "integration-hub-map",
+  "label_suffix": "",
+  "description": "The old page flips 180° in one fast snap (edges flash bright instantly) to land as the new hub page, five integration app icons pop in on the same frame, then five rainbow light tubes all connect on the same frame, with pulses flowing continuously inside the tubes; 'turn a new page, the ecosystem plugs in all at once'",
+  "use": ""
+ },
+ "lead-word-zoom-assemble": {
+  "card": "lead-word-zoom-assemble",
+  "label_suffix": "",
+  "description": "The first word takes the center of the frame at 2.3x font size and keeps pushing in 6% during the hold; then a single curve simultaneously completes 'shrink back to final font size' and 'slide the whole line left into place', with each following word pushed in from 0.5em to the right of its slot; the pivot is pinned horizontally to the first word's center and vertically to the baseline (measured at mount), the subline surfaces in the same window as the line moves up, and after a beat the whole scene hands off with a crash-zoom push-in and defocus",
+  "use": ""
+ },
+ "letterspace-materialize": {
+  "card": "letterspace-materialize",
+  "label_suffix": "",
+  "description": "A wide-letter-spaced wordmark crystallizes by continuous parallel stroke drawing across all characters: all letters start on the same frame, strokes grow continuously like handwriting, and all close into the word on the same frame; the brand wordmark develops over an ambient background",
+  "use": ""
+ },
+ "spotlight-sweep": {
+  "card": "light-play-moves",
+  "label_suffix": "",
+  "description": "Two layers of the same text: the dark version stays at 0.07, the bright version follows the light spot via a radial mask, and after the cone of light swings back and forth twice it freezes fully lit",
+  "use": "Dark-field headline reveal opening"
+ },
+ "sheen-sweep": {
+  "card": "light-play-moves",
+  "label_suffix": "",
+  "description": "A 45° highlight band translateX sweeps once across a dark ink card, clipped by overflow hidden with rounded corners",
+  "use": "A single 'coronation' for the hero card during a still segment"
+ },
+ "line-carry-transition": {
+  "card": "line-carry-transition",
+  "label_suffix": "",
+  "description": "Line-relay lateral transition: scene A's progress bar extends out of frame, the camera tracks the line sideways, and while moving the line turns corners to frame scene B's card, with no cuts throughout",
+  "use": ""
+ },
+ "list-reveal": {
+  "card": "list-reveal",
+  "label_suffix": "",
+  "description": "6 items of a vertical menu scale into position one after another at 10f intervals with a soft back easing and slight overshoot, while the whole list container moves up at constant speed throughout; per-item entrance and overall drift are two unrelated layers of motion",
+  "use": ""
+ },
+ "list-stack-press": {
+  "card": "list-stack-press",
+  "label_suffix": "",
+  "description": "List cards fly up one by one from the bottom of the frame and pile up, each landing presses and bounces the whole stack while a counter ticks up one notch in sync",
+  "use": ""
+ },
+ "logo-shrink-wordmark-lockup": {
+  "card": "logo-shrink-wordmark-lockup",
+  "label_suffix": "",
+  "description": "A large neon cutout ring rapidly contracts into a small solid white O at center and swaps to the video-shotcraft mark as it overshoots and brakes, the icon slides left to make room, wordmark letters slide in one by one to complete the lockup, and an accent-color tagline closes",
+  "use": ""
+ },
+ "magician-card-flourish": {
+  "card": "magician-card-flourish",
+  "label_suffix": "",
+  "description": "On a midnight-blue dark field a blue starburst flashes for 0.3s (X-shaped needle beams rotating 90° + center glow radiating small flares), and a card shoots out from the flash point, flying toward the camera on an arc with extremely fast self-spin that decays as it approaches, then hard-freezing instantly (card height 86% of frame height), with a light pulse + sheen sweep, and the copy on the right reveals line by line afterward",
+  "use": ""
+ },
+ "marker-underline-title": {
+  "card": "marker-underline-title",
+  "label_suffix": "",
+  "description": "After the headline settles, a marker underline is quickly drawn from left to right beneath the keyword, with a variable-width nib, rough edges and a slight upward slant following the italic type, hugging the bottom of the text",
+  "use": ""
+ },
+ "mosaic-reframe": {
+  "card": "mosaic-reframe",
+  "label_suffix": "",
+  "description": "12 tiles morph continuously between three layouts (regular grid, feature mosaic, diagonal waterfall strings), with position, width and height each interpolated and slight per-tile stagger, and a hold between segments",
+  "use": ""
+ },
+ "neon-frame-forerun": {
+  "card": "neon-frame-forerun",
+  "label_suffix": "",
+  "description": "A strong-perspective right-angle neon frame draws from both ends of the left edge to take shape ahead of the page, and the page inside the frame goes from dark to light; at the same time the components/text inside the frame drop in from above in 3D with matching soft shadows, staggered, completing their landing in sync with the page lighting up, and the background neon cluster (in the demo, a depth echo tunnel of same-shape frames) goes out in the final segment to make way",
+  "use": ""
+ },
+ "neon-frame-orbit-drop": {
+  "card": "neon-frame-orbit-drop",
+  "label_suffix": "",
+  "description": "After the neon frame draws ahead, the camera rotates around the page on a left-to-right arc while all the page's components/text drop from the air and settle on the **same frame** (matching soft shadows converging in sync); an all-at-once entrance placement inside the frame",
+  "use": ""
+ },
+ "neon-triple-marquee": {
+  "card": "neon-triple-marquee",
+  "label_suffix": "",
+  "description": "Three-row counter-direction neon marquee recap: giant hollow neon-tube words in three-word chains fill top, middle and bottom rows across an obliquely shot brick wall, with odd and even rows scrolling horizontally in opposite directions at constant speed forever, the three rows lighting up in turn at 1/3 phase offsets, and powering off row by row at the end",
+  "use": ""
+ },
+ "orbit-ring-title-open": {
+  "card": "orbit-ring-title-open",
+  "label_suffix": "",
+  "description": "On a graphite dark field, eight 16:9 dark content cards evenly spaced at 45° revolve at constant speed on a 720×380 ellipse (card bodies never tilt; depth comes only from sin θ giving ±12% scale, z-order and dimming/defocus at the far side); while the ring spreads, card content is frozen on its first frame and all eight start playing together after f24; a centered two-level title deblurs and settles character by character, and the moment the keyword lands a highlighter block sweeps across from the left to fill it, the text inverting to ink where the block passes, then a mono subline surfaces; optionally in the final segment the whole line defocuses and fades out while the ring keeps turning to hand off to the next shot",
+  "use": ""
+ },
+ "outline-word-fill": {
+  "card": "outline-word-fill",
+  "label_suffix": "",
+  "description": "A hollow word (thin warm-gray outline, 500 weight) shrinks from 3.2x with a fast-then-slow ease and lands; a large dashed circle then contracts from 2.8x to surround the word and rotates slowly, with horizontal dashed lines extending inward from the frame edges left and right; the outline brightens slightly first, then the solid white-hot letters hard-cut on within a single frame, and one flash of glow freezes",
+  "use": ""
+ },
+ "outro-group-photo-launch": {
+  "card": "outro-group-photo-launch",
+  "label_suffix": "",
+  "description": "Elements from the whole video fly in from all sides to surround the wordmark in a group photo, with a crane landing at the camera position + stage light + gold dust making a launch-event closing",
+  "use": ""
+ },
+ "tilt-reveal": {
+  "card": "overhead-camera-moves",
+  "label_suffix": "",
+  "description": "Inside a perspective container the whole page lies flat at rotateX -80° and rises upright over ~43f, with rotateX/scale/translateY sharing out-cubic and a slight overshoot at the end",
+  "use": "Opening establishing shot; single subject"
+ },
+ "overhead-tabletop-drop": {
+  "card": "overhead-camera-moves",
+  "label_suffix": "",
+  "description": "A card array lies flat at rotateX 62°; the pan segment moves only translateX, sliding sideways past, and the drop segment runs angle/scale/offset channels together to dive into the final composition",
+  "use": "Pick one after a multi-page tour; works as either a transition or an opening"
+ },
+ "barn-door-split": {
+  "card": "page-turn-transitions",
+  "label_suffix": "",
+  "description": "Whole-page block transition: barn-door-split, a double-door curtain split (the old page splits in two and slides out, the new page rises to meet it)",
+  "use": "Old-to-new handoff: before/after a redesign, plan A → plan B"
+ },
+ "page-waterfall-wall": {
+  "card": "page-waterfall-wall",
+  "label_suffix": "",
+  "description": "Page waterfall wall: real page screenshots are cut into 3-4 columns and scroll endlessly in opposite directions at different speeds on a 3D reclined wall, with parallax + a slow camera push-in making an overview of 'so much content it never stops flowing'",
+  "use": ""
+ },
+ "comic-panel-split": {
+  "card": "panel-grid-moves",
+  "label_suffix": "",
+  "description": "Panel rhythm: comic-panel-split, diagonal comic panels cleave out three camera angles of the same subject, three panels freezing in click-click-click, then the last panel's diagonal edge consumes the screen into a poster",
+  "use": "Side-by-side multiple viewpoints of one subject; comic-flavored segments"
+ },
+ "paper-title-card": {
+  "card": "paper-title-card",
+  "label_suffix": "",
+  "description": "A sentence is stamped onto paper word by word, one word set in accent-color italic, closing with a short dash",
+  "use": ""
+ },
+ "picker-carousel-feature-cycle": {
+  "card": "picker-carousel-feature-cycle",
+  "label_suffix": "",
+  "description": "Mobile-style vertical picker: the focus pill stays still while content passes through it, each item snapping with a clear outQuint deceleration then coming fully to rest, with opacity/font size/grayscale layered by distance from center, and the pill taking a very light scaleY breath on settling",
+  "use": ""
+ },
+ "pill-chip-slot-cycle-handled": {
+  "card": "pill-chip-slot-cycle-handled",
+  "label_suffix": "",
+  "description": "In a white-background sentence 'Your `chip` Handled', the word inside the dark pill rotates on a vertical wheel, the pill width stretching and shrinking smoothly by interpolating pre-measured text widths so the text on both sides is naturally pushed apart and drawn back, with gray ghost items at 13% opacity showing above and below the pill",
+  "use": ""
+ },
+ "pill-slot-cycle": {
+  "card": "pill-slot-cycle",
+  "label_suffix": "",
+  "description": "In-sentence word slot cycling: the fixed sentence stem is pinned in place while the pill badge at the end rolls one notch like a slot machine every ~0.7s (the old one flies up accelerating and fading out, the new one slides in from below with blur), and after cycling through N feature words it settles into the complete sentence to close",
+  "use": ""
+ },
+ "ink-bleed-reveal": {
+  "card": "print-texture-transitions",
+  "label_suffix": "Ink-bleed reveal",
+  "description": "Print-texture transition: ink-bleed-reveal (whiskery bleeding edges spread and consume the old scene)",
+  "use": "Replacing old scene with new scene; handwritten feel, narrative tone"
+ },
+ "product-card-progressive-assemble": {
+  "card": "product-card-progressive-assemble",
+  "label_suffix": "",
+  "description": "A detail card builds itself as if being scraped field by field: a 'fill cursor' jumps ahead from cell to cell, image → title → category pill pop in one after another → the original price appears and is then struck through and demoted while the accent-color new price springs out → body text reveals line by line with a highlight block brushing left to right → color swatches light up → the button fills; the whole card pushes forward at a very slow scale throughout",
+  "use": ""
+ },
+ "quad-split-parallel-scenes": {
+  "card": "quad-split-parallel-scenes",
+  "label_suffix": "",
+  "description": "The picture hard-cuts to a 2×2 quad split, with the four quadrants each running their own micro-scene in parallel (typing, crash zoom, word by word, interaction chain), key beats offset by 3-6 frames to create an information barrage",
+  "use": ""
+ },
+ "radial-ripple-phone-chips": {
+  "card": "radial-ripple-phone-chips",
+  "label_suffix": "",
+  "description": "On a warm sand background four layers of concentric circles breathe out of phase like water ripples, the feed inside the central phone mockup's screen auto-scrolls slowly, and white chips on both sides spring-pop in one after another and hover",
+  "use": ""
+ },
+ "radial-wave": {
+  "card": "radial-wave",
+  "label_suffix": "",
+  "description": "A 17×9 dot array lights up with stagger by Euclidean distance to the wave source, each dot scale-overshooting to 1.5 then settling back to steady lit; after the first wave finishes sweeping, a second bright-blue pulse converges back to center from the outer ring in reverse",
+  "use": ""
+ },
+ "research-card-stack-scroll": {
+  "card": "research-card-stack-scroll",
+  "label_suffix": "",
+  "description": "Dark paper cards fly into the center one every 12 frames along a lower-right axis and stack up, landing with 1 frame of compression; only the top card is rendered fully sharp with title + authors + abstract, while cards below get progressively blurrier and darker with stack depth, showing only a title strip, and the background horizontal grid moves down in sync as a speed reference",
+  "use": ""
+ },
+ "jump-cut-punch-in": {
+  "card": "rhythm-interrupt-moves",
+  "label_suffix": "",
+  "description": "Rhythm interruption: jump-cut-punch-in, a three-step jump-cut push-in: the same composition hard-jumps larger three times with no tweening, closing in on the target level by level",
+  "use": "Closing in on a core metric level by level; documentary-style fixation"
+ },
+ "misregistration-hit": {
+  "card": "riso-print-hits",
+  "label_suffix": "Single hit",
+  "description": "Print misregistration impact frame: riso-misregistration-hit single shot: at the moment the title hard-stops it splits into two-color riso plates, shakes twice and registers into place with a 'pop'",
+  "use": "A hit-stamp used 1-2 times per video; the moment a title / large text lands"
+ },
+ "row-embed": {
+  "card": "row-embed",
+  "label_suffix": "",
+  "description": "A content row descends from the air like a card, flattens via rotateX, and at the moment of embedding a seam in the accent color lights along its bottom edge",
+  "use": ""
+ },
+ "sakuga-timing-shift": {
+  "card": "sakuga-timing-shift",
+  "label_suffix": "",
+  "description": "On threes to on ones: the element first moves in flipbook stutter at one step every 3 frames, then at the climax switches to a smooth frame-by-frame sprint; the frame-rate-quantized abrupt change is itself the point of interest",
+  "use": ""
+ },
+ "scan-bracket-sweep": {
+  "card": "scan-bracket-sweep",
+  "label_suffix": "",
+  "description": "A document pops up at center, L-shaped viewfinder brackets drop onto the four corners, and a scanning light band with a gradient trail sweeps back and forth over the document for 5 passes; the document stays still throughout and only the light reads it",
+  "use": ""
+ },
+ "scanline-annotate-focus": {
+  "card": "scanline-annotate-focus",
+  "label_suffix": "",
+  "description": "A scan line sweeps at constant speed from top to bottom over an already existing page; as it passes the lower edge of each block, that block is snapped onto by four-corner viewfinder brackets that spring inward from an expanded position (with one overshoot), then a machine label typed out character by character is attached, while the status line at the top counts 00/06→06/06 in sync",
+  "use": ""
+ },
+ "scanline-assemble-flyin": {
+  "card": "scanline-assemble-flyin",
+  "label_suffix": "",
+  "description": "The page opens as a blueprint artboard with only a grid and dashed slots, and a bright scan line sweeps from top to bottom; as it reaches each slot, that component flies in from off-screen, overshoots and snaps into place, with directional ghost-trail blur and a snap-in corner mark on landing, so the whole page is assembled exactly as the scan finishes",
+  "use": ""
+ },
+ "changelog-scroll-brake": {
+  "card": "scroll-brake-moves",
+  "label_suffix": "",
+  "description": "translateY sweeps ~2400px (out exp exponential deceleration over ~50f), with blur driven by the frame-to-frame displacement difference (0-6px, clearing automatically); the row at the stop point lifts with scale 1.03 + shadow + 3px outline, while the others fade to opacity 0.38",
+  "use": "Basic version of the changelog section"
+ },
+ "brake-reticle-lock": {
+  "card": "scroll-brake-moves",
+  "label_suffix": "",
+  "description": "Scroll in three stages: sin-in acceleration → cubic-out hard deceleration overshooting by +30px → rebound settling; blur=v×0.12 capped at 24px; corner marks fly in from off-screen at ±620/±320 with Easing.back(2.4) and snap on, the highlight completes within 6f, and the label pops out with back(2.6)",
+  "use": "Highlight sections where the stop point needs a stronger sense of impact"
+ },
+ "segmented-thumb-hero": {
+  "card": "segmented-thumb-hero",
+  "label_suffix": "",
+  "description": "The segmented control's thumb movement as hero close-up: an oversized pill segmented control springs in, an outlined arrow cursor slides in from off-screen and presses, the white thumb slides to the other segment with 8f ease-out, and at the moment it arrives the new icon springs out while the old icon retracts",
+  "use": ""
+ },
+ "flash-cut": {
+  "card": "shot-transitions",
+  "label_suffix": "Push-in white flash-cut",
+  "description": "The outgoing shot's camera pushes in, and the cut point straddles a layer of white flash that covers the page swap",
+  "use": "Page-to-page with interaction pass-through and similar energy (already in the library, folded in)"
+ },
+ "whip-pan": {
+  "card": "shot-transitions",
+  "label_suffix": "Whip pan",
+  "description": "The camera whips sideways in one beat to the next scene, with motion blur smearing the middle section to unrecognizable and the scene change hidden in the blurred frames",
+  "use": "Rapid-fire fast-paced feature segments (a light high-energy → high-energy option, saves frames and speeds up compared to style B)"
+ },
+ "mask-wipe": {
+  "card": "shot-transitions",
+  "label_suffix": "Window pass-through",
+  "description": "A real element on the page (a card) scales up into a full-screen window, and the new scene grows from inside the window and takes over",
+  "use": "Semantic seam: feature overview → that feature's detail ('open this card to enter its world')"
+ },
+ "kanada-perspective-snap": {
+  "card": "slam-entrance-moves",
+  "label_suffix": "",
+  "description": "perspective 300→1500px + rotate3d 58°→0 + scale 1.7→1 flung in over 18f, with a +5° overshoot flattening in the last 4f and the long slanted shadow straightening",
+  "use": "A single card's dashing debut; anime-leaning, light-hearted tone"
+ },
+ "score-slam": {
+  "card": "slam-entrance-moves",
+  "label_suffix": "",
+  "description": "The card slams down from scale 2.5 / rotate 5° over six frames of Easing.in(quad), with a ring burst + dust particles scattering + screen shake all on the landing frame",
+  "use": "Heavyweight number entrances like KPI/score"
+ },
+ "impact-burst-kit": {
+  "card": "slam-entrance-moves",
+  "label_suffix": "",
+  "description": "B's three-piece set + a shockwave front that sweeps neighbor cards on frames precisely computed from radius minus distance, with neighbor cards pushed out 30px + rotate ±3° and damped back",
+  "use": "'Whole-scene shake' when neighbors already exist on the page"
+ },
+ "exploded-view": {
+  "card": "space-camera-moves",
+  "label_suffix": "",
+  "description": "After the whole page tilts in 3D, components explode out along the Z axis with stagger and hover, then after a beat reassemble in reverse order with a screen shake to close",
+  "use": "Architecture/composition display: 'what's in this product'; module overview segments"
+ },
+ "drone-dive-landing": {
+  "card": "space-camera-moves",
+  "label_suffix": "",
+  "description": "Hover at a near-vertical high angle → plunge into a steep dive → air-cushion deceleration stopping on a hero card close-up",
+  "use": "Opening establishing shot → introducing the topic; chapter start where a global map slams into a single point"
+ },
+ "freeze-annotate": {
+  "card": "speed-ramp-freeze",
+  "label_suffix": "",
+  "description": "A rhythm technique using nonlinear frame-number remapping: freeze-frame annotation (flowing → freeze and circle callout → unfreeze)",
+  "use": ""
+ },
+ "spotlight-hero-card": {
+  "card": "spotlight-hero-card",
+  "label_suffix": "",
+  "description": "In a theater with the lights off, a tungsten spotlight (with volumetric light beam) sweeps across the page and locks onto one card; after an angled push-in the card pops up and hovers, a champagne-colored beam traces its outline twice, and it settles back into its original position together with the 3D annotations",
+  "use": ""
+ },
+ "glow-wake-sleep-panel": {
+  "card": "spotlight-sweep-moves",
+  "label_suffix": "",
+  "description": "Wake-and-sleep sweep: a radial reveal mask follows the light head moving left to right at constant speed, with a three-layer-glow purple light line along the top edge traveling with it, tracing light over the logo as it passes, lighting a vertical afterglow at the right edge, and in the final segment the panel sinks back into darkness",
+  "use": "Introducing a single UI panel in a dark-toned brand film: an entrance and exit that wakes and sleeps"
+ },
+ "slide-spotlight-pan": {
+  "card": "spotlight-sweep-moves",
+  "label_suffix": "",
+  "description": "Edge-hugging floodlight horizontal pan: the light first travels around the top-left vertical edge, then after the corner runs horizontally along the top edge, with purple glow bleeding into the inside of the UI's top; the spotlight head moves right at constant speed to reveal while the panel slides left at constant speed = the feel of a camera panning right",
+  "use": "Horizontal tour of wide panels / multi-column boards, lighting up feature areas section by section"
+ },
+ "corner-spotlight-reveal": {
+  "card": "spotlight-sweep-moves",
+  "label_suffix": "",
+  "description": "Constant-speed corner reveal: a radial spotlight from the top-left corner expands with a strictly linear radius, lit areas are revealed and unlit areas sink to black, and finally the full screen lights up; the light is the transition",
+  "use": "Black-field opening that lights up the interface for its entrance; light transition between sections"
+ },
+ "steep-tilt-glide": {
+  "card": "steep-tilt-glide",
+  "label_suffix": "",
+  "description": "With a fixed camera, an upright page stands sideways in 60° strong perspective (near on the right, far on the left), and the page itself slides along its own 3D horizontal axis past the camera (object moves, camera doesn't), the slide carrying velocity ghosting, text components hovering and then landing, and the page revealed from dark to light",
+  "use": ""
+ },
+ "stroke-segment-build": {
+  "card": "stroke-segment-build",
+  "label_suffix": "",
+  "description": "Broken strokes into words: the title is split into a dozen or so unconnected strokes that light up segment by segment in shuffled order, unreadable for the first 70%, and at the moment the final segment lands the meaning snaps into place with a 'pop'",
+  "use": ""
+ },
+ "glitch-displace": {
+  "card": "tear-streak-transitions",
+  "label_suffix": "",
+  "description": "Tear transition: glitch-displace, noise tearing (a hard cut in the middle of 16 horizontal strips jittering out of position), strip-level tearing with digital-glitch semantics",
+  "use": "Glitch/rupture semantics; a violent page swap before the climax"
+ },
+ "bullet-time-freeze-orbit": {
+  "card": "tension-camera-moves",
+  "label_suffix": "Freeze orbit",
+  "description": "A chart freezes entirely halfway through growing, the camera sweeps rotateY 55° around the suspended UI plane and back, then time resumes and the growth finishes",
+  "use": "Crowning moment for key data/charts; the one beat 'worth stopping the clock to look at'"
+ },
+ "pull-back-isolation": {
+  "card": "tension-camera-moves",
+  "label_suffix": "Pull-back isolation",
+  "description": "Pulling back from a close-up of the glowing main card, sibling cards go dark with stagger by distance and the background sinks to black, leaving the lone card suspended at the center of the dark field",
+  "use": "Closing; the curtain call of 'the whole video exists for this one number'"
+ },
+ "terminal-3d": {
+  "card": "terminal-3d",
+  "label_suffix": "",
+  "description": "Three terminal windows scattered through 3D space, the camera flies between windows with a sine pull-back along the way, and at each window a typewriter taps out a command and results slide out line by line; a spatial narrative flow of command execution",
+  "use": ""
+ },
+ "text-as-mask": {
+  "card": "text-as-mask",
+  "label_suffix": "",
+  "description": "Text as video mask: ultra-bold headline letters are cut out of a porcelain-white stage, with a dark live product panel panning slowly through the inside of the letters; at the end, after taking a breath, the letterforms scale up exponentially by 46x and overflow, and the picture inside takes over the full screen",
+  "use": ""
+ },
+ "text-column-converge": {
+  "card": "text-column-converge",
+  "label_suffix": "",
+  "description": "Two-word standoff converging: on the left 'NEW' and on the right a feature word, pinned at equal screen margins on either side and hard-cut rotating with zero shrinkage throughout; only on the last word, one single ease-in-out slide to center snaps them into a phrase, with small text below fading in almost as a hard cut; a closing reveal-type text card",
+  "use": ""
+ },
+ "theme-sweep-toggle": {
+  "card": "theme-switch-moves",
+  "label_suffix": "",
+  "description": "The dark version's clip-path polygon sweeps the scene with a 15° slanted edge (out poly3, fast then slow ~38f), the boundary carrying a 4px bright white line + 18px glow that fades out over 2f after the sweep; the dark version's scale 1→0.995→1 settles it",
+  "use": "Direct demonstration of a theme feature"
+ },
+ "palette-theme-ripple": {
+  "card": "theme-switch-moves",
+  "label_suffix": "",
+  "description": "Panel drops in with back(1.9) spring → typing character by character → on Enter the panel contracts to 0 with ease-in + a white highlight core pinned in place → a circular clip expands from radius 12→1250px with cubic-out, the edge carrying a 5px white ring with glow in both directions",
+  "use": "Highlight segment linking a command palette with theme switching"
+ },
+ "timeline-travel": {
+  "card": "timeline-travel",
+  "label_suffix": "",
+  "description": "Timeline lateral travel: the camera accelerates along a horizontal scale axis past version ticks, each card popping upright and pausing briefly as it passes a tick, with a hard stop and push-in at the final tick",
+  "use": ""
+ },
+ "title-demote-to-label": {
+  "card": "title-demote-to-label",
+  "label_suffix": "",
+  "description": "Two variants of demoting a big title to a section label: A, the big title develops at center and holds a beat, then continuously shrinks by 0.3x and translates to the top-left corner to settle as a small section label while the content area grows beneath it; B, the same routine but on entrance a text-selection highlight block sweeps in and is then removed",
+  "use": ""
+ },
+ "trailer-bumper": {
+  "card": "trailer-grammar-moves",
+  "label_suffix": "",
+  "description": "Trailer grammar, style one: trailer-bumper, a front-loaded fast-cut hook: three shots cut fast at 9f each + a beat of silence on black, then the opening title",
+  "use": "A hook before the main feature opens; cold open"
+ },
+ "invisible-cut": {
+  "card": "transition-hidden-cut",
+  "label_suffix": "Foreground-occlusion invisible cut",
+  "description": "An oversized card with heavy motion blur sweeps across the face, and within the occluded frames where the blur fills the whole screen the background hard-cuts A→B; the card flies out and the viewer thinks it is still the same shot",
+  "use": "Page-to-page where the scene change should leave no trace; the main option for faking a 'one take'"
+ },
+ "versus-slam": {
+  "card": "transition-hidden-cut",
+  "label_suffix": "Head-on collision opener",
+  "description": "Left and right halves of the screen with slanted edges accelerate in from off-screen and collide head-on; the impact frame has a white flash + screen shake + a VS stamp, and the cut point is the impact itself",
+  "use": "Opener or chapter header with comparison/versus semantics (old vs new plan, two products, before/after)"
+ },
+ "light-leak-burn": {
+  "card": "transition-hidden-cut",
+  "label_suffix": "Amber light leak",
+  "description": "Three soft amber lights sweep diagonally, and when the light peak frame has swallowed about seventy percent of the old page it hard-cuts to the new page; by the time the light recedes the new page is already in place",
+  "use": "Chapter transitions wanting a warm / film feel; softer than a white flash, with direction and warmth"
+ },
+ "letterform-zoom": {
+  "card": "transition-travel",
+  "label_suffix": "Letterform fly-through (letterform-zoom)",
+  "description": "Fly-through transition, letterform fly-through: the letterforms of a giant chapter title serve as a window, and the camera drills into the glyph strokes to complete the scene change",
+  "use": "Chapter title → body content; a high-energy alternative to style D's black-field text card"
+ },
+ "type-and-filter": {
+  "card": "type-and-filter",
+  "label_suffix": "",
+  "description": "Typing a search into a real UI, the grid converges by itself into a single card, and a click passes through into the detail page",
+  "use": ""
+ },
+ "split-text-stagger": {
+  "card": "type-assembly-moves",
+  "label_suffix": "Split rise",
+  "description": "Each character translateY(115%→0) inside an overflow box with 10% overshoot, delay i×2f, with the baseline growing in sync",
+  "use": "General default; crisp and rational"
+ },
+ "drift-assembly": {
+  "card": "type-assembly-moves",
+  "label_suffix": "Drift assembly",
+  "description": "Characters drift in from seeded directions of ±300px + blur 8px and settle into place with stagger, a deepening pulse on the lock frame, and after assembly the whole word breathes at 1.04",
+  "use": "Brand name / title-sequence-level debut"
+ },
+ "text-on-path": {
+  "card": "type-assembly-moves",
+  "label_suffix": "Flow along path",
+  "description": "Characters slide in single file along a Bezier curve (rotating to the tangent angle), then straighten to horizontal over 12f after arriving",
+  "use": "When the curve carries meaning (growth line / process line)"
+ },
+ "letter-drop-physics": {
+  "card": "type-entrance-moves",
+  "label_suffix": "Letter drop",
+  "description": "A title text entrance style: letter-drop-physics, characters dropping (gravity slam, bounce, settling crooked, with a final beat where all straighten up and snap into place together)",
+  "use": "Light-toned openers; a title icebreaker with a 'living thing' feel"
+ },
+ "font-weight-pump": {
+  "card": "type-rhythm-sync",
+  "label_suffix": "Weight pulse",
+  "description": "On the hit frame strokes instantly thicken (stroke + font-weight jump), decaying and springing back over ~10f; accented beats additionally widen by 8%",
+  "use": "Music-driven high-energy segments; the title as a subwoofer"
+ },
+ "karaoke-fill-sync": {
+  "card": "type-rhythm-sync",
+  "label_suffix": "Fill-along reading",
+  "description": "Each word fills dark from left to right, with progress following speech rate and holding once read; an underline with a reading pointer sits beneath the active word",
+  "use": "Narration / voice-over emphasis segments; guiding the eye through multi-word taglines"
+ },
+ "error-retype": {
+  "card": "typewriter-moves",
+  "label_suffix": "",
+  "description": "Typewriter error-retype: a three-act 'correcting yourself' play of deleting and retyping: types a mediocre word → hesitates → backspaces it → types the selling-point word faster",
+  "use": "The 'correcting yourself' beat on slogan cards; negation-style copy"
+ },
+ "ui-strip-away-outro": {
+  "card": "ui-strip-away-outro",
+  "label_suffix": "",
+  "description": "Subtractive outro: after clicking Publish, the whole editor UI evaporates layer by layer with stagger from the periphery to the center, leaving only that button on black, which slides to screen center and scales up, then fades out to hand off to the final wordmark lockup",
+  "use": ""
+ },
+ "icon-flip-bloom": {
+  "card": "ui-to-brand-morph",
+  "label_suffix": "",
+  "description": "Icon wobbles twice with anticipation → squashes along the Y axis via scaleX into a vertical line (double-layer trail + blur) → swaps solid at the thinnest point, spring-unfolds into the video-shotcraft 'Jingke' mark, with an amber slanted cut sweeping in as a second beat → mark moves left to make room, wordmark settles character by character",
+  "use": "Single-icon products; where the icon and logo differ greatly in form and need the magic of 'flip over and transform'"
+ },
+ "input-morph-assemble": {
+  "card": "ui-to-brand-morph",
+  "label_suffix": "",
+  "description": "Cursor clicks send → text flies away → the input box's x/y/w/h/r five values spring-interpolate into the mark's vertical frame → top and bottom bars and the amber slanted cut land one after another from a dashed construction box to assemble the 'Jingke' mark → moves left to make room, wordmark settles character by character",
+  "use": "Films where a rectangular UI like an input box/card is the main character; the logo can be broken down into a combination of geometric primitives"
+ },
+ "value-stagger-gradient": {
+  "card": "value-stagger-gradient",
+  "label_suffix": "",
+  "description": "As 16 bars enter, delay is the time stagger, while height/hue/offset/blur are each spread as a value gradient from first to last; on the second beat the stagger origin is switched to the center and the pulse amplitude is respread with the center as maximum",
+  "use": ""
+ },
+ "vertical-word-roll-blur-cycle": {
+  "card": "vertical-word-roll-blur-cycle",
+  "label_suffix": "",
+  "description": "The word at the end of the sentence becomes a vertical wheel, with 3 word changes of 0.55s each (70% outQuint + 30% outBack, fast at first then extremely slow with a slight overshoot), adjacent rows getting vertical blur and grayscale by distance, and the center word turning from gray to the accent color the moment it settles",
+  "use": ""
+ },
+ "voice-waveform-live": {
+  "card": "voice-waveform-live",
+  "label_suffix": "",
+  "description": "Recording-pill live waveform: 64 thin vertical bars rise and fall with 'speech', towering in the middle while speaking and shrinking to a dotted line during pauses, the waveform scrolling from right to left; a complete performance of speak → pause → speak → submit collapse",
+  "use": ""
+ },
+ "bento-light-up": {
+  "card": "wall-reveal-moves",
+  "label_suffix": "Cell-by-cell light-up",
+  "description": "A dark-field 3×2 bento wall stands dimmed by, an amber light stream traces each cell's outline one by one around once, after which the content brightens and floats up, and once all are lit the camera slowly pushes in to settle",
+  "use": "Solemn content / dark-field brand segments; steady-paced feature overviews"
+ },
+ "wireframe-draw-on": {
+  "card": "wall-reveal-moves",
+  "label_suffix": "Blueprint line-draw build",
+  "description": "The interface is first drawn group by group as an SVG thin-line blueprint, then a glowing amber vertical line sweeps left to right, and the wireframe solidifies into the real interface where it passes",
+  "use": "'From design to reality / from idea to product' narratives; a product's first full reveal"
+ },
+ "white-flash-logo-simplify-cut": {
+  "card": "white-flash-logo-simplify-cut",
+  "label_suffix": "",
+  "description": "A liquid-metal-textured colorful wordmark rests with flowing light, and after building up energy a white flash blows out from the center of the letters in an overexposure; as exposure falls back, the same position holds a flat version of the wordmark, one white flash completing the drop from textured to flat",
+  "use": ""
+ },
+ "blinds-slice": {
+  "card": "wipe-transitions",
+  "label_suffix": "",
+  "description": "Geometric wipe transition: blinds-slice, venetian-blind strips (12 3D slats flip with stagger into a wave, and once the wave sweeps through the whole page changes from A to B)",
+  "use": "Page-turn / push semantics; pages with a horizontal reading flow"
+ },
+ "word-relay-filmstrip": {
+  "card": "word-relay-filmstrip",
+  "label_suffix": "",
+  "description": "The left column of black-and-white alternating equal-height page cards scrolls in steps (focus card fully lit, neighbors defocused and dimmed) while a large serif word on the right relays in place (noun constant + verb rotating); it scrolls one notch only at the moment the word switches, with the word block's vertical center precisely aligned to the current page card's midpoint",
+  "use": ""
+ },
+ "word-relay-geometry": {
+  "card": "word-relay-geometry",
+  "label_suffix": "",
+  "description": "Three benefit words each carry their own geometric relay: a dashed large circle decelerating spin + a comet arc flying along → three solid-line circles trimming on in turn then contracting and clamping tight → a chrome-metal sheen sweeps through and a beat later settles to pure white; the old word shrinks to 0.86 and fades out, the new word reveals outline → fill",
+  "use": ""
+ }
+}

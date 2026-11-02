@@ -37,4 +37,6 @@ Or `npx 3d-product` (copies the skill to `~/.claude/skills/3d-product`), or copy
 
 ## Changes from upstream
 
-None. The repo's images (`assets/`), plugin manifests and `package.json` are left out.
+None to the upstream files. The repo's images (`assets/`), plugin manifests and `package.json` are left out.
+
+**Added in this repo (22 Oct 2026):** [`references/dsh-blender-modeling/`](references/dsh-blender-modeling/NOTES.md). This is a separate source (sixtysevenlf/dsh-blender-plugin, MIT, with its own LICENSE and NOTICE). It holds English translations of its general Blender reference (six pitfalls, a measured modifier-order table, a numeric gate table with plain-bpy helpers, render-cost and framing rules, Blender 5.2 API breaks), a three-view mm calibration script and an independent-verifier checklist, adapted for the Blender MCP server. `SKILL.md` does not reference them; point the agent at them when modelling or verifying.

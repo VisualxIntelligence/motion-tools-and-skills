@@ -1,6 +1,6 @@
 # Sources
 
-The repositories surveyed on 6 October 2026 (1–10) and 21 October 2026 (11–19), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
+The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19) and 22 October 2026 (20–26), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
 
 | # | Repository | What it is | Licence | Commit | In this repo |
 |---|---|---|---|---|---|
@@ -25,17 +25,26 @@ The repositories surveyed on 6 October 2026 (1–10) and 21 October 2026 (11–1
 | 18 | [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) | (#6, rechecked) | MIT | `0ac8bf2` | Unchanged since our copy |
 | 19 | X post by @beamnxw, "Motion Engineering with Opus 5.5: Build Launch Videos You Can Sell" | A post, not a repo | — | — | Not reachable for automated reading (X blocks it); not reviewed |
 
+| 20 | [img2threejs/img2threejs](https://github.com/img2threejs/img2threejs) | Reference image → code-only, rigged, quality-gated Three.js model | Apache-2.0 | `954cd58` | [`skills/img2threejs/`](skills/img2threejs/NOTES.md) (skill, forge scripts, grimoire, materials reference, prompts); vision integrations left upstream |
+| 21 | [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) | Remotion product-promo skill with 124 shot recipe cards | Apache-2.0; media mixed | `43bd349` | [`skills/video-shotcraft/`](skills/video-shotcraft/NOTES.md) (skill, cards, demos, components, capture, template; translated from Chinese); media in [`docs/reference-only.md`](docs/reference-only.md#4-third-party-material-inside-licensed-repos) |
+| 22 | [blendi-remade/dioramas](https://github.com/blendi-remade/dioramas) | Cinematic interactive 3D sites with AI-generated assets | MIT (© Blendi); assets CC BY 4.0 | `868539f` | [`starters/dioramas/`](starters/dioramas/NOTES.md) (core, asset and QA scripts, briefs, jobs, 4 examples; deterministic capture added) |
+| 23 | [sixtysevenlf/dsh-blender-plugin](https://github.com/sixtysevenlf/dsh-blender-plugin) | DeepSeek Harness × Blender plugin with a modelling skill | BSD-3-Clause; skill MIT (© sixtyseven67) | `55a9597` | [`skills/3d-product/references/dsh-blender-modeling/`](skills/3d-product/references/dsh-blender-modeling/NOTES.md) (translated Appendix A, calibration, verifier checklist); the rest in [`docs/reference-only.md`](docs/reference-only.md#8-dsh--blender-plugin--not-usable-from-claude-code) |
+| 24 | [MaxLiu22/Motion2MixamoRig](https://github.com/MaxLiu22/Motion2MixamoRig) | Video → motion on a Mixamo character | Apache-2.0 (own code); pipeline depends on non-commercial GVHMR and SMPL-X and AGPL YOLOv8 | `443b703` | [`tools/mixamo-retarget/`](tools/mixamo-retarget/NOTES.md) (numpy retarget core only); the pipeline in [`docs/reference-only.md`](docs/reference-only.md#9-motion2mixamorig-pipeline--non-commercial-dependencies) |
+| 25 | [mcncarl/jianying-headless](https://github.com/mcncarl/jianying-headless) | Headless editing and export of Chinese Jianying drafts | **Personal, non-commercial** | `27c2627` | Reference only: [`docs/reference-only.md`](docs/reference-only.md#7-jianying-headless--non-commercial-licence) |
+| 26 | [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) | (#12, rechecked) | MIT | `49052d8` | Unchanged since our copy |
+
 Repos 13–15 were found through athemeroy's resource list (#7), which checked their licences on 11 October; we checked them again on 21 October.
 
 ## What was left out, and why
 
-- **Repos with no licence (1, 4, 8, 16):** nothing copied. Their useful ideas are described in our own words, with upstream paths, in [`docs/reference-only.md`](docs/reference-only.md).
+- **Repos with no licence (1, 4, 8, 16) or a non-commercial one (25):** nothing copied. Their useful ideas are described in our own words, with upstream paths, in [`docs/reference-only.md`](docs/reference-only.md).
 - **Third-party content inside licensed repos:** creator prompts (2, 7), a lyric video quoting a commercial song and a personal portfolio reel (10), the Clawd character design (6, 10, 13), and the song, lyrics and lyric-quoting scenes of a music video (11). Also in [`docs/reference-only.md`](docs/reference-only.md#4-third-party-material-inside-licensed-repos).
+- **Code that only runs with non-commercial or AGPL models (24), or only inside another agent host (23):** described in [`docs/reference-only.md`](docs/reference-only.md), not copied.
 - **Size:** media (films, GIFs, stills, audio, models, HDRIs, sample packs, fonts), `node_modules` and lockfiles.
 
 ## Dependencies pulled in by the copied code (not stored here)
 
-p5.js (LGPL-2.1), p5.brush (MIT), three.js (MIT), GSAP, d3 (ISC), opentype.js (MIT), puppeteer-core and playwright-core (Apache-2.0), Vite (MIT), Python numpy, scipy, Pillow, soundfile, soxr, librosa, pedalboard, demucs, torch and torchaudio, kokoro-onnx, edge-tts, faster-whisper, numba; Ruby excon, rake; system ffmpeg, ImageMagick, Chrome or Chromium, Blender; optionally DaVinci Resolve Studio and OctaneRender (commercial) for `3d-product`.
+p5.js (LGPL-2.1), p5.brush (MIT), three.js (MIT), GSAP, d3 (ISC), opentype.js (MIT), puppeteer-core and playwright-core (Apache-2.0), Vite (MIT), Python numpy, scipy, Pillow, soundfile, soxr, librosa, pedalboard, demucs, torch and torchaudio, kokoro-onnx, edge-tts, faster-whisper, numba; Ruby excon, rake; system ffmpeg, ImageMagick, Chrome or Chromium, Blender; Remotion (its own licence: free for individuals, companies of up to 3 people and non-profits, otherwise a paid Company Licence), React (MIT), postprocessing (Zlib), n8ao (ISC), Lenis (MIT), Rapier (Apache-2.0), gltf-transform (MIT), meshoptimizer (MIT), sharp (Apache-2.0), @fal-ai/client (MIT), Playwright (Apache-2.0), GSAP (GSAP Standard no-charge licence); optionally DaVinci Resolve Studio and OctaneRender (commercial) for `3d-product`.
 
 ## Updating from upstream
 

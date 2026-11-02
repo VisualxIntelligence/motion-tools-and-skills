@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Abyssal — Descend eleven thousand metres</title>
+  <meta name="description" content="A private deep-ocean expedition house. Three guests per dive to the bottom of the Challenger Deep in the titanium submersible Pelagia.">
+  <meta name="theme-color" content="#02070c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 28 28%22%3E%3Crect width=%2228%22 height=%2228%22 rx=%226%22 fill=%22%2302070c%22/%3E%3Ccircle cx=%2214%22 cy=%2210%22 r=%225.5%22 fill=%22none%22 stroke=%22%233fd6c9%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M14 15.5V22%22 stroke=%22%233fd6c9%22 stroke-width=%221.6%22/%3E%3Ccircle cx=%2214%22 cy=%2223.2%22 r=%221.6%22 fill=%22%233fd6c9%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="scope" aria-hidden="true">
+      <i class="scope-sweep"></i><i class="scope-ring r1"></i><i class="scope-ring r2"></i><i class="scope-ring r3"></i>
+      <b class="scope-blip"></b>
+      <span class="scope-pct"><em>000</em>%</span>
+    </div>
+    <p class="loader-title mono">Pelagia · pre-dive checks</p>
+    <ol class="checks mono">
+      <li data-at="0.18"><span>Ballast trim</span><b>—</b></li>
+      <li data-at="0.42"><span>Life support · 16 h</span><b>—</b></li>
+      <li data-at="0.66"><span>Floodlight array</span><b>—</b></li>
+      <li data-at="0.9"><span>Surface acoustic link</span><b>—</b></li>
+    </ol>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Abyssal home">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="9" r="6.2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M14 15.2V24" stroke="currentColor" stroke-width="1.3"/><circle cx="14" cy="25.2" r="1.5" fill="currentColor"/><path d="M8.6 9h10.8" stroke="currentColor" stroke-width="1" opacity=".5"/></svg>
+      <span>Abyssal</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#dates">Dives</a>
+      <a href="#pelagia">Pelagia</a>
+      <a href="#twilight">Science</a>
+      <a href="#book">Book</a>
+    </nav>
+    <div class="nav-end">
+      <button class="sound mono" type="button" aria-pressed="false" data-cursor="link"><i></i><span>Sound off</span></button>
+      <a class="btn btn-solid" href="#book" data-magnetic>Reserve a seat</a>
+    </div>
+  </header>
+
+  <!-- The instrument: travels down the rail as you descend -->
+  <aside class="gauge" aria-label="Depth gauge">
+    <div class="rail">
+      <ol class="rail-zones mono" aria-hidden="true">
+        <li style="--p:0"><span>Epipelagic</span><b>0</b></li>
+        <li style="--p:.2"><span>Mesopelagic</span><b>200</b></li>
+        <li style="--p:.4"><span>Bathypelagic</span><b>1,000</b></li>
+        <li style="--p:.6"><span>Abyssopelagic</span><b>4,000</b></li>
+        <li style="--p:.8"><span>Hadopelagic</span><b>6,000</b></li>
+        <li style="--p:1"><span>Challenger Deep</span><b>10,935</b></li>
+      </ol>
+      <div class="rail-fill"></div>
+      <div class="mark"><div class="mark-body">
+        <p class="mark-label mono"><span class="mark-zone">Epipelagic</span><span class="mark-time">T+ 0:00:00</span></p>
+        <div class="odo" aria-hidden="true"></div>
+        <p class="sr-only depth-sr" aria-live="off">0 metres</p>
+        <dl class="reads mono">
+          <div><dt>Temp</dt><dd><b class="r-temp">27.0</b> °C</dd></div>
+          <div><dt>Press</dt><dd><b class="r-press">1</b> atm</dd></div>
+          <div><dt>Light</dt><dd><b class="r-light">100</b> %</dd></div>
+        </dl>
+      </div></div>
+    </div>
+  </aside>
+
+  <ol class="divelog mono" aria-label="Dive log"></ol>
+  <div class="hint mono" aria-hidden="true"><span class="hint-a"><i class="chev"></i>Scroll to descend</span><span class="hint-b"><span class="hint-mouse"><kbd>Move</kbd> steer floodlights <kbd>Fast</kbd> stir plankton <kbd>Click</kbd> sonar ping</span><span class="hint-touch"><kbd>Drag</kbd> steer &amp; stir <kbd>Tap</kbd> sonar ping</span></span></div>
+  <div class="toast mono" role="status"></div>
+  <div class="tags" aria-hidden="true"></div>
+  <div class="hotspots" aria-hidden="true"></div>
+
+  <main>
+    <section class="stage hero" id="top" data-station="0">
+      <div class="hero-copy">
+        <p class="eyebrow mono">Challenger Deep · 11°22′N 142°35′E · three guests per dive</p>
+        <h1><span class="l"><span>The last unexplored</span></span> <span class="l"><span>place on Earth is</span></span> <span class="l"><span><em>11 km down.</em></span></span></h1>
+        <p class="sub">Abyssal takes three guests at a time to the deepest point of the ocean, in a titanium submersible built for nothing else. The round trip is nine hours. Four of them are spent on the floor.</p>
+        <div class="cta">
+          <a class="btn btn-solid" href="#book" data-magnetic>Reserve a seat</a>
+          <a class="btn btn-ghost" href="#sunlight" data-magnetic>Begin the descent <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="stage zone left" id="sunlight" data-station="1">
+      <article class="zone-card">
+        <header><span class="mono">Zone 01 / 05</span><span class="mono">0 — 200 m</span></header>
+        <h2>Sunlight <em>Epipelagic</em></h2>
+        <p class="lede">The first two hundred metres hold most of the ocean's life and all of its sunlight. Pelagia leaves the A-frame at 06:40 and falls through it in three minutes. Look up while you can: the surface is a moving ceiling of light, and you will not see anything like it for the next nine hours.</p>
+        <dl class="stats mono">
+          <div><dt>Temperature</dt><dd>27 → 19 °C</dd></div>
+          <div><dt>Pressure</dt><dd>1 → 21 atm</dd></div>
+          <div><dt>Light</dt><dd>100 → 1 %</dd></div>
+          <div><dt>Elapsed</dt><dd>0:00 → 0:03</dd></div>
+        </dl>
+        <p class="see"><span class="mono">You'll see</span>Chambered nautilus rising from their daytime depth, bait balls of bigeye scad, and caustics sliding over the hull.</p>
+      </article>
+    </section>
+
+    <section class="stage zone left" id="twilight" data-station="2">
+      <article class="zone-card">
+        <header><span class="mono">Zone 02 / 05</span><span class="mono">200 — 1,000 m</span></header>
+        <h2>Twilight <em>Mesopelagic</em></h2>
+        <p class="lede">Red is the first colour the water takes from you. By 300 m Pelagia's orange hull reads as wet slate; by 600 m everything is one shade of blue. This is where animals start making their own light. At 750 m the floodlights come on, and colour comes back with them.</p>
+        <dl class="stats mono">
+          <div><dt>Temperature</dt><dd>19 → 4 °C</dd></div>
+          <div><dt>Pressure</dt><dd>21 → 100 atm</dd></div>
+          <div><dt>Light</dt><dd>1 → 0 %, blue only</dd></div>
+          <div><dt>Elapsed</dt><dd>0:03 → 0:17</dd></div>
+        </dl>
+        <p class="see"><span class="mono">You'll see</span>Atolla and crown jellies pulsing blue alarms, lanternfish on their nightly climb, the last grey trace of the sun.</p>
+      </article>
+    </section>
+
+    <section class="stage zone left" id="midnight" data-station="3">
+      <article class="zone-card">
+        <header><span class="mono">Zone 03 / 05</span><span class="mono">1,000 — 4,000 m</span></header>
+        <h2>Midnight <em>Bathypelagic</em></h2>
+        <p class="lede">No sunlight has ever reached this water. The only light down here is made by the living, and most of it is bait. An anglerfish can wait months for a meal; she lets the lure do the hunting. Keep the floodlights moving. She is closer than she looks.</p>
+        <dl class="stats mono">
+          <div><dt>Temperature</dt><dd>4 → 1.5 °C</dd></div>
+          <div><dt>Pressure</dt><dd>100 → 398 atm</dd></div>
+          <div><dt>Light</dt><dd>None, ever</dd></div>
+          <div><dt>Elapsed</dt><dd>0:17 → 1:07</dd></div>
+        </dl>
+        <p class="see"><span class="mono">You'll see</span>Humpback anglerfish, vampire squid, and marine snow — the slow fall of everything that died above you.</p>
+      </article>
+    </section>
+
+    <section class="stage zone left" id="abyss" data-station="4">
+      <article class="zone-card">
+        <header><span class="mono">Zone 04 / 05</span><span class="mono">4,000 — 6,000 m</span></header>
+        <h2>Abyss <em>Abyssopelagic</em></h2>
+        <p class="lede">The abyssal plain looks empty until it doesn't. On the trench lip at 4,970 m a black smoker vents water at 380 °C, kept liquid by the pressure. Around it grow tube worms with no mouth and no gut, fed by bacteria that eat sulphur. Life, it turns out, never needed the sun.</p>
+        <dl class="stats mono">
+          <div><dt>Temperature</dt><dd>1.5 °C · vent 380 °C</dd></div>
+          <div><dt>Pressure</dt><dd>398 → 596 atm</dd></div>
+          <div><dt>Light</dt><dd>Vent glow only</dd></div>
+          <div><dt>Elapsed</dt><dd>1:07 → 1:40</dd></div>
+        </dl>
+        <p class="see"><span class="mono">You'll see</span>Giant tube worms, vent crabs, mussel beds, and water shimmering as it leaves the chimney.</p>
+      </article>
+    </section>
+
+    <section class="stage zone left" id="hadal" data-station="5">
+      <article class="zone-card">
+        <header><span class="mono">Zone 05 / 05</span><span class="mono">6,000 — 10,935 m</span></header>
+        <h2>Hadal <em>Hadopelagic</em></h2>
+        <p class="lede">Named for Hades. Until 2019, more people had walked on the Moon than had stood here. The pressure is over seven tonnes on every square inch of the sphere, and the silt is so fine it hangs in the lights like smoke. We touch down beside Beacon 07, still pinging on the spot where we first landed.</p>
+        <dl class="stats mono">
+          <div><dt>Temperature</dt><dd>1.5 → 2.4 °C</dd></div>
+          <div><dt>Pressure</dt><dd>596 → 1,086 atm</dd></div>
+          <div><dt>Bottom time</dt><dd>4 h</dd></div>
+          <div><dt>Elapsed</dt><dd>1:40 → 3:02</dd></div>
+        </dl>
+        <p class="see"><span class="mono">You'll see</span>Amphipods the length of your hand, sea cucumbers walking on the silt, and the deepest footprint on the planet: yours.</p>
+      </article>
+    </section>
+
+    <section class="stage pelagia" id="pelagia" data-station="6">
+      <div class="pelagia-copy">
+        <p class="eyebrow mono">The vessel</p>
+        <h2>Pelagia</h2>
+        <p class="lede">Four people, one titanium sphere, and a hull built around the idea that nothing should need to go right for you to come home.</p>
+        <dl class="specs mono">
+          <div><dt>Crew</dt><dd>1 pilot + 3 guests</dd></div>
+          <div><dt>Rated depth</dt><dd>11,000 m, full ocean</dd></div>
+          <div><dt>Descent</dt><dd>1.0 m/s · 3 h 02 min</dd></div>
+          <div><dt>Length / mass</dt><dd>4.6 m · 11.8 t</dd></div>
+          <div><dt>Dives completed</dt><dd>61</dd></div>
+        </dl>
+        <div class="hs-detail" aria-live="polite"><p class="mono"><span class="hs-d-num">01</span> · <span class="hs-d-sub"></span></p><h3 class="hs-d-title"></h3><p class="hs-d-text"></p></div>
+      </div>
+    </section>
+
+    <section class="stage book" id="book" data-station="7">
+      <div class="glass">
+        <p class="eyebrow mono">Expedition 2027</p>
+        <h2>One dive. Three seats. <em>Eleven kilometres.</em></h2>
+        <div class="price-row">
+          <div class="price">
+            <p class="mono">Per seat, all-inclusive from Guam</p>
+            <b>US$ 750,000</b>
+          </div>
+          <ul class="incl">
+            <li><span>Nine days aboard the support ship <i>Halcyon</i>, from Apra Harbor</span></li>
+            <li>Two training dives to 1,000 m before the full descent</li>
+            <li>Four hours on the floor of the Challenger Deep</li>
+            <li>Every external camera, in 8K, delivered on the voyage home</li>
+            <li>A vial of hadal silt, engraved with your coordinates</li>
+          </ul>
+        </div>
+        <table class="dates mono" id="dates">
+          <thead><tr><th>Window</th><th>Dates</th><th>Swell forecast</th><th>Seats</th></tr></thead>
+          <tbody>
+            <tr><td>CD-27·01</td><td>08 — 19 Feb 2027</td><td>0.8 m</td><td><span class="seats"><i class="on"></i><i></i><i></i></span> 1 left</td></tr>
+            <tr><td>CD-27·02</td><td>05 — 16 Apr 2027</td><td>1.1 m</td><td><span class="seats"><i class="on"></i><i class="on"></i><i class="on"></i></span> 3 left</td></tr>
+            <tr class="full"><td>CD-27·03</td><td>06 — 17 Dec 2027</td><td>1.4 m</td><td><span class="seats"><i></i><i></i><i></i></span> Waitlist</td></tr>
+          </tbody>
+        </table>
+        <div class="book-cta"><a class="btn btn-solid" href="#surface" data-magnetic>Request a seat</a><p class="mono">A refundable deposit of 10% holds your seat. Medical and a pool session in Guam are the only requirements.</p></div>
+      </div>
+    </section>
+
+    <section class="stage crew" id="crew" data-station="8">
+      <div class="glass">
+        <p class="eyebrow mono">Crew &amp; safety</p>
+        <h2>Every system has two backups. <em>The third is gravity.</em></h2>
+        <div class="crew-grid">
+          <article><span class="mono">Chief pilot</span><h3>Ines Marlow</h3><p>212 dives, 31 to full ocean depth. Twelve years in submarine rescue before this. Speaks very little on the way down, and all of it is useful.</p></article>
+          <article><span class="mono">Sphere &amp; systems</span><h3>Kenji Aoba</h3><p>Designed Pelagia's life-support loop and still inspects every O-ring on the sphere hatch himself, twice, with the ship's clocks stopped.</p></article>
+          <article><span class="mono">Hadal biologist</span><h3>Dr. Adaeze Okafor</h3><p>Has described four species of amphipod and will name, on the intercom, everything that moves in the lights. Bring questions.</p></article>
+        </div>
+        <ul class="safety mono">
+          <li><b>3</b><span>independent ways up: drop weights, jettisonable batteries, and a corrodible link that frees the ballast on its own after 24 h</span></li>
+          <li><b>96 h</b><span>of emergency life support behind the 16 h mission loop</span></li>
+          <li><b>2 min</b><span>between acoustic check-ins with the surface, the whole way down</span></li>
+          <li><b>61 / 0</b><span>dives completed / incidents</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="stage foot" id="surface" data-station="9">
+      <div class="foot-inner">
+        <p class="eyebrow mono">10,935 m · 1,086 atm · you are here</p>
+        <h2 class="foot-title">Surface.</h2>
+        <button class="btn btn-solid ascend" type="button" data-magnetic>Begin the ascent <span aria-hidden="true">↑</span></button>
+        <div class="foot-cols mono">
+          <p>Abyssal Expeditions<br>Apra Harbor, Guam<br>hello@abyssal.expeditions</p>
+          <p>Dive season: Dec — May<br>Next window: 08 Feb 2027</p>
+          <nav aria-label="Footer"><a href="#dates">Dives</a><a href="#pelagia">Pelagia</a><a href="#twilight">Science</a><a href="#book">Book</a></nav>
+        </div>
+        <p class="fine mono">A fictional expedition house · Part of Twenty Worlds</p>
+      </div>
+    </footer>
+  </main>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
