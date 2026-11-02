@@ -50,6 +50,21 @@ The agent cannot watch a video, but it can read images. Every strong pipeline ma
 | Speech-to-text back-check | TTS that mispronounces or skips words; gives word timestamps | `tools/lemo-core/core/tts/asr_check.py` |
 | Visual hit vs music cue | Hits that land off the beat (reports milliseconds) | `tools/lemo-core/tools/cuecheck.py` |
 | Final file | Loudness and blank frames | ffmpeg `ebur128` and `blackdetect` |
+| Same frame in any seek order; no clocks, randomness or CSS animation | Pages that drift or flicker between renders | `skills/motion-designer/scripts/check.mjs` |
+| On-screen QA: text collisions on glyph ink, clipping, contrast, minimum type size, dead air, handoffs, SVG draw-ons | Data cards and straps that fail when the numbers change | `skills/opus-visual-motion-engine/scripts/qa.mjs` (DOM text only) |
+| A tile 0.3 s after every beat in `timeline.json` | A text still animating when it should be held; beats with nothing on screen | `skills/claude-motion/scripts/sheet.mjs` |
+| Sound against picture in the final MP4 | Hits off the beat (±100 ms) and startling jumps (> +6 dB) | `tools/sync-check/sync-check.mjs`; `skills/claude-motion/scripts/wave.mjs` draws it |
+| Transparent output | Alpha that isn't there; text outside title safe; a painted background | `skills/lower-thirds/scripts/render.mjs --check` |
+
+**Which checker for what.**
+- **Determinism and seek order:** `check.mjs`.
+- **What is on screen (text, contrast, size, timing gaps):** `qa.mjs`.
+- **Settled state at each beat, by eye:** `sheet.mjs`, or `render.mjs --sheet` for chosen times.
+- **Reading time:** `readcheck.mjs`.
+- **Sound against picture:** `sync-check.mjs` on the MP4, or `cuecheck.py` on the score.
+- **Alpha deliveries:** the lower-thirds `--check`.
+
+Pick the ones the job needs rather than running everything.
 
 **A jury with calibrated scores.** `starters/mg-styles-15/rubric.md` is a ready prompt for the independent reviewer: extract sheets and strips, check the spec numbers, score seven dimensions against fixed anchors (5 = student, 7 = solid professional, 8 = high-end agency, 9 = award shortlist; "most first renders deserve 5–7"), then 5–10 fixes with timecodes and numbers, at least one aimed at the wow factor. Its second prompt feeds the review back for a revision round; the 15 films there went through two rounds.
 
@@ -64,6 +79,8 @@ The agent cannot watch a video, but it can read images. Every strong pipeline ma
 - **Find cuts by content, not by seconds.** The pdoom-video edit places each scene at "the last beat before the first word of this line" (*(ref)* `timeline.ts`). Cuts written that way survive a re-timed or re-aligned song.
 - **One timeline drives everything.** Picture, score, sound effects, subtitles and the cue check all read the same cue file, so a hit lands on its frame (`skills/kinetic-reel/template/reel/cues.js` feeds both `reel.js` and `music/score.mjs`; lemo's `timeline.js`).
 - **Model the viewer.** For each shot, write the "reads": what the viewer should understand, and from when to when. One read at a time; fast actions, slow meanings. The worked example at the end of `skills/painted-animation/template/ANIMATION_GUIDE.md` is the best short training text on this in any of the repos.
+- **Hold on whole beats.** When a scene needs a longer hold, add whole beats, never fractions, so every later cue stays on the grid (`skills/motion-designer`'s `film({BPM, BEATS, holds})`); cut music to whole bars with `music_edit.py`.
+- **Let the voice drive presenter graphics.** Transcribe with word timings and land each figure on the spoken word, with structure leading by about 6 frames (`skills/talking-head-b-roll/`).
 - **Transitions always.** Every shot names how it leaves (the *Out* column in a storyboard). Catalogues: `skills/kinetic-reel/references/style-guide.md` (shape-continuity transitions), the brush wipe and iris in the painted-animation core.
 
 ## 5. Sound
@@ -96,6 +113,17 @@ The agent cannot watch a video, but it can read images. Every strong pipeline ma
 - **House styles that survive updates.** Lemo's `MY-STYLES.md` (`docs/guides/lemo-opuscar/`) turns a library style into a named style of your own outside the library, with a style frame and a 15–30 s test film. The route to a channel graphics package.
 - **Credit honestly.** Record what the agent wrote and what produced the pixels and sound (athemeroy's main finding is that many "one-shot" videos relied on prebuilt skills, assets or many revisions).
 
+## Arabic and right-to-left text
+
+Rules for Arabic (and other right-to-left) text in HTML, GSAP, HyperFrames and Three.js text layers. They are paraphrased from the Arabic-text guide in Remotion's own skills, which has no licence file in its public mirror, and our benchmark's EN/AR test checks them.
+
+- **Direction and language.** Set `dir="rtl"` and `lang="ar"` on the container. Without them, word spans laid out inline run the sentence backwards.
+- **Mixed text.** Decide a line's direction by counting right-to-left words, not by its first character; a line that starts with a number or a brand name is still Arabic.
+- **Animate by word, not by letter.** Splitting Arabic into single characters breaks the joining between letters, so a SplitText `chars` reveal must not be used on Arabic.
+- **If a per-letter effect is unavoidable.** Keep each letter with its diacritics (harakat), keep lam-alef together as one unit, and add zero-width joiners (U+200D) around each unit so the joins survive.
+- **Shaping and digits.** Let the browser shape the text (HTML, or SVG text) rather than a 3D text mesh that does not shape it. Decide per show between Western and Eastern Arabic digits, and keep tabular figures for counters.
+- **Reading time.** Arabic needs its own value in a reading-time check; `readcheck.mjs` defaults are set for Latin and CJK.
+
 ## Writing video prompts
 
 Patterns behind the strongest prompts in the two video collections ([`../prompts/video-prompts/`](../prompts/video-prompts/)):
@@ -117,11 +145,11 @@ Patterns behind the strongest prompts in the two video collections ([`../prompts
 
 | Our tool | Most useful from this repo |
 |---|---|
-| HyperFrames / Three.js + GSAP | `tools/headless-render/` (review sheets, strips, GPU probe); `skills/kinetic-reel/` (three.js layers, post pass, transitions, synth score); `starters/mg-styles-15/` (15 worked films, `renderAt(t)` harness with sub-frame blur, jury rubric); `starters/pdoom-video-engine/` (adaptive motion blur, 4K, HDR post); `prompts/film-styles/` (look and motion rules); lemo `readcheck` and `mux.sh`; `skills/video-shotcraft/references/shots/` (shot cards as timing and easing specs); `skills/img2threejs/` (a photo → code-built, animatable Three.js object; `docs/materials/` PBR reference); `starters/dioramas/` (volumetrics, reflections, post stack, image → 3D assets, deterministic capture of live-clock pages) |
+| HyperFrames / Three.js + GSAP | `tools/headless-render/` (review sheets, strips, GPU probe); `skills/kinetic-reel/` (three.js layers, post pass, transitions, synth score); `starters/mg-styles-15/` (15 worked films, `renderAt(t)` harness with sub-frame blur, jury rubric); `starters/pdoom-video-engine/` (adaptive motion blur, 4K, HDR post); `prompts/film-styles/` (look and motion rules); lemo `readcheck` and `mux.sh`; `skills/video-shotcraft/references/shots/` (shot cards as timing and easing specs); `skills/img2threejs/` (a photo → code-built, animatable Three.js object; `docs/materials/` PBR reference); `starters/dioramas/` (volumetrics, reflections, post stack, image → 3D assets, deterministic capture of live-clock pages); `skills/hyperframes-motion-reel/` (HyperFrames rules: one paused timeline on `window.__timelines`, beat grid, pitfalls); `skills/motion-design-principles/` (durations, stagger and choreography before code); `skills/opus-visual-motion-engine/` (`qa.mjs`); `skills/motion-designer/` (`check.mjs`, overlay mode); `docs/guides/iart-motion-fundamentals/` (easing library, beat maths, grids, OKLCH, GSAP diagram recipes, GLSL cookbook); `docs/guides/howseen-motion-design/` (GSAP seek trick, cut seams, caption timing) |
 | Remotion | `skills/video-shotcraft/` (124 shot cards with tuned Remotion components, the Ink Press template, page capture and the 2.5D `PageCam`, beat sync, final review; needs a Remotion Company Licence for organisational use); the same review loop and prompt patterns; `prompts/video-prompts/` (Remotion is the most-named stack in the collections) |
 | Blender | `skills/3d-product/` (the full product-film pipeline: modelling from drawings, sets, light, compositions, Cycles or Octane, overnight render supervisor, measured gates); `starters/mg-styles-15/demos/04-3d-render/blender/` (a bpy scene, simulation and render script, with type and grain added on top in a web page); `tools/tidewater-asset-pipeline/blender/` (FBX → GLB retarget and NLA bake, glTF decimation); `skills/3d-product/references/dsh-blender-modeling/` (modelling pitfalls, modifier order, numeric gates, framing by projection, Blender 5.2 API breaks, three-view calibration, verifier checklist); `tools/mixamo-retarget/` (joints → Mixamo GLB without Blender) |
 | Unreal | `prompts/film-styles/` (camera grammar, motion quality, pitfalls sections translate to Sequencer work) |
 | ComfyUI / video models | `skills/motion-graphics-music-video/references/prompts.md` (identity sheets; character on green, world in code; prompt order) |
-| Audio | `tools/song-analysis/` (stems, per-instrument onsets, envelopes, lyric timing); `starters/mg-styles-15/lib/audio/` (mgaudio recipes and sync-point SFX); `tools/lemo-core/core/audio/`, `tts/`; `skills/kinetic-reel/template/music/score.mjs`; `beat_grid.py`, `beats.py` |
-| News and documentary explainers | `prompts/film-styles/` Evidence Films (satellite, archive light table, briefing board, white model, data physicalization); `skills/video-production-skills/` (evidence-linked script, explainer-motion brief, caption timing, release QA); `docs/research/athemeroy/evidence-examples.md` |
+| Audio | `tools/song-analysis/` (stems, per-instrument onsets, envelopes, lyric timing); `starters/mg-styles-15/lib/audio/` (mgaudio recipes and sync-point SFX); `tools/lemo-core/core/audio/`, `tts/`; `skills/kinetic-reel/template/music/score.mjs`; `beat_grid.py`, `beats.py`; `skills/motion-designer/scripts/` (`beats.py`, `music_edit.py` to whole bars); `tools/sync-check/`; `skills/claude-motion/` (cue sheet from `timeline.json`, `wave.mjs`) |
+| News and documentary explainers | `prompts/film-styles/` Evidence Films (satellite, archive light table, briefing board, white model, data physicalization); `skills/video-production-skills/` (evidence-linked script, explainer-motion brief, caption timing, release QA); `docs/research/athemeroy/evidence-examples.md`; `skills/lower-thirds/` (alpha straps for the edit); `skills/talking-head-b-roll/` (presenter graphics timed to the voice); `docs/guides/news-insert-rules/` (never restate the voiceover; article-excerpt card); the Arabic-text rules above |
 | WebGPU / real-time ocean and sky | `starters/tidewater-webgpu-fx/` |

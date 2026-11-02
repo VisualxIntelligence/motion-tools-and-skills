@@ -1,6 +1,6 @@
 # Sources
 
-The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19) and 22 October 2026 (20–26), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
+The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19) and 22 October 2026 (20–26, and a fourth pass 27–55), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
 
 | # | Repository | What it is | Licence | Commit | In this repo |
 |---|---|---|---|---|---|
@@ -14,7 +14,6 @@ The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19) 
 | 8 | [diggerhq/shipvideo](https://github.com/diggerhq/shipvideo) | Paste a URL, Opus 5.5 writes an HTML launch video | **None** | `53d7c6f` | Reference only: [`docs/reference-only.md`](docs/reference-only.md#3-shipvideo-launchvideo--no-licence) |
 | 9 | [makevoid/motion-graphics-music-video-skill](https://github.com/makevoid/motion-graphics-music-video-skill) | Song in, motion-graphics music video out | MIT (© makevoid) | `759ba6a` | [`skills/motion-graphics-music-video/`](skills/motion-graphics-music-video/NOTES.md) |
 | 10 | [tuzhechen2005/opus-video-skills](https://github.com/tuzhechen2005/opus-video-skills) | One Claude Code skill per video style | MIT (© tuzhechen2005; template parts © John Heibel) | `59744a6` | [`skills/kinetic-reel/`](skills/kinetic-reel/NOTES.md), [`skills/painted-animation/`](skills/painted-animation/NOTES.md) |
-
 | 11 | [mexicat/pdoom-video](https://github.com/mexicat/pdoom-video) | A code-rendered music video (three.js) with word-synced typography | MIT (© Giacomo Magnanini); song, lyrics and lyric data excluded | `fa164b7` | [`tools/song-analysis/`](tools/song-analysis/NOTES.md), [`starters/pdoom-video-engine/`](starters/pdoom-video-engine/NOTES.md); scenes and treatment in [`docs/reference-only.md`](docs/reference-only.md#5-pdoom-video--third-party-song-material) |
 | 12 | [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) | 15 motion-design styles, one 10 s film each, with prompts and source | MIT (© Vincentwei1021); samples, HDRI and photos CC0 or public domain | `49052d8` | [`starters/mg-styles-15/`](starters/mg-styles-15/NOTES.md) (prompts, rubric, template, harness, mgaudio, demo source) |
 | 13 | [francozanardi/papermotion](https://github.com/francozanardi/papermotion) | A paper-cutout animation engine built for agents | MIT (© Franco Zanardi) | `433e7ce` | [`starters/papermotion/`](starters/papermotion/NOTES.md) |
@@ -32,6 +31,35 @@ The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19) 
 | 24 | [MaxLiu22/Motion2MixamoRig](https://github.com/MaxLiu22/Motion2MixamoRig) | Video → motion on a Mixamo character | Apache-2.0 (own code); pipeline depends on non-commercial GVHMR and SMPL-X and AGPL YOLOv8 | `443b703` | [`tools/mixamo-retarget/`](tools/mixamo-retarget/NOTES.md) (numpy retarget core only); the pipeline in [`docs/reference-only.md`](docs/reference-only.md#9-motion2mixamorig-pipeline--non-commercial-dependencies) |
 | 25 | [mcncarl/jianying-headless](https://github.com/mcncarl/jianying-headless) | Headless editing and export of Chinese Jianying drafts | **Personal, non-commercial** | `27c2627` | Reference only: [`docs/reference-only.md`](docs/reference-only.md#7-jianying-headless--non-commercial-licence) |
 | 26 | [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) | (#12, rechecked) | MIT | `49052d8` | Unchanged since our copy |
+| 27 | [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) | Motion decisions before animation code | MIT (© LottieFiles) | `f9a8a04` | [`skills/motion-design-principles/`](skills/motion-design-principles/NOTES.md) |
+| 28 | [iart-ai/lower-thirds-skills](https://github.com/iart-ai/lower-thirds-skills) | Transparent lower thirds, ProRes 4444 / VP9 alpha | MIT (© iart.ai) | `aa8ef7e` | [`skills/lower-thirds/`](skills/lower-thirds/NOTES.md) |
+| 29 | [Lob0Garou/opus-visual-motion-engine](https://github.com/Lob0Garou/opus-visual-motion-engine) | Gated HTML motion pipeline with automated render QA | MIT (© Yuri Queiroz Lobo) | `6e73321` | [`skills/opus-visual-motion-engine/`](skills/opus-visual-motion-engine/NOTES.md); `PROVENANCE.md` and the brand reel left out |
+| 30 | [kaventro/motion-designer](https://github.com/kaventro/motion-designer) | Code films with a determinism gate, beat clock and overlay mode | MIT (© kaventro); example media mixed | `7d0b8bb` | [`skills/motion-designer/`](skills/motion-designer/NOTES.md); 94 MB of examples and media left out |
+| 31 | [iart-ai/b-roll-skills](https://github.com/iart-ai/b-roll-skills) | Talking-head b-roll from word timings | MIT (© iart.ai) | `a51e34b` | [`skills/talking-head-b-roll/`](skills/talking-head-b-roll/NOTES.md) |
+| 32 | [whaleyxbt/claude-motion](https://github.com/whaleyxbt/claude-motion) | Remotion toolkit: taste, review loop, sound | MIT (© whaleyxbt) | `e627941` | [`skills/claude-motion/`](skills/claude-motion/NOTES.md) (4 skills renamed, 2 scripts) |
+| 33 | [Sunwood-ai-labs/hyperframes-motion-reel-skill](https://github.com/Sunwood-ai-labs/hyperframes-motion-reel-skill) | Beat-locked reels in HyperFrames | MIT (© Sunwood AI Labs) | `be78681` | [`skills/hyperframes-motion-reel/`](skills/hyperframes-motion-reel/NOTES.md) (translated from Japanese) |
+| 34 | [iart-ai/javascript-animation-skills](https://github.com/iart-ai/javascript-animation-skills) | Canvas films and a code soundtrack | MIT (© iart.ai) | `f7d0882` | [`tools/sync-check/`](tools/sync-check/NOTES.md); storyboard and QC docs in [`docs/guides/iart-motion-fundamentals/`](docs/guides/iart-motion-fundamentals/NOTES.md) |
+| 35 | [howseen-ai/claude-motion-design](https://github.com/howseen-ai/claude-motion-design) | Field rules for code-made films | MIT (© Howseen AI) | `3d90d34` | [`docs/guides/howseen-motion-design/`](docs/guides/howseen-motion-design/NOTES.md) |
+| 36 | [iart-ai/motion-design-skills](https://github.com/iart-ai/motion-design-skills) | Nine motion-design skills | MIT (© iart.ai) | `3c129f7` | Five skills or files in [`docs/guides/iart-motion-fundamentals/`](docs/guides/iart-motion-fundamentals/NOTES.md) |
+| 37 | [iart-ai/explainer-video-skills](https://github.com/iart-ai/explainer-video-skills) | Five explainer skills | MIT (© iart.ai) | `3e2d411` | `diagram-animation`, `isometric-animation` in [`docs/guides/iart-motion-fundamentals/`](docs/guides/iart-motion-fundamentals/NOTES.md) |
+| 38 | [iart-ai/webgl-animation-skills](https://github.com/iart-ai/webgl-animation-skills) | Three WebGL skills | MIT (© iart.ai) | `50697d6` | `glsl-cookbook.md` in [`docs/guides/iart-motion-fundamentals/`](docs/guides/iart-motion-fundamentals/NOTES.md) |
+| 39 | [charlie947/motion-graphics-skills](https://github.com/charlie947/motion-graphics-skills) | 15 launch and social skills | MIT (© Charlie Hills) | `229022e` | `motion-effects`, `animated-chart` in [`docs/guides/charlie947-motion-effects/`](docs/guides/charlie947-motion-effects/NOTES.md) |
+| 40 | [Liamrjohnston/remotion-motion-graphics-skill](https://github.com/Liamrjohnston/remotion-motion-graphics-skill) | Remotion inserts for AI-product videos | MIT (© Promptible); logos third-party | `b860c79` | Three files in [`docs/guides/news-insert-rules/`](docs/guides/news-insert-rules/NOTES.md) |
+| 41 | [frankxai/awesome-motion-design-agent-skills](https://github.com/frankxai/awesome-motion-design-agent-skills) | Curated list + 5 skills | CC0-1.0 | `b45d60f` | Token and rubric files in [`docs/guides/motion-tokens/`](docs/guides/motion-tokens/NOTES.md) |
+| 42 | [dylantarre/animation-principles](https://github.com/dylantarre/animation-principles) | 144 skills from Disney's 12 principles | MIT (© Dylan Tarre) | `8359713` | Two files in [`docs/guides/disney-principles-applied/`](docs/guides/disney-principles-applied/NOTES.md) |
+| 43 | [remotion-dev/skills](https://github.com/remotion-dev/skills) | Remotion's own skills | **No licence file** | `039e8a2` | Reference only (already installed); Arabic rules paraphrased in [`docs/techniques.md`](docs/techniques.md#arabic-and-right-to-left-text) |
+| 44 | [siyuanfeng636-cpu/agentic-motion-graphics](https://github.com/siyuanfeng636-cpu/agentic-motion-graphics) | Voice-timed HyperFrames pipeline (demo write-up) | MIT | `a0f146b` | Reference only: [`docs/reference-only.md`](docs/reference-only.md#10-fourth-survey-reviewed-not-copied) |
+| 45 | [iart-ai/map-animation-skills](https://github.com/iart-ai/map-animation-skills) | Editorial map animation | MIT (© iart.ai) | `390ca98` | Reference only |
+| 46 | [iart-ai/data-animation-skills](https://github.com/iart-ai/data-animation-skills) | Chart and infographic animation | MIT (© iart.ai) | `8ce2709` | Reference only |
+| 47 | [haidrrrry/claude-remotion-skill](https://github.com/haidrrrry/claude-remotion-skill) | Remotion motion-graphics skill | MIT | `1dcbe5e` | Reference only |
+| 48 | [greensock/gsap-skills](https://github.com/greensock/gsap-skills) | Official GSAP skills | MIT (© GreenSock) | `aed9cfd` | Not copied (already installed) |
+| 49 | [freshtechbro/claudedesignskills](https://github.com/freshtechbro/claudedesignskills) | Web 3D and animation plugins | MIT | `1da73fe` | Not copied |
+| 50 | [199-biotechnologies/motion-dev-animations-skill](https://github.com/199-biotechnologies/motion-dev-animations-skill) | Motion.dev UI animation | MIT | `3feedfb` | Not copied |
+| 51 | [iart-ai/motion-skills](https://github.com/iart-ai/motion-skills) | Index of 18 iart packs | MIT (© iart.ai) | `bb5a3ce` | Not copied |
+| 52 | [iart-ai/kinetic-typography-skills](https://github.com/iart-ai/kinetic-typography-skills) | Kinetic type | MIT (© iart.ai) | `fccc94b` | Not copied |
+| 53 | [iart-ai/web-animation-skills](https://github.com/iart-ai/web-animation-skills) | Web UI animation | MIT (© iart.ai) | `b6dba3e` | Not copied |
+| 54 | [wilwaldon/Claude-Code-Video-Toolkit](https://github.com/wilwaldon/Claude-Code-Video-Toolkit) | A README of video tools | **No licence file** | `a6e9e52` | Not copied; leads in [`docs/reference-only.md`](docs/reference-only.md#11-leads-not-yet-reviewed) |
+| 55 | [tuzhechen2005/opus-video-skills](https://github.com/tuzhechen2005/opus-video-skills) | (#10, rechecked) | MIT | `59744a6` | Unchanged since our copy |
 
 Repos 13–15 were found through athemeroy's resource list (#7), which checked their licences on 11 October; we checked them again on 21 October.
 
@@ -40,6 +68,7 @@ Repos 13–15 were found through athemeroy's resource list (#7), which checked t
 - **Repos with no licence (1, 4, 8, 16) or a non-commercial one (25):** nothing copied. Their useful ideas are described in our own words, with upstream paths, in [`docs/reference-only.md`](docs/reference-only.md).
 - **Third-party content inside licensed repos:** creator prompts (2, 7), a lyric video quoting a commercial song and a personal portfolio reel (10), the Clawd character design (6, 10, 13), and the song, lyrics and lyric-quoting scenes of a music video (11). Also in [`docs/reference-only.md`](docs/reference-only.md#4-third-party-material-inside-licensed-repos).
 - **Code that only runs with non-commercial or AGPL models (24), or only inside another agent host (23):** described in [`docs/reference-only.md`](docs/reference-only.md), not copied.
+- **Promotion:** iart.ai's closing "Built by iart.ai" lines and its upsell paragraph, author-promotion instructions, sponsor and creator watermarks (27–55).
 - **Size:** media (films, GIFs, stills, audio, models, HDRIs, sample packs, fonts), `node_modules` and lockfiles.
 
 ## Dependencies pulled in by the copied code (not stored here)
