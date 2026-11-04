@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Compounding b-roll</title>
+<!-- One family per <link>, with the weights you draw in. Nothing else is loaded. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=block">
+<style>
+  html, body { margin: 0; height: 100%; background: #111; }
+  body { display: grid; place-items: center; font: 13px system-ui, sans-serif; color: #ccc; }
+  #stage { position: relative; width: min(96vw, calc(88vh * var(--ar))); aspect-ratio: var(--ar); }
+  #stage video, #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  #bar { position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%); background: #000c; padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
+  #scrub { position: fixed; left: 2vw; right: 2vw; bottom: 34px; height: 14px; background: #333; cursor: pointer; }
+  #scrub span { position: absolute; top: 0; bottom: 0; }
+  #scrub i { position: absolute; top: -3px; bottom: -3px; width: 2px; background: #fff; }
+</style>
+</head>
+<body>
+<div id="stage"><video playsinline preload="auto"></video><canvas></canvas></div>
+<div id="scrub"></div>
+<div id="bar">space: play/pause (with sound) · ←/→: 1 s (shift: 1 frame) · click the bar to jump · F: face box</div>
+<script>
+// ─── The recording (from transcribe.mjs) ─────────────────────────────────────
+const VIDEO = 'talk.mp4';
+const W = 1920, H = 1080;
+const FPS = 25, DURATION = 43.04;
+
+// Head and hair, read from stills at 1 s, 20 s and 40 s (she sits centred and barely moves).
+const FACE = [0.37, 0.07, 0.65, 0.74];
+
+// ─── The plan ────────────────────────────────────────────────────────────────
+//  0.00– 3.35  A  "Here's why starting early matters more than starting big. Say you put"
+//  3.35– 7.86  B  the setup builds on a card: $10,000 · grows 7% a year · never touch it
+//  7.86–17.84  C  the compound curve over 30 years, stopping at $19,700 / $38,700 / $76,000 as she says them
+// 17.84–22.06  A  "Now compare that to simple interest…"
+// 22.06–28.42  C  same chart: the simple-interest line to $31,000, same start, then the gap: more than double
+// 28.42–31.48  A  "There's a shortcut for this called the Rule of 72."
+// 31.48–38.76  C  72 ÷ growth rate ≈ years to double, then 72 ÷ 7 ≈ 10 years
+// 38.76–43.04  A  closing line
+const SCENES = [
+  { from: 3.35, to: 7.86, kind: 'overlay', draw: setupCard },
+  { from: 7.86, to: 17.84, kind: 'cover', draw: growthChart },
+  { from: 22.06, to: 28.42, kind: 'cover', draw: compareChart },
+  { from: 31.48, to: 38.76, kind: 'cover', draw: ruleOf72 },
+];
+
+// ─── Look ────────────────────────────────────────────────────────────────────
+const LOOK = {
+  display: 'Fraunces', body: 'Inter',
+  paper: '#f6f3ee', ink: '#1b1d22', soft: '#6f7178', grid: '#e2dcd1',
+  accent: '#1d7a52', simple: '#c4683a',
+};
+const FONTS = ['600 Fraunces', '500 Inter', '700 Inter'];
+
+// ─── Machinery (keep) ────────────────────────────────────────────────────────
+const params = new URLSearchParams(location.search);
+const SCALE = Number(params.get('scale')) || 1;
+document.documentElement.style.setProperty('--ar', W / H);
+const canvas = document.querySelector('canvas');
+canvas.width = Math.round(W * SCALE); canvas.height = Math.round(H * SCALE);
+const ctx = canvas.getContext('2d');
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, p) => a + (b - a) * p;
+const ease = {
+  out: t => 1 - Math.pow(1 - t, 3),
+  inOut: t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+  in: t => t * t * t,
+  back: t => { const c = 1.4; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); },
+};
+// progress of a move that starts at `start` seconds and lasts `len`, eased
+const move = (t, start, len, fn = ease.out) => fn(clamp((t - start) / len));
+// the largest font size (≤ max) at which `text` fits in `width`
+function fit(text, weight, family, max, width) {
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+  let s = max; ctx.font = `${weight} ${s}px "${family}"`;
+  while (s > 8 && ctx.measureText(text).width > width) { s -= 1; ctx.font = `${weight} ${s}px "${family}"`; }
+  return s;
+}
+// the side of the frame away from the face, for overlays: 'left' or 'right'
+const awaySide = () => (FACE[0] + FACE[2]) / 2 > 0.5 ? 'left' : 'right';
+const fmt = n => Math.round(n).toLocaleString('en-US');
+
+// ─── The b-roll ──────────────────────────────────────────────────────────────
+// Times below are absolute seconds in the video (word starts from transcript.json); T = s.from + t.
+const font = (w, size, fam) => `${w} ${Math.round(size)}px "${fam}"`;
+const show = (T, at, len = 0.45) => move(T, at, len);          // 0 → 1 from a word's start
+
+function wipe(s) {                                              // a cover slides up in and down out
+  const p = Math.min(s.in, s.out);
+  ctx.beginPath(); ctx.rect(0, H * (1 - p), W, H * p); ctx.clip();
+  ctx.fillStyle = LOOK.paper; ctx.fillRect(0, 0, W, H);
+}
+
+// B · 3.35–7.86 · "Say you put $10,000 somewhere, it grows 7% a year, and you never touch it."
+function setupCard(t, s) {
+  const T = s.from + t;
+  const x = W * 0.045, w = W * 0.27, y = H * 0.14;
+  const a = Math.min(s.in, s.out);
+  const h = 216 + 84 * ease.out(show(T, 4.86)) + 74 * ease.out(show(T, 6.67));
+  ctx.globalAlpha = a;
+  ctx.fillStyle = LOOK.paper; ctx.shadowColor = 'rgba(0,0,0,.18)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 8;
+  ctx.beginPath(); ctx.roundRect(x, y + (1 - s.in) * 24, w, h, 20); ctx.fill();
+  ctx.shadowColor = 'transparent';
+  const L = x + 44, oy = (1 - s.in) * 24;
+  ctx.textBaseline = 'alphabetic';
+  // $10,000
+  ctx.fillStyle = LOOK.soft; ctx.font = font(700, 22, LOOK.body);
+  ctx.letterSpacing = '3px'; ctx.fillText('YOU PUT IN', L, y + 70 + oy); ctx.letterSpacing = '0px';
+  ctx.fillStyle = LOOK.ink; ctx.font = font(600, 104, LOOK.display); ctx.fillText('$10,000', L, y + 176 + oy);
+  // grows 7% a year
+  const g = show(T, 4.86);
+  ctx.globalAlpha = a * g;
+  const gy = y + 250 + oy + (1 - g) * 14;
+  ctx.fillStyle = LOOK.accent; ctx.beginPath(); ctx.roundRect(L, gy - 40, 108, 54, 27); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.font = font(700, 32, LOOK.body); ctx.fillText('+7%', L + 20, gy - 2);
+  ctx.fillStyle = LOOK.ink; ctx.font = font(500, 34, LOOK.body); ctx.fillText('a year', L + 128, gy - 2);
+  // never touch it
+  const n = show(T, 6.67);
+  ctx.globalAlpha = a * n;
+  const ny = y + 330 + oy + (1 - n) * 14;
+  ctx.fillStyle = LOOK.soft; ctx.font = font(500, 32, LOOK.body); ctx.fillText('and never touch it', L, ny);
+  ctx.globalAlpha = 1;
+}
+
+// The chart shared by both chart covers: $10,000 at 7% a year, 0–30 years.
+const PX0 = 230, PX1 = 1460, PY0 = 930, PY1 = 250, YMAX = 80000;
+const px = yr => PX0 + (PX1 - PX0) * yr / 30, py = v => PY0 - (PY0 - PY1) * v / YMAX;
+const compound = yr => 10000 * Math.pow(1.07, yr), simple = yr => 10000 + 700 * yr;
+
+function axes(title) {
+  ctx.fillStyle = LOOK.ink; ctx.font = font(600, 54, LOOK.display); ctx.textBaseline = 'alphabetic';
+  ctx.fillText(title, PX0, 150);
+  ctx.strokeStyle = LOOK.grid; ctx.lineWidth = 2;
+  ctx.fillStyle = LOOK.soft; ctx.font = font(500, 26, LOOK.body);
+  for (const v of [0, 20000, 40000, 60000, 80000]) {
+    ctx.beginPath(); ctx.moveTo(PX0, py(v)); ctx.lineTo(PX1, py(v)); ctx.stroke();
+    ctx.textAlign = 'right'; ctx.fillText(v ? '$' + v / 1000 + 'k' : '$0', PX0 - 20, py(v) + 9);
+  }
+  ctx.textAlign = 'center';
+  for (const yr of [0, 10, 20, 30]) ctx.fillText(yr ? yr + ' yrs' : 'start', px(yr), PY0 + 48);
+  ctx.textAlign = 'left';
+}
+function line(fn, upTo, color, width) {
+  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineJoin = ctx.lineCap = 'round';
+  ctx.beginPath();
+  for (let yr = 0; yr <= upTo + 1e-6; yr += 0.25) { const X = px(Math.min(yr, upTo)), Y = py(fn(Math.min(yr, upTo))); yr ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }
+  ctx.lineTo(px(upTo), py(fn(upTo))); ctx.stroke();
+}
+function dot(x, y, color, r = 11) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); }
+function valueLabel(x, y, big, small, color, p, align = 'right') {
+  if (p <= 0) return;
+  ctx.globalAlpha = p; ctx.textAlign = align; ctx.textBaseline = 'alphabetic';
+  const k = ease.back(p);
+  ctx.fillStyle = color; ctx.font = font(600, 52 * (0.85 + 0.15 * k), LOOK.display); ctx.fillText(big, x, y);
+  ctx.fillStyle = LOOK.soft; ctx.font = font(500, 26, LOOK.body); ctx.fillText(small, x, y + 36);
+  ctx.globalAlpha = 1; ctx.textAlign = 'left';
+}
+
+// C · 7.86–17.84 · "After 10 years, about $19,700. After 20 years, about $38,700, after 30 years, about $76,000."
+const MILES = [[10, 10.06, '$19,700'], [20, 13.25, '$38,700'], [30, 16.11, '$76,000']];
+function growthChart(t, s) {
+  const T = s.from + t;
+  wipe(s);
+  axes('$10,000 growing 7% a year');
+  // the curve runs to each milestone as she says its year, and stops on its amount
+  const knots = [[0, 8.3], [10, 10.06], [20, 13.25], [30, 16.11]];
+  let yr = 0;
+  for (let i = 1; i < knots.length; i++) {
+    const [y0, t0] = knots[i - 1], [y1, t1] = knots[i];
+    if (T >= t0) yr = lerp(y0, y1, ease.inOut(clamp((T - t0) / (t1 - t0))));
+  }
+  line(compound, yr, LOOK.accent, 8);
+  dot(px(0), py(10000), LOOK.ink, 10);
+  for (const [y, at, label] of MILES) {
+    if (T < at) continue;
+    const X = px(y), Y = py(compound(y)), p = show(T, at, 0.4);
+    ctx.setLineDash([6, 8]); ctx.strokeStyle = LOOK.soft; ctx.lineWidth = 2; ctx.globalAlpha = p;
+    ctx.beginPath(); ctx.moveTo(X, Y); ctx.lineTo(X, PY0); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+    dot(X, Y, LOOK.accent, 12 * ease.back(p));
+    valueLabel(X - 24, Y - 58, label, `after ${y} years`, LOOK.accent, p);
+  }
+  if (yr > 0 && yr < 30) dot(px(yr), py(compound(yr)), LOOK.accent, 9);
+}
+
+// C · 22.06–28.42 · "After 30 years, that's $31,000. Same rate, same money. Compounding more than doubles it."
+function compareChart(t, s) {
+  const T = s.from + t;
+  wipe(s);
+  axes('Compound vs simple interest');
+  line(compound, 30, LOOK.accent, 8);
+  const sy = 30 * ease.inOut(clamp((T - 22.3) / (23.2 - 22.3)));
+  line(simple, sy, LOOK.simple, 8);
+  dot(px(0), py(10000), LOOK.ink, 10);
+  dot(px(30), py(compound(30)), LOOK.accent, 12);
+  if (sy >= 30) dot(px(30), py(simple(30)), LOOK.simple, 12);
+  // legend
+  ctx.font = font(700, 26, LOOK.body); ctx.textBaseline = 'middle';
+  ctx.fillStyle = LOOK.accent; ctx.fillRect(PX0, 205, 34, 8); ctx.fillText('Compound', PX0 + 48, 210);
+  ctx.fillStyle = LOOK.simple; ctx.fillRect(PX0 + 230, 205, 34, 8); ctx.fillText('Simple: earns only on the $10,000', PX0 + 278, 210);
+  ctx.textBaseline = 'alphabetic';
+  // end values, right of the chart
+  const RX = PX1 + 60;
+  valueLabel(RX, py(compound(30)) + 14, '$76,000', 'compound', LOOK.accent, 1, 'left');
+  valueLabel(RX, py(simple(30)) + 14, '$31,000', 'simple', LOOK.simple, show(T, 23.2, 0.4), 'left');
+  // "Same rate, same money": both lines leave the same point
+  const same = show(T, 24.31, 0.4);
+  if (same > 0) {
+    ctx.globalAlpha = same;
+    ctx.strokeStyle = LOOK.ink; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(px(0), py(10000), 26 + 6 * (1 - same), 0, Math.PI * 2); ctx.stroke();
+    const LX = px(0) + 70, LY = py(32000);
+    ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(px(0) + 8, py(10000) - 30); ctx.lineTo(LX - 14, LY + 40); ctx.stroke();
+    ctx.fillStyle = LOOK.ink; ctx.font = font(700, 32, LOOK.body);
+    ctx.fillText('Same rate, same money', LX, LY);
+    ctx.fillStyle = LOOK.soft; ctx.font = font(500, 27, LOOK.body);
+    ctx.fillText('both start at $10,000, 7% a year', LX, LY + 38);
+    ctx.globalAlpha = 1;
+  }
+  // "Compounding more than doubles it": a bracket over the gap at 30 years, the verdict between the two amounts
+  const dbl = show(T, 26.22, 0.5);
+  if (dbl > 0) {
+    const X = px(30) + 34, top = py(compound(30)) + 22, bot = py(simple(30)) - 22, mid = (top + bot) / 2;
+    ctx.strokeStyle = LOOK.ink; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(X, lerp(mid, top, dbl)); ctx.lineTo(X, lerp(mid, bot, dbl)); ctx.stroke();
+    ctx.globalAlpha = dbl; ctx.textAlign = 'left';
+    ctx.fillStyle = LOOK.ink; ctx.font = font(600, 50, LOOK.display);
+    ctx.fillText('More than', X + 26, mid - 8); ctx.fillText('double', X + 26, mid + 46);
+    ctx.globalAlpha = 1;
+  }
+}
+
+// C · 31.48–38.76 · "Divide 72 by your growth rate, and that's roughly how many years it takes your money to double. At 7%, that's about 10 years."
+function ruleOf72(t, s) {
+  const T = s.from + t;
+  wipe(s);
+  ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+  ctx.fillStyle = LOOK.accent; ctx.font = font(700, 30, LOOK.body); ctx.letterSpacing = '5px';
+  ctx.textAlign = 'center'; ctx.fillText('THE RULE OF 72', W / 2, 250); ctx.letterSpacing = '0px';
+  // a row of pieces, centred, each appearing on its word
+  const row = (pieces, y, size) => {
+    ctx.font = font(600, size, LOOK.display);
+    const full = pieces.map(p => p[0]).join('   ');
+    size = Math.min(size, size * (W * 0.84) / ctx.measureText(full).width); ctx.font = font(600, size, LOOK.display);
+    const gap = size * 0.32, widths = pieces.map(p => ctx.measureText(p[0]).width);
+    let x = W / 2 - (widths.reduce((a, b) => a + b, 0) + gap * (pieces.length - 1)) / 2;
+    ctx.textAlign = 'left';
+    pieces.forEach(([text, at, color], i) => {
+      const p = show(T, at, 0.4);
+      ctx.globalAlpha = p; ctx.fillStyle = color || LOOK.ink;
+      ctx.fillText(text, x, y + (1 - p) * 20);
+      x += widths[i] + gap;
+    });
+    ctx.globalAlpha = 1;
+  };
+  // the general rule; it steps up and softens when the example arrives
+  const ex = show(T, 36.12, 0.6);
+  ctx.save();
+  ctx.globalAlpha = 1 - 0.45 * ex;
+  row([['72', 31.6], ['÷', 32.3], ['growth rate', 32.54], ['≈', 33.6], ['years to double', 34.3]], lerp(520, 420, ex), lerp(110, 80, ex));
+  ctx.restore();
+  // the example
+  if (T >= 36.12) {
+    row([['72', 36.12], ['÷', 36.2], ['7', 36.3, LOOK.accent], ['≈', 37.4], ['10 years', 37.62, LOOK.accent]], 640, 150);
+    const n = show(T, 38.0, 0.5);
+    ctx.globalAlpha = n; ctx.textAlign = 'center';
+    ctx.fillStyle = LOOK.soft; ctx.font = font(500, 34, LOOK.body);
+    ctx.fillText('$10,000 became about $19,700 in 10 years', W / 2, 760);
+    ctx.globalAlpha = 1; ctx.textAlign = 'left';
+  }
+}
+
+// ─── Frame (keep) ────────────────────────────────────────────────────────────
+const IN = 0.5, OUT = 0.4;
+function draw(frame) {
+  const t = frame / FPS;
+  ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
+  ctx.clearRect(0, 0, W, H);                   // transparent: where nothing is drawn, the speaker shows
+  for (const sc of SCENES) {
+    if (t < sc.from || t >= sc.to) continue;
+    const dur = sc.to - sc.from, lt = t - sc.from;
+    const s = { dur, from: sc.from, to: sc.to, in: move(lt, 0, IN), out: 1 - move(lt, dur - OUT, OUT, ease.in) };
+    ctx.save(); sc.draw(lt, s); ctx.restore();
+  }
+  if (showFace) {
+    ctx.save(); ctx.setLineDash([16, 10]); ctx.lineWidth = 4; ctx.strokeStyle = '#ff2d55';
+    ctx.strokeRect(FACE[0] * W, FACE[1] * H, (FACE[2] - FACE[0]) * W, (FACE[3] - FACE[1]) * H); ctx.restore();
+  }
+}
+let showFace = params.has('face');
+window.draw = draw; window.FPS = FPS; window.FRAMES = Math.round(DURATION * FPS);
+window.SCENES = SCENES.map(({ from, to, kind }) => ({ from, to, kind }));
+Object.assign(window, { VIDEO, FACE, W, H });
+window.ready = Promise.all(FONTS.map(async f => {
+  const [, italic, weight, family] = f.match(/^(italic )?(\d+) (.+)$/);
+  const faces = await document.fonts.load(`${italic || ''}${weight} 40px "${family}"`);
+  const covers = w => { const [lo, hi = lo] = String(w).split(' ').map(Number); return +weight >= lo && +weight <= hi; };
+  if (!faces.some(x => covers(x.weight) && (x.style === 'italic') === !!italic)) console.warn('font not loaded: ' + f);
+})).then(() => document.fonts.ready);
+
+// ─── Preview: the recording plays under the canvas (skipped when rendering) ──
+if (!params.has('render')) {
+  const video = document.querySelector('video'), scrub = document.getElementById('scrub');
+  video.src = VIDEO;
+  const colors = { overlay: '#2f6df6aa', cover: '#f6a52faa' };
+  for (const sc of SCENES) {
+    const el = document.createElement('span');
+    el.style.cssText = `left:${sc.from / DURATION * 100}%;width:${(sc.to - sc.from) / DURATION * 100}%;background:${colors[sc.kind]}`;
+    el.title = `${sc.kind} ${sc.from}–${sc.to}s`; scrub.appendChild(el);
+  }
+  const head = document.createElement('i'); scrub.appendChild(head);
+  scrub.onclick = e => { const r = scrub.getBoundingClientRect(); video.currentTime = (e.clientX - r.left) / r.width * DURATION; };
+  addEventListener('keydown', e => {
+    if (e.key === ' ') { e.preventDefault(); video.paused ? video.play() : video.pause(); }
+    else if (e.key === 'ArrowRight') { video.pause(); video.currentTime = Math.min(DURATION, video.currentTime + (e.shiftKey ? 1 / FPS : 1)); }
+    else if (e.key === 'ArrowLeft') { video.pause(); video.currentTime = Math.max(0, video.currentTime - (e.shiftKey ? 1 / FPS : 1)); }
+    else if (e.key === 'f' || e.key === 'F') showFace = !showFace;
+  });
+  window.ready.then(() => (function tick() {
+    draw(Math.round(video.currentTime * FPS));
+    head.style.left = (video.currentTime / DURATION * 100) + '%';
+    requestAnimationFrame(tick);
+  })());
+}
+</script>
+</body>
+</html>

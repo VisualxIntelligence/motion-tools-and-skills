@@ -54,6 +54,9 @@ node scripts/render-video.mjs http://127.0.0.1:5190/examples/keeper/ out/keeper.
 - **`--ready`** is a JS expression that says the page has finished loading. The default waits until no preloader element is left.
 - **`--lead`** plays seconds after ready before recording starts.
 - **`--stills 2,6.5`** writes single PNG frames instead of a film.
+- **`--scale 2`** sets the device pixel ratio: `--w 960 --h 540 --scale 2` lays the page out at 960×540 and records 1920×1080.
+- **`--clip .selector`** records one element only (odd sizes are padded to even). Added 4 Nov 2026 for [`../../skills/anatomy/`](../../skills/anatomy/NOTES.md#rendering-a-figure-to-video) figures and [React Bits](../../docs/guides/react-bits/NOTES.md) components; checked on a test page (frame-identical across runs at `--scale 2 --clip`).
+- **Any page with live clocks.** Nothing here is diorama-specific: the same command records an Anatomy figure, a React Bits component page or any other `requestAnimationFrame` page (`file://` URLs work).
 
 Notes:
 
@@ -101,7 +104,7 @@ That costs about US$0.10 per image and US$1.20 per textured model (upstream's fi
 
 - **Removed.** The showcase index page (`index.html` and `src/index/`). `vite.config.js` now builds only `examples/*`.
 - **Path fixes in `docs/ENGINE.md`.** Every `pages/` became `examples/`, the folder's real name. It still mentions `assets/src/` (the raw generated images, not shipped upstream either) and `shots/` (created by the QA scripts).
-- **Added.** `scripts/render-video.mjs`, `scripts/capture/virtual-time.js` and the `render` npm script.
+- **Added.** `scripts/render-video.mjs` (with `--scale` and `--clip` since 4 Nov 2026), `scripts/capture/virtual-time.js` and the `render` npm script.
 - **Left out.**
   - All of `public/` (models and images; see above).
   - `docs/media/`.

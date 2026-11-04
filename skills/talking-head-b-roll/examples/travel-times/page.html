@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>B-roll</title>
+<!-- One family per <link>, with the weights you draw in. Nothing else is loaded. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=block">
+<style>
+  html, body { margin: 0; height: 100%; background: #111; }
+  body { display: grid; place-items: center; font: 13px system-ui, sans-serif; color: #ccc; }
+  #stage { position: relative; width: min(96vw, calc(88vh * var(--ar))); aspect-ratio: var(--ar); }
+  #stage video, #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  #bar { position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%); background: #000c; padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
+  #scrub { position: fixed; left: 2vw; right: 2vw; bottom: 34px; height: 14px; background: #333; cursor: pointer; }
+  #scrub span { position: absolute; top: 0; bottom: 0; }
+  #scrub i { position: absolute; top: -3px; bottom: -3px; width: 2px; background: #fff; }
+</style>
+</head>
+<body>
+<div id="stage"><video playsinline preload="auto"></video><canvas></canvas></div>
+<div id="scrub"></div>
+<div id="bar">space: play/pause (with sound) · ←/→: 1 s (shift: 1 frame) · click the bar to jump · F: face box</div>
+<script>
+// ─── The recording (from transcribe.mjs) ─────────────────────────────────────
+const VIDEO = 'talk.mp4';                     // path relative to this page; it plays under the canvas in the preview
+const W = 1920, H = 1080;                     // the video's shape; 9:16 footage is 1080 x 1920. A 4K file can keep a
+                                              // 1920 x 1080 page: render.mjs scales the drawing up to the video.
+const FPS = 25, DURATION = 41;                // the video's frame rate and length in seconds
+
+// Where the speaker's head and shoulders are, as fractions of the frame [left, top, right, bottom], read from a
+// still (render.mjs --stills 2s --face). Overlays stay out of it; render.mjs --check measures that.
+const FACE = [0.38, 0.02, 0.63, 0.56];
+
+// ─── The plan: one entry per stretch of b-roll, with times from the transcript ─
+// kind 'overlay': drawn over the speaker, who stays visible. kind 'cover': fills the whole frame, opaque.
+// Between scenes, and before the first and after the last, the frame shows only the speaker.
+// Times are seconds in the video; a scene starts and ends at a gap between words, never inside one.
+// SCENES: defined with the drawings below.
+
+// ─── Look ────────────────────────────────────────────────────────────────────
+const LOOK = {
+  display: 'Space Grotesk', body: 'Inter',
+  paper: '#f6f3ee', ink: '#16181d', soft: '#6b6f78', accent: '#2f6df6',
+};
+// Every face you draw with: weight (and 'italic' when used) + family. Keep in step with the <link> above.
+const FONTS = ['700 Space Grotesk', '700 Inter', '500 Inter'];
+
+// ─── Machinery (keep) ────────────────────────────────────────────────────────
+const params = new URLSearchParams(location.search);
+const SCALE = Number(params.get('scale')) || 1;
+document.documentElement.style.setProperty('--ar', W / H);
+const canvas = document.querySelector('canvas');
+canvas.width = Math.round(W * SCALE); canvas.height = Math.round(H * SCALE);
+const ctx = canvas.getContext('2d');
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, p) => a + (b - a) * p;
+const ease = {
+  out: t => 1 - Math.pow(1 - t, 3),
+  inOut: t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+  in: t => t * t * t,
+  back: t => { const c = 1.4; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); },
+};
+// progress of a move that starts at `start` seconds and lasts `len`, eased
+const move = (t, start, len, fn = ease.out) => fn(clamp((t - start) / len));
+// the largest font size (≤ max) at which `text` fits in `width`
+function fit(text, weight, family, max, width) {
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+  let s = max; ctx.font = `${weight} ${s}px "${family}"`;
+  while (s > 8 && ctx.measureText(text).width > width) { s -= 1; ctx.font = `${weight} ${s}px "${family}"`; }
+  return s;
+}
+// the side of the frame away from the face, for overlays: 'left' or 'right'
+const awaySide = () => (FACE[0] + FACE[2]) / 2 > 0.5 ? 'left' : 'right';
+const fmt = n => Math.round(n).toLocaleString('en-US');
+
+// ─── The b-roll: write one drawing per scene ─────────────────────────────────
+// Each draw(t, s) gets t = seconds since the scene started and s = { now, dur, in, out, from, to }:
+// s.now is the time in the video, to compare with word times from transcript.json (a number appears as it is said);
+// s.in rises 0 → 1 over the first IN seconds, s.out falls 1 → 0 over the last OUT. Use them for the entrance and exit.
+
+const COL = { earth: '#2f6df6', moon: '#8a8f98', mars: '#d2552e', venus: '#d4a11e', jupiter: '#b9783f', sun: '#f2a31b' };
+// appear: 0 → 1 over 0.35 s starting at video time `at`
+const ap = (s, at, len = 0.35) => move(s.now, at, len);
+
+// the overlay card: top-left, in the free space beside the speaker's head
+const CARD = { x: 60, y: 64, w: 600 };
+function card(s, h, keepAtEnd) {
+  const a = keepAtEnd ? s.in : Math.min(s.in, s.out);
+  ctx.globalAlpha = a;
+  const y = CARD.y + (1 - s.in) * 24;
+  ctx.shadowColor = 'rgba(0,0,0,.18)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 8;
+  ctx.fillStyle = LOOK.paper; ctx.beginPath(); ctx.roundRect(CARD.x, y, CARD.w, h, 22); ctx.fill();
+  ctx.shadowColor = 'transparent';
+  return { x: CARD.x + 40, y, w: CARD.w - 80, a };
+}
+function planet(x, y, r, color) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); }
+function label(text, x, y, weight, size, color, family = LOOK.body, align = 'left') {
+  ctx.font = `${weight} ${size}px "${family}"`; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'alphabetic';
+  ctx.fillText(text, x, y); ctx.textAlign = 'left';
+}
+
+// 4.36–8.95 · "The fastest Apollo mission, Apollo 8, took just under three days to reach the moon."
+function apollo() {
+  return (t, s) => {
+    const c = card(s, 330);
+    label('FASTEST APOLLO MISSION', c.x, c.y + 62, 700, 30, LOOK.soft);
+    ctx.globalAlpha = c.a;
+    label('Apollo 8', c.x, c.y + 140, 700, 76, LOOK.ink, LOOK.display);
+    // Earth → Moon, a craft crossing as "took just under three days" is said
+    const y = c.y + 220, x0 = c.x + 18, x1 = c.x + c.w - 18;
+    ctx.globalAlpha = c.a * ap(s, 6.67);
+    ctx.strokeStyle = '#c9c4b8'; ctx.lineWidth = 3; ctx.setLineDash([6, 9]);
+    ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke(); ctx.setLineDash([]);
+    planet(x0, y, 18, COL.earth); planet(x1, y, 11, COL.moon);
+    const p = move(s.now, 6.7, 1.7, ease.inOut);
+    planet(lerp(x0 + 26, x1 - 20, p), y, 6, LOOK.ink);
+    ctx.globalAlpha = c.a * ap(s, 7.3);
+    label('just under 3 days', c.x, c.y + 290, 700, 40, COL.earth, LOOK.display);
+  };
+}
+
+// 8.95–14.9 · "Mars is about 50% further from the sun than Earth is. Getting there takes seven to ten months."
+function marsOrbits() {
+  return (t, s) => {
+    const wipe = Math.min(s.in, s.out);
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W * wipe, H); ctx.clip();
+    ctx.fillStyle = LOOK.paper; ctx.fillRect(0, 0, W, H);
+    const cx = 560, cy = 560, rE = 250, rM = rE * 1.5;
+    planet(cx, cy, 34, COL.sun);
+    ctx.lineWidth = 3;
+    ctx.globalAlpha = ap(s, 9.1);
+    ctx.strokeStyle = COL.earth; ctx.beginPath(); ctx.arc(cx, cy, rE, 0, Math.PI * 2); ctx.stroke();
+    const aE = Math.PI * 1.0;                              // Earth on the left
+    planet(cx + rE * Math.cos(aE), cy + rE * Math.sin(aE), 16, COL.earth);
+    label('Earth', cx + rE * Math.cos(aE) + 28, cy - 18, 700, 30, COL.earth);
+    // Mars orbit grows out as "50% further" is said
+    const g = move(s.now, 9.86, 0.8);
+    ctx.globalAlpha = g;
+    ctx.strokeStyle = COL.mars; ctx.beginPath(); ctx.arc(cx, cy, lerp(rE, rM, g), 0, Math.PI * 2); ctx.stroke();
+    const aM = 0;                                          // Mars on the right, opposite: where a transfer arrives
+    planet(cx + rM * Math.cos(aM), cy, 13, COL.mars);
+    label('Mars', cx + rM - 24, cy - 26, 700, 30, COL.mars, LOOK.body, 'right');
+    // radii: 1 and 1.5
+    ctx.globalAlpha = ap(s, 10.0);
+    ctx.strokeStyle = LOOK.ink; ctx.lineWidth = 2; ctx.setLineDash([4, 8]);
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx, cy + rM); ctx.stroke(); ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(cx - 10, cy + rE); ctx.lineTo(cx + 10, cy + rE); ctx.moveTo(cx - 10, cy + rM); ctx.lineTo(cx + 10, cy + rM); ctx.stroke();
+    label('1×', cx + 20, cy + rE - 12, 700, 34, COL.earth);
+    label('1.5×', cx + 20, cy + rM - 12, 700, 34, COL.mars);
+    // the trip: half an ellipse from Earth (left) to Mars (right), drawn while "getting there" is said
+    const p = move(s.now, 12.62, 1.8, ease.inOut);
+    if (p > 0) {
+      const a = (rE + rM) / 2, ecx = cx + (rM - rE) / 2, b = Math.sqrt(rE * rM);
+      ctx.globalAlpha = 1; ctx.strokeStyle = LOOK.ink; ctx.lineWidth = 3; ctx.setLineDash([10, 8]);
+      ctx.beginPath(); ctx.ellipse(ecx, cy, a, b, 0, Math.PI, Math.PI + Math.PI * p); ctx.stroke(); ctx.setLineDash([]);
+      const th = Math.PI + Math.PI * p;
+      planet(ecx + a * Math.cos(th), cy + b * Math.sin(th), 8, LOOK.ink);
+    }
+    // right column
+    ctx.globalAlpha = ap(s, 9.26);
+    const tx = 1110;
+    label('MARS', tx, 300, 700, 30, LOOK.soft);
+    ctx.globalAlpha = ap(s, 9.86);
+    label('about 50% further', tx, 390, 700, 72, LOOK.ink, LOOK.display);
+    label('from the sun than Earth', tx, 450, 500, 40, LOOK.soft);
+    ctx.globalAlpha = ap(s, 13.49);
+    label('7–10 months', tx, 640, 700, 110, COL.mars, LOOK.display);
+    label('to get there', tx, 700, 500, 40, LOOK.soft);
+    ctx.restore();
+  };
+}
+
+// a card with one header and rows of [name, value, bar length 0–1, color, name time, value time]
+function trips(header, rows, keepAtEnd) {
+  return (t, s) => {
+    const rowH = rows.some(r => r[2]) ? 156 : 124, c = card(s, 104 + rows.length * rowH, keepAtEnd);
+    label(header, c.x, c.y + 62, 700, 30, LOOK.soft);
+    rows.forEach(([name, value, bar, color, tName, tValue], i) => {
+      const y = c.y + 100 + i * rowH;
+      ctx.globalAlpha = c.a * ap(s, tName);
+      label(name, c.x, y + 40, 700, fit(name, 700, LOOK.body, 40, c.w - (bar ? 0 : 40)), LOOK.ink);
+      ctx.globalAlpha = c.a * ap(s, tValue);
+      if (bar) {                                          // bars only where lengths are on one linear scale
+        ctx.globalAlpha = c.a * ap(s, tName);
+        ctx.fillStyle = '#e6e1d6'; ctx.beginPath(); ctx.roundRect(c.x, y + 60, c.w, 12, 6); ctx.fill();
+        ctx.globalAlpha = c.a * ap(s, tValue);
+        ctx.fillStyle = color; ctx.beginPath(); ctx.roundRect(c.x, y + 60, Math.max(12, c.w * bar * move(s.now, tValue, 0.9)), 12, 6); ctx.fill();
+      } else planet(c.x + c.w - 14, y + 26, 14, color);
+      label(value, c.x, y + (bar ? 112 : 86), 700, 38, color, LOOK.display);
+    });
+  };
+}
+
+// 20.9–28.55 · "Jupiter is five times further from the sun than Earth. To save fuel, spacecraft fly past Earth or Venus first to pick up speed."
+function jupiterRoute() {
+  const cx = 560, cy = 560, k = 92;                    // pixels per Sun–Earth distance
+  const R = { venus: 0.72, earth: 1, jupiter: 5.2 };
+  const pos = (r, deg) => [cx + r * k * Math.cos(deg * Math.PI / 180), cy + r * k * Math.sin(deg * Math.PI / 180)];
+  // launch → in past Venus → back out past Earth → out to Jupiter (a sketch of the route, not to scale in time)
+  const route = [[1, 200], [0.8, 255], [0.72, 310], [0.86, 15], [1, 70], [1.9, 130], [3.4, 180], [5.2, 230]].map(([r, d]) => pos(r, d));
+  // a smooth curve through the points, sampled
+  const pts = [];
+  for (let i = 0; i < route.length - 1; i++) {
+    const p0 = route[Math.max(0, i - 1)], p1 = route[i], p2 = route[i + 1], p3 = route[Math.min(route.length - 1, i + 2)];
+    for (let u = 0; u < 1; u += 0.02) {
+      const u2 = u * u, u3 = u2 * u;
+      pts.push([0, 1].map(j => 0.5 * (2 * p1[j] + (-p0[j] + p2[j]) * u + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * u2 + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * u3)));
+    }
+  }
+  pts.push(route.at(-1));
+  return (t, s) => {
+    const wipe = Math.min(s.in, s.out);
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W * wipe, H); ctx.clip();
+    ctx.fillStyle = LOOK.paper; ctx.fillRect(0, 0, W, H);
+    planet(cx, cy, 16, COL.sun);
+    ctx.lineWidth = 3;
+    const orbit = (r, color, a) => { ctx.globalAlpha = a; ctx.strokeStyle = color; ctx.beginPath(); ctx.arc(cx, cy, r * k, 0, Math.PI * 2); ctx.stroke(); };
+    orbit(R.earth, COL.earth, ap(s, 21.0));
+    const gJ = move(s.now, 21.62, 0.9);                // Jupiter's orbit grows out as "five times" is said
+    ctx.globalAlpha = gJ; ctx.strokeStyle = COL.jupiter; ctx.beginPath(); ctx.arc(cx, cy, lerp(R.earth, R.jupiter, gJ) * k, 0, Math.PI * 2); ctx.stroke();
+    const [ex, ey] = pos(1, 70), [jx, jy] = pos(5.2, 230), [vx, vy] = pos(0.72, 310);
+    ctx.globalAlpha = ap(s, 21.0); planet(ex, ey, 10, COL.earth);
+    ctx.globalAlpha = gJ; planet(jx, jy, 26, COL.jupiter);
+    label('Jupiter', jx + 40, jy + 10, 700, 30, COL.jupiter);
+    // second part: Venus appears, and the route is drawn while "fly past Earth or Venus first" is said
+    const route = move(s.now, 24.6, 3.2, ease.inOut);
+    ctx.globalAlpha = ap(s, 24.33);
+    orbit(R.venus, COL.venus, ap(s, 24.33));
+    planet(vx, vy, 9, COL.venus);
+    if (route > 0) {
+      const n = Math.max(2, Math.round(pts.length * route));
+      ctx.globalAlpha = 1; ctx.strokeStyle = LOOK.ink; ctx.lineWidth = 3.5; ctx.setLineDash([10, 8]);
+      ctx.beginPath(); pts.slice(0, n).forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.stroke(); ctx.setLineDash([]);
+      const [hx, hy] = pts[n - 1]; planet(hx, hy, 8, LOOK.ink);
+    }
+    // flyby labels as the craft reaches them
+    ctx.globalAlpha = move(s.now, 25.4, 0.4);
+    const [lx, ly] = pos(1.55, 315);                    // outside Earth's orbit, clear of the route, with a leader
+    ctx.strokeStyle = COL.venus; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(vx + 8, vy - 8); ctx.lineTo(lx - 6, ly + 6); ctx.stroke();
+    label('Venus', lx, ly, 700, 26, COL.venus);
+    ctx.globalAlpha = ap(s, 21.0); label('Earth', ex + 22, ey + 28, 700, 26, COL.earth);
+    // right column
+    const tx = 1180;
+    ctx.globalAlpha = ap(s, 21.25) * (1 - move(s.now, 24.1, 0.3) * 0.55);
+    label('JUPITER', tx, 250, 700, 30, LOOK.soft);
+    ctx.globalAlpha = move(s.now, 21.62, 0.35) * (1 - move(s.now, 24.1, 0.3) * 0.55);
+    label('5× further', tx, 350, 700, 92, COL.jupiter, LOOK.display);
+    label('from the sun than Earth', tx, 410, 500, 40, LOOK.soft);
+    ctx.globalAlpha = ap(s, 24.33);
+    label('TO SAVE FUEL', tx, 560, 700, 30, LOOK.soft);
+    ctx.globalAlpha = ap(s, 25.3);
+    label('fly past Earth', tx, 640, 700, 64, LOOK.ink, LOOK.display);
+    label('or Venus first', tx, 714, 700, 64, LOOK.ink, LOOK.display);
+    ctx.globalAlpha = ap(s, 27.43);
+    label('to pick up speed', tx, 790, 500, 40, LOOK.soft);
+    ctx.restore();
+  };
+}
+
+const SCENES = [
+  { from: 6.5, to: 8.95, kind: 'overlay', draw: apollo() },
+  { from: 8.95, to: 14.9, kind: 'cover', draw: marsOrbits() },
+  { from: 14.9, to: 20.9, kind: 'overlay', draw: trips('GETTING TO MARS', [
+    ['Mars Reconnaissance Orbiter', 'about 7½ months', 7.5 / 10, COL.mars, 15.27, 17.03],
+    ['MAVEN', 'about 10 months', 10 / 10, COL.mars, 19.47, 19.87],
+  ]) },
+  { from: 20.9, to: 28.55, kind: 'cover', draw: jupiterRoute() },
+  { from: 31.0, to: 34.42, kind: 'overlay', draw: trips('GETTING TO JUPITER', [
+    ['Galileo', 'just over 6 years', 6.1 / 6.5, COL.jupiter, 31.07, 31.41],
+    ['Juno', 'just under 5 years', 4.9 / 6.5, COL.jupiter, 33.01, 33.12],
+  ]) },
+  { from: 34.42, to: 41, kind: 'overlay', draw: trips('HOW LONG IT TAKES', [
+    ['The moon', 'a few days', null, COL.moon, 35.31, 35.95],
+    ['Mars', '7–10 months', null, COL.mars, 37.12, 37.76],
+    ['Jupiter', '5–6 years', null, COL.jupiter, 39.18, 39.93],
+  ], true) },
+];
+
+// ─── Frame (keep) ────────────────────────────────────────────────────────────
+const IN = 0.5, OUT = 0.4;                    // entrance and exit length; a cover must be opaque once IN is over
+function draw(frame) {
+  const t = frame / FPS;
+  ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
+  ctx.clearRect(0, 0, W, H);                   // transparent: where nothing is drawn, the speaker shows
+  for (const sc of SCENES) {
+    if (t < sc.from || t >= sc.to) continue;
+    const dur = sc.to - sc.from, lt = t - sc.from;
+    const s = { now: t, dur, from: sc.from, to: sc.to, in: move(lt, 0, IN), out: 1 - move(lt, dur - OUT, OUT, ease.in) };
+    ctx.save(); sc.draw(lt, s); ctx.restore();
+  }
+  if (showFace && !SCENES.some(sc => t >= sc.from && t < sc.to && sc.kind === 'cover')) {
+    ctx.save(); ctx.setLineDash([16, 10]); ctx.lineWidth = 4; ctx.strokeStyle = '#ff2d55';
+    ctx.strokeRect(FACE[0] * W, FACE[1] * H, (FACE[2] - FACE[0]) * W, (FACE[3] - FACE[1]) * H); ctx.restore();
+  }
+}
+let showFace = params.has('face');
+// render.mjs --check records where every visible piece of text lands, to find text off the frame or on other text
+const fillText = ctx.fillText.bind(ctx);
+ctx.fillText = (text, x, y, maxWidth) => {
+  if (window.__texts && ctx.globalAlpha > 0.5 && String(text).trim()) {
+    const m = ctx.measureText(text), T = ctx.getTransform();
+    const pts = [[x - m.actualBoundingBoxLeft, y - m.actualBoundingBoxAscent], [x + m.actualBoundingBoxRight, y + m.actualBoundingBoxDescent]]
+      .map(([px, py]) => [(T.a * px + T.c * py + T.e) / SCALE, (T.b * px + T.d * py + T.f) / SCALE]);
+    window.__texts.push({ text: String(text), box: [Math.min(pts[0][0], pts[1][0]), Math.min(pts[0][1], pts[1][1]), Math.max(pts[0][0], pts[1][0]), Math.max(pts[0][1], pts[1][1])] });
+  }
+  return fillText(text, x, y, maxWidth);
+};
+window.draw = draw; window.FPS = FPS; window.FRAMES = Math.round(DURATION * FPS);
+window.SCENES = SCENES.map(({ from, to, kind }) => ({ from, to, kind }));
+Object.assign(window, { VIDEO, FACE, W, H, IN, OUT });
+window.ready = Promise.all(FONTS.map(async f => {
+  const [, italic, weight, family] = f.match(/^(italic )?(\d+) (.+)$/);
+  const faces = await document.fonts.load(`${italic || ''}${weight} 40px "${family}"`);
+  const covers = w => { const [lo, hi = lo] = String(w).split(' ').map(Number); return +weight >= lo && +weight <= hi; };
+  if (!faces.some(x => covers(x.weight) && (x.style === 'italic') === !!italic)) console.warn('font not loaded: ' + f);
+})).then(() => document.fonts.ready);
+
+// ─── Preview: the recording plays under the canvas (skipped when rendering) ──
+if (!params.has('render')) {
+  const video = document.querySelector('video'), scrub = document.getElementById('scrub');
+  video.src = VIDEO;
+  const colors = { overlay: '#2f6df6aa', cover: '#f6a52faa' };
+  for (const sc of SCENES) {
+    const el = document.createElement('span');
+    el.style.cssText = `left:${sc.from / DURATION * 100}%;width:${(sc.to - sc.from) / DURATION * 100}%;background:${colors[sc.kind]}`;
+    el.title = `${sc.kind} ${sc.from}–${sc.to}s`; scrub.appendChild(el);
+  }
+  const head = document.createElement('i'); scrub.appendChild(head);
+  scrub.onclick = e => { const r = scrub.getBoundingClientRect(); video.currentTime = (e.clientX - r.left) / r.width * DURATION; };
+  addEventListener('keydown', e => {
+    if (e.key === ' ') { e.preventDefault(); video.paused ? video.play() : video.pause(); }
+    else if (e.key === 'ArrowRight') { video.pause(); video.currentTime = Math.min(DURATION, video.currentTime + (e.shiftKey ? 1 / FPS : 1)); }
+    else if (e.key === 'ArrowLeft') { video.pause(); video.currentTime = Math.max(0, video.currentTime - (e.shiftKey ? 1 / FPS : 1)); }
+    else if (e.key === 'f' || e.key === 'F') showFace = !showFace;
+  });
+  window.ready.then(() => (function tick() {
+    draw(Math.round(video.currentTime * FPS));
+    head.style.left = (video.currentTime / DURATION * 100) + '%';
+    requestAnimationFrame(tick);
+  })());
+}
+</script>
+</body>
+</html>

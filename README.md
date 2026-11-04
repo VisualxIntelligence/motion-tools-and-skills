@@ -2,7 +2,7 @@
 
 Tools, agent skills, prompts and starters for making motion graphics with AI agents (Claude Code). The focus is code-rendered motion (Three.js + GSAP, HyperFrames, Remotion, Canvas, WebGL/WebGPU, p5.js) and agent-driven DCC tools (Blender, Unreal Engine, ComfyUI).
 
-The first collection was gathered from ten open-source Opus 5.5 video projects on 6 October 2026, a second pass on 21 October added six more and refreshed three, and a third on 22 October added five more ([`SOURCES.md`](SOURCES.md)). Everything copied here carries its upstream licence, and every folder has a `NOTES.md` that says what it does, when to use it, what it needs, and what was changed.
+The first collection was gathered from ten open-source Opus 5.5 video projects on 6 October 2026, a second pass on 21 October added six more and refreshed three, a third on 22 October added five more, a fourth the same day added material from fifteen of twenty motion-skill repos, and a fifth on 4 November added the Anatomy isometric-explainer skill and a guide to React Bits ([`SOURCES.md`](SOURCES.md)). Everything copied here carries its upstream licence, and every folder has a `NOTES.md` that says what it does, when to use it, what it needs, and what was changed.
 
 **New here? Read [`docs/techniques.md`](docs/techniques.md) first.** It distils the shared method behind all of these projects into working rules for our stack.
 
@@ -20,6 +20,14 @@ The first collection was gathered from ten open-source Opus 5.5 video projects o
 | [`video-production-skills`](skills/video-production-skills/NOTES.md) | Eleven editorial skills: evidence-linked script, shot plan, explainer-motion brief, voice and caption sync, cover, release QA |
 | [`video-shotcraft`](skills/video-shotcraft/NOTES.md) | Promo films in Remotion from 124 shot recipe cards with tuned components; the cards also work as timing specs for GSAP and HyperFrames (Remotion Company Licence needed for organisational use) |
 | [`img2threejs`](skills/img2threejs/NOTES.md) | One reference image → a code-only, rigged, animatable Three.js model, built in gated passes |
+| [`lower-thirds`](skills/lower-thirds/NOTES.md) | Transparent lower thirds as ProRes 4444 / VP9 alpha, with alpha and title-safe checks |
+| [`motion-design-principles`](skills/motion-design-principles/NOTES.md) | Durations, stagger, overshoot and choreography decided before code (LottieFiles) |
+| [`opus-visual-motion-engine`](skills/opus-visual-motion-engine/NOTES.md) | HTML motion pieces with automated render QA (`qa.mjs`) |
+| [`motion-designer`](skills/motion-designer/NOTES.md) | Code films and overlays with a determinism gate, beat clock and music cut to whole bars |
+| [`talking-head-b-roll`](skills/talking-head-b-roll/NOTES.md) | Presenter graphics timed to the spoken words |
+| [`claude-motion`](skills/claude-motion/NOTES.md) | Taste rules with numbers, a frame-review loop, sound from one `timeline.json` |
+| [`hyperframes-motion-reel`](skills/hyperframes-motion-reel/NOTES.md) | Beat-locked reels in HyperFrames, with HyperFrames' rules and pitfalls |
+| [`anatomy`](skills/anatomy/NOTES.md) | Isometric explainer figures: a technical idea drawn as a real, detailed machine with live parts, WebGL light and a readout; records to video |
 
 ### [`prompts/`](prompts/README.md) — prompts and briefs
 
@@ -33,6 +41,7 @@ The first collection was gathered from ten open-source Opus 5.5 video projects o
 - [`lemo-core/`](tools/lemo-core/NOTES.md): parallel video render, reading-time check, loudness master with grain, procedural SFX, TTS with a Whisper check, three.js post and CRT passes.
 - [`song-analysis/`](tools/song-analysis/NOTES.md): song → beat grid, downbeats, sections, per-instrument onsets from separated stems, loudness envelopes, and word-level lyric timing.
 - [`tidewater-asset-pipeline/`](tools/tidewater-asset-pipeline/NOTES.md): CC0 sound sourcing and −23 LUFS normalisation; Blender batch retargeting to GLB and decimation.
+- [`sync-check/`](tools/sync-check/NOTES.md): sound against picture in a rendered MP4 (off-beat hits, startling jumps).
 - [`mixamo-retarget/`](tools/mixamo-retarget/NOTES.md): human joints → animated Mixamo character GLB, in numpy, without Blender.
 - [`skills/3d-product/references/dsh-blender-modeling/`](skills/3d-product/references/dsh-blender-modeling/NOTES.md): Blender modelling pitfalls, numeric gates, Blender 5.2 API breaks, three-view calibration, verifier checklist.
 - Plus beat detection, cut detection, green-screen keying, SFX mixing and a synth score inside the skills (listed in [`tools/README.md`](tools/README.md)).
@@ -43,7 +52,7 @@ The first collection was gathered from ten open-source Opus 5.5 video projects o
 - [`pdoom-video-engine/`](starters/pdoom-video-engine/NOTES.md): a three.js engine for audio-driven films with adaptive per-tile motion blur, true 4K from a 1080p layout and an HDR post chain.
 - [`mg-styles-15/`](starters/mg-styles-15/NOTES.md): 15 motion-design films with full source, a `renderAt(t)` render harness and the mgaudio soundtrack toolkit.
 - [`papermotion/`](starters/papermotion/NOTES.md): a paper-cutout film engine with rigs, physics and simulation-driven sound, plus its skill.
-- [`dioramas/`](starters/dioramas/NOTES.md): cinematic 3D pages with volumetric light, reflections and an AgX post stack; image → 3D assets through fal (Nano Banana 2 → Meshy 7.1); deterministic video capture of live-clock pages.
+- [`dioramas/`](starters/dioramas/NOTES.md): cinematic 3D pages with volumetric light, reflections and an AgX post stack; image → 3D assets through fal (Nano Banana 2 → Meshy 7.1); deterministic video capture of any live-clock page (dioramas, Anatomy figures, React Bits components), with `--scale` and `--clip`.
 - Pointers to the kinetic-reel, painted-cartoon, web-intro and p5-overlay templates inside the skills.
 
 ### [`docs/`](docs/README.md) — guides and research
@@ -51,6 +60,8 @@ The first collection was gathered from ten open-source Opus 5.5 video projects o
 - [`techniques.md`](docs/techniques.md): the shared method, applied to our tools.
 - [`reference-only.md`](docs/reference-only.md): useful material that could **not** be copied (no licence, or third-party content), with where to find it.
 - [`guides/lemo-opuscar/`](docs/guides/lemo-opuscar/NOTES.md): directing and pipeline guides for code-made films, and how to make a style your own.
+- [`guides/`](docs/README.md): motion fundamentals (iart.ai), field rules for code films (Howseen), effect recipes, news-insert rules, motion tokens, Disney principles in frames.
+- [`guides/react-bits/`](docs/guides/react-bits/NOTES.md): using React Bits backgrounds and text effects in films (loop export, frame-exact capture, picks, licence limits); nothing copied.
 - [`research/athemeroy/`](docs/research/athemeroy/NOTES.md): a study of 1,000+ agent-made videos, with a production brief, production paths, workflow analysis and data.
 
 ## Using a skill
@@ -64,5 +75,5 @@ Renders (`*.mp4`, `*.mov`, ProRes masters), Unreal caches (`DerivedDataCache/`, 
 ## Licences
 
 - **Our own writing** (this README, the `README.md` and `NOTES.md` files, `SOURCES.md`, `docs/techniques.md`, `docs/reference-only.md`, `prompts/video-prompts/yihui-prompt-index.md`, and the scripts added to copied folders: `starters/dioramas/scripts/render-video.mjs`, `starters/dioramas/scripts/capture/virtual-time.js`, `skills/video-shotcraft/assets/scripts/build-card-index.py`): [MIT](LICENSE) © 2026 Ahmed Albadri. English translations of copied material stay under that material's upstream licence.
-- **Copied folders** keep their upstream licence: each has its own `LICENSE` file, and [`SOURCES.md`](SOURCES.md) lists them all. MIT for the code from lemo-opuscar, ClaudeAnimationBase, opus-video-skills, motion-graphics-music-video-skill, tidewater, pdoom-video, mg-styles-15, papermotion, 3d-product, video-production-skills, dioramas and the dsh-blender-plugin modelling notes; Apache-2.0 for video-shotcraft, img2threejs and the Motion2MixamoRig retarget core; CC BY 4.0 for the athemeroy research and the adapted case list.
+- **Copied folders** keep their upstream licence: each has its own `LICENSE` file, and [`SOURCES.md`](SOURCES.md) lists them all. MIT for the code from lemo-opuscar, ClaudeAnimationBase, opus-video-skills, motion-graphics-music-video-skill, tidewater, pdoom-video, mg-styles-15, papermotion, 3d-product, video-production-skills, dioramas and the dsh-blender-plugin modelling notes; Apache-2.0 for video-shotcraft, img2threejs and the Motion2MixamoRig retarget core; MIT for the fourth-survey skills, tools and guides (LottieFiles, iart.ai, Lob0Garou, kaventro, whaleyxbt, Sunwood AI Labs, Howseen, charlie947, Promptible, Dylan Tarre) and for Anatomy (© Ryan); CC0 for the motion-token files; CC BY 4.0 for the athemeroy research and the adapted case list.
 - Third-party assets fetched by these tools at install or render time (fonts, sample libraries, models) keep their own licences.

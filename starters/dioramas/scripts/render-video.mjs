@@ -22,6 +22,10 @@
 //   --lead s            virtual seconds to play after ready before recording starts (default 0)
 //   --frames dir        also write numbered PNGs to dir           --stills t,t,… only write PNG stills at these times
 //   --crf n             x264 quality (default 14)                 --timeout s    real-time limit for loading (default 120)
+//   --scale n           device pixel ratio (default 1): --w 960 --h 540 --scale 2 lays the page out at 960×540 and
+//                       records 1920×1080, which keeps a figure designed for the web at its intended size but sharp
+//   --clip selector     record only this element (its box at the scale above), e.g. ".iso-plate" for an Anatomy card;
+//                       odd sizes are padded to even for x264
 // Environment
 //   DIORAMA_CHROME      path to a Chrome/Chromium executable (default: Playwright's `chrome` channel)
 //   DIORAMA_GPU_ARGS    browser GPU flags (default: --use-angle=d3d11 on Windows, --use-angle=gl-egl elsewhere;
@@ -43,6 +47,7 @@ if (!url || url.startsWith('--')) {
 }
 
 const FPS = +opt('fps', 30), DUR = +opt('duration', 10), W = +opt('w', 1920), H = +opt('h', 1080);
+const SCALE = +opt('scale', 1), CLIP = opt('clip', null);
 const SEED = +opt('seed', 1), LEAD = +opt('lead', 0), CRF = +opt('crf', 14), TIMEOUT = +opt('timeout', 120) * 1000;
 const READY = opt('ready', "!document.querySelector('.preloader, #preloader, [data-preloader]')");
 const framesDir = opt('frames', null);
@@ -75,7 +80,7 @@ const browser = await chromium.launch({
   ...(process.env.DIORAMA_CHROME ? { executablePath: process.env.DIORAMA_CHROME } : { channel: 'chrome' }),
   args: ['--enable-gpu', '--ignore-gpu-blocklist', '--autoplay-policy=no-user-gesture-required', ...gpuArgs],
 });
-const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
+const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: SCALE });
 await ctx.addInitScript(o => { window.__CAPTURE_OPTS = o; }, { seed: SEED });
 await ctx.addInitScript({ path: path.join(HERE, 'capture', 'virtual-time.js') });
 const page = await ctx.newPage();
@@ -94,7 +99,7 @@ while (!(await page.evaluate(READY))) {
   if (warm % 30 === 0) await page.waitForLoadState('networkidle').catch(() => {});
 }
 for (let i = 0; i < Math.round(LEAD * FPS); i++) await page.evaluate(ms => window.__vt.step(ms), STEP);
-console.log(`ready after ${warm} warm-up frames (${((Date.now() - t0) / 1000).toFixed(1)} s real); recording ${N} frames @ ${FPS} fps, ${W}×${H}, seed ${SEED}`);
+console.log(`ready after ${warm} warm-up frames (${((Date.now() - t0) / 1000).toFixed(1)} s real); recording ${N} frames @ ${FPS} fps, ${W}×${H} × ${SCALE}${CLIP ? `, clip ${CLIP}` : ''}, seed ${SEED}`);
 
 // Per-frame scripted input, applied before the frame's time step.
 const drive = (f) => page.evaluate(({ scroll, ptr, down, up, W, H }) => {
@@ -121,6 +126,7 @@ let ff = null;
 if (out && !stills) {
   fs.mkdirSync(path.dirname(path.resolve(out)), { recursive: true });
   ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
+    ...(CLIP ? ['-vf', 'pad=ceil(iw/2)*2:ceil(ih/2)*2'] : []),
     '-c:v', 'libx264', '-preset', 'slow', '-crf', String(CRF), '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out], { stdio: ['pipe', 'inherit', 'inherit'] });
 }
 const pngDir = framesDir ?? (stills ? path.join(path.dirname(path.resolve(out ?? 'out/x')), 'stills') : null);
@@ -132,7 +138,7 @@ for (let f = 0; f <= lastFrame; f++) {
   await drive(f);
   await page.evaluate(ms => window.__vt.step(ms), STEP);
   if (stillFrames && !stillFrames.includes(f)) continue;
-  const png = await page.screenshot({ type: 'png' });
+  const png = CLIP ? await page.locator(CLIP).first().screenshot({ type: 'png' }) : await page.screenshot({ type: 'png' });
   if (ff) { if (!ff.stdin.write(png)) await new Promise(r => ff.stdin.once('drain', r)); }
   if (pngDir) fs.writeFileSync(path.join(pngDir, `${String(f).padStart(5, '0')}.png`), png);
   if (f % FPS === 0) process.stdout.write(`\r${f}/${lastFrame + 1}`);
