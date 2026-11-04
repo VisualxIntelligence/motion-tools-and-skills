@@ -1,6 +1,6 @@
 # Sources
 
-The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19) and 22 October 2026 (20–26, and a fourth pass 27–55), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
+The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19) 22 October 2026 (20–26, and a fourth pass 27–55) and 4 November 2026 (56–57), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
 
 | # | Repository | What it is | Licence | Commit | In this repo |
 |---|---|---|---|---|---|
@@ -60,6 +60,8 @@ The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19) 
 | 53 | [iart-ai/web-animation-skills](https://github.com/iart-ai/web-animation-skills) | Web UI animation | MIT (© iart.ai) | `b6dba3e` | Not copied |
 | 54 | [wilwaldon/Claude-Code-Video-Toolkit](https://github.com/wilwaldon/Claude-Code-Video-Toolkit) | A README of video tools | **No licence file** | `a6e9e52` | Not copied; leads in [`docs/reference-only.md`](docs/reference-only.md#11-leads-not-yet-reviewed) |
 | 55 | [tuzhechen2005/opus-video-skills](https://github.com/tuzhechen2005/opus-video-skills) | (#10, rechecked) | MIT | `59744a6` | Unchanged since our copy |
+| 56 | [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) | Isometric explainer figures of real machines, SVG + WebGL, with audits and print sheets | MIT (© Ryan) | `1482e84` | [`skills/anatomy/`](skills/anatomy/NOTES.md) (skill, kit, references, scripts, tests, example sources); built example pages and PDFs left out. First read 11 Oct at the commit before 1.1.0 |
+| 57 | [DavidHDev/react-bits](https://github.com/DavidHDev/react-bits) | 218 animated React components and backgrounds, plus browser tools | **MIT + Commons Clause** (© David Haz): no redistribution of the components, tools or sounds | `4dc7b5b` | Nothing copied; our guide in [`docs/guides/react-bits/`](docs/guides/react-bits/NOTES.md) and [`docs/reference-only.md`](docs/reference-only.md#12-react-bits--commons-clause) |
 
 Repos 13–15 were found through athemeroy's resource list (#7), which checked their licences on 11 October; we checked them again on 21 October.
 
@@ -67,9 +69,10 @@ Repos 13–15 were found through athemeroy's resource list (#7), which checked t
 
 - **Repos with no licence (1, 4, 8, 16) or a non-commercial one (25):** nothing copied. Their useful ideas are described in our own words, with upstream paths, in [`docs/reference-only.md`](docs/reference-only.md).
 - **Third-party content inside licensed repos:** creator prompts (2, 7), a lyric video quoting a commercial song and a personal portfolio reel (10), the Clawd character design (6, 10, 13), and the song, lyrics and lyric-quoting scenes of a music video (11). Also in [`docs/reference-only.md`](docs/reference-only.md#4-third-party-material-inside-licensed-repos).
+- **A licence that forbids redistribution (57):** React Bits is MIT + Commons Clause, so none of its components, tools or sounds are copied; see [`docs/guides/react-bits/`](docs/guides/react-bits/NOTES.md).
 - **Code that only runs with non-commercial or AGPL models (24), or only inside another agent host (23):** described in [`docs/reference-only.md`](docs/reference-only.md), not copied.
 - **Promotion:** iart.ai's closing "Built by iart.ai" lines and its upsell paragraph, author-promotion instructions, sponsor and creator watermarks (27–55).
-- **Size:** media (films, GIFs, stills, audio, models, HDRIs, sample packs, fonts), `node_modules` and lockfiles.
+- **Size:** media (films, GIFs, stills, audio, models, HDRIs, sample packs, fonts), `node_modules` and lockfiles; for Anatomy (56), its built example pages and PDFs, which its build scripts regenerate.
 
 ## Dependencies pulled in by the copied code (not stored here)
 

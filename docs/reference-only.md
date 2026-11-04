@@ -183,3 +183,14 @@ Named in the repos above and worth a look in a later survey:
 | [garrytan/gstack](https://github.com/garrytan/gstack) | Design and motion QA passes |
 | [AbubakrChan/product-launch-motion](https://github.com/AbubakrChan/product-launch-motion) | URL → 60 fps launch video with sound effects |
 
+
+## 12. React Bits — Commons Clause
+
+[DavidHDev/react-bits](https://github.com/DavidHDev/react-bits) @ `4dc7b5b` (31 Oct 2026). **MIT + Commons Clause.** You may use the components in your own app, site or product, commercially too, but not sell, sublicense or redistribute the components themselves (alone, in a bundle or as a port), the browser tools (Background Studio, Texture Lab, Shape Magic, Center Stage, Sound Lab) or the sound library, and not sell or give away the tools' exports on their own as packs. Copying components into this toolkit would be redistribution, so nothing is copied.
+
+What is worth knowing, in our own words, is in [`guides/react-bits/`](guides/react-bits/NOTES.md):
+
+- **218 components** at this commit: 33 text animations, 38 effects, 48 components, 35 micro-interactions and 64 backgrounds (mostly WebGL/OGL fragment shaders). Install one at a time with the shadcn or jsrepo CLI, or through the shadcn MCP server; `reactbits.dev/llms.txt` lists them all.
+- **Background Studio** exports frame-stepped loops (MP4/WebM, up to 3840×2160, 24/30/60 fps, cross-faded seamless loop, no video alpha).
+- **For 25/50 fps, other sizes or PNG sequences**, put the component on a page and record it with the dioramas virtual-time capture; only `Aurora` takes a controlled `time` prop.
+- **Arabic:** the letter-splitting text effects break joining; animate Arabic by word.
