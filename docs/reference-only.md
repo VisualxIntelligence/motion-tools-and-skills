@@ -6,7 +6,7 @@ These are the useful things found while surveying the source repos ([`../SOURCES
 
 To unlock any item, open an issue on the upstream repo asking the author to add a licence (MIT or Apache-2.0).
 
-Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4), 21 October 2026 (sections 5–6) and 22 October 2026 (sections 7–11). PDoomVideo was rechecked on 21 October: same commit, still no licence.
+Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4), 21 October 2026 (sections 5–6), 22 October 2026 (sections 7–11), 31 October 2026 (section 12) and 14 November 2026 (section 13). PDoomVideo was rechecked on 21 October: same commit, still no licence.
 
 ---
 
@@ -194,3 +194,18 @@ What is worth knowing, in our own words, is in [`guides/react-bits/`](guides/rea
 - **Background Studio** exports frame-stepped loops (MP4/WebM, up to 3840×2160, 24/30/60 fps, cross-faded seamless loop, no video alpha).
 - **For 25/50 fps, other sizes or PNG sequences**, put the component on a page and record it with the dioramas virtual-time capture; only `Aurora` takes a controlled `time` prop.
 - **Arabic:** the letter-splitting text effects break joining; animate Arabic by word.
+
+## 13. Sixth survey: reviewed, not copied
+
+From the 14 November 2026 survey of six projects shared on LinkedIn (SOURCES.md rows 58–62). All are MIT, so licence was never the reason; these were left out for scope, dependencies or size.
+
+| Item | Why not copied | Worth knowing |
+|---|---|---|
+| [MengTo/Skills](https://github.com/MengTo/Skills) @ `3cc9345`: `media/html-reel` | Assembly runs in Fil's video editor over MCP with no local route, plus a cloned ElevenLabs voice and DreamCut recordings | Turns a post, landing page or YouTube video into a 9:16 reel in the source's own look, every cut on a word. A camera placeholder (a backlit studio silhouette) stands in every camera layout until the creator's phone take replaces it, and everything is retimed to their own words by word anchors, `t = W(τ)`. `scripts/decursor.py` finds and paints out the macOS cursor in a screen recording (OpenCV) |
+| MengTo/Skills: `media/url-to-motion-design` | Rebuilds the best shots of someone else's launch film inside Fil's motion-scenes canvas | Blind judges polishing each scene to 8/10. Not for remaking third-party work |
+| MengTo/Skills: `codex/browser-video-recording` | Works through Codex's in-app browser | 60 fps 4K "screen recordings" with a natural macOS cursor, deliberate click choreography and zoom-follow framing |
+| MengTo/Skills: `workflow/workflow-score-to-target` | The same idea as dream-loop's judge, which is copied | Anchored 0–10 rubrics, blind judging, before/after scorecards, honest reporting of what is still short |
+| MengTo/Skills: the other 11 `3d/` skills | Interactive-site techniques more than motion | Procedural wood, cloth, paper and metal materials that hold up in macro close-ups; falling leaves; four seasons; a wood-lighting scorecard |
+| MengTo/Skills: `codex/video-to-superprompt`, `illustration/`, `web-design/`, `game-*` | Prompt-writing for web pages, illustration styles, landing-page styles and games | `video-to-superprompt` turns a screen recording of a site or animation into a detailed recreation prompt; `illustration-isometric-mono` is a one-ramp isometric SVG style with a scene kit |
+| [emilkowalski/skills](https://github.com/emilkowalski/skills) @ `0f2e23b`: the other 16 skills | UI- or platform-specific (Sonner, Expo, Swift, mobile web, UI-library picks, audits of app animation). Three are in [`guides/emil-kowalski/`](guides/emil-kowalski/NOTES.md) | `animation-performance` lists subtle causes of dropped frames in web animation |
+| [morluto/rea](https://github.com/morluto/rea) @ `9e24b36` ([rea.tools](https://rea.tools)) | Not a motion skill: an MCP server and CLI (122 MB) that uses Hopper, Ghidra or IDA for native binaries, and inspects JavaScript, Electron and live browser activity | Install with `npx rea-agents setup`. The motion use is studying how a public site's animation or WebGL effect works at runtime, then writing your own. Its disclaimer rules out copying proprietary code or assets, circumventing protections, and unauthorised targets; keep to that |
