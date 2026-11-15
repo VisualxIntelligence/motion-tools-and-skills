@@ -6,7 +6,7 @@ These are the useful things found while surveying the source repos ([`../SOURCES
 
 To unlock any item, open an issue on the upstream repo asking the author to add a licence (MIT or Apache-2.0).
 
-Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4), 21 October 2026 (sections 5–6), 22 October 2026 (sections 7–11), 31 October 2026 (section 12) and 14 November 2026 (section 13). PDoomVideo was rechecked on 21 October: same commit, still no licence.
+Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4), 21 October 2026 (sections 5–6), 22 October 2026 (sections 7–11), 31 October 2026 (section 12), 14 November 2026 (section 13) and 15 November 2026 (section 14). PDoomVideo was rechecked on 21 October: same commit, still no licence.
 
 ---
 
@@ -209,3 +209,18 @@ From the 14 November 2026 survey of six projects shared on LinkedIn (SOURCES.md 
 | MengTo/Skills: `codex/video-to-superprompt`, `illustration/`, `web-design/`, `game-*` | Prompt-writing for web pages, illustration styles, landing-page styles and games | `video-to-superprompt` turns a screen recording of a site or animation into a detailed recreation prompt; `illustration-isometric-mono` is a one-ramp isometric SVG style with a scene kit |
 | [emilkowalski/skills](https://github.com/emilkowalski/skills) @ `0f2e23b`: the other 16 skills | UI- or platform-specific (Sonner, Expo, Swift, mobile web, UI-library picks, audits of app animation). Three are in [`guides/emil-kowalski/`](guides/emil-kowalski/NOTES.md) | `animation-performance` lists subtle causes of dropped frames in web animation |
 | [morluto/rea](https://github.com/morluto/rea) @ `9e24b36` ([rea.tools](https://rea.tools)) | Not a motion skill: an MCP server and CLI (122 MB) that uses Hopper, Ghidra or IDA for native binaries, and inspects JavaScript, Electron and live browser activity | Install with `npx rea-agents setup`. The motion use is studying how a public site's animation or WebGL effect works at runtime, then writing your own. Its disclaimer rules out copying proprietary code or assets, circumventing protections, and unauthorised targets; keep to that |
+
+## 14. Seventh survey: reviewed, not copied
+
+From the 15 November 2026 survey (SOURCES.md rows 63–69). All are MIT; these were left out for scope, dependencies or size.
+
+| Item | Why not copied | Worth knowing |
+|---|---|---|
+| [arla6ka/design.how](https://github.com/arla6ka/design.how) @ `148b94c`: the other 41 vault visuals | Shader fields, photo galleries, cursors and interface pieces rather than type. The 39 type effects are in [`../skills/kinetic-type-vault/`](../skills/kinetic-type-vault/NOTES.md) | `ripple-grid`, `phase-table`, `eclipse-grid`, `datamosh`, `peak-gradient` and `image-galaxy` make good animated backgrounds; same template and `check.mjs` pattern |
+| design.how: `design-system-boss`, `build-design-system`, `migrate-design-system`, `token-mapping`, `component-docs`, `ui-review` | They build and migrate an app codebase onto a design system: software work, not motion. `make-font` is in [`../design/make-font/`](../design/make-font/NOTES.md) | `token-mapping` maps raw hex and pixel values to tokens **by purpose** (an 8 px radius never stands in for an 8 px gap); `ui-review` checks the states a screenshot misses |
+| design.how: the four design systems (Glaze, Lime, Quartz, Sodium) | shadcn themes for app UI | Each ships its own skill so an agent builds with its components |
+| [oil-oil/oil-ui](https://github.com/oil-oil/oil-ui) @ `5c6b527` | Overlaps design skills already in use; `SKILL.md` written in Chinese; checks for updates online unless `OIL_NO_UPDATE_CHECK=1`; hands off to a paid Pro edition | Recommends one direction or compares several side by side on one page, then refines against real desktop and mobile screenshots, optionally with an independent reviewer |
+| [oil-oil/oil-motion](https://github.com/oil-oil/oil-motion) @ `07e31f2` | Web scroll animation from generated video; `SKILL.md` in Chinese; generation through the ZenMux service | Turns AI-generated or existing video and frame sequences into animation driven by scroll, drag, pointer, device tilt or audio (product teardowns, camera fly-throughs): keyframes, chroma and alpha atlases, frame interpolation, compression, a compiled timeline and runtime. Local processing of existing video needs Python, Pillow and ffmpeg only |
+| [INSANE0777/awwwards-skills](https://github.com/INSANE0777/awwwards-skills) @ `5dcf198`: `recreate`, `awwwards-section-loop` | Rebuild other people's sites section by section | The section gate (captured geometry and screenshots per band, then lock) is a sound QA loop for your own pages |
+| awwwards-skills: `motion-authoring`, `awwwards-inspiration`, `awwwards-atlas`, `awwwards-doctor`, `awwwards-setup` | Tied to the MCP's project conversion or to running the server itself | `awwwards-inspiration` teaches reference research with the MCP ("dark 3D portfolio vibes" → shortlisted award winners with their design DNA) |
+| [enesozturk/dimensional-drawing](https://github.com/enesozturk/dimensional-drawing): `assets/` | 18 MB of README GIFs, stills and the reference MP4 | Watch the reference film upstream before adapting the template |
