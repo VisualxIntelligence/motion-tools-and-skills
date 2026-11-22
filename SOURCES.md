@@ -1,6 +1,6 @@
 # Sources
 
-The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19), 22 October 2026 (20–26, and a fourth pass 27–55), 4 November 2026 (56–57), 14 November 2026 (58–62) and 15 November 2026 (63–69), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
+The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19), 22 October 2026 (20–26, and a fourth pass 27–55), 4 November 2026 (56–57), 14 November 2026 (58–62), 15 November 2026 (63–69) and 22 November 2026 (70–83), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
 
 | # | Repository | What it is | Licence | Commit | In this repo |
 |---|---|---|---|---|---|
@@ -74,6 +74,20 @@ The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19),
 | 67 | [INSANE0777/awwwards-skills](https://github.com/INSANE0777/awwwards-skills) | Nine agent skills for the Awwwards MCP | MIT (© Afjal) | `5dcf198` | [`skills/awwwards-motion-study/`](skills/awwwards-motion-study/NOTES.md), [`design/awwwards-design-md/`](design/awwwards-design-md/NOTES.md); the rest in [`docs/reference-only.md`](docs/reference-only.md#14-seventh-survey-reviewed-not-copied) |
 | 68 | [oil-oil/oil-ui](https://github.com/oil-oil/oil-ui) | UI design skill: directions compared side by side, refined against screenshots | MIT (© oil-oil) | `5c6b527` | Not copied; described in [`docs/reference-only.md`](docs/reference-only.md#14-seventh-survey-reviewed-not-copied) |
 | 69 | [oil-oil/oil-motion](https://github.com/oil-oil/oil-motion) | Generated video → scroll- and pointer-driven web animation | MIT (© Lin Zhihuang) | `07e31f2` | Not copied; described in [`docs/reference-only.md`](docs/reference-only.md#14-seventh-survey-reviewed-not-copied) |
+| 70 | [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp) | MCP server + add-on: Claude drives an open Blender | MIT (© Siddharth Ahuja) | `a5a8acf` | Not copied (installs with uv as `mcp-for-blender`); setup notes in [`tools/blender-mcp/`](tools/blender-mcp/NOTES.md) |
+| 71 | [EL4CTEO/blender-skills](https://github.com/EL4CTEO/blender-skills) | 28 Blender 5.2/5.3 agent skills with tested scripts | MIT (© EL4CTEO) | `1a1cc6c` | [`skills/blender-agent-skills/`](skills/blender-agent-skills/NOTES.md) (skills, shared helper, tests, tools, installers); comparison site and images left upstream |
+| 72 | [gumyr/build123d](https://github.com/gumyr/build123d) | Python code-CAD on OpenCascade | Apache-2.0 | `b910635` | Not copied (pip); our example [`tools/mesh-pipeline/prop_build123d.py`](tools/mesh-pipeline/prop_build123d.py) |
+| 73 | [ranjian0/building_tools](https://github.com/ranjian0/building_tools) | Blender add-on that builds buildings | MIT (© Ian Karanja) | `0216534` | Not copied; partial 5.3 test in [the toolchain guide](docs/guides/blender-3d-toolchain/NOTES.md) |
+| 74 | [Tripo-Developer/tripo-3d-for-blender](https://github.com/Tripo-Developer/tripo-3d-for-blender) | Official Tripo add-on for Blender | MIT (© VAST-AI-Research) | `d65412f` | Not copied; pins SDK 0.x, likely broken since Tripo's v2 API shut on 31 Oct 2026 ([guide](docs/guides/blender-3d-toolchain/NOTES.md)) |
+| 75 | [Tripo-Developer/tripo-python-sdk](https://github.com/Tripo-Developer/tripo-python-sdk) | Tripo API client (1.x, API v3) | MIT | `aa94035` | Not copied (pip `tripo3d`); our wrapper [`tools/mesh-pipeline/tripo_generate.py`](tools/mesh-pipeline/tripo_generate.py) |
+| 76 | [huxingyi/autoremesher](https://github.com/huxingyi/autoremesher) | Automatic quad remeshing app with a headless CLI | MIT (© Dust3D Project) | `4a49f82` | Not copied (release builds); CLI in [`tools/mesh-pipeline/NOTES.md`](tools/mesh-pipeline/NOTES.md) |
+| 77 | [CGCookie/retopoflow](https://github.com/CGCookie/retopoflow) | Hand retopology tools for Blender | **GPL-3.0** | `ac2570c` | Not copied; [guide](docs/guides/blender-3d-toolchain/NOTES.md) |
+| 78 | [cnr-isti-vclab/PyMeshLab](https://github.com/cnr-isti-vclab/PyMeshLab) | MeshLab filters from Python | **GPL-3.0** | `9c30334` | Not copied (pip); called by our [`tools/mesh-pipeline/mesh_clean.py`](tools/mesh-pipeline/mesh_clean.py) |
+| 79 | [jpcy/xatlas](https://github.com/jpcy/xatlas) | UV atlas generation | MIT (© Jonathan Young) | `f700c77` | Not copied (pip `xatlas` binding); called by our [`tools/mesh-pipeline/uv_unwrap.py`](tools/mesh-pipeline/uv_unwrap.py) |
+| 80 | [RodZill4/material-maker](https://github.com/RodZill4/material-maker) | Procedural PBR material editor (Godot) | MIT (© Rodolphe Suescun and contributors) | `7d6daae` | Not copied (an app); CLI export in [`tools/mesh-pipeline/NOTES.md`](tools/mesh-pipeline/NOTES.md) |
+| 81 | [armory3d/armorpaint](https://github.com/armory3d/armorpaint) | PBR texture painting app | zlib (source); binaries paid | `371f48f` | Not copied (an app); headless and `--mcp` modes in [the guide](docs/guides/blender-3d-toolchain/NOTES.md) |
+| 82 | [zeux/meshoptimizer](https://github.com/zeux/meshoptimizer) | Mesh simplification and compression | MIT (© Arseny Kapoulkine) | `8547fc3` | Not copied (npm); used by our [`tools/mesh-pipeline/lods.mjs`](tools/mesh-pipeline/lods.mjs) |
+| 83 | [donmccurdy/glTF-Transform](https://github.com/donmccurdy/glTF-Transform) | glTF optimisation CLI and SDK | MIT (© Don McCurdy) | `8e2a94a` | Not copied (npm); used by our [`tools/mesh-pipeline/lods.mjs`](tools/mesh-pipeline/lods.mjs) |
 
 Repos 13–15 were found through athemeroy's resource list (#7), which checked their licences on 11 October; we checked them again on 21 October.
 
@@ -81,6 +95,8 @@ Repos 13–15 were found through athemeroy's resource list (#7), which checked t
 
 - **Repos with no licence (1, 4, 8, 16) or a non-commercial one (25):** nothing copied. Their useful ideas are described in our own words, with upstream paths, in [`docs/reference-only.md`](docs/reference-only.md).
 - **Third-party content inside licensed repos:** creator prompts (2, 7), a lyric video quoting a commercial song and a personal portfolio reel (10), the Clawd character design (6, 10, 13), and the song, lyrics and lyric-quoting scenes of a music video (11). Also in [`docs/reference-only.md`](docs/reference-only.md#4-third-party-material-inside-licensed-repos).
+- **Copyleft (77, 78):** RetopoFlow and PyMeshLab are GPL-3.0, so neither is copied; `mesh_clean.py` imports PyMeshLab at run time.
+- **Installed, not vendored (70, 72, 75, 76, 79–83):** libraries and apps that install with pip, npm, uv or a release download are used through our own scripts and notes rather than copied, so they stay current.
 - **A licence that forbids redistribution (57):** React Bits is MIT + Commons Clause, so none of its components, tools or sounds are copied; see [`docs/guides/react-bits/`](docs/guides/react-bits/NOTES.md).
 - **Code that only runs with non-commercial or AGPL models (24), or only inside another agent host (23):** described in [`docs/reference-only.md`](docs/reference-only.md), not copied.
 - **Promotion:** iart.ai's closing "Built by iart.ai" lines and its upsell paragraph, author-promotion instructions, sponsor and creator watermarks (27–55).

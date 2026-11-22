@@ -224,3 +224,18 @@ From the 15 November 2026 survey (SOURCES.md rows 63–69). All are MIT; these w
 | [INSANE0777/awwwards-skills](https://github.com/INSANE0777/awwwards-skills) @ `5dcf198`: `recreate`, `awwwards-section-loop` | Rebuild other people's sites section by section | The section gate (captured geometry and screenshots per band, then lock) is a sound QA loop for your own pages |
 | awwwards-skills: `motion-authoring`, `awwwards-inspiration`, `awwwards-atlas`, `awwwards-doctor`, `awwwards-setup` | Tied to the MCP's project conversion or to running the server itself | `awwwards-inspiration` teaches reference research with the MCP ("dark 3D portfolio vibes" → shortlisted award winners with their design DNA) |
 | [enesozturk/dimensional-drawing](https://github.com/enesozturk/dimensional-drawing): `assets/` | 18 MB of README GIFs, stills and the reference MP4 | Watch the reference film upstream before adapting the template |
+
+## 15. Eighth survey: Claude × Blender toolchain, reviewed, not copied
+
+From the 22 November 2026 survey (SOURCES.md rows 70–83). Only the Blender skills were copied; the rest install from pip, npm, uv or a release download, are applications, or are GPL. What each is for, and what was tested, is in [`guides/blender-3d-toolchain/`](guides/blender-3d-toolchain/NOTES.md).
+
+| Item | Why not copied | Worth knowing |
+|---|---|---|
+| [CGCookie/retopoflow](https://github.com/CGCookie/retopoflow) @ `ac2570c` | **GPL-3.0**; an interactive tool for an artist's hands | Blender 4.2+ extension (v3.4.11): Contours, PolyStrips, PolyPen, Strokes, Patches, Loops, Knife, Tweak, Relax |
+| [cnr-isti-vclab/PyMeshLab](https://github.com/cnr-isti-vclab/PyMeshLab) @ `9c30334` | **GPL-3.0** | Used, not copied, by `tools/mesh-pipeline/mesh_clean.py`; Linux needs `libopengl0` |
+| [Tripo-Developer/tripo-3d-for-blender](https://github.com/Tripo-Developer/tripo-3d-for-blender) @ `d65412f` | Pins a Tripo SDK commit from Oct 2025 (0.x); Tripo shut its v2 API on 31 Oct 2026 and says 0.x stops working | Use the SDK 1.x (`tools/mesh-pipeline/tripo_generate.py`) or Blender MCP's Tripo generator. Not tested (no key) |
+| [ranjian0/building_tools](https://github.com/ranjian0/building_tools) @ `0216534` | Last updated May 2025; partial results in Blender 5.3 | Registers and runs floorplan, floors and windows headless, but the windows did not render and the hip roof failed; its error popup crashes background Blender. Try it in the UI |
+| [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp) @ `a5a8acf` | Installs with `uvx mcp-for-blender`; a copy would go stale | Notes in `tools/blender-mcp/`; set `DISABLE_TELEMETRY=true` for client work |
+| [huxingyi/autoremesher](https://github.com/huxingyi/autoremesher), [RodZill4/material-maker](https://github.com/RodZill4/material-maker), [armory3d/armorpaint](https://github.com/armory3d/armorpaint) | Applications (Qt/C++, Godot, C), not scripts | AutoRemesher and Material Maker have headless CLIs; ArmorPaint's development source adds `--export-textures`, `--script` and an `--mcp` server; its binaries are paid |
+| [gumyr/build123d](https://github.com/gumyr/build123d), [Tripo-Developer/tripo-python-sdk](https://github.com/Tripo-Developer/tripo-python-sdk), [jpcy/xatlas](https://github.com/jpcy/xatlas), [zeux/meshoptimizer](https://github.com/zeux/meshoptimizer), [donmccurdy/glTF-Transform](https://github.com/donmccurdy/glTF-Transform) | Libraries installed with pip or npm | Wrapped by our scripts in `tools/mesh-pipeline/` |
+| [EL4CTEO/blender-skills](https://github.com/EL4CTEO/blender-skills): `docs/`, `assets/` | 5.7 MB comparison site and images | The with/without comparison is online at el4cteo.github.io/blender-skills/comparison |
