@@ -1,6 +1,6 @@
 # Sources
 
-The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19), 22 October 2026 (20–26, and a fourth pass 27–55), 4 November 2026 (56–57), 14 November 2026 (58–62), 15 November 2026 (63–69) and 22 November 2026 (70–83), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
+The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19), 22 October 2026 (20–26, and a fourth pass 27–55), 4 November 2026 (56–57), 14 November 2026 (58–62), 15 November 2026 (63–69) and 22 November 2026 (70–83, and an engineering pass 84), what was taken from each, and under which licence. Every copied folder carries its upstream `LICENSE` file and a `NOTES.md` naming the source commit.
 
 | # | Repository | What it is | Licence | Commit | In this repo |
 |---|---|---|---|---|---|
@@ -88,6 +88,7 @@ The repositories surveyed on 6 October 2026 (1–10), 21 October 2026 (11–19),
 | 81 | [armory3d/armorpaint](https://github.com/armory3d/armorpaint) | PBR texture painting app | zlib (source); binaries paid | `371f48f` | Not copied (an app); headless and `--mcp` modes in [the guide](docs/guides/blender-3d-toolchain/NOTES.md) |
 | 82 | [zeux/meshoptimizer](https://github.com/zeux/meshoptimizer) | Mesh simplification and compression | MIT (© Arseny Kapoulkine) | `8547fc3` | Not copied (npm); used by our [`tools/mesh-pipeline/lods.mjs`](tools/mesh-pipeline/lods.mjs) |
 | 83 | [donmccurdy/glTF-Transform](https://github.com/donmccurdy/glTF-Transform) | glTF optimisation CLI and SDK | MIT (© Don McCurdy) | `8e2a94a` | Not copied (npm); used by our [`tools/mesh-pipeline/lods.mjs`](tools/mesh-pipeline/lods.mjs) |
+| 84 | [Chiang Ning, "8 AI skills for 3D visualisation"](https://www.chiangning.net/resources/showcase-reel) (9 `SKILL.md` files) | AEC visualisation skills: build film, prompt to BIM, building by prompt, timber gridshell, live structure check, model to cinematic film, photo to model, phone clip to model, showcase reel | **All Rights Reserved** (© 2026 Stanton Dahl Architects; free download) | read 22 Nov 2026 | Nothing copied. Summarised and linked in [`engineering/guides/aec-ai-workflows/`](engineering/guides/aec-ai-workflows/NOTES.md); two workflows rebuilt as our own skills: [`build-sequence-film`](engineering/skills/build-sequence-film/NOTES.md), [`brief-to-ifc`](engineering/skills/brief-to-ifc/NOTES.md) |
 
 Repos 13–15 were found through athemeroy's resource list (#7), which checked their licences on 11 October; we checked them again on 21 October.
 
@@ -95,6 +96,7 @@ Repos 13–15 were found through athemeroy's resource list (#7), which checked t
 
 - **Repos with no licence (1, 4, 8, 16) or a non-commercial one (25):** nothing copied. Their useful ideas are described in our own words, with upstream paths, in [`docs/reference-only.md`](docs/reference-only.md).
 - **Third-party content inside licensed repos:** creator prompts (2, 7), a lyric video quoting a commercial song and a personal portfolio reel (10), the Clawd character design (6, 10, 13), and the song, lyrics and lyric-quoting scenes of a music video (11). Also in [`docs/reference-only.md`](docs/reference-only.md#4-third-party-material-inside-licensed-repos).
+- **All rights reserved (84):** Chiang Ning's skill pack is free to download but not licensed for redistribution, and this repo is public; only links and our own summaries are here.
 - **Copyleft (77, 78):** RetopoFlow and PyMeshLab are GPL-3.0, so neither is copied; `mesh_clean.py` imports PyMeshLab at run time.
 - **Installed, not vendored (70, 72, 75, 76, 79–83):** libraries and apps that install with pip, npm, uv or a release download are used through our own scripts and notes rather than copied, so they stay current.
 - **A licence that forbids redistribution (57):** React Bits is MIT + Commons Clause, so none of its components, tools or sounds are copied; see [`docs/guides/react-bits/`](docs/guides/react-bits/NOTES.md).
