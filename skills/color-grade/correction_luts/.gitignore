@@ -1,0 +1,2 @@
+# Regenerate with `ruby regenerate_luts.rb`; the 26 MB of .cube files are not stored here.
+*.cube
