@@ -1,0 +1,7 @@
+# From upstream .gitignore: paid conversion LUTs, scratch LUTs, extracted frames, solver cache.
+luts/
+/*.cube
+*_raw.png
+*_analysis.json
+tmp/
+__pycache__/

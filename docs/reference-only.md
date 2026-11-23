@@ -247,3 +247,14 @@ From the 22 November 2026 survey (SOURCES.md rows 70–83). Only the Blender ski
 - **Workflows covered:** isometric build film, live structure check, model to cinematic film, photo to 3D model, prompt to BIM model (Revit through MCP), building by prompt, image to timber shell, phone clip to model, showcase reel. Each is summarised in our own words, with links and the matching tools in this repo, in [`../engineering/guides/aec-ai-workflows/`](../engineering/guides/aec-ai-workflows/NOTES.md).
 - **Rebuilt as our own skills:** the build film ([`build-sequence-film`](../engineering/skills/build-sequence-film/NOTES.md), three.js) and the brief-to-BIM idea without Revit ([`brief-to-ifc`](../engineering/skills/brief-to-ifc/NOTES.md), IfcOpenShell).
 - **Missing from the pack:** the showcase-reel skill refers to `prep_clips.sh`, `music.py` and `capture.js`, which are not published with it.
+
+## 17. Tenth survey: reviewed, not copied
+
+From the 23 November 2026 survey (SOURCES.md rows 85–95), which started from four X posts: Mika's "Fable 5.2 took a $6,800 motion job" thread (eight repos), a post on ComfyUI-piFlow, one on raea and one on a trading plugin. What was kept is in `skills/color-grade/` and the `tools/` notes listed in SOURCES.md. These were left out:
+
+| Item | Why not copied | Worth knowing |
+|---|---|---|
+| [ODU33104/rive-mcp](https://github.com/ODU33104/rive-mcp) | Source-available freeware. Its licence forbids modification, redistribution, derivative works and "AI-assisted analysis" | Builds `.riv` files without the Rive editor (bones, IK, mesh deformation, state machines) and renders WebM or APNG. Free to use as installed (`npm i rive-mcp-server` or its Claude Code plugin); Rive's own MCP needs the editor running. Of little use when the output is video |
+| [xinntao/Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) | Superseded for video | A per-frame GAN upscaler, so it flickers on moving images. For generated clips use a temporal restorer (SeedVR2 or FlashVSR in ComfyUI) before RIFE. For code-rendered work, render at the delivery size instead |
+| [hzwer/ECCV2022-RIFE](https://github.com/hzwer/ECCV2022-RIFE) | The paper's research code | Use Practical-RIFE or ComfyUI's built-in node: see [`../tools/frame-interpolation/`](../tools/frame-interpolation/NOTES.md) |
+| [brainbytes-dev/everything-claude-trading](https://github.com/brainbytes-dev/everything-claude-trading) | Out of scope (quant trading) | — |
