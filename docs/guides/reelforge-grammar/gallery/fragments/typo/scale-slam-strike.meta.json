@@ -1,0 +1,23 @@
+{
+  "intensityBand": "70-100",
+  "arcFit": ["hook", "peak"],
+  "durationRange": [2.5, 4.5],
+  "slots": [
+    {"name": "kicker", "maxChars": 18},
+    {"name": "word-one", "maxChars": 8},
+    {"name": "word-two", "maxChars": 8},
+    {"name": "word-three", "maxChars": 8},
+    {"name": "word-four", "maxChars": 8},
+    {"name": "duration-value", "maxChars": 4},
+    {"name": "running-label", "maxChars": 24}
+  ],
+  "mutate": ["copy", "duration", "accent-color", "data-values"],
+  "keep": [
+    "timeline-phase-structure",
+    "easing-curves",
+    "entry-anchor-geometry",
+    "word-stagger",
+    "strike-sweep",
+    "stage-shake-pattern"
+  ]
+}

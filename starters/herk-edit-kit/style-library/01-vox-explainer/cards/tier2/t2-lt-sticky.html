@@ -1,0 +1,154 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier2 · sticky note lower-third
+  A yellow STICKY-NOTE (squarish, very slightly rotated -2.8deg, soft drop shadow,
+  folded bottom-right corner via a gradient triangle) lower-left.
+  `tag` as a tiny uppercase kicker at the top of the note (ink, Archivo).
+  `name` in ink Fraunces, big, in the body of the note.
+  `role` smaller Archivo beneath the name.
+  Note drops in from above with a tiny rotation overshoot (back.out).
+  TRANSPARENT OVERLAY — only the sticky-note paints.
+  Slots: tag (kicker at top of note), name (Fraunces body), role (Archivo beneath).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+      #t2-lt-sticky {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent;
+        overflow: hidden;
+      }
+
+      /* Sticky note wrapper — positioned lower-left */
+      #t2-lt-sticky .note {
+        position: absolute;
+        left: 100px;
+        bottom: 90px;
+        width: 520px;
+        background: var(--yellow);
+        padding: 28px 36px 48px 32px;   /* extra bottom padding for fold */
+        transform: rotate(-2.8deg);
+        transform-origin: bottom left;
+        /* Soft drop shadow for note feel */
+        box-shadow:
+          4px 4px 0 rgba(23,19,14,0.28),
+          8px 8px 16px rgba(23,19,14,0.22);
+        position: absolute;
+      }
+
+      /* Folded corner — bottom-right triangle via a gradient overlay pseudo-element */
+      #t2-lt-sticky .note::after {
+        content: "";
+        position: absolute;
+        right: 0; bottom: 0;
+        width: 48px; height: 48px;
+        background: linear-gradient(
+          135deg,
+          transparent 50%,
+          var(--paper-2) 50%
+        );
+        box-shadow: -2px -2px 4px rgba(23,19,14,0.15);
+      }
+
+      /* Horizontal rule at top of note (acts as the sticky "ruled line" under the kicker) */
+      #t2-lt-sticky .note-rule {
+        width: 100%;
+        height: 3px;
+        background: rgba(23,19,14,0.18);
+        margin-bottom: 14px;
+        transform-origin: left center;
+      }
+
+      /* Tag kicker — tiny uppercase label at top */
+      #t2-lt-sticky .tag {
+        font-family: var(--font-label);
+        font-weight: var(--wt-bold);
+        font-size: var(--size-tiny);
+        letter-spacing: var(--track-wide);
+        text-transform: uppercase;
+        color: var(--ink);
+        opacity: 0.6;
+        margin-bottom: 8px;
+        transform-origin: left center;
+      }
+
+      /* Name — big Fraunces in ink */
+      #t2-lt-sticky .name {
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 78px;
+        line-height: 0.92;
+        letter-spacing: var(--track-tight);
+        color: var(--ink);
+        margin-bottom: 12px;
+      }
+
+      /* Role — smaller Archivo in ink, muted */
+      #t2-lt-sticky .role {
+        font-family: var(--font-label);
+        font-weight: var(--wt-bold);
+        font-size: var(--size-label);
+        letter-spacing: 0.03em;
+        color: var(--ink);
+        opacity: 0.72;
+        line-height: 1.2;
+      }
+
+      /* Red accent dot / pin mark at top-center of the note */
+      #t2-lt-sticky .pin {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 18px;
+        height: 18px;
+        background: var(--red);
+        border-radius: 50%;
+        box-shadow: 0 2px 0 rgba(23,19,14,0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lt-sticky" data-composition-id="t2-lt-sticky" data-start="0" data-width="1920" data-height="1080">
+      <div class="note">
+        <div class="pin"></div>
+        <div class="tag" data-slot="tag">ON THE RECORD</div>
+        <div class="note-rule"></div>
+        <div class="name" data-slot="name">Zara Kimani</div>
+        <div class="role" data-slot="role">Economics Correspondent · Vox</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Note drops in from above with rotation overshoot
+      tl.from("#t2-lt-sticky .note", {
+            autoAlpha: 0,
+            y: -220,
+            rotation: 6,
+            transformOrigin: "bottom left",
+            duration: 0.42,
+            ease: "back.out(2.2)"
+          }, 0.0)
+        // Pin pops in slightly after the note settles
+        .from("#t2-lt-sticky .pin", { scaleX: 0, scaleY: 0, transformOrigin: "center center", duration: 0.2, ease: "back.out(3.0)" }, 0.32)
+        // Tag wipes in scaleX
+        .from("#t2-lt-sticky .tag", { scaleX: 0, transformOrigin: "left center", duration: 0.24, ease: "power2.out" }, 0.38)
+        // Horizontal rule wipes left-to-right
+        .from("#t2-lt-sticky .note-rule", { scaleX: 0, transformOrigin: "left center", duration: 0.22, ease: "power2.out" }, 0.48)
+        // Name snaps in with back.out
+        .from("#t2-lt-sticky .name", { autoAlpha: 0, x: -24, duration: 0.34, ease: "back.out(1.6)" }, 0.58)
+        // Role steps in
+        .from("#t2-lt-sticky .role", { autoAlpha: 0, y: 14, duration: 0.28, ease: "steps(4)" }, 0.78)
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lt-sticky"] = tl;
+    </script>
+  </body>
+</html>

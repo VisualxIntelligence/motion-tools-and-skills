@@ -1,0 +1,50 @@
+{
+  "$schema": "../registry.schema.json",
+  "id": "STYLE_ID",
+  "name": "Human Readable Style Name",
+  "number": "NN",
+  "status": "draft",
+  "inspiration": "What creator / look this is based on (e.g. Vox explainer). Reference images live in references/.",
+  "summary": "One-line description of the feeling and when to use this style.",
+  "palette": {
+    "bg": "#000000",
+    "fg": "#ffffff",
+    "accent": "#000000",
+    "notes": "2-3 colors max. Mirror these into tokens.css."
+  },
+  "fonts": {
+    "display": "FontName",
+    "body": "FontName",
+    "mono": "FontName"
+  },
+  "motion": "Snappy | fluid | dramatic — the easing signature (mirror into tokens.css --ease-*).",
+  "transitions": "Which entrance/exit feel matches this style.",
+  "cards": [
+    {
+      "id": "STYLE_ID.t1.stat",
+      "tier": "tier1",
+      "purpose": "stat",
+      "file": "cards/tier1/t1-stat.html",
+      "slots": [
+        { "name": "kicker", "type": "text", "maxChars": 30 },
+        { "name": "stat", "type": "text", "maxChars": 8 },
+        { "name": "label", "type": "text", "maxChars": 48 }
+      ],
+      "duration": { "min": 5, "max": 8 },
+      "preview": { "mp4": "preview/STYLE_ID.t1.stat.mp4", "poster": "preview/STYLE_ID.t1.stat.png" }
+    },
+    {
+      "id": "STYLE_ID.t2.list",
+      "tier": "tier2",
+      "purpose": "list",
+      "file": "cards/tier2/t2-list.html",
+      "slots": [
+        { "name": "tag", "type": "text", "maxChars": 24 },
+        { "name": "headline", "type": "text", "maxChars": 48 },
+        { "name": "items", "type": "list", "maxItems": 4, "maxChars": 40 }
+      ],
+      "duration": { "min": 12, "max": 30 },
+      "preview": { "mp4": "preview/STYLE_ID.t2.list.mp4", "poster": "preview/STYLE_ID.t2.list.png" }
+    }
+  ]
+}

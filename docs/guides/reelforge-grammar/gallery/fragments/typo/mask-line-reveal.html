@@ -1,0 +1,195 @@
+<!-- rf-gallery v1 | typo/mask-line-reveal | mask-line-slide-reveal | mutate=copy,duration,accent-color | keep=timeline-phase-structure,easing-curves,line-mask-geometry,line-stagger,accent-rail,living-breathe -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Mask line reveal fragment</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-mask-line-reveal {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          color: var(--rf-text, #f8f7f2);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-mask-line-reveal .mlr-field {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #0b0d12);
+        }
+        .rf-mask-line-reveal .mlr-orbit {
+          position: absolute;
+          top: -28%;
+          right: -14%;
+          width: 79%;
+          height: 118%;
+          border-radius: 50%;
+          background: var(--rf-accent-alt, #8dc8ff);
+          filter: brightness(1) blur(68px);
+          opacity: 0.34;
+          pointer-events: none;
+          will-change: filter, opacity;
+        }
+        .rf-mask-line-reveal .mlr-stage {
+          position: absolute;
+          inset: 0;
+          will-change: transform;
+        }
+        .rf-mask-line-reveal .mlr-rail {
+          position: absolute;
+          top: 12.4%;
+          bottom: 12.4%;
+          left: 5.8%;
+          width: 2px;
+          background: var(--rf-accent, #f4b76e);
+          box-shadow: 0 0 20px var(--rf-accent, #f4b76e);
+          transform: scaleY(0);
+          transform-origin: center top;
+          will-change: transform, opacity;
+        }
+        .rf-mask-line-reveal .mlr-anchor {
+          position: absolute;
+          top: 12.4%;
+          left: calc(5.8% - 5px);
+          width: 12px;
+          height: 12px;
+          border: 2px solid var(--rf-accent, #f4b76e);
+          border-radius: 50%;
+          background: var(--rf-bg, #0b0d12);
+          box-shadow: 0 0 17px var(--rf-accent, #f4b76e);
+          will-change: transform, opacity;
+        }
+        .rf-mask-line-reveal .mlr-copy {
+          position: absolute;
+          top: 19.6%;
+          left: 10.2%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          font-size: clamp(132px, 11.6vw, 224px);
+          font-weight: 800;
+          letter-spacing: -0.075em;
+          line-height: 1.06;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        .rf-mask-line-reveal .mlr-line-mask {
+          display: block;
+          height: 1.15em;
+          overflow: hidden;
+          padding: 0.08em 0;
+        }
+        .rf-mask-line-reveal .mlr-line-inner {
+          display: block;
+          will-change: transform, opacity;
+        }
+        .rf-mask-line-reveal .mlr-line-mask--accent .mlr-line-inner {
+          color: var(--rf-accent, #f4b76e);
+        }
+        .rf-mask-line-reveal .mlr-line-mask--quiet .mlr-line-inner {
+          color: var(--rf-muted-text, #c0c5cd);
+        }
+        .rf-mask-line-reveal .mlr-baseline {
+          position: absolute;
+          right: 6.2%;
+          bottom: 14.2%;
+          left: 10.2%;
+          height: 1px;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.34));
+          transform: scaleX(0);
+          transform-origin: left center;
+          will-change: transform, opacity;
+        }
+        .rf-mask-line-reveal .mlr-notches {
+          position: absolute;
+          right: 6.2%;
+          bottom: 12.1%;
+          left: 10.2%;
+          display: flex;
+          justify-content: space-between;
+          opacity: 0;
+          will-change: opacity, transform;
+        }
+        .rf-mask-line-reveal .mlr-notch {
+          width: 1px;
+          height: 16px;
+          background: var(--rf-hairline, rgba(255, 255, 255, 0.16));
+        }
+        @keyframes mlr-orbit-breathe {
+          from { filter: brightness(1) blur(68px); opacity: 0.28; }
+          to { filter: brightness(1.28) blur(68px); opacity: 0.52; }
+        }
+        .rf-mask-line-reveal .mlr-orbit {
+          animation: mlr-orbit-breathe 1.24s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+      </style>
+      <main
+        class="rf-mask-line-reveal"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-typo-mask-line-reveal"
+      >
+        <div class="mlr-field">
+          <div class="mlr-orbit" aria-hidden="true"></div>
+          <div class="mlr-stage">
+            <div class="mlr-rail" aria-hidden="true"></div>
+            <div class="mlr-anchor" aria-hidden="true"></div>
+            <div class="mlr-copy">
+              <div class="mlr-line-mask">
+                <span class="mlr-line-inner" data-slot="line-one">오늘의</span>
+              </div>
+              <div class="mlr-line-mask mlr-line-mask--accent">
+                <span class="mlr-line-inner" data-slot="line-two">흐름을</span>
+              </div>
+              <div class="mlr-line-mask mlr-line-mask--quiet">
+                <span class="mlr-line-inner" data-slot="line-three">바꿔요</span>
+              </div>
+            </div>
+            <div class="mlr-baseline" aria-hidden="true"></div>
+            <div class="mlr-notches" aria-hidden="true">
+              <span class="mlr-notch"></span><span class="mlr-notch"></span><span class="mlr-notch"></span><span class="mlr-notch"></span><span class="mlr-notch"></span><span class="mlr-notch"></span><span class="mlr-notch"></span>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-typo-mask-line-reveal";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const lines = Array.from(root.querySelectorAll(".mlr-line-inner"));
+          const orbit = root.querySelector(".mlr-orbit");
+          const rail = root.querySelector(".mlr-rail");
+          const anchor = root.querySelector(".mlr-anchor");
+          const baseline = root.querySelector(".mlr-baseline");
+          const notches = root.querySelector(".mlr-notches");
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set(lines, { yPercent: 110, opacity: 0 })
+            .set(orbit, { opacity: 0 })
+            .set([rail, anchor, baseline, notches], { opacity: 0 })
+            .set(rail, { scaleY: 0, transformOrigin: "center top" })
+            .set(anchor, { scale: 0, transformOrigin: "center center" })
+            .set(baseline, { scaleX: 0, transformOrigin: "left center" })
+            .to(orbit, { opacity: 0.34, duration: 0.38, ease: "power2.out" }, 0.08)
+            .to(rail, { opacity: 1, scaleY: 1, duration: 0.58, ease: "power3.out" }, 0.14)
+            .to(anchor, { opacity: 1, scale: 1, duration: 0.28, ease: "power4.out" }, 0.18)
+            .fromTo(lines[0], { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5, ease: "power4.out" }, 0.34)
+            .fromTo(lines[1], { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5, ease: "power4.out" }, 0.62)
+            .fromTo(lines[2], { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5, ease: "power4.out" }, 0.9)
+            .to(baseline, { opacity: 0.82, scaleX: 1, duration: 0.42, ease: "power3.out" }, 1.25)
+            .fromTo(notches, { opacity: 0, y: 8 }, { opacity: 0.72, y: 0, duration: 0.28, ease: "power3.out" }, 1.48);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

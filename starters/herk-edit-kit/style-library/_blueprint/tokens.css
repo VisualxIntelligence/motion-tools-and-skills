@@ -1,0 +1,32 @@
+/* Style tokens — the single source of palette / type / motion for THIS style.
+   Every card in this style references these variables; cards never hardcode
+   colors, font names, or easings. Tweak a value here and all cards update. */
+
+:root {
+  /* palette (mirror style.json + DESIGN.md) */
+  --bg: #000000;
+  --fg: #ffffff;
+  --accent: #000000;
+  --muted: rgba(255, 255, 255, 0.62);
+
+  /* typography */
+  --font-display: "FontName", system-ui, sans-serif;
+  --font-body: "FontName", system-ui, sans-serif;
+  --font-mono: "FontName", ui-monospace, monospace;
+
+  --size-display: 96px;
+  --size-headline: 48px;
+  --size-body: 28px;
+  --size-label: 20px;
+
+  /* motion — easings as the style's signature (used in GSAP and CSS) */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-in: 0.45s;
+  --dur-out: 0.35s;
+
+  /* spacing / shape */
+  --radius: 16px;
+  --pad: 48px;
+}

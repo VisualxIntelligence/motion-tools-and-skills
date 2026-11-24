@@ -1,0 +1,292 @@
+<!-- rf-gallery v1 | camera/eye-shift | perspective-origin-eye-shift | mutate=copy,duration,accent-color,origin-x,origin-y | keep=timeline-phase-structure,easing-curves,perspective-container,origin-proxy-onupdate,preserve-3d-depth-layout,living-motion-delay -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Perspective Origin Eye Shift</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-eye-shift {
+          position: absolute;
+          inset: 0;
+          isolation: isolate;
+          overflow: hidden;
+          background: var(--rf-bg, #0b0d12);
+          color: var(--rf-text, #f5f4ee);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-eye-shift .esh-stage,
+        .rf-eye-shift .esh-world,
+        .rf-eye-shift .esh-atmosphere {
+          position: absolute;
+          inset: 0;
+        }
+        .rf-eye-shift .esh-stage {
+          perspective: 960px;
+          perspective-origin: 50% 50%;
+          overflow: hidden;
+        }
+        .rf-eye-shift .esh-world {
+          transform-style: preserve-3d;
+        }
+        .rf-eye-shift .esh-atmosphere {
+          top: 4%;
+          right: 8%;
+          bottom: 4%;
+          left: 8%;
+          background: radial-gradient(ellipse at 50% 45%, var(--rf-accent, #7f79ff) 0%, var(--rf-accent, #7f79ff) 17%, var(--rf-transparent, transparent) 68%);
+          filter: blur(54px) brightness(1);
+          opacity: 0.3;
+          pointer-events: none;
+          animation: esh-atmosphere-breathe 1.25s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-eye-shift .esh-floor {
+          position: absolute;
+          top: 53%;
+          left: 50%;
+          width: 1900px;
+          height: 1220px;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.34));
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.13)) 1px, var(--rf-transparent, transparent) 1px),
+            linear-gradient(var(--rf-hairline, rgba(255, 255, 255, 0.13)) 1px, var(--rf-transparent, transparent) 1px);
+          background-position: center center;
+          background-size: 108px 108px;
+          box-shadow: inset 0 0 130px var(--rf-bg, #0b0d12);
+          opacity: 0.5;
+          transform: translate(-50%, -50%) rotateX(73deg) translateZ(-190px);
+          transform-style: preserve-3d;
+          will-change: transform, opacity;
+        }
+        .rf-eye-shift .esh-horizon {
+          position: absolute;
+          top: 51.5%;
+          left: 8%;
+          width: 84%;
+          height: 1px;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.34));
+          box-shadow: 0 0 26px var(--rf-accent, #7f79ff);
+          opacity: 0.7;
+          transform: translateZ(-42px);
+          will-change: transform, opacity;
+        }
+        .rf-eye-shift .esh-axis {
+          position: absolute;
+          top: 19%;
+          bottom: 10%;
+          left: 50%;
+          width: 1px;
+          background: linear-gradient(var(--rf-transparent, transparent), var(--rf-hairline-strong, rgba(255, 255, 255, 0.34)) 18%, var(--rf-hairline-strong, rgba(255, 255, 255, 0.34)) 82%, var(--rf-transparent, transparent));
+          opacity: 0.42;
+          transform: translateX(-50%) translateZ(-78px);
+          will-change: transform, opacity;
+        }
+        .rf-eye-shift .esh-echo {
+          position: absolute;
+          top: 5%;
+          right: 3%;
+          margin: 0;
+          color: var(--rf-ghost-fill, transparent);
+          font-size: clamp(300px, 33vw, 635px);
+          font-weight: 800;
+          letter-spacing: -0.13em;
+          line-height: 0.78;
+          -webkit-text-stroke: 2px var(--rf-hairline-strong, rgba(255, 255, 255, 0.34));
+          opacity: 0.46;
+          pointer-events: none;
+          transform: translateZ(-110px);
+          will-change: transform, opacity;
+        }
+        .rf-eye-shift .esh-copy {
+          position: absolute;
+          top: 17%;
+          left: 8.6%;
+          z-index: 2;
+          transform: translateZ(175px);
+          transform-style: preserve-3d;
+        }
+        .rf-eye-shift .esh-kicker,
+        .rf-eye-shift .esh-detail,
+        .rf-eye-shift .esh-near-label,
+        .rf-eye-shift .esh-far-label {
+          margin: 0;
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+        }
+        .rf-eye-shift .esh-kicker {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          color: var(--rf-accent-alt, #a7d7ff);
+          font-size: clamp(17px, 1.3vw, 25px);
+          font-weight: 800;
+          letter-spacing: 0.1em;
+          line-height: 1.2;
+          will-change: transform, opacity;
+        }
+        .rf-eye-shift .esh-kicker::before {
+          width: 78px;
+          height: 3px;
+          content: "";
+          background: var(--rf-accent-alt, #a7d7ff);
+          box-shadow: 0 0 20px var(--rf-accent-alt, #a7d7ff);
+        }
+        .rf-eye-shift .esh-headline {
+          display: flex;
+          flex-direction: column;
+          margin: 36px 0 0;
+          font-size: clamp(138px, 12.6vw, 242px);
+          font-weight: 800;
+          letter-spacing: -0.11em;
+          line-height: 0.84;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        .rf-eye-shift .esh-headline-line {
+          display: block;
+          width: max-content;
+          will-change: transform, opacity;
+        }
+        .rf-eye-shift .esh-headline-line--accent {
+          color: var(--rf-accent, #7f79ff);
+          text-shadow: 0 0 44px var(--rf-accent, #7f79ff);
+        }
+        .rf-eye-shift .esh-detail {
+          margin-top: 48px;
+          color: var(--rf-muted-text, #c2c7d1);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+          font-size: clamp(25px, 1.9vw, 37px);
+          font-weight: 650;
+          letter-spacing: -0.055em;
+          line-height: 1.35;
+          will-change: transform, opacity;
+        }
+        .rf-eye-shift .esh-near-label,
+        .rf-eye-shift .esh-far-label {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          gap: 13px;
+          color: var(--rf-muted-text, #c2c7d1);
+          font-size: clamp(15px, 1.05vw, 20px);
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-eye-shift .esh-near-label {
+          right: 8.5%;
+          bottom: 12%;
+          color: var(--rf-accent-alt, #a7d7ff);
+          transform: translateZ(218px);
+        }
+        .rf-eye-shift .esh-far-label {
+          top: 55.5%;
+          right: 12%;
+          transform: translateZ(-78px);
+        }
+        .rf-eye-shift .esh-near-label::after,
+        .rf-eye-shift .esh-far-label::before {
+          width: 58px;
+          height: 1px;
+          content: "";
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.34));
+        }
+        .rf-eye-shift .esh-near-label::after {
+          background: var(--rf-accent-alt, #a7d7ff);
+          box-shadow: 0 0 16px var(--rf-accent-alt, #a7d7ff);
+        }
+        @keyframes esh-atmosphere-breathe {
+          from {
+            filter: blur(54px) brightness(1);
+            opacity: 0.3;
+          }
+          to {
+            filter: blur(54px) brightness(1.22);
+            opacity: 0.56;
+          }
+        }
+      </style>
+      <main
+        class="rf-eye-shift"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-camera-eye-shift"
+      >
+        <div class="esh-stage">
+          <div class="esh-atmosphere" aria-hidden="true"></div>
+          <div class="esh-world">
+            <div class="esh-floor" aria-hidden="true"></div>
+            <div class="esh-horizon" aria-hidden="true"></div>
+            <div class="esh-axis" aria-hidden="true"></div>
+            <p class="esh-echo" data-slot="echo-word" aria-hidden="true">시선</p>
+            <div class="esh-copy">
+              <p class="esh-kicker" data-slot="kicker">시점의 변화</p>
+              <h1 class="esh-headline">
+                <span class="esh-headline-line" data-slot="headline-one">시선이</span>
+                <span class="esh-headline-line esh-headline-line--accent" data-slot="headline-two">머문다</span>
+              </h1>
+              <p class="esh-detail" data-slot="detail">천천히 방향을 바꾼다</p>
+            </div>
+            <p class="esh-far-label" data-slot="far-label">먼곳</p>
+            <p class="esh-near-label" data-slot="near-label">가까움</p>
+          </div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-camera-eye-shift";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const stage = root.querySelector(".esh-stage");
+          const floor = root.querySelector(".esh-floor");
+          const horizon = root.querySelector(".esh-horizon");
+          const axis = root.querySelector(".esh-axis");
+          const echo = root.querySelector(".esh-echo");
+          const kicker = root.querySelector(".esh-kicker");
+          const headlineLines = Array.from(root.querySelectorAll(".esh-headline-line"));
+          const detail = root.querySelector(".esh-detail");
+          const nearLabel = root.querySelector(".esh-near-label");
+          const farLabel = root.querySelector(".esh-far-label");
+          const origin = { x: 50, y: 50 };
+          const applyOrigin = () => {
+            stage.style.perspectiveOrigin = `${origin.x}% ${origin.y}%`;
+          };
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([floor, horizon, axis, echo, kicker, detail, nearLabel, farLabel, ...headlineLines], { opacity: 0 })
+            .set(floor, { scale: 0.94 })
+            .set(echo, { x: 74, y: -30 })
+            .set(headlineLines, { x: -58, y: 22 })
+            .set(detail, { x: -28, y: 14 })
+            .set(nearLabel, { x: 54, y: 20 })
+            .set(farLabel, { x: 36 })
+            .to(floor, { opacity: 0.5, scale: 1, duration: 0.72, ease: "power2.out" }, 0)
+            .to(horizon, { opacity: 0.7, duration: 0.46, ease: "power2.out" }, 0.08)
+            .to(axis, { opacity: 0.42, duration: 0.46, ease: "power2.out" }, 0.14)
+            .to(echo, { opacity: 0.46, x: 0, y: 0, duration: 0.72, ease: "power3.out" }, 0.16)
+            .to(kicker, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.3)
+            .to(headlineLines[0], { opacity: 1, x: 0, y: 0, duration: 0.48, ease: "power3.out" }, 0.48)
+            .to(headlineLines[1], { opacity: 1, x: 0, y: 0, duration: 0.48, ease: "power3.out" }, 0.8)
+            .to(detail, { opacity: 1, x: 0, y: 0, duration: 0.38, ease: "power2.out" }, 1.14)
+            .to(farLabel, { opacity: 0.72, x: 0, duration: 0.36, ease: "power2.out" }, 1.28)
+            .to(nearLabel, { opacity: 1, x: 0, y: 0, duration: 0.46, ease: "power3.out" }, 1.52)
+            .to(origin, {
+              x: 55,
+              y: 67,
+              duration: 1.25,
+              ease: "power2.inOut",
+              onUpdate: applyOrigin
+            }, 0.56);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

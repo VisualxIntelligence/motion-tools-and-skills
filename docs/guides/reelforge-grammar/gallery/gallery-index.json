@@ -1,0 +1,1821 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "hook",
+        "peak"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 18
+        },
+        {
+          "name": "word-one",
+          "maxChars": 8
+        },
+        {
+          "name": "word-two",
+          "maxChars": 8
+        },
+        {
+          "name": "word-three",
+          "maxChars": 8
+        },
+        {
+          "name": "word-four",
+          "maxChars": 8
+        },
+        {
+          "name": "duration-value",
+          "maxChars": 4
+        },
+        {
+          "name": "running-label",
+          "maxChars": 24
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "data-values"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "entry-anchor-geometry",
+        "word-stagger",
+        "strike-sweep",
+        "stage-shake-pattern"
+      ],
+      "id": "typo/scale-slam-strike",
+      "family": "typo",
+      "implementsGrammar": "scale-jump-stairstep",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "79bdea1c035ec83d5cf53e1edc2bef3fbd0b941f0dac9d30e8f4a286a76add37",
+        "checkedAt": "2026-07-25T05:11:56.611Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "hook",
+        "peak"
+      ],
+      "durationRange": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "name": "index-mark",
+          "maxChars": 2
+        },
+        {
+          "name": "axis-label",
+          "maxChars": 20
+        },
+        {
+          "name": "kicker",
+          "maxChars": 20
+        },
+        {
+          "name": "primary",
+          "maxChars": 4
+        },
+        {
+          "name": "scramble",
+          "maxChars": 8
+        },
+        {
+          "name": "secondary",
+          "maxChars": 5
+        },
+        {
+          "name": "punctuation",
+          "maxChars": 1
+        },
+        {
+          "name": "running-label",
+          "maxChars": 20
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "entry-geometry",
+        "impact-shake-pattern"
+      ],
+      "id": "typo/glitch-swap-punch",
+      "family": "typo",
+      "implementsGrammar": "word-swap-crossfade",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "6d4d1beefa9ebea7dcdcffb78689ccec59295c20202ce9d74ba6bc0683fbb6ca",
+        "checkedAt": "2026-07-25T05:13:07.344Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build"
+      ],
+      "durationRange": [
+        3,
+        5
+      ],
+      "slots": [
+        {
+          "name": "old-value",
+          "maxChars": 3
+        },
+        {
+          "name": "new-value",
+          "maxChars": 3
+        },
+        {
+          "name": "unit-label",
+          "maxChars": 14
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "data-values"
+      ],
+      "keep": [
+        "timeline-phases",
+        "easing",
+        "anchor-exit-geometry",
+        "shake-pattern",
+        "svg-stroke-draw-on",
+        "streak-stagger"
+      ],
+      "id": "typo/demote-promote-arrow",
+      "family": "typo",
+      "implementsGrammar": "svg-stroke-draw-on",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "036e657c6d8c4ee91401d8f542dceeae16f93ba94ce73037d046cc7e599e5d98",
+        "checkedAt": "2026-07-25T05:14:13.401Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "hook",
+        "build"
+      ],
+      "durationRange": [
+        3,
+        5.5
+      ],
+      "slots": [
+        {
+          "name": "eyebrow",
+          "maxChars": 14
+        },
+        {
+          "name": "background-mark",
+          "maxChars": 2
+        },
+        {
+          "name": "headline",
+          "maxChars": 8
+        },
+        {
+          "name": "status",
+          "maxChars": 14
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "character-stagger",
+        "accent-timing",
+        "stage-shake-pattern"
+      ],
+      "id": "typo/typewriter-stage",
+      "family": "typo",
+      "implementsGrammar": "typewriter-vs-fade-sequence",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "34ad6312e7c9b790e6a7c355dcc4bf648f5788e48d5cd92df7acc3d20d72222b",
+        "checkedAt": "2026-07-25T05:15:35.966Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "peak"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 14
+        },
+        {
+          "name": "index",
+          "maxChars": 20
+        },
+        {
+          "name": "hero-prompt",
+          "maxChars": 5
+        },
+        {
+          "name": "hero-response",
+          "maxChars": 5
+        },
+        {
+          "name": "swatch-label",
+          "maxChars": 8
+        },
+        {
+          "name": "swatch-count",
+          "maxChars": 7
+        },
+        {
+          "name": "running-label",
+          "maxChars": 14
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase",
+        "easing",
+        "stagger",
+        "overshoot-geometry",
+        "strobe-pattern",
+        "bloom-settle"
+      ],
+      "id": "object/hero-overshoot-strobe",
+      "family": "object",
+      "implementsGrammar": "value-graph-overshoot-settle",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "90d01beeb0fd9ea9ad56bea83f9f08d62049087b10b3082f44f4d33d39e886a0",
+        "checkedAt": "2026-07-25T05:16:53.064Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build",
+        "resolve"
+      ],
+      "durationRange": [
+        3,
+        5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 18
+        },
+        {
+          "name": "headline-primary",
+          "maxChars": 9
+        },
+        {
+          "name": "headline-secondary",
+          "maxChars": 8
+        },
+        {
+          "name": "equation",
+          "maxChars": 28
+        },
+        {
+          "name": "pipeline-step-1",
+          "maxChars": 26
+        },
+        {
+          "name": "pipeline-step-2",
+          "maxChars": 22
+        },
+        {
+          "name": "pipeline-step-3",
+          "maxChars": 25
+        },
+        {
+          "name": "pipeline-step-4",
+          "maxChars": 21
+        },
+        {
+          "name": "status",
+          "maxChars": 18
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase",
+        "easing",
+        "entry-geometry",
+        "connector-stagger",
+        "node-pop",
+        "label-slide"
+      ],
+      "id": "object/connector-tree-cascade",
+      "family": "object",
+      "implementsGrammar": "line-connector-draw",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "356b918b7dd386156f7a292f312e06fa79750d9d6a5ad3c5f807ddf9f2add030",
+        "checkedAt": "2026-07-25T05:17:59.878Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build",
+        "peak"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "headline",
+          "maxChars": 9
+        },
+        {
+          "name": "emphasis",
+          "maxChars": 9
+        },
+        {
+          "name": "value",
+          "maxChars": 4
+        },
+        {
+          "name": "tag-1",
+          "maxChars": 6
+        },
+        {
+          "name": "tag-2",
+          "maxChars": 6
+        },
+        {
+          "name": "tag-3",
+          "maxChars": 6
+        },
+        {
+          "name": "tag-4",
+          "maxChars": 6
+        },
+        {
+          "name": "tag-5",
+          "maxChars": 6
+        },
+        {
+          "name": "tag-6",
+          "maxChars": 6
+        },
+        {
+          "name": "tag-7",
+          "maxChars": 6
+        },
+        {
+          "name": "tag-8",
+          "maxChars": 6
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "data-values"
+      ],
+      "keep": [
+        "timeline-phases",
+        "easing",
+        "entry-geometry",
+        "tag-stagger"
+      ],
+      "id": "data/count-up-punch",
+      "family": "data",
+      "implementsGrammar": "hold-keyframe-stepped-values",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "8421f812c50828a69711b814a8b0f4ffd4e9021dd29656e86ea9386f8d807600",
+        "checkedAt": "2026-07-25T05:22:56.342Z"
+      }
+    },
+    {
+      "intensityBand": "0-40",
+      "arcFit": [
+        "resolve"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 18
+        },
+        {
+          "name": "ghost-character",
+          "maxChars": 1
+        },
+        {
+          "name": "headline-line-1",
+          "maxChars": 13
+        },
+        {
+          "name": "headline-line-2",
+          "maxChars": 13
+        },
+        {
+          "name": "destination-url",
+          "maxChars": 32
+        },
+        {
+          "name": "status-label",
+          "maxChars": 18
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase",
+        "easing",
+        "anchor-geometry",
+        "ghost-rotation",
+        "cta-stagger",
+        "underline-sweep"
+      ],
+      "id": "seal/rail-lockup-sweep",
+      "family": "seal",
+      "implementsGrammar": "underline-emphasis-sweep",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "b4c7d5aa43ec0bbfb33e641e577a2f2354f035dcd8f2fa3ed08d218d5d28487e",
+        "checkedAt": "2026-07-25T05:25:53.066Z"
+      }
+    },
+    {
+      "intensityBand": "0-40",
+      "arcFit": [
+        "build",
+        "peak",
+        "hook",
+        "resolve"
+      ],
+      "durationRange": [
+        2.5,
+        5
+      ],
+      "slots": [
+        {
+          "name": "headline",
+          "maxChars": 12
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "halo-size",
+        "halo-position"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "glow-behind-composite",
+        "finite-phase-breathing",
+        "living-wash"
+      ],
+      "id": "atmo/glow-pulse",
+      "family": "atmo",
+      "implementsGrammar": "glow-pulse-halo",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "745feda7edecf23399d0c4244aede03a78acf9980f95dfcfc236f26bce7fad9b",
+        "checkedAt": "2026-07-25T05:28:24.432Z"
+      }
+    },
+    {
+      "intensityBand": "0-40",
+      "arcFit": [
+        "hook",
+        "build",
+        "peak",
+        "resolve"
+      ],
+      "durationRange": [
+        2.5,
+        5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 6
+        },
+        {
+          "name": "headline-primary",
+          "maxChars": 3
+        },
+        {
+          "name": "headline-secondary",
+          "maxChars": 4
+        },
+        {
+          "name": "status",
+          "maxChars": 7
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "grain-opacity",
+        "flip-interval"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "seeded-grain-layer-count",
+        "seed-order",
+        "grain-flip-cadence",
+        "living-wash"
+      ],
+      "id": "atmo/grain-flip",
+      "family": "atmo",
+      "implementsGrammar": "film-grain-seeded-flip",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "48929fccb6bb6d9ed7ec38fa25070777c092175154acecba30b9e4ac84dd8e10",
+        "checkedAt": "2026-07-25T05:29:54.703Z"
+      }
+    },
+    {
+      "intensityBand": "0-40",
+      "arcFit": [
+        "resolve",
+        "build"
+      ],
+      "durationRange": [
+        3,
+        5
+      ],
+      "slots": [
+        {
+          "name": "echo-word",
+          "maxChars": 2
+        },
+        {
+          "name": "kicker",
+          "maxChars": 6
+        },
+        {
+          "name": "headline-one",
+          "maxChars": 3
+        },
+        {
+          "name": "headline-two",
+          "maxChars": 3
+        },
+        {
+          "name": "detail",
+          "maxChars": 11
+        },
+        {
+          "name": "far-label",
+          "maxChars": 2
+        },
+        {
+          "name": "near-label",
+          "maxChars": 3
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "origin-x",
+        "origin-y"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "perspective-container",
+        "origin-proxy-onupdate",
+        "preserve-3d-depth-layout",
+        "living-motion-delay"
+      ],
+      "id": "camera/eye-shift",
+      "family": "camera",
+      "implementsGrammar": "perspective-origin-eye-shift",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "08bf527c33a3b57c724195f6050c92d6e7a8391fcc030a961ec0a0ee2d4adcfe",
+        "checkedAt": "2026-07-25T05:31:14.203Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "peak",
+        "build"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "far-echo",
+          "maxChars": 6
+        },
+        {
+          "name": "mid-note",
+          "maxChars": 8
+        },
+        {
+          "name": "kicker",
+          "maxChars": 8
+        },
+        {
+          "name": "headline-line-one",
+          "maxChars": 3
+        },
+        {
+          "name": "headline-line-two",
+          "maxChars": 6
+        },
+        {
+          "name": "detail",
+          "maxChars": 11
+        },
+        {
+          "name": "front-word",
+          "maxChars": 2
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "depth-values"
+      ],
+      "keep": [
+        "timeline-phases",
+        "easing",
+        "perspective-container",
+        "z-plane-layout",
+        "dolly-push-curve",
+        "living-breathe"
+      ],
+      "id": "camera/multiplane-push",
+      "family": "camera",
+      "implementsGrammar": "multiplane-dolly-push",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "b81cbd3fec437ac740cbeeab7dd9a3e89c2774fb07a29319f44ab40e123dc3f4",
+        "checkedAt": "2026-07-25T05:32:47.845Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build"
+      ],
+      "durationRange": [
+        3,
+        5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 7
+        },
+        {
+          "name": "headline-one",
+          "maxChars": 3
+        },
+        {
+          "name": "headline-two",
+          "maxChars": 3
+        },
+        {
+          "name": "detail",
+          "maxChars": 10
+        },
+        {
+          "name": "orbit-caption",
+          "maxChars": 6
+        },
+        {
+          "name": "index",
+          "maxChars": 7
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "orbit-angle"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "perspective-container",
+        "preserve-3d-chain",
+        "turntable-rotation-arc",
+        "living-motion-delay"
+      ],
+      "id": "camera/orbit-turntable",
+      "family": "camera",
+      "implementsGrammar": "camera-orbit-turntable",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "19fee1f5bb06d31d798ac7e4e8444ea137922078cbb03dcbecf256c6b78c5eab",
+        "checkedAt": "2026-07-25T05:34:14.402Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build",
+        "hook"
+      ],
+      "durationRange": [
+        3,
+        5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 7
+        },
+        {
+          "name": "headline-one",
+          "maxChars": 3
+        },
+        {
+          "name": "headline-two",
+          "maxChars": 6
+        },
+        {
+          "name": "axis-label",
+          "maxChars": 8
+        },
+        {
+          "name": "status-label",
+          "maxChars": 6
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "pan-distance"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "three-plane-factor-profile",
+        "camera-proxy-onupdate",
+        "midground-text-anchor",
+        "living-motion-delay"
+      ],
+      "id": "camera/parallax-3plane",
+      "family": "camera",
+      "implementsGrammar": "parallax-3plane-rule",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "9e885def46c94592598da38a47a27861e49dfe176760ea09f4b3a1779b59e654",
+        "checkedAt": "2026-07-25T05:35:45.969Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build"
+      ],
+      "durationRange": [
+        3,
+        5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 5
+        },
+        {
+          "name": "headline",
+          "maxChars": 10
+        },
+        {
+          "name": "detail",
+          "maxChars": 15
+        },
+        {
+          "name": "end-value",
+          "maxChars": 3
+        },
+        {
+          "name": "end-caption",
+          "maxChars": 5
+        },
+        {
+          "name": "axis-start",
+          "maxChars": 2
+        },
+        {
+          "name": "axis-end",
+          "maxChars": 2
+        },
+        {
+          "name": "index",
+          "maxChars": 7
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "data-values"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "stroke-dashoffset-trace",
+        "leading-marker-path-follow",
+        "area-clip-reveal",
+        "final-marker-label-pop",
+        "living-breath-delay"
+      ],
+      "id": "data/line-chart-trace",
+      "family": "data",
+      "implementsGrammar": "animated-line-chart-trace",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "74fc0e13f004948ed40fac7d8fc33131797350eb08a204c7b3427a883dfa7457",
+        "checkedAt": "2026-07-25T05:37:28.586Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build",
+        "peak"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "value",
+          "maxChars": 2
+        },
+        {
+          "name": "unit",
+          "maxChars": 1
+        },
+        {
+          "name": "kicker",
+          "maxChars": 5
+        },
+        {
+          "name": "headline",
+          "maxChars": 10
+        },
+        {
+          "name": "detail",
+          "maxChars": 20
+        },
+        {
+          "name": "annotation",
+          "maxChars": 5
+        },
+        {
+          "name": "index",
+          "maxChars": 7
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "data-values"
+      ],
+      "keep": [
+        "ring-fill-counter-sync",
+        "entry-orbit-scale",
+        "arc-end-marker",
+        "breathing-halo"
+      ],
+      "id": "data/progress-ring",
+      "family": "data",
+      "implementsGrammar": "progress-ring-radial",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "d3803b4159fd998f7bb816015ce3cb87e5f82a4f3d0beaa5401ca668636de4fc",
+        "checkedAt": "2026-07-25T05:38:55.248Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build",
+        "hook"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 7
+        },
+        {
+          "name": "headline-primary",
+          "maxChars": 6
+        },
+        {
+          "name": "headline-secondary",
+          "maxChars": 7
+        },
+        {
+          "name": "phase-label",
+          "maxChars": 7
+        },
+        {
+          "name": "status-label",
+          "maxChars": 3
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase",
+        "easing",
+        "outline-draw-order",
+        "fill-pulse",
+        "icon-anchor-geometry"
+      ],
+      "id": "object/trace-then-fill",
+      "family": "object",
+      "implementsGrammar": "trace-then-fill",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "55334d8866697ce0255acd88ac19500c092d174552843b4555c0b7bb18038dc7",
+        "checkedAt": "2026-07-25T05:40:50.496Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "peak",
+        "hook"
+      ],
+      "durationRange": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 5
+        },
+        {
+          "name": "title-first",
+          "maxChars": 6
+        },
+        {
+          "name": "title-second",
+          "maxChars": 8
+        },
+        {
+          "name": "afterimage",
+          "maxChars": 7
+        },
+        {
+          "name": "mark",
+          "maxChars": 5
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "flash-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "entry-anchor-geometry",
+        "full-frame-flash-coverage",
+        "afterglow-clear",
+        "light-ray-stagger"
+      ],
+      "pairWith": "pairs/light-flash-out",
+      "id": "pairs/light-flash-in",
+      "family": "pairs",
+      "implementsGrammar": "light-flash-join",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "86fa445db74f65a2742bd8b71610e1c080055bf8cf0f7c1ddceb40122c508158",
+        "checkedAt": "2026-07-25T05:42:41.130Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "peak",
+        "hook"
+      ],
+      "durationRange": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 5
+        },
+        {
+          "name": "title-primary",
+          "maxChars": 4
+        },
+        {
+          "name": "title-secondary",
+          "maxChars": 4
+        },
+        {
+          "name": "sequence-label",
+          "maxChars": 5
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "entry-anchor-geometry",
+        "exit-anchor-geometry",
+        "flash-coverage",
+        "flash-duration",
+        "brightness-peak"
+      ],
+      "pairWith": "pairs/light-flash-in",
+      "id": "pairs/light-flash-out",
+      "family": "pairs",
+      "implementsGrammar": "light-flash-join",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "4be1a4cc04c41141f665f8b030f4b0c7e7902ca5d8dcfe73e1e18c0329de72dc",
+        "checkedAt": "2026-07-25T05:43:57.070Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build",
+        "resolve"
+      ],
+      "durationRange": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "name": "orbit-label",
+          "maxChars": 5
+        },
+        {
+          "name": "title",
+          "maxChars": 5
+        },
+        {
+          "name": "subtitle",
+          "maxChars": 6
+        },
+        {
+          "name": "readout",
+          "maxChars": 8
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "data-values"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "entry-anchor-geometry",
+        "center-anchor-hold",
+        "object-handoff-geometry"
+      ],
+      "pairWith": "pairs/match-cut-out",
+      "anchorGeometry": {
+        "x": 0.5,
+        "y": 0.5,
+        "scale": 1
+      },
+      "id": "pairs/match-cut-in",
+      "family": "pairs",
+      "implementsGrammar": "match-cut-position-carry",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "26e9686801f18738125820d437a7df44e10fc068aabef473c4984e94e72bdd41",
+        "checkedAt": "2026-07-25T05:45:25.901Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build",
+        "resolve"
+      ],
+      "durationRange": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "name": "eyebrow",
+          "maxChars": 5
+        },
+        {
+          "name": "headline-first",
+          "maxChars": 4
+        },
+        {
+          "name": "headline-second",
+          "maxChars": 3
+        },
+        {
+          "name": "anchor-index",
+          "maxChars": 2
+        },
+        {
+          "name": "anchor-label",
+          "maxChars": 5
+        },
+        {
+          "name": "orbit-label",
+          "maxChars": 5
+        },
+        {
+          "name": "hero-token",
+          "maxChars": 2
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "anchor-exit-geometry",
+        "static-match-hold",
+        "accent-rect-geometry"
+      ],
+      "pairWith": "pairs/match-cut-in",
+      "anchorGeometry": {
+        "x": 0.62,
+        "y": 0.38,
+        "scale": 1
+      },
+      "id": "pairs/match-cut-out",
+      "family": "pairs",
+      "implementsGrammar": "match-cut-position-carry",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "77405c9dfa941b7e9a5286fbb0ba116772491ba6d0b89d506fa653ca36df6e6a",
+        "checkedAt": "2026-07-25T05:47:24.235Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "peak",
+        "build"
+      ],
+      "durationRange": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 3
+        },
+        {
+          "name": "title-first",
+          "maxChars": 3
+        },
+        {
+          "name": "title-second",
+          "maxChars": 2
+        },
+        {
+          "name": "direction-mark",
+          "maxChars": 1
+        },
+        {
+          "name": "direction-label",
+          "maxChars": 3
+        },
+        {
+          "name": "watermark",
+          "maxChars": 2
+        },
+        {
+          "name": "note",
+          "maxChars": 5
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "entry-anchor-geometry",
+        "directional-blur-ramp",
+        "right-whip-handoff"
+      ],
+      "pairWith": "pairs/whip-pan-out",
+      "id": "pairs/whip-pan-in",
+      "family": "pairs",
+      "implementsGrammar": "whip-pan-directional",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "1832aa43755e04fa0d5401f1015801e93bc10829b335afe21ce490c6b8e5647c",
+        "checkedAt": "2026-07-25T05:49:20.974Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "peak",
+        "build"
+      ],
+      "durationRange": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 5
+        },
+        {
+          "name": "title-first",
+          "maxChars": 3
+        },
+        {
+          "name": "title-second",
+          "maxChars": 3
+        },
+        {
+          "name": "direction-mark",
+          "maxChars": 1
+        },
+        {
+          "name": "direction-label",
+          "maxChars": 3
+        },
+        {
+          "name": "watermark",
+          "maxChars": 2
+        },
+        {
+          "name": "note",
+          "maxChars": 5
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "entry-anchor-geometry",
+        "exit-anchor-geometry",
+        "directional-blur-ramp",
+        "right-whip-handoff"
+      ],
+      "pairWith": "pairs/whip-pan-in",
+      "id": "pairs/whip-pan-out",
+      "family": "pairs",
+      "implementsGrammar": "whip-pan-directional",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "a04b4acc0125cf2ce45297523e1a30c9617a0a73884f13e5289cf44da86a7547",
+        "checkedAt": "2026-07-25T05:51:00.049Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "peak"
+      ],
+      "durationRange": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 3
+        },
+        {
+          "name": "title-first",
+          "maxChars": 3
+        },
+        {
+          "name": "title-second",
+          "maxChars": 4
+        },
+        {
+          "name": "coordinate",
+          "maxChars": 5
+        },
+        {
+          "name": "note",
+          "maxChars": 3
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "portal-fill"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "entry-anchor-geometry",
+        "portal-zoom-scale",
+        "blur-resolve",
+        "center-aperture-reveal"
+      ],
+      "pairWith": "pairs/zoom-portal-out",
+      "id": "pairs/zoom-portal-in",
+      "family": "pairs",
+      "implementsGrammar": "zoom-through-portal",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "47afa91487acfccbc21898a6726021c184262e744cf1c152f7619348c0e60006",
+        "checkedAt": "2026-07-25T05:54:30.636Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "peak"
+      ],
+      "durationRange": [
+        2,
+        4
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 4
+        },
+        {
+          "name": "title-first",
+          "maxChars": 2
+        },
+        {
+          "name": "title-second",
+          "maxChars": 4
+        },
+        {
+          "name": "counter",
+          "maxChars": 2
+        },
+        {
+          "name": "focus-label",
+          "maxChars": 2
+        },
+        {
+          "name": "status",
+          "maxChars": 5
+        },
+        {
+          "name": "trace",
+          "maxChars": 2
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "portal-scale"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "entry-anchor-geometry",
+        "exit-anchor-geometry",
+        "center-portal-coverage",
+        "background-fill-handoff"
+      ],
+      "pairWith": "pairs/zoom-portal-in",
+      "id": "pairs/zoom-portal-out",
+      "family": "pairs",
+      "implementsGrammar": "zoom-through-portal",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "2db0a78b02b3f5719c69d8db851d4c203086e2c34cac089ea91b55dae715f1cb",
+        "checkedAt": "2026-07-25T05:56:59.238Z"
+      }
+    },
+    {
+      "intensityBand": "0-40",
+      "arcFit": [
+        "resolve"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 14
+        },
+        {
+          "name": "headline-prefix",
+          "maxChars": 8
+        },
+        {
+          "name": "headline-success",
+          "maxChars": 10
+        },
+        {
+          "name": "cta-label",
+          "maxChars": 10
+        },
+        {
+          "name": "status-label",
+          "maxChars": 12
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase",
+        "checkmark-path-draw",
+        "back-out-settle",
+        "copy-lockup",
+        "underline-sweep"
+      ],
+      "id": "seal/checkmark-lockup",
+      "family": "seal",
+      "implementsGrammar": "checkmark-success-tick",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "a15e7c518880464023b49e87dd6f3e1974cd4f34ba39d4ec65b7bb70faf66b02",
+        "checkedAt": "2026-07-25T06:02:08.322Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "index-label",
+          "maxChars": 7
+        },
+        {
+          "name": "motion-label",
+          "maxChars": 6
+        },
+        {
+          "name": "headline-char-01",
+          "maxChars": 1
+        },
+        {
+          "name": "headline-char-02",
+          "maxChars": 1
+        },
+        {
+          "name": "headline-char-03",
+          "maxChars": 1
+        },
+        {
+          "name": "headline-char-04",
+          "maxChars": 1
+        },
+        {
+          "name": "headline-char-05",
+          "maxChars": 1
+        },
+        {
+          "name": "headline-char-06",
+          "maxChars": 1
+        },
+        {
+          "name": "headline-char-07",
+          "maxChars": 1
+        },
+        {
+          "name": "echo-label",
+          "maxChars": 3
+        },
+        {
+          "name": "pace-label",
+          "maxChars": 9
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "wave-direction",
+        "wave-band-width"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "offset-wave-driver",
+        "character-entry-stagger",
+        "entry-anchor-geometry"
+      ],
+      "id": "typo/cascade-wave",
+      "family": "typo",
+      "implementsGrammar": "offset-cascade-wave",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "9b7ba223b6e1b8091a51b8b10b4c2d403c72a27ff9b5c61757c975a2f13f41df",
+        "checkedAt": "2026-07-25T06:03:28.687Z"
+      }
+    },
+    {
+      "intensityBand": "40-70",
+      "arcFit": [
+        "build",
+        "hook"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "line-one",
+          "maxChars": 3
+        },
+        {
+          "name": "line-two",
+          "maxChars": 3
+        },
+        {
+          "name": "line-three",
+          "maxChars": 3
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "line-mask-geometry",
+        "line-stagger",
+        "accent-rail",
+        "living-breathe"
+      ],
+      "id": "typo/mask-line-reveal",
+      "family": "typo",
+      "implementsGrammar": "mask-line-slide-reveal",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "a05d28ed001a12b44ce9c09b71a61cd3f1d8a97382790842b8ad7c63f1cf756c",
+        "checkedAt": "2026-07-25T06:04:43.846Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "hook",
+        "peak"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "kicker",
+          "maxChars": 6
+        },
+        {
+          "name": "title-char-1",
+          "maxChars": 1
+        },
+        {
+          "name": "title-char-2",
+          "maxChars": 1
+        },
+        {
+          "name": "title-char-3",
+          "maxChars": 1
+        },
+        {
+          "name": "title-char-4",
+          "maxChars": 1
+        },
+        {
+          "name": "title-char-5",
+          "maxChars": 1
+        },
+        {
+          "name": "subline",
+          "maxChars": 5
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color",
+        "scatter-radius"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "golden-angle-scatter",
+        "convergence-anchor",
+        "character-stagger",
+        "lockup-impact"
+      ],
+      "id": "typo/netflix-converge",
+      "family": "typo",
+      "implementsGrammar": "netflix-title-converge",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "5c41eafbae9af7bed00e331ac11f4ab094651a4ba74335f7ddfd83ffc4bf146e",
+        "checkedAt": "2026-07-25T06:06:03.805Z"
+      }
+    },
+    {
+      "intensityBand": "0-40",
+      "arcFit": [
+        "hook",
+        "resolve"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "background-mark",
+          "maxChars": 2
+        },
+        {
+          "name": "index-label",
+          "maxChars": 5
+        },
+        {
+          "name": "headline",
+          "maxChars": 6
+        },
+        {
+          "name": "descriptor",
+          "maxChars": 9
+        },
+        {
+          "name": "status",
+          "maxChars": 6
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "tracking-endpoints",
+        "entry-anchor-geometry",
+        "accent-line-reveal"
+      ],
+      "id": "typo/tracking-open",
+      "family": "typo",
+      "implementsGrammar": "tracking-kerning-tween",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "c74e1fd44e9d8385eb0850cbceabf0b84add5002e417d2d581ab1fc5b01cf4a9",
+        "checkedAt": "2026-07-25T06:07:24.209Z"
+      }
+    },
+    {
+      "intensityBand": "70-100",
+      "arcFit": [
+        "build"
+      ],
+      "durationRange": [
+        2.5,
+        4.5
+      ],
+      "slots": [
+        {
+          "name": "headline",
+          "maxChars": 8
+        },
+        {
+          "name": "stripe-one",
+          "maxChars": 7
+        },
+        {
+          "name": "stripe-two",
+          "maxChars": 7
+        },
+        {
+          "name": "stripe-three",
+          "maxChars": 7
+        }
+      ],
+      "mutate": [
+        "copy",
+        "duration",
+        "accent-color"
+      ],
+      "keep": [
+        "timeline-phase-structure",
+        "easing-curves",
+        "blind-stripe-stagger",
+        "row-content-reveal",
+        "living-breathe"
+      ],
+      "id": "object/blinds-stripe-triplet",
+      "family": "object",
+      "implementsGrammar": "blinds-stripe-reveal",
+      "verified": {
+        "contractVersion": "1.0",
+        "renderHash": "92c0c6c2601293f94b323faa5cc5024895bad36899e7a8a176b3335e219bbeb0",
+        "checkedAt": "2026-07-25T06:29:28.888Z"
+      }
+    }
+  ]
+}

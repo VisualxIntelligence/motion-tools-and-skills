@@ -1,0 +1,53 @@
+---
+title: MOC-sound
+summary: When an interface should make a sound, how to design a family of sounds that belong together, how to sync them to motion, and how to generate them — ElevenLabs on demand, or open-weight and CC0 without a key — plus the five measured launch-film sound registers and how a track or a voice is placed on the picture.
+tags: [moc, sound, audio, launch-video]
+---
+
+# MOC — Sound
+
+Sound is the sense the web forgot. That makes it the highest-leverage polish move left — and the easiest one to get wrong, because a bad sound is worse than no sound and users remember it. Read [[sound-decision-framework]] first; it says *no* most of the time. The rest of the cluster is for the moments that earn a sound.
+
+Two surfaces share this cluster and have opposite defaults. **Product UI** is silent by default, opt-in, rare, and tiny. A **launch video** is the reverse: sound is the emotional layer, and silence is a material you place deliberately. [[launch-video-sound]] owns the second; everything else defaults to the first.
+
+## Decision-first nodes (read before making a sound)
+
+- [[sound-decision-framework]] — Should this make a sound at all? Frequency, purpose, and the 1st-vs-100th-use test. Extends [[delight-impact-curve]] and [[animation-decision-framework]].
+- [[sound-motion-sync]] — Sound and motion are one event. The transient lands on the contact frame, never before it. Measured tolerances.
+
+## Design nodes (read while designing the family)
+
+- [[sound-palette]] — A product gets one material and a handful of sounds that share it. Size → pitch, direction → meaning, consonance → success, dissonance → error.
+- [[sound-spec]] — The numbers: duration by category, loudness in LUFS, mono, 44.1 kHz, zero leading silence, peak headroom.
+
+## Implementation nodes
+
+- [[sound-playback-web]] — Unlock the AudioContext on the first gesture, decode once, one source node per play, persisted mute toggle, never sound-only information.
+
+## Generation nodes
+
+- [[sound-generation-elevenlabs]] — On-demand generation for installers with an `ELEVENLABS_API_KEY`: the prompt formula, high `prompt_influence` for functional sounds, one session per family, post-processing.
+- [[sound-generation-open-source]] — No key: open-weight models (Stable Audio 3 Small-SFX runs on CPU), procedural synthesis (ZzFX, Web Audio), and CC0 libraries (Kenney, soundcn, Freesound). A decision table for which.
+
+## Launch-video register
+
+- [[launch-video-sound]] — Five measured registers (dry reveal, OpenAI one-key bed with clicks, beat track, voice-led, product-camera pad with consequence foley), subtraction before the reveal, loudness by register with −1 dBTP fixed.
+- [[launch-video-music]] — Placing a track or a voice on the picture: drop on the reveal, breakdowns under reading, cuts on onsets, moves landing on spoken onsets.
+- [[sound-from-motion]] — Derive the sound from the motion: size → pitch and decay, x → pan, y → brightness, direction → contour, tween → length, contact frame → transient; or structurally, where the picture places a track's drop and dropouts. The cue sheet and `scripts/sound-sheet.mjs`, which renders a stereo stem from it.
+- [[designed-sfx-anatomy]] — What a designed effect is made of, measured: one gesture, its own band, a hard end, a sync point per kind. Targets for whoosh, riser, impact, sub drop, sting, ding, pop-in, click, typing and zip, tuned to the track's key.
+- [[earshot-reconciliation]] — earshot, the agent's ears: describe, match, trim, realness, a listening timeline and scorecard, a code-rendered effects bank. What it owns, and where this graph's values win.
+- [[sound-licensing]] — What may go into a commercial, edited, published film: CC0 and CC BY yes; NC, ND and SA no; verify on the item's page; Content ID; credits.
+- [[haptic-feedback]] — The felt channel on the mobile web: notification, impact and selection patterns, fired on the visual's frame, matched to significance, never the only feedback; Android PWM and the iOS Safari switch route. From Lochie Axon's web-haptics.
+- [[web-haptics-reconciliation]] — The web-haptics companion skill owns the API and presets; this graph owns whether a moment earns a haptic. Six conflicts settled.
+
+## Shipped tooling
+
+`scripts/sound-family.mjs` (next to this skill's `SKILL.md`) turns one family manifest into a normalized set of files — ElevenLabs when a key is present, a dependency-free synthesizer when it is not. `scripts/sound-sheet.mjs` renders a launch video's whole stem from a motion cue sheet, and writes the same six product one-shots from the same voices. Spawn [[sound-designer]] when the job is the whole workflow rather than one question.
+
+## Cross-cluster
+
+- [[interaction-personality]] names sound as a personality lever; this cluster is where it goes deeper.
+- [[prefers-reduced-motion]] has no audio twin in CSS — [[sound-playback-web]] explains why you treat the mute toggle as that twin.
+- [[ai-default-tells]] carries the sound rows: stock library sounds, a beep on every click, a whoosh on every transition.
+- [[review-checklist]] rows 12–13 are the sound gate for any UI review.
+- The whole launch-film decision flow: [[MOC-launch-video]].

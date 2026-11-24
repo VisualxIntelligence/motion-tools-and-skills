@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vox Explainer — card library</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: #14110c; color: #efe9dc;
+        font-family: "Archivo", system-ui, sans-serif; }
+      header { padding: 36px 44px 4px; }
+      header h1 { margin: 0; font-weight: 900; font-size: 30px; letter-spacing: -0.02em; }
+      header p { margin: 8px 0 0; color: #b8ad94; font-size: 15px; max-width: 980px; line-height: 1.5; }
+      header .bar { margin-top: 16px; display: flex; gap: 12px; align-items: center; }
+      button { background: #37BDF8; color: #14110c; border: 0; font-weight: 800; font-size: 14px;
+        padding: 9px 18px; border-radius: 3px; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; }
+      .group { padding: 8px 44px 10px; }
+      .group h2 { font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: #37BDF8;
+        border-bottom: 1px solid #2a2419; padding-bottom: 10px; margin: 28px 0 4px; }
+      .group h2 .count { color: #6f6750; margin-left: 8px; }
+      .group h2 .tier { float: right; color: #8c8265; font-size: 12px; letter-spacing: 0.1em; }
+      .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; padding: 18px 0 8px; }
+      .card-cell { background: #000; border: 1px solid #2a2419; border-radius: 6px; overflow: hidden; }
+      .meta { display: flex; justify-content: space-between; align-items: baseline; padding: 11px 15px;
+        background: #1c1810; border-bottom: 1px solid #2a2419; }
+      .meta .id { font-weight: 800; font-size: 14px; letter-spacing: -0.01em; color: #efe9dc; }
+      .meta .treat { font-size: 11px; color: #37BDF8; text-transform: uppercase; letter-spacing: 0.12em; }
+      .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+      .frame iframe { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; border: 0; transform-origin: top left; }
+      .empty { color: #8c8265; padding: 60px 44px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>01 · Vox Explainer — card library</h1>
+      <p>The living pool, read straight from <code style="color:#cabf9f">registry.json</code>. Each purpose holds many
+         genuinely different treatments so no section ever looks the same twice. The agent picks one per beat and rotates.
+         Image areas are deliberate cutout placeholders. Click Replay to restart every card.</p>
+      <div class="bar"><button onclick="replayAll()">Replay all</button>
+        <span style="font-size:12px;color:#8c8265">tier1 = full-paper takeover · tier2 = overlay (face stays visible)</span></div>
+    </header>
+    <div id="root"></div>
+
+    <script>
+      const STYLE_ID = "vox-explainer";
+      const PURPOSE_ORDER = ["section","stat","overview","quote","definition","list","label","lower-third"];
+      const frames = [];
+
+      function fitFrame(cell) {
+        const frame = cell.querySelector(".frame"), iframe = cell.querySelector("iframe");
+        iframe.style.transform = "scale(" + (frame.clientWidth / 1920) + ")";
+      }
+      // Play whatever timeline(s) this iframe registered — don't guess the key
+      // from the filename (composition-ids don't always match the file stem).
+      function driveCard(iframe) {
+        const w = iframe.contentWindow; let tries = 0;
+        (function go() {
+          const t = w.__timelines, keys = t ? Object.keys(t) : [];
+          if (!keys.length) { if (tries++ < 120) setTimeout(go, 80); return; }
+          keys.forEach(k => {
+            const tl = t[k];
+            tl.eventCallback("onComplete", () => setTimeout(() => tl.restart(), 1000));
+            tl.play(0);
+          });
+        })();
+      }
+      function replayAll() {
+        frames.forEach(({ iframe }) => {
+          const t = iframe.contentWindow.__timelines;
+          if (t) Object.keys(t).forEach(k => t[k].restart());
+        });
+      }
+
+      fetch("../../registry.json").then(r => r.json()).then(reg => {
+        const style = (reg.styles || []).find(s => s.id === STYLE_ID);
+        const root = document.getElementById("root");
+        if (!style) { root.innerHTML = '<div class="empty">Style not found in registry.</div>'; return; }
+
+        const byPurpose = {};
+        style.cards.forEach(c => { (byPurpose[c.purpose] = byPurpose[c.purpose] || []).push(c); });
+        const purposes = Object.keys(byPurpose).sort(
+          (a, b) => (PURPOSE_ORDER.indexOf(a) + 1 || 99) - (PURPOSE_ORDER.indexOf(b) + 1 || 99));
+
+        purposes.forEach(purpose => {
+          const cards = byPurpose[purpose];
+          const tier = cards[0].tier;
+          const group = document.createElement("div");
+          group.className = "group";
+          group.innerHTML = '<h2>' + purpose + '<span class="count">' + cards.length +
+            (cards.length === 1 ? ' treatment' : ' treatments') + '</span>' +
+            '<span class="tier">' + tier + '</span></h2><div class="grid"></div>';
+          const grid = group.querySelector(".grid");
+          cards.forEach(c => {
+            const treat = c.treatment || c.id.split(".").slice(3).join(".") || purpose;
+            const cell = document.createElement("div");
+            cell.className = "card-cell";
+            cell.innerHTML =
+              '<div class="meta"><span class="id">' + c.id + '</span>' +
+              '<span class="treat">' + treat + '</span></div>' +
+              '<div class="frame"><iframe src="../../' + c.file + '" scrolling="no"></iframe></div>';
+            grid.appendChild(cell);
+            const iframe = cell.querySelector("iframe");
+            iframe.addEventListener("load", () => { fitFrame(cell); driveCard(iframe); });
+            frames.push({ cell, iframe });
+          });
+          root.appendChild(group);
+        });
+        window.addEventListener("resize", () => frames.forEach(({ cell }) => fitFrame(cell)));
+      }).catch(e => {
+        document.getElementById("root").innerHTML =
+          '<div class="empty">Could not load registry.json (' + e + '). Serve from the workspace root with <code>npx serve . -p 8080 -n</code>.</div>';
+      });
+    </script>
+  </body>
+</html>

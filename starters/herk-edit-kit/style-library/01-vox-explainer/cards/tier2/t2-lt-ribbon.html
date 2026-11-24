@@ -1,0 +1,140 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier2 · lower-third ribbon
+  TRANSPARENT — only the ribbon banner paints. Lower-left safe zone.
+  Slots: tag (kicker above), name (Fraunces on yellow ribbon center),
+         role (cream chip beneath).
+  Motion: ribbon unfurls via scaleX from center, name reveals after,
+          role drops in. Folded tails are CSS clip-path triangles.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lt-rib {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent;
+      }
+
+      #t2-lt-rib .wrap {
+        position: absolute; left: 110px; bottom: 110px;
+      }
+
+      /* tag kicker above ribbon */
+      #t2-lt-rib .tag {
+        display: inline-block;
+        font-family: var(--font-label); font-weight: var(--wt-bold);
+        font-size: var(--size-label); letter-spacing: var(--track-wide);
+        text-transform: uppercase;
+        color: var(--ink); background: transparent;
+        padding: 0 0 8px 0;
+        /* no background — just text label sitting above */
+      }
+
+      /* ribbon assembly: the center strip + two tails side-by-side */
+      #t2-lt-rib .ribbon-row {
+        display: flex;
+        align-items: stretch;
+        /* GSAP will scaleX this from center */
+        transform-origin: center center;
+      }
+
+      /* left tail — a darker yellow / orange that folds behind the center */
+      #t2-lt-rib .tail-left {
+        width: 32px;
+        background: var(--orange);
+        /* clip-path creates a notched right edge (fold/crease triangle pointing right) */
+        clip-path: polygon(0 0, 100% 0, 80% 50%, 100% 100%, 0 100%);
+        flex-shrink: 0;
+      }
+
+      /* center ribbon band — full yellow, carries the name */
+      #t2-lt-rib .ribbon-center {
+        background: var(--yellow);
+        padding: 10px 28px 10px 20px;
+        display: flex; align-items: center;
+        flex-shrink: 0;
+      }
+
+      #t2-lt-rib .name {
+        font-family: var(--font-display); font-weight: var(--wt-black);
+        font-size: 80px; line-height: 0.93;
+        letter-spacing: var(--track-tight);
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      /* right tail — same fold, mirrored */
+      #t2-lt-rib .tail-right {
+        width: 32px;
+        background: var(--orange);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20% 50%);
+        flex-shrink: 0;
+      }
+
+      /* role chip beneath ribbon */
+      #t2-lt-rib .role {
+        display: inline-block;
+        font-family: var(--font-label); font-weight: var(--wt-bold);
+        font-size: var(--size-body); letter-spacing: 0.04em;
+        color: var(--ink); background: var(--paper);
+        padding: 6px 16px;
+        box-shadow: 5px 5px 0 rgba(23,19,14,0.25);
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lt-rib" data-composition-id="t2-lt-rib" data-start="0" data-width="1920" data-height="1080">
+      <div class="wrap">
+        <div class="tag" data-slot="tag">INVESTIGATES</div>
+        <div class="ribbon-row">
+          <div class="tail-left"></div>
+          <div class="ribbon-center">
+            <div class="name" data-slot="name">Carla Reinholt</div>
+          </div>
+          <div class="tail-right"></div>
+        </div>
+        <div class="role" data-slot="role">Investigative Reporter · ProPublica</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // tag snaps in from left
+      tl.from("#t2-lt-rib .tag", {
+        autoAlpha: 0, x: -20,
+        duration: 0.28, ease: "power3.out"
+      }, 0.0)
+
+      // ribbon unfurls: scaleX from 0 at center, with back.out overshoot
+      .fromTo("#t2-lt-rib .ribbon-row",
+        { scaleX: 0, transformOrigin: "left center", autoAlpha: 1 },
+        { scaleX: 1, duration: 0.42, ease: "back.out(1.6)" },
+        0.18
+      )
+
+      // name reveals via scaleX wipe after ribbon is out
+      .from("#t2-lt-rib .name", {
+        autoAlpha: 0, scaleX: 0, transformOrigin: "left center",
+        duration: 0.32, ease: "power2.out"
+      }, 0.46)
+
+      // role chip steps in beneath
+      .from("#t2-lt-rib .role", {
+        autoAlpha: 0, y: 14,
+        duration: 0.3, ease: "steps(4)"
+      }, 0.72)
+
+      .set({}, {}, 7);
+
+      window.__timelines["t2-lt-rib"] = tl;
+    </script>
+  </body>
+</html>

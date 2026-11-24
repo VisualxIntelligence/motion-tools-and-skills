@@ -1,0 +1,111 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier1 · section · CRT
+  Title inside a vintage TV: power-on, chromatic aberration, scanlines, barrel
+  vignette. A deliberately darker register (a screen), keeps the yellow accent.
+  Slots: channel (small top label), title, label (glowing box), wordmark.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; }
+      #t1-sec-crt {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: #120f0a; color: #efe7d4;   /* dark screen register (not pure black) */
+        font-family: var(--font-display); overflow: hidden;
+      }
+      #t1-sec-crt .room {
+        position: absolute; inset: 0;
+        background: radial-gradient(70% 70% at 50% 45%, #2a2317 0%, #120f0a 70%);
+      }
+      /* TV bezel */
+      #t1-sec-crt .tv {
+        position: absolute; left: 50%; top: 50%; width: 1340px; height: 880px;
+        margin: -440px 0 0 -670px; border-radius: 70px;
+        background: linear-gradient(160deg, #3a3120, #1c1810);
+        box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 6px rgba(255,255,255,0.04);
+        padding: 70px; box-sizing: border-box;
+      }
+      #t1-sec-crt .screen {
+        position: relative; width: 100%; height: 100%; border-radius: 50px / 60px;
+        background: radial-gradient(80% 80% at 50% 45%, #1b2620 0%, #0c1310 78%, #060a08 100%);
+        overflow: hidden;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      }
+      #t1-sec-crt .channel {
+        position: absolute; left: 44px; top: 36px;
+        font-family: var(--font-label); font-weight: var(--wt-bold);
+        font-size: var(--size-label); letter-spacing: var(--track-wide);
+        text-transform: uppercase; color: var(--yellow);
+      }
+      #t1-sec-crt .wordmark {
+        font-family: var(--font-display); font-style: italic; font-weight: var(--wt-black);
+        font-size: 44px; color: var(--yellow); margin-bottom: 16px;
+      }
+      #t1-sec-crt .title {
+        font-weight: var(--wt-black); font-size: 140px; line-height: 0.95;
+        letter-spacing: var(--track-tight); color: #f3ecda; max-width: 980px;
+        text-shadow: -3px 0 rgba(226,59,46,0.75), 3px 0 rgba(80,170,224,0.75);
+      }
+      #t1-sec-crt .label {
+        display: inline-block; margin-top: 30px; background: var(--yellow); color: #120f0a; padding: 8px 22px;
+        font-family: var(--font-label); font-weight: var(--wt-black); font-size: 30px;
+        letter-spacing: 0.1em; text-transform: uppercase; box-shadow: 0 0 28px rgba(55, 189, 248,0.55);
+      }
+      /* scanlines + flicker + power-on */
+      #t1-sec-crt .scan {
+        position: absolute; inset: 0; pointer-events: none; z-index: 5; opacity: 0.5;
+        background: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.4) 2px 4px);
+      }
+      #t1-sec-crt .crtvig {
+        position: absolute; inset: 0; pointer-events: none; z-index: 6;
+        background: radial-gradient(90% 90% at 50% 50%, transparent 60%, rgba(0,0,0,0.7) 100%);
+      }
+      #t1-sec-crt .flash {
+        position: absolute; left: 0; right: 0; top: 50%; height: 8px; margin-top: -4px;
+        background: #fff; z-index: 8; box-shadow: 0 0 40px #fff;
+      }
+      #t1-sec-crt .content { position: relative; z-index: 4; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="t1-sec-crt" data-composition-id="t1-sec-crt" data-start="0" data-width="1920" data-height="1080">
+      <div class="room"></div>
+      <div class="tv">
+        <div class="screen">
+          <div class="channel" data-slot="channel">CH 03 · REC</div>
+          <div class="content">
+            <div class="wordmark" data-slot="wordmark">Vox style</div>
+            <div class="title" data-slot="title">Animated Documentary</div>
+            <div class="label" data-slot="label">Episode One</div>
+          </div>
+          <div class="scan"></div>
+          <div class="crtvig"></div>
+          <div class="flash"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      // power-on: bright line expands, flashes out, content flickers in
+      tl.set("#t1-sec-crt .content", { autoAlpha: 0 }, 0)
+        .from("#t1-sec-crt .flash", { scaleX: 0, transformOrigin: "50% 50%", duration: 0.18, ease: "power2.out" }, 0.15)
+        .to("#t1-sec-crt .flash", { scaleY: 110, autoAlpha: 0, duration: 0.22, ease: "power2.in" }, 0.34)
+        .to("#t1-sec-crt .content", { autoAlpha: 1, duration: 0.1 }, 0.5)
+        .fromTo("#t1-sec-crt .content", { autoAlpha: 1 }, { autoAlpha: 0.55, duration: 0.08, ease: "steps(1)", repeat: 5, yoyo: true }, 0.5)
+        .from("#t1-sec-crt .wordmark", { y: 14, autoAlpha: 0, duration: 0.3 }, 0.7)
+        .from("#t1-sec-crt .title", { y: 24, autoAlpha: 0, duration: 0.4, ease: "power3.out" }, 0.8)
+        .from("#t1-sec-crt .label", { scale: 0.7, autoAlpha: 0, duration: 0.3, ease: "back.out(2.2)" }, 1.05)
+        .from("#t1-sec-crt .channel", { autoAlpha: 0, duration: 0.2 }, 1.2);
+      // chromatic RGB jitter on the title (choppy, finite)
+      tl.to("#t1-sec-crt .title", { x: 2, duration: 0.1, ease: "steps(1)", repeat: 30, yoyo: true }, 1.4);
+      tl.set({}, {}, 6);
+      window.__timelines["t1-sec-crt"] = tl;
+    </script>
+  </body>
+</html>

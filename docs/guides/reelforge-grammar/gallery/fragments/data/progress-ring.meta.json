@@ -1,0 +1,16 @@
+{
+  "intensityBand": "40-70",
+  "arcFit": ["build", "peak"],
+  "durationRange": [2.5, 4.5],
+  "slots": [
+    { "name": "value", "maxChars": 2 },
+    { "name": "unit", "maxChars": 1 },
+    { "name": "kicker", "maxChars": 5 },
+    { "name": "headline", "maxChars": 10 },
+    { "name": "detail", "maxChars": 20 },
+    { "name": "annotation", "maxChars": 5 },
+    { "name": "index", "maxChars": 7 }
+  ],
+  "mutate": ["copy", "duration", "accent-color", "data-values"],
+  "keep": ["ring-fill-counter-sync", "entry-orbit-scale", "arc-end-marker", "breathing-halo"]
+}

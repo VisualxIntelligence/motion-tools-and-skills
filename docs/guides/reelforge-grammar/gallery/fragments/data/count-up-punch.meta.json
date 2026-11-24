@@ -1,0 +1,20 @@
+{
+  "intensityBand": "40-70",
+  "arcFit": ["build", "peak"],
+  "durationRange": [2.5, 4.5],
+  "slots": [
+    { "name": "headline", "maxChars": 9 },
+    { "name": "emphasis", "maxChars": 9 },
+    { "name": "value", "maxChars": 4 },
+    { "name": "tag-1", "maxChars": 6 },
+    { "name": "tag-2", "maxChars": 6 },
+    { "name": "tag-3", "maxChars": 6 },
+    { "name": "tag-4", "maxChars": 6 },
+    { "name": "tag-5", "maxChars": 6 },
+    { "name": "tag-6", "maxChars": 6 },
+    { "name": "tag-7", "maxChars": 6 },
+    { "name": "tag-8", "maxChars": 6 }
+  ],
+  "mutate": ["copy", "duration", "accent-color", "data-values"],
+  "keep": ["timeline-phases", "easing", "entry-geometry", "tag-stagger"]
+}

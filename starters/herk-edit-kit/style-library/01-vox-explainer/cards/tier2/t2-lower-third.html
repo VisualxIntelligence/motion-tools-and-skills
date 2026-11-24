@@ -1,0 +1,66 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier2 · lower-third  (overlay: name + role beside the speaker)
+  TRANSPARENT — only the marker block paints. Sits lower-left so it never
+  covers a centered/right-framed speaker.
+  Slots: name (Fraunces), role (Archivo), tag (small kicker above the name).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+      #t2-lower-third {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; font-family: var(--font-display);
+      }
+      #t2-lower-third .wrap { position: absolute; left: 110px; bottom: 130px; }
+      #t2-lower-third .tag {
+        display: inline-block; font-family: var(--font-label); font-weight: var(--wt-bold);
+        font-size: var(--size-label); letter-spacing: var(--track-wide); text-transform: uppercase;
+        color: var(--ink); background: var(--yellow); padding: 4px 16px;
+        transform: skewX(var(--marker-skew)); margin-bottom: 16px;
+      }
+      #t2-lower-third .name {
+        font-weight: var(--wt-black); font-size: 96px; line-height: 0.95;
+        letter-spacing: var(--track-tight); color: var(--paper);
+        text-shadow: 0 4px 0 rgba(23,19,14,0.9), 6px 6px 0 rgba(23,19,14,0.35);
+      }
+      #t2-lower-third .underline {
+        width: 0; height: 12px; background: var(--red); margin: 10px 0 14px;
+        transform: skewX(var(--marker-skew));
+      }
+      #t2-lower-third .role {
+        font-family: var(--font-label); font-weight: var(--wt-bold);
+        font-size: var(--size-body); letter-spacing: 0.04em;
+        color: var(--ink); background: var(--paper); display: inline-block;
+        padding: 6px 16px; box-shadow: 5px 5px 0 rgba(23,19,14,0.25);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lower-third" data-composition-id="t2-lower-third" data-start="0" data-width="1920" data-height="1080">
+      <div class="wrap">
+        <div class="tag" data-slot="tag">REPORTING</div>
+        <div class="name" data-slot="name">Dana Whitlock</div>
+        <div class="underline"></div>
+        <div class="role" data-slot="role">Senior Correspondent · Vox</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.from("#t2-lower-third .tag", { autoAlpha: 0, scaleX: 0, transformOrigin: "left center", duration: 0.32, ease: "power3.out" }, 0.0)
+        .from("#t2-lower-third .name", { autoAlpha: 0, x: -40, duration: 0.4, ease: "back.out(1.7)" }, 0.18)
+        .to("#t2-lower-third .underline", { width: 320, duration: 0.4, ease: "power2.out" }, 0.45)
+        .from("#t2-lower-third .role", { autoAlpha: 0, y: 16, duration: 0.32, ease: "steps(4)" }, 0.6)
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lower-third"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · lower-third · CITE
+  Attributed pull-quote lower-third. A large decorative open-quote glyph (accent
+  colored, glowing) anchors the left; the quote text sits beside it in italic
+  display type; an attribution line in dimmer body type follows below, preceded
+  by an em-dash. Distinct mechanic: quote-mark-first reveal, text types in via
+  clip-path, attribution fades up after.
+  Slots: quote (~90 chars), attribution (~40 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lt-cite {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Bloom behind component */
+      #t2-lt-cite .local-bloom {
+        position: absolute;
+        left: 40px; bottom: 80px;
+        width: 680px; height: 260px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 25% 75%,
+          rgba(var(--accent-rgb), 0.20) 0%,
+          rgba(var(--accent-rgb), 0.05) 58%,
+          transparent 82%);
+        filter: blur(44px);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Outer wrapper */
+      #t2-lt-cite .wrap {
+        position: absolute;
+        left: 80px; bottom: 112px;
+        width: 820px;
+        display: flex; align-items: flex-start; gap: 22px;
+        z-index: 2;
+      }
+
+      /* Open-quote glyph */
+      #t2-lt-cite .open-quote {
+        flex-shrink: 0;
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 120px;
+        line-height: 0.72;
+        color: var(--accent);
+        text-shadow: var(--textglow-accent);
+        user-select: none;
+        margin-top: 8px;
+      }
+
+      /* Quote + attribution column */
+      #t2-lt-cite .text-col {
+        flex: 1;
+        display: flex; flex-direction: column; gap: 14px;
+      }
+
+      /* Glass backing for quote */
+      #t2-lt-cite .quote-glass {
+        padding: 20px 30px 18px 24px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border-radius: var(--radius-sm);
+        border: var(--stroke) solid var(--glass-border);
+        box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-hi);
+        position: relative; overflow: hidden;
+        /* clip for wipe-in */
+        clip-path: inset(0 100% 0 0);
+      }
+
+      #t2-lt-cite .quote-glass::before {
+        content: "";
+        position: absolute; top: 0; left: 10px; right: 10px; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45) 40%, rgba(255,255,255,0.45) 60%, transparent);
+      }
+
+      #t2-lt-cite .quote-text {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: var(--wt-semi);
+        font-size: 26px;
+        line-height: 1.45;
+        letter-spacing: var(--track-snug);
+        color: var(--text);
+        text-shadow: 0 0 12px rgba(255,255,255,0.18);
+      }
+
+      /* Attribution line */
+      #t2-lt-cite .attribution {
+        font-family: var(--font-body);
+        font-weight: var(--wt-med);
+        font-size: 21px;
+        letter-spacing: 0.02em;
+        color: var(--text-dim);
+        padding-left: 28px;
+        position: relative;
+      }
+
+      /* Em-dash before attribution */
+      #t2-lt-cite .attribution::before {
+        content: "—";
+        position: absolute; left: 0;
+        color: var(--accent);
+        text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.65);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lt-cite"
+         data-composition-id="t2-lt-cite"
+         data-start="0"
+         data-width="1920"
+         data-height="1080">
+
+      <div class="local-bloom"></div>
+
+      <div class="wrap">
+        <div class="open-quote">&ldquo;</div>
+
+        <div class="text-col">
+          <div class="quote-glass">
+            <div class="quote-text" data-slot="quote">AI won't replace teachers — but teachers who use AI will replace those who don't.</div>
+          </div>
+          <div class="attribution" data-slot="attribution">Dr. Lena Hartmann, AI in Education Summit 2025</div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* bloom fades in */
+      tl.from("#t2-lt-cite .local-bloom",
+        { autoAlpha: 0, scale: 0.68, duration: 1.2, ease: "power2.out" }, 0);
+
+      /* open-quote drops + focuses in */
+      tl.from("#t2-lt-cite .open-quote",
+        { autoAlpha: 0, y: -20, scale: 0.80, transformOrigin: "left top",
+          duration: 0.72, ease: "back.out(1.4)" }, 0.10);
+
+      /* quote glass wipes in left→right */
+      tl.to("#t2-lt-cite .quote-glass",
+        { clipPath: "inset(0 0% 0 0)", duration: 0.78, ease: "power3.out" }, 0.40);
+
+      /* quote text reveals */
+      tl.from("#t2-lt-cite .quote-text",
+        { autoAlpha: 0, y: 12, filter: "blur(7px)",
+          duration: 0.65, ease: "power4.out" }, 0.78);
+
+      /* attribution drifts up */
+      tl.from("#t2-lt-cite .attribution",
+        { autoAlpha: 0, y: 14, filter: "blur(5px)",
+          duration: 0.58, ease: "power3.out" }, 1.10);
+
+      /* open-quote glow pulse — finite */
+      tl.to("#t2-lt-cite .open-quote",
+        { textShadow:
+            "0 0 30px rgba(55,189,248,0.90), 0 0 70px rgba(55,189,248,0.48)",
+          duration: 1.1, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.65);
+
+      tl.set({}, {}, 7);
+
+      window.__timelines["t2-lt-cite"] = tl;
+    </script>
+  </body>
+</html>

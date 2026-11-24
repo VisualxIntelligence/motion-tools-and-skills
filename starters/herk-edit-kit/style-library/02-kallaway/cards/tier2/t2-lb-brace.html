@@ -1,0 +1,239 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · label · BRACE
+  A glowing curly-brace annotation: an SVG curly brace draws on from center
+  outward, bracketing a term label above and a detail line below. Anchored left
+  side. Brace is on the left; term + detail stack to the right of it. Transparent
+  overlay — only the annotation paints over footage.
+  Slots: term (~28 chars), detail (~80 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-brace {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Ambient glow left-center */
+      #t2-lb-brace .local-glow {
+        position: absolute;
+        left: 40px; top: 350px;
+        width: 540px; height: 340px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 25% 50%,
+          rgba(var(--accent-rgb), 0.20) 0%,
+          rgba(var(--accent-rgb), 0.06) 55%,
+          transparent 80%);
+        filter: blur(44px);
+        pointer-events: none;
+      }
+
+      /* Outer layout: brace column + content column */
+      #t2-lb-brace .annotation {
+        position: absolute;
+        left: 80px; top: 368px;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      /* Left: brace SVG column */
+      #t2-lb-brace .brace-col {
+        display: flex;
+        align-items: center;
+        width: 52px;
+        flex-shrink: 0;
+        padding-right: 4px;
+      }
+
+      #t2-lb-brace .brace-svg {
+        width: 48px;
+        height: 200px;
+        overflow: visible;
+        flex-shrink: 0;
+      }
+
+      /* Right: content column */
+      #t2-lb-brace .content-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 14px;
+        padding-left: 20px;
+        max-width: 480px;
+      }
+
+      /* Term */
+      #t2-lb-brace .term {
+        font-family: var(--font-display);
+        font-weight: var(--wt-bold);
+        font-size: 36px;
+        letter-spacing: var(--track-snug);
+        color: var(--white);
+        text-shadow: var(--textglow);
+        line-height: 1.1;
+      }
+
+      /* Thin accent separator */
+      #t2-lb-brace .sep {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg,
+          rgba(var(--accent-rgb), 0.45) 0%,
+          transparent 75%);
+        border-radius: 1px;
+      }
+
+      /* Detail panel */
+      #t2-lb-brace .detail-panel {
+        padding: 12px 18px 12px 16px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1.5px solid var(--glass-border);
+        border-radius: var(--radius-sm);
+        box-shadow: var(--glass-shadow);
+      }
+
+      #t2-lb-brace .detail {
+        font-family: var(--font-body);
+        font-weight: var(--wt-reg);
+        font-size: 20px;
+        line-height: 1.50;
+        color: var(--text-dim);
+      }
+
+      /* Glowing dot at brace tip (center knuckle) */
+      #t2-lb-brace .brace-knob {
+        position: absolute;
+        left: 107px;   /* left + brace-col width + gap - radius */
+        top: 457px;    /* annotation.top + half brace height */
+        width: 10px; height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: var(--glow-accent), 0 0 20px rgba(var(--accent-rgb), 0.55);
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-brace" data-composition-id="t2-lb-brace"
+         data-start="0" data-width="1920" data-height="1080">
+
+      <div class="local-glow"></div>
+
+      <div class="annotation">
+        <!-- Left curly-brace: drawn via SVG path, stroke-dashoffset reveals from center -->
+        <div class="brace-col">
+          <!--
+            Curly brace path (left-facing, 200px tall, 48px wide):
+            Start at top tip → curve right → center knuckle tip → curve right →
+            bottom tip. Total approx path length ~320.
+          -->
+          <svg class="brace-svg" id="t2-lb-brace-svg"
+               viewBox="0 0 48 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="braceGlow" x="-30%" y="-5%" width="160%" height="110%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <linearGradient id="braceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#37BDF8" stop-opacity="0.55"/>
+                <stop offset="50%" stop-color="#37BDF8" stop-opacity="1.00"/>
+                <stop offset="100%" stop-color="#37BDF8" stop-opacity="0.55"/>
+              </linearGradient>
+            </defs>
+            <!--
+              Left-facing curly brace path:
+              Top arm: M 38,4 C 20,4 20,96 8,100
+              Bottom arm: C 20,104 20,196 38,196
+            -->
+            <path id="t2-lb-brace-path"
+              d="M 38,4 C 20,4 20,94 8,100 C 20,106 20,196 38,196"
+              stroke="url(#braceGrad)"
+              stroke-width="2.8"
+              stroke-linecap="round"
+              fill="none"
+              filter="url(#braceGlow)"
+              style="stroke-dasharray: 340; stroke-dashoffset: 340;"
+            />
+            <!-- Center knuckle dot (static glow node, revealed by JS) -->
+            <circle id="t2-lb-brace-knob-svg"
+              cx="8" cy="100" r="5"
+              fill="#37BDF8"
+              style="filter: drop-shadow(0 0 6px rgba(55,189,248,0.9)) drop-shadow(0 0 14px rgba(55,189,248,0.5)); opacity: 0;"
+            />
+          </svg>
+        </div>
+
+        <!-- Right: term + separator + detail -->
+        <div class="content-col">
+          <div class="term" data-slot="term">Cognitive Load Theory</div>
+          <div class="sep"></div>
+          <div class="detail-panel">
+            <div class="detail" data-slot="detail">Break instruction into chunks that fit working memory — complexity should rise with mastery, not front-load it.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP    = "#t2-lb-brace";
+      const pathEl  = document.getElementById("t2-lb-brace-path");
+      const knobEl  = document.getElementById("t2-lb-brace-knob-svg");
+
+      /* ambient glow */
+      tl.from(`${COMP} .local-glow`,
+        { autoAlpha: 0, scale: 0.55, transformOrigin: "25% 50%",
+          duration: 1.15, ease: "expo.out" }, 0)
+
+      /* brace draws from center out — animate dashoffset 340 → 0
+         We use a 3-arg .to on a proxy for determinism */
+        .to({ val: 340 }, {
+          val: 0, duration: 0.90, ease: "power2.out",
+          onUpdate: function() {
+            pathEl.style.strokeDashoffset = this.targets()[0].val;
+          }
+        }, 0.25)
+
+      /* knob pops when brace is ~halfway */
+        .to(knobEl, { opacity: 1, duration: 0.22, ease: "power2.out" }, 0.72)
+
+      /* term glides in from left */
+        .from(`${COMP} .term`,
+          { autoAlpha: 0, x: -22, filter: "blur(10px)",
+            duration: 0.68, ease: "power4.out" }, 0.55)
+
+      /* sep draws */
+        .from(`${COMP} .sep`,
+          { scaleX: 0, transformOrigin: "left center",
+            duration: 0.36, ease: "power3.out" }, 0.90)
+
+      /* detail panel slides in */
+        .from(`${COMP} .detail-panel`,
+          { autoAlpha: 0, y: 14, filter: "blur(7px)",
+            duration: 0.65, ease: "power3.out" }, 1.02)
+
+      /* knob breathing glow — finite */
+        .to(knobEl, {
+          attr: { r: 7 },
+          duration: 1.1, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.75)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-brace"] = tl;
+    </script>
+  </body>
+</html>

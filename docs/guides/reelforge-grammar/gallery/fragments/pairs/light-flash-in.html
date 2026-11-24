@@ -1,0 +1,275 @@
+<!-- rf-gallery v1 | pairs/light-flash-in | light-flash-join | mutate=copy,duration,accent-color,flash-color | keep=timeline-phase-structure,easing-curves,entry-anchor-geometry,full-frame-flash-coverage,afterglow-clear,light-ray-stagger -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>빛 플래시 인</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-light-flash-in {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          isolation: isolate;
+          background: var(--rf-bg, #090a0f);
+          color: var(--rf-text, #f8f8f3);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+          will-change: filter;
+        }
+        .rf-light-flash-in .lfi-world {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .rf-light-flash-in .lfi-field {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse at 72% 38%, var(--rf-surface-3, #23252e) 0%, var(--rf-surface-2, #171922) 30%, var(--rf-bg, #090a0f) 73%);
+        }
+        .rf-light-flash-in .lfi-grid {
+          position: absolute;
+          inset: 0;
+          opacity: 0.42;
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-transparent, transparent) 1px),
+            linear-gradient(0deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-transparent, transparent) 1px);
+          background-size: 132px 132px;
+          mask-image: linear-gradient(116deg, var(--rf-text, #f8f8f3) 3%, var(--rf-transparent, transparent) 62%);
+        }
+        .rf-light-flash-in .lfi-aura {
+          position: absolute;
+          width: 1280px;
+          height: 1280px;
+          right: -224px;
+          top: -354px;
+          border-radius: 50%;
+          opacity: 0.52;
+          background: radial-gradient(circle, var(--rf-text, #f8f8f3) 0%, var(--rf-accent, #826cff) 10%, var(--rf-accent-alt, #7de3ff) 30%, var(--rf-transparent, transparent) 68%);
+          filter: brightness(1);
+          animation: lfi-aura-breathe 1.25s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+          will-change: filter, opacity;
+        }
+        .rf-light-flash-in .lfi-orbit {
+          position: absolute;
+          width: 1170px;
+          height: 1170px;
+          right: -300px;
+          top: -298px;
+          border: 2px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.38));
+          border-left-color: var(--rf-transparent, transparent);
+          border-bottom-color: var(--rf-accent, #826cff);
+          border-radius: 50%;
+          opacity: 0.64;
+          transform: rotate(22deg);
+          will-change: transform, opacity;
+        }
+        .rf-light-flash-in .lfi-rays {
+          position: absolute;
+          inset: 0;
+          transform: rotate(-22deg) scale(1.12);
+          transform-origin: 76% 34%;
+        }
+        .rf-light-flash-in .lfi-ray {
+          position: absolute;
+          right: -7%;
+          width: 82%;
+          height: 3px;
+          transform-origin: right center;
+          background: linear-gradient(90deg, var(--rf-transparent, transparent), var(--rf-accent-alt, #7de3ff), var(--rf-text, #f8f8f3));
+          box-shadow: 0 0 30px var(--rf-accent, #826cff);
+          opacity: 0.42;
+          will-change: transform, opacity;
+        }
+        .rf-light-flash-in .lfi-ray--one { top: 20%; transform: rotate(-19deg); }
+        .rf-light-flash-in .lfi-ray--two { top: 34%; transform: rotate(-8deg); }
+        .rf-light-flash-in .lfi-ray--three { top: 51%; transform: rotate(5deg); }
+        .rf-light-flash-in .lfi-ray--four { top: 67%; transform: rotate(17deg); }
+        .rf-light-flash-in .lfi-copy {
+          position: absolute;
+          left: 7.8%;
+          top: 18.2%;
+          z-index: 2;
+        }
+        .rf-light-flash-in .lfi-kicker {
+          margin: 0 0 28px;
+          color: var(--rf-muted-text, #c7cbd5);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 19px;
+          font-weight: 700;
+          letter-spacing: 0.17em;
+          line-height: 1.2;
+          will-change: transform, opacity;
+        }
+        .rf-light-flash-in .lfi-title {
+          margin: 0;
+          font-size: clamp(132px, 10.8vw, 208px);
+          font-weight: 850;
+          letter-spacing: -0.09em;
+          line-height: 0.88;
+          word-break: keep-all;
+        }
+        .rf-light-flash-in .lfi-title-line {
+          display: block;
+          width: max-content;
+          will-change: transform, opacity, filter;
+        }
+        .rf-light-flash-in .lfi-title-line--accent {
+          margin-top: 0.12em;
+          color: var(--rf-accent, #826cff);
+          text-shadow: 0 0 0.19em var(--rf-accent, #826cff);
+        }
+        .rf-light-flash-in .lfi-seam {
+          position: absolute;
+          left: 7.9%;
+          bottom: 15.3%;
+          z-index: 2;
+          width: min(59vw, 1000px);
+          height: 2px;
+          background: linear-gradient(90deg, var(--rf-accent, #826cff), var(--rf-text, #f8f8f3), var(--rf-transparent, transparent));
+          box-shadow: 0 0 22px var(--rf-accent, #826cff);
+          transform-origin: left center;
+          will-change: transform, opacity;
+        }
+        .rf-light-flash-in .lfi-afterimage {
+          position: absolute;
+          left: 8.1%;
+          bottom: 7.4%;
+          z-index: 2;
+          color: var(--rf-muted-text, #c7cbd5);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 17px;
+          font-weight: 700;
+          letter-spacing: 0.13em;
+          line-height: 1.2;
+          will-change: transform, opacity;
+        }
+        .rf-light-flash-in .lfi-mark {
+          position: absolute;
+          right: 7.6%;
+          bottom: 8.4%;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          color: var(--rf-text, #f8f8f3);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1.2;
+          will-change: transform, opacity;
+        }
+        .rf-light-flash-in .lfi-mark::before {
+          content: "";
+          width: 162px;
+          height: 2px;
+          background: var(--rf-text, #f8f8f3);
+          box-shadow: -24px 0 0 var(--rf-accent-alt, #7de3ff);
+        }
+        .rf-light-flash-in .lfi-flash {
+          position: absolute;
+          inset: 0;
+          z-index: 8;
+          background: var(--rf-text, #f8f8f3);
+          mix-blend-mode: screen;
+          pointer-events: none;
+          will-change: opacity;
+        }
+        @keyframes lfi-aura-breathe {
+          from {
+            filter: brightness(1);
+            opacity: 0.52;
+          }
+          to {
+            filter: brightness(1.32);
+            opacity: 0.7;
+          }
+        }
+      </style>
+      <main
+        class="rf-light-flash-in"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-pairs-light-flash-in"
+      >
+        <div class="lfi-world">
+          <div class="lfi-field" aria-hidden="true"></div>
+          <div class="lfi-grid" aria-hidden="true"></div>
+          <div class="lfi-aura" aria-hidden="true"></div>
+          <div class="lfi-orbit" aria-hidden="true"></div>
+          <div class="lfi-rays" aria-hidden="true">
+            <div class="lfi-ray lfi-ray--one"></div>
+            <div class="lfi-ray lfi-ray--two"></div>
+            <div class="lfi-ray lfi-ray--three"></div>
+            <div class="lfi-ray lfi-ray--four"></div>
+          </div>
+          <div class="lfi-copy">
+            <p class="lfi-kicker" data-slot="kicker">다음 장면</p>
+            <h1 class="lfi-title">
+              <span class="lfi-title-line" data-slot="title-first">빛이 걷히면</span>
+              <span class="lfi-title-line lfi-title-line--accent" data-slot="title-second">장면이 보입니다</span>
+            </h1>
+          </div>
+          <div class="lfi-seam" aria-hidden="true"></div>
+          <div class="lfi-afterimage" data-slot="afterimage">이어지는 순간</div>
+          <div class="lfi-mark" data-slot="mark">빛의 잔상</div>
+        </div>
+        <div class="lfi-flash" aria-hidden="true"></div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-pairs-light-flash-in";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const world = root.querySelector(".lfi-world");
+          const flash = root.querySelector(".lfi-flash");
+          const aura = root.querySelector(".lfi-aura");
+          const orbit = root.querySelector(".lfi-orbit");
+          const rays = Array.from(root.querySelectorAll(".lfi-ray"));
+          const kicker = root.querySelector(".lfi-kicker");
+          const titleLines = Array.from(root.querySelectorAll(".lfi-title-line"));
+          const seam = root.querySelector(".lfi-seam");
+          const afterimage = root.querySelector(".lfi-afterimage");
+          const mark = root.querySelector(".lfi-mark");
+
+          window.__timelines = window.__timelines || {};
+          window.__anchors = window.__anchors || {};
+          window.__anchors[compositionId] = {
+            enter: { flash: "--rf-text", coverage: 1.0, dur: 0.12 }
+          };
+
+          const tl = gsap.timeline({ paused: true });
+          tl.set(root, { filter: "brightness(3)" })
+            .set(world, { opacity: 0 })
+            .set(flash, { opacity: 1 })
+            .set(aura, { opacity: 0.86, scale: 1.12, transformOrigin: "center center" })
+            .set(orbit, { opacity: 0, rotation: -22, transformOrigin: "center center" })
+            .set(rays, { opacity: 0, scaleX: 0.18, transformOrigin: "right center" })
+            .set([kicker, afterimage, mark], { opacity: 0 })
+            .set(titleLines, { opacity: 0, x: -58, y: 26, filter: "brightness(1.7)" })
+            .set(seam, { opacity: 0, scaleX: 0, transformOrigin: "left center" })
+            .to(root, { filter: "brightness(1)", duration: 0.18, ease: "power2.out" }, 0)
+            .to(flash, { opacity: 0, duration: 0.12, ease: "power2.in" }, 0)
+            .to(world, { opacity: 1, duration: 0.14, ease: "power2.out" }, 0.1)
+            .to(aura, { opacity: 0.52, scale: 1, duration: 0.28, ease: "power3.out" }, 0.08)
+            .to(rays, { opacity: 0.42, scaleX: 1, duration: 0.3, stagger: 0.05, ease: "power3.out" }, 0.16)
+            .to(orbit, { opacity: 0.64, rotation: 22, duration: 0.46, ease: "power3.out" }, 0.2)
+            .fromTo(kicker, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 0.28)
+            .to(titleLines[0], { opacity: 1, x: 0, y: 0, filter: "brightness(1)", duration: 0.36, ease: "power4.out" }, 0.4)
+            .to(titleLines[1], { opacity: 1, x: 0, y: 0, filter: "brightness(1)", duration: 0.4, ease: "power4.out" }, 0.62)
+            .to(seam, { opacity: 1, scaleX: 1, duration: 0.36, ease: "power3.out" }, 0.85)
+            .fromTo(afterimage, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 1.08)
+            .fromTo(mark, { opacity: 0, x: 26 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 1.16)
+            .to(rays, { opacity: 0.24, duration: 0.3, ease: "power2.out" }, 1.48);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

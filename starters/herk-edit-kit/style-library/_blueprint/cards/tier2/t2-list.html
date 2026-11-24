@@ -1,0 +1,58 @@
+<!doctype html>
+<!--
+  BLUEPRINT CARD · tier2 · list (supporting card, speaker stays visible)
+  tier2 = TRANSPARENT everywhere except the card itself (it overlays the video).
+  Never cover the speaker's face — keep the card to one side / lower area.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+      #t2-list {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent;              /* overlay: do NOT fill the frame */
+        color: var(--fg); font-family: var(--font-body);
+      }
+      #t2-list .card {
+        position: absolute; left: 72px; bottom: 96px; width: 720px;
+        background: rgba(0, 0, 0, 0.55); border: 1px solid var(--accent);
+        border-radius: var(--radius); padding: var(--pad);
+        backdrop-filter: blur(8px);
+      }
+      #t2-list .tag {
+        font-family: var(--font-mono); font-size: var(--size-label);
+        letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+        margin-bottom: 14px;
+      }
+      #t2-list .headline { font-size: var(--size-headline); font-weight: 700; margin-bottom: 18px; }
+      #t2-list ul { margin: 0; padding: 0; list-style: none; }
+      #t2-list li { font-size: var(--size-body); margin: 10px 0; opacity: 0.95; }
+    </style>
+  </head>
+  <body>
+    <div id="t2-list" data-composition-id="t2-list" data-start="0" data-width="1920" data-height="1080">
+      <div class="card">
+        <div class="tag" data-slot="tag">TAG</div>
+        <div class="headline" data-slot="headline">Headline goes here</div>
+        <ul data-slot="items">
+          <li>First item</li>
+          <li>Second item</li>
+          <li>Third item</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.from("#t2-list .card", { autoAlpha: 0, x: -40, duration: 0.5, ease: "power3.out" })
+        .from("#t2-list .tag", { autoAlpha: 0, y: 10, duration: 0.3 }, "-=0.2")
+        .from("#t2-list .headline", { autoAlpha: 0, y: 12, duration: 0.35 }, "-=0.15")
+        .from("#t2-list li", { autoAlpha: 0, y: 12, duration: 0.3, stagger: 0.12 }, "-=0.1")
+        .set({}, {}, 12);           // hold ~12s
+      window.__timelines["t2-list"] = tl;
+    </script>
+  </body>
+</html>

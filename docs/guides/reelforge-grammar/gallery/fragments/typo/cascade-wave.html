@@ -1,0 +1,224 @@
+<!-- rf-gallery v1 | typo/cascade-wave | offset-cascade-wave | mutate=copy,duration,accent-color,wave-direction,wave-band-width | keep=timeline-phase-structure,easing-curves,offset-wave-driver,character-entry-stagger,entry-anchor-geometry -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Cascade Wave</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-cascade-wave {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #0a0b0e);
+          color: var(--rf-text, #f7f8f8);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+          isolation: isolate;
+        }
+        .rf-cascade-wave .cw-aura {
+          position: absolute;
+          inset: -28%;
+          z-index: -3;
+          background: var(--rf-accent, #5e6ad2);
+          filter: blur(160px) brightness(1);
+          opacity: 0.13;
+          will-change: filter, opacity;
+          animation: cw-aura-breathe 1.2s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-cascade-wave .cw-ridge {
+          position: absolute;
+          left: -42%;
+          width: 184%;
+          height: 75%;
+          border-top: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.18));
+          border-radius: 50%;
+          opacity: 0.8;
+          pointer-events: none;
+        }
+        .rf-cascade-wave .cw-ridge--one {
+          top: 8%;
+          transform: rotate(-8deg);
+        }
+        .rf-cascade-wave .cw-ridge--two {
+          top: 28%;
+          transform: rotate(-8deg);
+          border-top-color: var(--rf-hairline-strong, rgba(255, 255, 255, 0.3));
+          opacity: 0.56;
+        }
+        .rf-cascade-wave .cw-ridge--accent {
+          top: 48%;
+          height: 52%;
+          transform: rotate(-8deg);
+          border-top: 3px solid var(--rf-accent, #5e6ad2);
+          box-shadow: 0 0 24px var(--rf-accent, #5e6ad2);
+          opacity: 0.68;
+        }
+        .rf-cascade-wave .cw-stage {
+          position: absolute;
+          inset: 0;
+        }
+        .rf-cascade-wave .cw-index,
+        .rf-cascade-wave .cw-motion-label,
+        .rf-cascade-wave .cw-pace {
+          color: var(--rf-muted-text, #d0d6e0);
+          font-family: var(--rf-font-mono, "Pretendard Mono", ui-monospace, monospace);
+          font-size: 17px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          line-height: 1;
+          text-transform: uppercase;
+        }
+        .rf-cascade-wave .cw-index {
+          position: absolute;
+          top: 7.2%;
+          left: 7.1%;
+        }
+        .rf-cascade-wave .cw-motion-label {
+          position: absolute;
+          top: 7.2%;
+          right: 7.1%;
+          color: var(--rf-ink-subtle, #8a8f98);
+          text-align: right;
+        }
+        .rf-cascade-wave .cw-title {
+          position: absolute;
+          top: 32.2%;
+          left: 7%;
+          display: flex;
+          align-items: baseline;
+          color: var(--rf-text, #f7f8f8);
+          font-size: clamp(148px, 13vw, 250px);
+          font-weight: 800;
+          letter-spacing: -0.095em;
+          line-height: 0.84;
+          white-space: nowrap;
+          will-change: transform;
+        }
+        .rf-cascade-wave .cw-char {
+          position: relative;
+          display: inline-block;
+          min-width: 0.72em;
+          color: var(--rf-text, #f7f8f8);
+          will-change: transform, opacity, color;
+        }
+        .rf-cascade-wave .cw-gap {
+          width: 0.26em;
+          flex: 0 0 0.26em;
+        }
+        .rf-cascade-wave .cw-echo {
+          position: absolute;
+          right: 4.6%;
+          bottom: 10.4%;
+          color: var(--rf-surface-3, #22242a);
+          font-size: clamp(250px, 22vw, 422px);
+          font-weight: 800;
+          letter-spacing: -0.12em;
+          line-height: 0.72;
+          opacity: 0.9;
+          pointer-events: none;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+        .rf-cascade-wave .cw-pace {
+          position: absolute;
+          right: 7.1%;
+          bottom: 7.4%;
+          color: var(--rf-accent, #5e6ad2);
+          text-align: right;
+        }
+        .rf-cascade-wave .cw-pace::before {
+          content: "";
+          display: inline-block;
+          width: 92px;
+          height: 1px;
+          margin: 0 17px 5px 0;
+          background: var(--rf-accent, #5e6ad2);
+          vertical-align: middle;
+        }
+        @keyframes cw-aura-breathe {
+          from {
+            filter: blur(160px) brightness(1);
+            opacity: 0.13;
+          }
+          to {
+            filter: blur(160px) brightness(1.24);
+            opacity: 0.23;
+          }
+        }
+      </style>
+      <main
+        class="rf-cascade-wave"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-typo-cascade-wave"
+      >
+        <div class="cw-aura" aria-hidden="true"></div>
+        <div class="cw-ridge cw-ridge--one" aria-hidden="true"></div>
+        <div class="cw-ridge cw-ridge--two" aria-hidden="true"></div>
+        <div class="cw-ridge cw-ridge--accent" aria-hidden="true"></div>
+        <div class="cw-stage">
+          <div class="cw-index" data-slot="index-label">파동 / 01</div>
+          <div class="cw-motion-label" data-slot="motion-label">글자별 흐름</div>
+          <div class="cw-title">
+            <span class="cw-char" data-slot="headline-char-01">한</span>
+            <span class="cw-gap" aria-hidden="true"></span>
+            <span class="cw-char" data-slot="headline-char-02">글</span>
+            <span class="cw-char" data-slot="headline-char-03">자</span>
+            <span class="cw-char" data-slot="headline-char-04">씩</span>
+            <span class="cw-gap" aria-hidden="true"></span>
+            <span class="cw-char" data-slot="headline-char-05">이</span>
+            <span class="cw-char" data-slot="headline-char-06">어</span>
+            <span class="cw-char" data-slot="headline-char-07">져</span>
+          </div>
+          <div class="cw-echo" data-slot="echo-label" aria-hidden="true">이어져</div>
+          <div class="cw-pace" data-slot="pace-label">한 번 더 흐른다</div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-typo-cascade-wave";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const chars = Array.from(root.querySelectorAll(".cw-char"));
+          const index = root.querySelector(".cw-index");
+          const motionLabel = root.querySelector(".cw-motion-label");
+          const echo = root.querySelector(".cw-echo");
+          const pace = root.querySelector(".cw-pace");
+          const wave = { p: 0 };
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([index, motionLabel, echo, pace], { opacity: 0 })
+            .set(chars, { opacity: 0, y: 46 })
+            .fromTo(index, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.26, ease: "power3.out" }, 0)
+            .fromTo(motionLabel, { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.26, ease: "power3.out" }, 0)
+            .to(chars, { opacity: 1, y: 0, duration: 0.34, stagger: 0.055, ease: "power3.out" }, 0.18)
+            .fromTo(echo, { opacity: 0, x: 42 }, { opacity: 0.9, x: 0, duration: 0.48, ease: "power2.out" }, 0.34)
+            .fromTo(pace, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.74)
+            .to(wave, {
+              p: 1,
+              duration: 1.28,
+              ease: "none",
+              onUpdate: () => {
+                const center = wave.p * (chars.length + 6) - 3;
+                chars.forEach((char, charIndex) => {
+                  const distance = Math.max(0, 1 - Math.abs(charIndex - center) / 3);
+                  char.style.transform = `translateY(${-distance * 28}px)`;
+                  char.style.color = distance > 0.5
+                    ? "var(--rf-accent, #5e6ad2)"
+                    : "var(--rf-text, #f7f8f8)";
+                });
+              }
+            }, 0.78);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

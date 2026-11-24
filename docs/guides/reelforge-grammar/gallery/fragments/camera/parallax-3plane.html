@@ -1,0 +1,309 @@
+<!-- rf-gallery v1 | camera/parallax-3plane | parallax-3plane-rule | mutate=copy,duration,accent-color,pan-distance | keep=timeline-phase-structure,easing-curves,three-plane-factor-profile,camera-proxy-onupdate,midground-text-anchor,living-motion-delay -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Parallax Three Plane</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-parallax-3plane {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          isolation: isolate;
+          background: var(--rf-bg, #08080b);
+          color: var(--rf-text, #f8f7f2);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-parallax-3plane .p3p-stage,
+        .rf-parallax-3plane .p3p-plane {
+          position: absolute;
+          inset: 0;
+        }
+        .rf-parallax-3plane .p3p-plane {
+          width: calc(100% + 440px);
+          left: -220px;
+          will-change: transform;
+        }
+        .rf-parallax-3plane .p3p-plane--bg {
+          z-index: 1;
+        }
+        .rf-parallax-3plane .p3p-plane--mid {
+          z-index: 3;
+        }
+        .rf-parallax-3plane .p3p-plane--fg {
+          z-index: 5;
+          pointer-events: none;
+        }
+        .rf-parallax-3plane .p3p-bg-breath {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(circle at 27% 37%, var(--rf-accent, #ff48a0) 0 6%, var(--rf-transparent, transparent) 25%),
+            radial-gradient(circle at 75% 68%, var(--rf-surface-2, #24232b) 0 10%, var(--rf-transparent, transparent) 35%);
+          opacity: 0.82;
+          filter: brightness(1);
+          animation: p3p-bg-breathe 1.24s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-parallax-3plane .p3p-bg-orbit {
+          position: absolute;
+          width: 980px;
+          height: 980px;
+          left: 47%;
+          top: -268px;
+          border: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          border-radius: 50%;
+          box-shadow: 0 0 0 104px var(--rf-transparent, transparent), 0 0 0 105px var(--rf-hairline, rgba(255, 255, 255, 0.14));
+        }
+        .rf-parallax-3plane .p3p-bg-grid {
+          position: absolute;
+          inset: 0;
+          opacity: 0.42;
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-transparent, transparent) 1px),
+            linear-gradient(var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-transparent, transparent) 1px);
+          background-size: 132px 132px;
+          mask-image: linear-gradient(90deg, var(--rf-transparent, transparent), var(--rf-text, #f8f7f2) 36%, var(--rf-text, #f8f7f2) 68%, var(--rf-transparent, transparent));
+        }
+        .rf-parallax-3plane .p3p-mid-breath {
+          position: absolute;
+          width: 1320px;
+          height: 570px;
+          left: 264px;
+          top: 268px;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          border-left: 0;
+          border-right: 0;
+          opacity: 0.68;
+          filter: brightness(1);
+          animation: p3p-mid-breathe 1.36s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-parallax-3plane .p3p-mid-breath::before,
+        .rf-parallax-3plane .p3p-mid-breath::after {
+          content: "";
+          position: absolute;
+          width: 14px;
+          height: 14px;
+          top: -8px;
+          background: var(--rf-accent, #ff48a0);
+          box-shadow: 0 570px 0 var(--rf-accent, #ff48a0);
+        }
+        .rf-parallax-3plane .p3p-mid-breath::before {
+          left: 0;
+        }
+        .rf-parallax-3plane .p3p-mid-breath::after {
+          right: 0;
+        }
+        .rf-parallax-3plane .p3p-copy {
+          position: absolute;
+          left: 14.4%;
+          top: 23.4%;
+          width: min(1080px, 61vw);
+        }
+        .rf-parallax-3plane .p3p-kicker,
+        .rf-parallax-3plane .p3p-axis,
+        .rf-parallax-3plane .p3p-status {
+          color: var(--rf-muted-text, #b4b8c0);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          line-height: 1;
+        }
+        .rf-parallax-3plane .p3p-kicker {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+        }
+        .rf-parallax-3plane .p3p-kicker::before {
+          content: "";
+          display: block;
+          width: 86px;
+          height: 2px;
+          background: var(--rf-accent, #ff48a0);
+        }
+        .rf-parallax-3plane .p3p-headline {
+          margin-top: 38px;
+          font-size: clamp(112px, 9.2vw, 176px);
+          font-weight: 800;
+          letter-spacing: -0.075em;
+          line-height: 0.91;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        .rf-parallax-3plane .p3p-line {
+          display: block;
+          will-change: transform, opacity;
+        }
+        .rf-parallax-3plane .p3p-line--accent {
+          position: relative;
+          width: max-content;
+          color: var(--rf-accent, #ff48a0);
+          text-shadow: 0 0 34px var(--rf-accent, #ff48a0);
+        }
+        .rf-parallax-3plane .p3p-line--accent::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: -0.1em;
+          bottom: -0.12em;
+          height: 0.06em;
+          background: var(--rf-text, #f8f7f2);
+          transform: scaleX(0);
+          transform-origin: left center;
+          will-change: transform;
+        }
+        .rf-parallax-3plane .p3p-axis {
+          position: absolute;
+          top: 382px;
+          left: 1px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          opacity: 0.88;
+          will-change: transform, opacity;
+        }
+        .rf-parallax-3plane .p3p-axis::before {
+          content: "";
+          width: 150px;
+          height: 1px;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+        }
+        .rf-parallax-3plane .p3p-status {
+          position: absolute;
+          top: 382px;
+          right: 0;
+          color: var(--rf-text, #f8f7f2);
+          will-change: transform, opacity;
+        }
+        .rf-parallax-3plane .p3p-foreground-breath {
+          position: absolute;
+          inset: 0;
+          opacity: 0.7;
+          filter: brightness(1);
+          animation: p3p-fg-breathe 1.12s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-parallax-3plane .p3p-foreground-breath::before,
+        .rf-parallax-3plane .p3p-foreground-breath::after {
+          content: "";
+          position: absolute;
+          top: -13%;
+          width: 240px;
+          height: 126%;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          background: linear-gradient(180deg, var(--rf-surface-3, #30303a), var(--rf-transparent, transparent) 42%, var(--rf-surface-2, #24232b));
+          box-shadow: 0 0 56px var(--rf-surface-2, #24232b);
+        }
+        .rf-parallax-3plane .p3p-foreground-breath::before {
+          left: 4%;
+          transform: rotate(17deg);
+        }
+        .rf-parallax-3plane .p3p-foreground-breath::after {
+          right: 1%;
+          transform: rotate(-17deg);
+        }
+        .rf-parallax-3plane .p3p-fg-line {
+          position: absolute;
+          left: 18%;
+          bottom: 13%;
+          width: 74%;
+          height: 2px;
+          background: var(--rf-accent-alt, #7be8ff);
+          box-shadow: 0 0 28px var(--rf-accent-alt, #7be8ff);
+          transform-origin: left center;
+          will-change: transform, opacity;
+        }
+        @keyframes p3p-bg-breathe {
+          from { opacity: 0.82; filter: brightness(1); }
+          to { opacity: 1; filter: brightness(1.28); }
+        }
+        @keyframes p3p-mid-breathe {
+          from { opacity: 0.68; filter: brightness(1); }
+          to { opacity: 0.92; filter: brightness(1.24); }
+        }
+        @keyframes p3p-fg-breathe {
+          from { opacity: 0.7; filter: brightness(1); }
+          to { opacity: 0.94; filter: brightness(1.26); }
+        }
+      </style>
+      <main
+        class="rf-parallax-3plane"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-camera-parallax-3plane"
+      >
+        <div class="p3p-stage">
+          <div class="p3p-plane p3p-plane--bg">
+            <div class="p3p-bg-breath"></div>
+            <div class="p3p-bg-orbit"></div>
+            <div class="p3p-bg-grid"></div>
+          </div>
+          <div class="p3p-plane p3p-plane--mid">
+            <div class="p3p-mid-breath"></div>
+            <div class="p3p-copy">
+              <div class="p3p-kicker" data-slot="kicker">시차 / 03</div>
+              <div class="p3p-headline">
+                <span class="p3p-line" data-slot="headline-one">생각은</span>
+                <span class="p3p-line p3p-line--accent" data-slot="headline-two">앞으로 간다</span>
+              </div>
+              <div class="p3p-axis" data-slot="axis-label">서로 다른 속도</div>
+              <div class="p3p-status" data-slot="status-label">지금, 이동</div>
+            </div>
+          </div>
+          <div class="p3p-plane p3p-plane--fg">
+            <div class="p3p-foreground-breath"></div>
+            <div class="p3p-fg-line"></div>
+          </div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-camera-parallax-3plane";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const planeBg = root.querySelector(".p3p-plane--bg");
+          const planeMid = root.querySelector(".p3p-plane--mid");
+          const planeFg = root.querySelector(".p3p-plane--fg");
+          const kicker = root.querySelector(".p3p-kicker");
+          const lines = Array.from(root.querySelectorAll(".p3p-line"));
+          const axis = root.querySelector(".p3p-axis");
+          const status = root.querySelector(".p3p-status");
+          const foregroundLine = root.querySelector(".p3p-fg-line");
+          const camera = { x: -172 };
+          const planes = [
+            { el: planeBg, factor: 0.15 },
+            { el: planeMid, factor: 0.45 },
+            { el: planeFg, factor: 1.0 }
+          ];
+          const applyCamera = () => {
+            planes.forEach(({ el, factor }) => {
+              el.style.transform = `translate3d(${camera.x * factor}px, 0, 0)`;
+            });
+          };
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          applyCamera();
+          tl.set(camera, { x: -172, onUpdate: applyCamera }, 0)
+            .set([kicker, axis, status], { opacity: 0 }, 0)
+            .set(lines, { opacity: 0, y: 54 }, 0)
+            .set(foregroundLine, { opacity: 0, scaleX: 0 }, 0)
+            .to(camera, { x: 154, duration: 1.9, ease: "power2.inOut", onUpdate: applyCamera }, 0.08)
+            .fromTo(kicker, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.18)
+            .to(lines[0], { opacity: 1, y: 0, duration: 0.48, ease: "power3.out" }, 0.46)
+            .to(lines[1], { opacity: 1, y: 0, duration: 0.54, ease: "power3.out" }, 0.74)
+            .fromTo(axis, { opacity: 0, x: -28 }, { opacity: 0.88, x: 0, duration: 0.32, ease: "power3.out" }, 1.22)
+            .fromTo(status, { opacity: 0, x: 28 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out" }, 1.34)
+            .to(foregroundLine, { opacity: 1, scaleX: 1, duration: 0.38, ease: "power3.out" }, 1.54);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!-- rf-gallery v1 | typo/netflix-converge | netflix-title-converge | mutate=copy,duration,accent-color,scatter-radius | keep=timeline-phase-structure,easing-curves,golden-angle-scatter,convergence-anchor,character-stagger,lockup-impact -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Converge Lockup</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-netflix-converge {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #090a0f);
+          color: var(--rf-text, #f7f7fb);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-netflix-converge .nfc-stage {
+          position: absolute;
+          inset: 0;
+          will-change: transform;
+        }
+        .rf-netflix-converge .nfc-halo {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 58vmax;
+          height: 58vmax;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          border-radius: 50%;
+          background: var(--rf-accent-alt, #7c6cff);
+          box-shadow: 0 0 180px 30px var(--rf-accent, #ff4d86);
+          opacity: 0.18;
+          pointer-events: none;
+          transform: translate(-50%, -50%) scale(0.62);
+          will-change: transform, filter, opacity;
+        }
+        .rf-netflix-converge .nfc-crosshair {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 76vw;
+          height: 76vw;
+          border: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          border-radius: 50%;
+          opacity: 0.5;
+          pointer-events: none;
+          transform: translate(-50%, -50%) rotate(45deg);
+          will-change: transform, opacity;
+        }
+        .rf-netflix-converge .nfc-crosshair::before,
+        .rf-netflix-converge .nfc-crosshair::after {
+          position: absolute;
+          top: 50%;
+          left: -18%;
+          width: 136%;
+          height: 1px;
+          background: var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          content: "";
+          transform: translateY(-50%);
+        }
+        .rf-netflix-converge .nfc-crosshair::after {
+          transform: translateY(-50%) rotate(90deg);
+        }
+        .rf-netflix-converge .nfc-kicker {
+          position: absolute;
+          top: 7.1%;
+          left: 6.4%;
+          color: var(--rf-muted-text, #b4b8c0);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(15px, 1.1vw, 22px);
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          line-height: 1;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+        .rf-netflix-converge .nfc-kicker::before {
+          display: inline-block;
+          width: 62px;
+          height: 2px;
+          margin: 0 17px 0 0;
+          background: var(--rf-accent, #ff4d86);
+          box-shadow: 0 0 16px var(--rf-accent, #ff4d86);
+          content: "";
+          vertical-align: middle;
+        }
+        .rf-netflix-converge .nfc-title {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          color: var(--rf-text, #f7f7fb);
+          font-family: var(--rf-font-display, var(--rf-font-sans, "Pretendard", system-ui, sans-serif));
+          font-size: clamp(190px, 16.8vw, 323px);
+          font-weight: 900;
+          letter-spacing: -0.115em;
+          line-height: 0.8;
+          white-space: nowrap;
+          transform: translate(-50%, -51%);
+          transform-origin: center center;
+          will-change: transform;
+        }
+        .rf-netflix-converge .nfc-char {
+          display: inline-block;
+          padding-right: 0.045em;
+          text-shadow: 0 0 0.11em var(--rf-accent, #ff4d86);
+          will-change: transform, filter, opacity;
+        }
+        .rf-netflix-converge .nfc-char:last-child {
+          padding-right: 0;
+        }
+        .rf-netflix-converge .nfc-subline {
+          position: absolute;
+          top: calc(50% + 12.6vw);
+          left: 50%;
+          color: var(--rf-accent, #ff4d86);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(17px, 1.35vw, 26px);
+          font-weight: 700;
+          letter-spacing: 0.43em;
+          line-height: 1;
+          white-space: nowrap;
+          transform: translateX(-50%);
+          will-change: transform, opacity;
+        }
+        .rf-netflix-converge .nfc-subline::before,
+        .rf-netflix-converge .nfc-subline::after {
+          display: inline-block;
+          width: 46px;
+          height: 1px;
+          margin: 0 24px 0.35em 0;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          content: "";
+          vertical-align: middle;
+        }
+        .rf-netflix-converge .nfc-subline::after {
+          margin: 0 0 0.35em 24px;
+        }
+        .rf-netflix-converge .nfc-flash {
+          position: absolute;
+          inset: 0;
+          background: var(--rf-accent, #ff4d86);
+          mix-blend-mode: screen;
+          opacity: 0;
+          pointer-events: none;
+          will-change: opacity;
+        }
+        @keyframes nfc-halo-breathe {
+          from { filter: brightness(1); opacity: 0.18; }
+          to { filter: brightness(1.28); opacity: 0.38; }
+        }
+        @keyframes nfc-title-breathe {
+          from { filter: brightness(1); opacity: 1; }
+          to { filter: brightness(1.22); opacity: 0.9; }
+        }
+        .rf-netflix-converge .nfc-halo {
+          animation: nfc-halo-breathe 1.3s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-netflix-converge .nfc-title {
+          animation: nfc-title-breathe 1.3s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+      </style>
+      <main
+        class="rf-netflix-converge"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-typo-netflix-converge"
+      >
+        <div class="nfc-stage">
+          <div class="nfc-halo" aria-hidden="true"></div>
+          <div class="nfc-crosshair" aria-hidden="true"></div>
+          <div class="nfc-kicker" data-slot="kicker">흩어진 조각</div>
+          <div class="nfc-title" aria-label="">
+            <span class="nfc-char" data-slot="title-char-1">모</span>
+            <span class="nfc-char" data-slot="title-char-2">이</span>
+            <span class="nfc-char" data-slot="title-char-3">는</span>
+            <span class="nfc-char" data-slot="title-char-4">순</span>
+            <span class="nfc-char" data-slot="title-char-5">간</span>
+          </div>
+          <div class="nfc-subline" data-slot="subline">한 점으로</div>
+          <div class="nfc-flash" aria-hidden="true"></div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-typo-netflix-converge";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+          const stage = root.querySelector(".nfc-stage");
+          const halo = root.querySelector(".nfc-halo");
+          const crosshair = root.querySelector(".nfc-crosshair");
+          const kicker = root.querySelector(".nfc-kicker");
+          const title = root.querySelector(".nfc-title");
+          const chars = Array.from(root.querySelectorAll(".nfc-char"));
+          const subline = root.querySelector(".nfc-subline");
+          const flash = root.querySelector(".nfc-flash");
+          const scatterFor = (index) => {
+            const angle = ((index * 137.5) + 18) % 360;
+            const radians = angle * Math.PI / 180;
+            const radiusX = 440 + (index % 3) * 150;
+            const radiusY = 260 + ((index + 1) % 3) * 115;
+            return {
+              x: Math.cos(radians) * radiusX,
+              y: Math.sin(radians) * radiusY,
+              rotate: (index % 2 ? 1 : -1) * (24 + index * 5),
+              scale: 0.42 + (index % 3) * 0.22
+            };
+          };
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([halo, crosshair, kicker, subline, flash], { opacity: 0 })
+            .set(title, { scale: 1, transformOrigin: "center center" })
+            .set(flash, { opacity: 0 })
+            .fromTo(halo, { opacity: 0, scale: 0.36 }, { opacity: 0.18, scale: 0.62, duration: 0.52, ease: "power3.out" }, 0)
+            .fromTo(crosshair, { opacity: 0, scale: 0.72, rotate: 28 }, { opacity: 0.5, scale: 1, rotate: 45, duration: 0.7, ease: "power3.out" }, 0)
+            .fromTo(kicker, { opacity: 0, x: -34 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out" }, 0.16)
+            .fromTo(subline, { opacity: 0, y: 22, letterSpacing: "0.7em" }, { opacity: 1, y: 0, letterSpacing: "0.43em", duration: 0.32, ease: "power3.out" }, 1.16);
+
+          chars.forEach((char, index) => {
+            const scatter = scatterFor(index);
+            tl.fromTo(
+              char,
+              { x: scatter.x, y: scatter.y, rotate: scatter.rotate, scale: scatter.scale, opacity: 0, filter: "blur(7px)" },
+              { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.66, ease: "power4.out" },
+              0.26 + index * 0.075
+            );
+          });
+
+          tl.to(title, { scale: 1.045, duration: 0.12, ease: "power2.out" }, 1.24)
+            .to(flash, { opacity: 0.13, duration: 0.045, ease: "none" }, 1.29)
+            .to(stage, { x: -9, y: 4, duration: 0.035, ease: "none" }, 1.29)
+            .to(stage, { x: 7, y: -3, duration: 0.04, ease: "none" }, 1.325)
+            .to(flash, { opacity: 0, duration: 0.15, ease: "power2.out" }, 1.335)
+            .to(stage, { x: 0, y: 0, duration: 0.11, ease: "power2.out" }, 1.365)
+            .to(title, { scale: 1, duration: 0.28, ease: "power3.out" }, 1.42);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

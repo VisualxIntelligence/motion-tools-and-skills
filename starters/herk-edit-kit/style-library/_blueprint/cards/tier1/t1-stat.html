@@ -1,0 +1,57 @@
+<!doctype html>
+<!--
+  BLUEPRINT CARD · tier1 · stat (full-screen takeover)
+  Demonstrates the card contract. Replace layout/animation to match the style;
+  keep the structure: tokens.css for all colors/fonts/easings, data-slot on every
+  fillable text element, one paused GSAP timeline on window.__timelines.
+  tier1 = OPAQUE full-frame background (it replaces the video).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; }
+      #t1-stat {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: var(--bg);                /* opaque: this is a takeover */
+        color: var(--fg);
+        font-family: var(--font-body);
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center; text-align: center;
+        overflow: hidden;
+      }
+      #t1-stat .kicker {
+        font-family: var(--font-mono); font-size: var(--size-label);
+        letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+        margin-bottom: 28px;
+      }
+      #t1-stat .stat {
+        font-family: var(--font-display); font-weight: 800;
+        font-size: var(--size-display); line-height: 0.95; color: var(--accent);
+      }
+      #t1-stat .label {
+        font-size: var(--size-headline); font-weight: 500; max-width: 1200px;
+        margin-top: 28px; color: var(--fg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t1-stat" data-composition-id="t1-stat" data-start="0" data-width="1920" data-height="1080">
+      <div class="kicker" data-slot="kicker">KICKER</div>
+      <div class="stat" data-slot="stat">00%</div>
+      <div class="label" data-slot="label">Supporting label goes here</div>
+    </div>
+
+    <script>
+      // One paused timeline, keyed exactly to data-composition-id.
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.from("#t1-stat .kicker", { autoAlpha: 0, y: 16, duration: 0.45, ease: "power2.out" })
+        .from("#t1-stat .stat", { autoAlpha: 0, scale: 0.92, duration: 0.5, ease: "back.out(1.6)" }, "-=0.15")
+        .from("#t1-stat .label", { autoAlpha: 0, y: 16, duration: 0.45, ease: "power2.out" }, "-=0.25")
+        .set({}, {}, 5.5);          // hold so total duration ~6s; tl.duration() defines card length
+      window.__timelines["t1-stat"] = tl;
+    </script>
+  </body>
+</html>

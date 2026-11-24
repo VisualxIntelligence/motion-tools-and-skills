@@ -1,0 +1,212 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · label · LEGEND
+  A mini legend — a glowing color swatch block with its meaning text in 1-2 rows,
+  stacked in a compact frosted glass card. Can hold 2 legend rows. Anchored right.
+  Slots: term (~24 chars, first row meaning), detail (~24 chars, second row meaning).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-leg {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+      }
+
+      /* Localized glow — right side */
+      #t2-lb-leg .local-glow {
+        position: absolute; right: 100px; top: 460px;
+        width: 440px; height: 280px; border-radius: 50%;
+        background: radial-gradient(ellipse at 60% 50%,
+          rgba(var(--accent-rgb), 0.20) 0%,
+          rgba(var(--accent-rgb), 0.06) 55%,
+          transparent 82%);
+        filter: blur(44px);
+        pointer-events: none;
+      }
+
+      /* Wrapper anchored right */
+      #t2-lb-leg .wrapper {
+        position: absolute; right: 140px; top: 490px;
+        display: flex; flex-direction: column; align-items: flex-end; gap: 0;
+      }
+
+      /* Legend card */
+      #t2-lb-leg .legend-card {
+        padding: 18px 26px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: var(--stroke) solid var(--glass-border);
+        border-radius: var(--radius);
+        box-shadow:
+          var(--glass-shadow),
+          0 0 0 1.5px rgba(var(--accent-rgb), 0.30),
+          0 0 22px rgba(var(--accent-rgb), 0.18),
+          inset 0 1px 0 var(--glass-hi);
+        min-width: 320px; max-width: 420px;
+        position: relative; overflow: hidden;
+      }
+
+      /* Inner top-highlight shimmer */
+      #t2-lb-leg .legend-card::before {
+        content: "";
+        position: absolute; top: 0; left: 12px; right: 12px; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45) 50%, transparent);
+      }
+
+      /* Optional header kicker inside card */
+      #t2-lb-leg .legend-header {
+        font-family: var(--font-mono); font-weight: var(--wt-bold);
+        font-size: 16px; letter-spacing: var(--track-wide);
+        text-transform: uppercase; color: var(--text-faint);
+        margin-bottom: 14px; text-align: right;
+      }
+
+      /* Divider */
+      #t2-lb-leg .divider {
+        height: 1px; margin: 12px 0;
+        background: linear-gradient(90deg, transparent, rgba(var(--glass-border), 0.50) 50%, transparent);
+        background: rgba(255,255,255,0.08);
+      }
+
+      /* Each legend row */
+      #t2-lb-leg .legend-row {
+        display: flex; align-items: center; gap: 16px; justify-content: flex-end;
+      }
+
+      /* Row label */
+      #t2-lb-leg .row-label {
+        font-family: var(--font-display); font-weight: var(--wt-semi);
+        font-size: 24px; color: var(--white); text-shadow: var(--textglow);
+        white-space: nowrap;
+        text-align: right;
+      }
+
+      /* Color swatch — the glowing block */
+      #t2-lb-leg .swatch {
+        width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+      }
+
+      #t2-lb-leg .swatch-blue {
+        background: var(--accent);
+        box-shadow:
+          0 0 12px rgba(var(--accent-rgb), 0.80),
+          0 0 28px rgba(var(--accent-rgb), 0.40),
+          inset 0 1px 0 rgba(255,255,255,0.30);
+      }
+
+      #t2-lb-leg .swatch-warm {
+        background: var(--warm);
+        box-shadow:
+          0 0 12px rgba(var(--warm-rgb), 0.75),
+          0 0 26px rgba(var(--warm-rgb), 0.36),
+          inset 0 1px 0 rgba(255,255,255,0.25);
+      }
+
+      /* Sub-label beneath each row (the "detail" slot is row 2's label) */
+      #t2-lb-leg .row-sub {
+        font-family: var(--font-body); font-weight: var(--wt-reg);
+        font-size: 18px; color: var(--text-dim);
+        text-align: right; margin-top: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-leg" data-composition-id="t2-lb-leg" data-start="0" data-width="1920" data-height="1080">
+
+      <div class="local-glow"></div>
+
+      <div class="wrapper">
+        <div class="legend-card">
+          <div class="legend-header">Legend</div>
+
+          <!-- Row 1 -->
+          <div class="legend-row" id="t2-lb-leg-row1">
+            <div class="row-label" data-slot="term">AI-Assisted</div>
+            <div class="swatch swatch-blue"></div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Row 2 -->
+          <div class="legend-row" id="t2-lb-leg-row2">
+            <div class="row-label" data-slot="detail">Traditional</div>
+            <div class="swatch swatch-warm"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP = "#t2-lb-leg";
+
+      /* glow blooms */
+      tl.from(`${COMP} .local-glow`, {
+            autoAlpha: 0, scale: 0.55, transformOrigin: "60% 50%",
+            duration: 1.1, ease: "expo.out" }, 0)
+
+        /* card springs in from right */
+        .from(`${COMP} .legend-card`, {
+            autoAlpha: 0, x: 36, y: 10, scale: 0.92, transformOrigin: "right center",
+            filter: "blur(12px)",
+            duration: 0.80, ease: "back.out(1.4)" }, 0.18)
+
+        /* header fades in */
+        .from(`${COMP} .legend-header`, {
+            autoAlpha: 0, y: -8,
+            duration: 0.45, ease: "power3.out" }, 0.52)
+
+        /* row 1 glides in right→center */
+        .from(`#t2-lb-leg-row1`, {
+            autoAlpha: 0, x: 20, filter: "blur(6px)",
+            duration: 0.55, ease: "power4.out" }, 0.62)
+
+        /* swatch 1 glows in */
+        .from(`${COMP} .swatch-blue`, {
+            autoAlpha: 0, scale: 0.5,
+            duration: 0.45, ease: "back.out(2.0)" }, 0.68)
+
+        /* divider draws */
+        .from(`${COMP} .divider`, {
+            scaleX: 0, transformOrigin: "right center",
+            duration: 0.40, ease: "power3.out" }, 0.80)
+
+        /* row 2 glides in */
+        .from(`#t2-lb-leg-row2`, {
+            autoAlpha: 0, x: 20, filter: "blur(6px)",
+            duration: 0.55, ease: "power4.out" }, 0.88)
+
+        /* swatch 2 glows in */
+        .from(`${COMP} .swatch-warm`, {
+            autoAlpha: 0, scale: 0.5,
+            duration: 0.45, ease: "back.out(2.0)" }, 0.94)
+
+        /* finite rim glow pulse on card */
+        .to(`${COMP} .legend-card`, {
+            boxShadow: "0 24px 70px rgba(0,0,0,0.50), 0 0 0 1.5px rgba(55,189,248,0.65), 0 0 36px rgba(55,189,248,0.30), inset 0 1px 0 rgba(255,255,255,0.26)",
+            duration: 1.1, ease: "sine.inOut", repeat: 2, yoyo: true }, 1.90)
+
+        /* swatches breathing — finite, staggered */
+        .to(`${COMP} .swatch-blue`, {
+            boxShadow: "0 0 22px rgba(55,189,248,0.95), 0 0 44px rgba(55,189,248,0.60), inset 0 1px 0 rgba(255,255,255,0.30)",
+            duration: 0.9, ease: "sine.inOut", repeat: 2, yoyo: true }, 2.0)
+        .to(`${COMP} .swatch-warm`, {
+            boxShadow: "0 0 22px rgba(255,138,92,0.90), 0 0 40px rgba(255,138,92,0.50), inset 0 1px 0 rgba(255,255,255,0.25)",
+            duration: 0.9, ease: "sine.inOut", repeat: 2, yoyo: true }, 2.2)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-leg"] = tl;
+    </script>
+  </body>
+</html>

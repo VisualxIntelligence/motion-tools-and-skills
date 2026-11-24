@@ -1,0 +1,216 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · lower-third · TICKER
+  A scrolling news-ticker bar anchored to the bottom edge. A category flag pill
+  sits left with a glowing accent color; headline text scrolls rightward across a
+  frosted dark glass strip. Finite scroll — the text completes one pass then holds.
+  Slots: tag (~14 chars), headline (~90 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lt-tick {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Localized bloom behind the bar */
+      #t2-lt-tick .local-bloom {
+        position: absolute;
+        left: 0; bottom: 60px;
+        width: 1000px; height: 100px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 20% 100%,
+          rgba(var(--accent-rgb), 0.22) 0%,
+          rgba(var(--accent-rgb), 0.06) 55%,
+          transparent 80%);
+        filter: blur(28px);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Full-width ticker bar */
+      #t2-lt-tick .bar {
+        position: absolute;
+        left: 0; bottom: 80px;
+        width: 1920px; height: 72px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border-top: var(--stroke) solid var(--glass-border);
+        border-bottom: var(--stroke) solid var(--glass-border);
+        box-shadow:
+          0 -4px 32px rgba(var(--accent-rgb), 0.12),
+          0 4px 32px rgba(0,0,0,0.45);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        z-index: 2;
+      }
+
+      /* Top neon hairline */
+      #t2-lt-tick .bar::before {
+        content: "";
+        position: absolute; top: 0; left: 0; right: 0; height: 1px;
+        background: linear-gradient(90deg,
+          rgba(var(--accent-rgb), 0.80) 0%,
+          rgba(var(--accent-rgb), 0.30) 40%,
+          transparent 70%);
+      }
+
+      /* Category flag — solid accent pill on left */
+      #t2-lt-tick .flag {
+        flex-shrink: 0;
+        height: 72px;
+        padding: 0 28px;
+        background: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 24px rgba(var(--accent-rgb), 0.55), inset 0 1px 0 rgba(255,255,255,0.25);
+        z-index: 3;
+        position: relative;
+      }
+
+      /* Angled right edge on the flag */
+      #t2-lt-tick .flag::after {
+        content: "";
+        position: absolute; right: -16px; top: 0;
+        width: 0; height: 0;
+        border-top: 36px solid transparent;
+        border-bottom: 36px solid transparent;
+        border-left: 18px solid var(--accent);
+        z-index: 4;
+      }
+
+      #t2-lt-tick .flag-text {
+        font-family: var(--font-body);
+        font-weight: var(--wt-bold);
+        font-size: 21px;
+        letter-spacing: var(--track-wide);
+        color: var(--canvas);
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      /* Divider line */
+      #t2-lt-tick .divider {
+        flex-shrink: 0;
+        width: 2px; height: 36px;
+        background: linear-gradient(180deg, transparent, rgba(var(--accent-rgb), 0.60), transparent);
+        margin: 0 28px 0 38px;
+      }
+
+      /* Scrolling headline track */
+      #t2-lt-tick .scroll-track {
+        flex: 1;
+        overflow: hidden;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      /* Clip mask: fade left/right edges */
+      #t2-lt-tick .scroll-track::before {
+        content: "";
+        position: absolute; left: 0; top: 0; bottom: 0; width: 60px;
+        background: linear-gradient(90deg, var(--canvas-deep), transparent);
+        z-index: 5;
+        pointer-events: none;
+      }
+      #t2-lt-tick .scroll-track::after {
+        content: "";
+        position: absolute; right: 0; top: 0; bottom: 0; width: 120px;
+        background: linear-gradient(270deg, var(--canvas-deep), transparent);
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      #t2-lt-tick .headline {
+        font-family: var(--font-display);
+        font-weight: var(--wt-semi);
+        font-size: 30px;
+        letter-spacing: 0.01em;
+        color: var(--white);
+        text-shadow: var(--textglow);
+        white-space: nowrap;
+        will-change: transform;
+      }
+
+      #t2-lt-tick .headline em {
+        font-style: normal;
+        color: var(--accent);
+        text-shadow: var(--textglow-accent);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lt-tick"
+         data-composition-id="t2-lt-tick"
+         data-start="0"
+         data-width="1920"
+         data-height="1080">
+
+      <div class="local-bloom"></div>
+
+      <div class="bar">
+        <div class="flag">
+          <span class="flag-text" data-slot="tag">AI Strategy</span>
+        </div>
+        <div class="divider"></div>
+        <div class="scroll-track">
+          <div class="headline" data-slot="headline">
+            Why <em>90% of AI projects</em> fail before reaching production — and the three systems that change everything
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP = "#t2-lt-tick";
+
+      /* bloom fades in */
+      tl.from(`${COMP} .local-bloom`,
+        { autoAlpha: 0, scaleX: 0.4, transformOrigin: "left center",
+          duration: 1.0, ease: "power2.out" }, 0);
+
+      /* bar slides up from off-screen bottom */
+      tl.from(`${COMP} .bar`,
+        { autoAlpha: 0, y: 72, duration: 0.65, ease: "power4.out" }, 0.05);
+
+      /* flag pops in with glow */
+      tl.from(`${COMP} .flag`,
+        { autoAlpha: 0, x: -60, duration: 0.55, ease: "back.out(1.4)" }, 0.25);
+
+      /* divider draws in */
+      tl.from(`${COMP} .divider`,
+        { autoAlpha: 0, scaleY: 0, transformOrigin: "50% 50%",
+          duration: 0.35, ease: "power2.out" }, 0.58);
+
+      /* headline starts off-right, scrolls to final position — finite */
+      tl.fromTo(`${COMP} .headline`,
+        { x: 1400, autoAlpha: 0 },
+        { x: 20, autoAlpha: 1, duration: 3.8, ease: "power2.out" }, 0.62);
+
+      /* subtle glow pulse on flag — finite */
+      tl.to(`${COMP} .flag`,
+        { boxShadow: "0 0 42px rgba(55,189,248,0.80), inset 0 1px 0 rgba(255,255,255,0.30)",
+          duration: 1.2, ease: "sine.inOut", repeat: 2, yoyo: true }, 2.2);
+
+      tl.set({}, {}, 7);
+
+      window.__timelines["t2-lt-tick"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!-- rf-gallery v1 | typo/tracking-open | tracking-kerning-tween | mutate=copy,duration,accent-color | keep=timeline-phase-structure,easing-curves,tracking-endpoints,entry-anchor-geometry,accent-line-reveal -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>자간 수렴 타이틀</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-tracking-open {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #0b0d12);
+          color: var(--rf-text, #f7f8f8);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-tracking-open .to-stage {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .rf-tracking-open .to-haze {
+          position: absolute;
+          top: -28%;
+          right: -14%;
+          width: 76vw;
+          height: 76vw;
+          border-radius: 50%;
+          background: radial-gradient(circle, var(--rf-accent, #8290ff) 0%, var(--rf-accent-alt, #b2baff) 28%, var(--rf-light-shaft-fade, transparent) 70%);
+          filter: blur(76px) brightness(1);
+          opacity: 0.2;
+          pointer-events: none;
+          will-change: filter, opacity;
+        }
+        .rf-tracking-open .to-field {
+          position: absolute;
+          inset: 0;
+          background-image: linear-gradient(106deg, var(--rf-bg, #0b0d12) 12%, var(--rf-bg, #0b0d12) 46%, var(--rf-surface-2, #1a1b20) 100%);
+          opacity: 0.58;
+          pointer-events: none;
+        }
+        .rf-tracking-open .to-mark {
+          position: absolute;
+          top: -4.5%;
+          right: 3.8%;
+          color: var(--rf-ghost-fill, transparent);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+          font-size: min(38vw, 730px);
+          font-weight: 800;
+          letter-spacing: -0.12em;
+          line-height: 0.86;
+          -webkit-text-stroke: 1px var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          text-stroke: 1px var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          opacity: 0.38;
+          pointer-events: none;
+          white-space: nowrap;
+          will-change: opacity, transform;
+        }
+        .rf-tracking-open .to-index {
+          position: absolute;
+          top: 6.2%;
+          left: 6.1%;
+          margin: 0;
+          color: var(--rf-ink-subtle, #8a8f98);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          line-height: 1;
+          white-space: nowrap;
+          will-change: opacity, transform;
+        }
+        .rf-tracking-open .to-rule {
+          position: absolute;
+          top: 20.4%;
+          bottom: 18.2%;
+          left: 12.2%;
+          width: 2px;
+          background: var(--rf-accent, #8290ff);
+          box-shadow: 0 0 26px var(--rf-accent, #8290ff);
+          opacity: 0.86;
+          transform-origin: center top;
+          will-change: opacity, transform;
+        }
+        .rf-tracking-open .to-copy {
+          position: absolute;
+          top: 37.3%;
+          left: 17.2%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 34px;
+          white-space: nowrap;
+        }
+        .rf-tracking-open .to-headline {
+          margin: 0;
+          color: var(--rf-text, #f7f8f8);
+          font-size: clamp(128px, 10vw, 202px);
+          font-weight: 760;
+          letter-spacing: 0.025em;
+          line-height: 0.92;
+          word-break: keep-all;
+          will-change: letter-spacing, opacity, transform;
+        }
+        .rf-tracking-open .to-descriptor {
+          margin: 0 0 0 0.28em;
+          color: var(--rf-muted-text, #d0d6e0);
+          font-size: clamp(26px, 2.15vw, 42px);
+          font-weight: 500;
+          letter-spacing: 0.12em;
+          line-height: 1;
+          will-change: opacity, transform;
+        }
+        .rf-tracking-open .to-status {
+          position: absolute;
+          right: 6.2%;
+          bottom: 7.2%;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin: 0;
+          color: var(--rf-muted-text, #d0d6e0);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 15px;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          line-height: 1;
+          white-space: nowrap;
+          will-change: opacity, transform;
+        }
+        .rf-tracking-open .to-status-line {
+          display: inline-block;
+          width: 164px;
+          height: 1px;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          transform-origin: right center;
+          will-change: transform;
+        }
+        @keyframes tracking-open-breathe {
+          from { filter: blur(76px) brightness(1); opacity: 0.2; }
+          to { filter: blur(76px) brightness(1.22); opacity: 0.42; }
+        }
+        .rf-tracking-open .to-haze {
+          animation: tracking-open-breathe 1.3s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+      </style>
+      <main
+        class="rf-tracking-open"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-typo-tracking-open"
+      >
+        <div class="to-stage">
+          <div class="to-field" aria-hidden="true"></div>
+          <div class="to-haze" aria-hidden="true"></div>
+          <div class="to-mark" data-slot="background-mark" aria-hidden="true">정돈</div>
+          <p class="to-index" data-slot="index-label">장면 01</p>
+          <div class="to-rule" aria-hidden="true"></div>
+          <div class="to-copy">
+            <h1 class="to-headline" data-slot="headline">사이의 호흡</h1>
+            <p class="to-descriptor" data-slot="descriptor">천천히 가까워진다</p>
+          </div>
+          <p class="to-status" data-slot="status"><span class="to-status-line" aria-hidden="true"></span>고요히 정렬</p>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-typo-tracking-open";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const index = root.querySelector(".to-index");
+          const mark = root.querySelector(".to-mark");
+          const rule = root.querySelector(".to-rule");
+          const headline = root.querySelector(".to-headline");
+          const descriptor = root.querySelector(".to-descriptor");
+          const status = root.querySelector(".to-status");
+          const statusLine = root.querySelector(".to-status-line");
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([index, mark, descriptor, status], { opacity: 0 })
+            .set(rule, { opacity: 0, scaleY: 0, transformOrigin: "center top" })
+            .set(statusLine, { scaleX: 0, transformOrigin: "right center" })
+            .fromTo(index, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, 0)
+            .fromTo(mark, { opacity: 0, x: 34 }, { opacity: 0.38, x: 0, duration: 0.54, ease: "power2.out" }, 0.08)
+            .to(rule, { opacity: 0.86, scaleY: 1, duration: 0.46, ease: "power3.out" }, 0.14)
+            .fromTo(headline, { letterSpacing: "0.34em", opacity: 0, x: -18 }, { letterSpacing: "0.025em", opacity: 1, x: 0, duration: 0.68, ease: "power3.out" }, 0.26)
+            .fromTo(descriptor, { opacity: 0, y: 13 }, { opacity: 1, y: 0, duration: 0.34, ease: "power3.out" }, 0.86)
+            .fromTo(status, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 1.04)
+            .to(statusLine, { scaleX: 1, duration: 0.34, ease: "power3.out" }, 1.11);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

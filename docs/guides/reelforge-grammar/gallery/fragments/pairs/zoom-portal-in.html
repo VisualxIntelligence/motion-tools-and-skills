@@ -1,0 +1,290 @@
+<!-- rf-gallery v1 | pairs/zoom-portal-in | zoom-through-portal | mutate=copy,duration,accent-color,portal-fill | keep=timeline-phase-structure,easing-curves,entry-anchor-geometry,portal-zoom-scale,blur-resolve,center-aperture-reveal -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>포털 줌 인트로</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-zoom-portal-in {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #090b14);
+          color: var(--rf-text, #f7f4ed);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-zoom-portal-in .zpi-world-clip {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          isolation: isolate;
+        }
+        .rf-zoom-portal-in .zpi-world-inner {
+          position: absolute;
+          inset: 0;
+          transform-origin: 50% 50%;
+          will-change: transform, filter;
+        }
+        .rf-zoom-portal-in .zpi-field {
+          position: absolute;
+          inset: -4%;
+          background:
+            radial-gradient(ellipse at 50% 50%, var(--rf-surface-2, #1d243b) 0%, var(--rf-bg, #090b14) 54%, var(--rf-bg, #090b14) 100%);
+        }
+        .rf-zoom-portal-in .zpi-grid {
+          position: absolute;
+          inset: 0;
+          opacity: 0.32;
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-transparent, transparent) 1px),
+            linear-gradient(0deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-transparent, transparent) 1px);
+          background-size: 84px 84px;
+          mask-image: radial-gradient(ellipse at 50% 50%, var(--rf-text, #f7f4ed) 7%, var(--rf-transparent, transparent) 67%);
+        }
+        .rf-zoom-portal-in .zpi-portal {
+          position: absolute;
+          width: min(76vw, 1360px);
+          height: min(76vw, 1360px);
+          left: 50%;
+          top: 50%;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          background: conic-gradient(
+            from 210deg,
+            var(--rf-accent-alt, #8168ff),
+            var(--rf-accent, #f15eae),
+            var(--rf-on-accent, #fff8fb),
+            var(--rf-accent, #f15eae),
+            var(--rf-accent-alt, #8168ff)
+          );
+          filter: blur(0px) brightness(1);
+          opacity: 0.88;
+          animation: zpi-portal-breathe 1.2s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+          will-change: filter, opacity;
+        }
+        .rf-zoom-portal-in .zpi-portal::before {
+          content: "";
+          position: absolute;
+          inset: 7.8%;
+          border-radius: 50%;
+          background: var(--rf-bg, #090b14);
+          box-shadow: inset 0 0 0 2px var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+        }
+        .rf-zoom-portal-in .zpi-portal::after {
+          content: "";
+          position: absolute;
+          inset: 16.5%;
+          border-radius: 50%;
+          border: 2px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          box-shadow: 0 0 74px var(--rf-accent, #f15eae), inset 0 0 74px var(--rf-accent-alt, #8168ff);
+        }
+        .rf-zoom-portal-in .zpi-core {
+          position: absolute;
+          width: min(42vw, 720px);
+          height: min(42vw, 720px);
+          left: 50%;
+          top: 50%;
+          z-index: 1;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          background: radial-gradient(circle, var(--rf-on-accent, #fff8fb) 0%, var(--rf-accent, #f15eae) 10%, var(--rf-bg, #090b14) 62%);
+          mix-blend-mode: screen;
+          opacity: 0.72;
+          filter: blur(28px);
+          will-change: opacity, filter;
+        }
+        .rf-zoom-portal-in .zpi-ray {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 1;
+          width: 1560px;
+          height: 2px;
+          transform-origin: left center;
+          background: linear-gradient(90deg, var(--rf-on-accent, #fff8fb), var(--rf-accent, #f15eae), var(--rf-transparent, transparent));
+          opacity: 0.42;
+        }
+        .rf-zoom-portal-in .zpi-ray--one { transform: rotate(18deg); }
+        .rf-zoom-portal-in .zpi-ray--two { transform: rotate(138deg); }
+        .rf-zoom-portal-in .zpi-ray--three { transform: rotate(258deg); }
+        .rf-zoom-portal-in .zpi-copy {
+          position: absolute;
+          left: 8.2%;
+          top: 19%;
+          z-index: 3;
+        }
+        .rf-zoom-portal-in .zpi-kicker {
+          margin: 0 0 24px;
+          color: var(--rf-muted-text, #bbc1cc);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 19px;
+          font-weight: 700;
+          letter-spacing: 0.17em;
+          line-height: 1.2;
+          will-change: transform, opacity;
+        }
+        .rf-zoom-portal-in .zpi-title {
+          margin: 0;
+          font-size: clamp(132px, 10.4vw, 202px);
+          font-weight: 850;
+          letter-spacing: -0.09em;
+          line-height: 0.86;
+          word-break: keep-all;
+        }
+        .rf-zoom-portal-in .zpi-title-line {
+          display: block;
+          width: max-content;
+          will-change: transform, opacity;
+        }
+        .rf-zoom-portal-in .zpi-title-line--accent {
+          margin-top: 0.13em;
+          color: var(--rf-accent, #f15eae);
+          text-shadow: 0 0 0.2em var(--rf-accent, #f15eae);
+        }
+        .rf-zoom-portal-in .zpi-coordinate {
+          position: absolute;
+          left: 8.35%;
+          bottom: 8%;
+          z-index: 3;
+          color: var(--rf-ink-subtle, #8992a4);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          line-height: 1.2;
+          will-change: transform, opacity;
+        }
+        .rf-zoom-portal-in .zpi-note {
+          position: absolute;
+          right: 8%;
+          bottom: 8%;
+          z-index: 3;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          color: var(--rf-text, #f7f4ed);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 17px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1.2;
+          will-change: transform, opacity;
+        }
+        .rf-zoom-portal-in .zpi-note::before {
+          content: "";
+          width: 124px;
+          height: 2px;
+          background: var(--rf-accent, #f15eae);
+          box-shadow: 26px 0 0 var(--rf-accent-alt, #8168ff);
+        }
+        .rf-zoom-portal-in .zpi-cover {
+          position: absolute;
+          inset: 0;
+          z-index: 8;
+          background: var(--rf-bg, #090b14);
+          pointer-events: none;
+          will-change: opacity;
+        }
+        .rf-zoom-portal-in .zpi-flash {
+          position: absolute;
+          inset: 0;
+          z-index: 7;
+          background: var(--rf-on-accent, #fff8fb);
+          mix-blend-mode: screen;
+          opacity: 0;
+          pointer-events: none;
+          will-change: opacity;
+        }
+        @keyframes zpi-portal-breathe {
+          from {
+            filter: brightness(1);
+            opacity: 0.88;
+          }
+          to {
+            filter: brightness(1.34);
+            opacity: 1;
+          }
+        }
+      </style>
+      <main
+        class="rf-zoom-portal-in"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-pairs-zoom-portal-in"
+      >
+        <div class="zpi-world-clip">
+          <div class="zpi-world-inner">
+            <div class="zpi-field" aria-hidden="true"></div>
+            <div class="zpi-grid" aria-hidden="true"></div>
+            <div class="zpi-portal" aria-hidden="true"></div>
+            <div class="zpi-core" aria-hidden="true"></div>
+            <div class="zpi-ray zpi-ray--one" aria-hidden="true"></div>
+            <div class="zpi-ray zpi-ray--two" aria-hidden="true"></div>
+            <div class="zpi-ray zpi-ray--three" aria-hidden="true"></div>
+            <div class="zpi-copy">
+              <p class="zpi-kicker" data-slot="kicker">새 장면</p>
+              <h1 class="zpi-title">
+                <span class="zpi-title-line" data-slot="title-first">안으로</span>
+                <span class="zpi-title-line zpi-title-line--accent" data-slot="title-second">들어간다</span>
+              </h1>
+            </div>
+            <div class="zpi-coordinate" data-slot="coordinate">중심 01</div>
+            <div class="zpi-note" data-slot="note">시작점</div>
+          </div>
+        </div>
+        <div class="zpi-flash" aria-hidden="true"></div>
+        <div class="zpi-cover" aria-hidden="true"></div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-pairs-zoom-portal-in";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const world = root.querySelector(".zpi-world-inner");
+          const cover = root.querySelector(".zpi-cover");
+          const flash = root.querySelector(".zpi-flash");
+          const kicker = root.querySelector(".zpi-kicker");
+          const titleLines = Array.from(root.querySelectorAll(".zpi-title-line"));
+          const coordinate = root.querySelector(".zpi-coordinate");
+          const note = root.querySelector(".zpi-note");
+
+          window.__timelines = window.__timelines || {};
+          window.__anchors = window.__anchors || {};
+          window.__anchors[compositionId] = {
+            enter: {
+              fill: "--rf-bg",
+              coverage: 1,
+              x: 0.5,
+              y: 0.5,
+              scale: 14,
+              handoffAnchor: "zoom-portal-in"
+            }
+          };
+
+          const tl = gsap.timeline({ paused: true });
+          tl.set(world, { scale: 14, filter: "blur(6px)", transformOrigin: "50% 50%" })
+            .set(cover, { opacity: 1 })
+            .set(flash, { opacity: 0 })
+            .set([kicker, coordinate, note], { opacity: 0 })
+            .set(titleLines, { opacity: 0, y: 48, scale: 0.94, transformOrigin: "left center" })
+            .to(world, { scale: 1, filter: "blur(0px)", duration: 0.72, ease: "power3.out" }, 0)
+            .to(cover, { opacity: 0, duration: 0.22, ease: "power2.out" }, 0.08)
+            .to(flash, { opacity: 0.2, duration: 0.08, ease: "power2.out" }, 0.28)
+            .to(flash, { opacity: 0, duration: 0.22, ease: "power2.out" }, 0.36)
+            .fromTo(kicker, { opacity: 0, x: -34 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 0.5)
+            .to(titleLines[0], { opacity: 1, y: 0, scale: 1, duration: 0.34, ease: "power4.out" }, 0.64)
+            .to(titleLines[1], { opacity: 1, y: 0, scale: 1, duration: 0.38, ease: "power4.out" }, 0.86)
+            .fromTo(coordinate, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.22, ease: "power3.out" }, 1.18)
+            .fromTo(note, { opacity: 0, x: 28 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 1.24);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

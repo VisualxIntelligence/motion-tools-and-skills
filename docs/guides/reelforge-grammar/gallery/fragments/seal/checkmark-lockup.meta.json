@@ -1,0 +1,20 @@
+{
+  "intensityBand": "0-40",
+  "arcFit": ["resolve"],
+  "durationRange": [2.5, 4.5],
+  "slots": [
+    { "name": "kicker", "maxChars": 14 },
+    { "name": "headline-prefix", "maxChars": 8 },
+    { "name": "headline-success", "maxChars": 10 },
+    { "name": "cta-label", "maxChars": 10 },
+    { "name": "status-label", "maxChars": 12 }
+  ],
+  "mutate": ["copy", "duration", "accent-color"],
+  "keep": [
+    "timeline-phase",
+    "checkmark-path-draw",
+    "back-out-settle",
+    "copy-lockup",
+    "underline-sweep"
+  ]
+}

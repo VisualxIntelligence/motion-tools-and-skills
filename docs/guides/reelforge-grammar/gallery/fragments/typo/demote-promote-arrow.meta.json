@@ -1,0 +1,1 @@
+{"intensityBand":"40-70","arcFit":["build"],"durationRange":[3.0,5.0],"slots":[{"name":"old-value","maxChars":3},{"name":"new-value","maxChars":3},{"name":"unit-label","maxChars":14}],"mutate":["copy","duration","accent-color","data-values"],"keep":["timeline-phases","easing","anchor-exit-geometry","shake-pattern","svg-stroke-draw-on","streak-stagger"]}

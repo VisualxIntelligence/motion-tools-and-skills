@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kallaway — card library</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: #07121C; color: #F0EEE9;
+        font-family: "Inter", system-ui, sans-serif; }
+      header { padding: 36px 44px 4px; }
+      header h1 { margin: 0; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; }
+      header p { margin: 8px 0 0; color: #8aa0b4; font-size: 15px; max-width: 980px; line-height: 1.5; }
+      header .bar { margin-top: 16px; display: flex; gap: 12px; align-items: center; }
+      button { background: #37BDF8; color: #07121C; border: 0; font-weight: 800; font-size: 14px;
+        padding: 9px 18px; border-radius: 6px; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; }
+      .group { padding: 8px 44px 10px; }
+      .group h2 { font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: #37BDF8;
+        border-bottom: 1px solid #16202c; padding-bottom: 10px; margin: 28px 0 4px; }
+      .group h2 .count { color: #5b6b78; margin-left: 8px; }
+      .group h2 .tier { float: right; color: #6f8090; font-size: 12px; letter-spacing: 0.1em; }
+      .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; padding: 18px 0 8px; }
+      .card-cell { background: #0A0E14; border: 1px solid #16202c; border-radius: 8px; overflow: hidden; }
+      .meta { display: flex; justify-content: space-between; align-items: baseline; padding: 11px 15px;
+        background: #0d141d; border-bottom: 1px solid #16202c; }
+      .meta .id { font-weight: 700; font-size: 14px; letter-spacing: -0.01em; color: #F0EEE9; }
+      .meta .treat { font-size: 11px; color: #37BDF8; text-transform: uppercase; letter-spacing: 0.12em; }
+      .frame { position: relative; width: 100%; aspect-ratio: 16 / 9;
+        background: linear-gradient(135deg,#5d5852 0%,#3a3631 55%,#262320 100%); }
+      .frame.tier1 { background: #0A0E14; }
+      .frame iframe { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; border: 0; transform-origin: top left; }
+      .empty { color: #6f8090; padding: 60px 44px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>02 · Kallaway — card library</h1>
+      <p>The living pool, read straight from <code style="color:#9fc7e3">registry.json</code>. Premium dark motion graphics — aurora bloom, glassmorphism, glow text, smooth easing. Each purpose holds many genuinely different treatments so no beat looks the same twice. tier-2 overlays are shown over a footage-gray backdrop (they're transparent over real video). Click Replay to restart every card.</p>
+      <div class="bar"><button onclick="replayAll()">Replay all</button>
+        <span style="font-size:12px;color:#6f8090">tier1 = full-screen takeover · tier2 = overlay (face stays visible)</span></div>
+    </header>
+    <div id="root"></div>
+
+    <script>
+      const STYLE_ID = "kallaway";
+      const PURPOSE_ORDER = ["section","stat","overview","quote","definition","list","label","lower-third"];
+      const frames = [];
+
+      function fitFrame(cell) {
+        const frame = cell.querySelector(".frame"), iframe = cell.querySelector("iframe");
+        iframe.style.transform = "scale(" + (frame.clientWidth / 1920) + ")";
+      }
+      function driveCard(iframe) {
+        const w = iframe.contentWindow; let tries = 0;
+        (function go() {
+          const t = w.__timelines, keys = t ? Object.keys(t) : [];
+          if (!keys.length) { if (tries++ < 120) setTimeout(go, 80); return; }
+          keys.forEach(k => {
+            const tl = t[k];
+            tl.eventCallback("onComplete", () => setTimeout(() => tl.restart(), 1000));
+            tl.play(0);
+          });
+        })();
+      }
+      function replayAll() {
+        frames.forEach(({ iframe }) => {
+          const t = iframe.contentWindow.__timelines;
+          if (t) Object.keys(t).forEach(k => t[k].restart());
+        });
+      }
+
+      fetch("../../registry.json").then(r => r.json()).then(reg => {
+        const style = (reg.styles || []).find(s => s.id === STYLE_ID);
+        const root = document.getElementById("root");
+        if (!style) { root.innerHTML = '<div class="empty">Style not found in registry.</div>'; return; }
+
+        const byPurpose = {};
+        style.cards.forEach(c => { (byPurpose[c.purpose] = byPurpose[c.purpose] || []).push(c); });
+        const purposes = Object.keys(byPurpose).sort(
+          (a, b) => (PURPOSE_ORDER.indexOf(a) + 1 || 99) - (PURPOSE_ORDER.indexOf(b) + 1 || 99));
+
+        purposes.forEach(purpose => {
+          const cards = byPurpose[purpose];
+          const tier = cards[0].tier;
+          const group = document.createElement("div");
+          group.className = "group";
+          group.innerHTML = '<h2>' + purpose + '<span class="count">' + cards.length +
+            (cards.length === 1 ? ' treatment' : ' treatments') + '</span>' +
+            '<span class="tier">' + tier + '</span></h2><div class="grid"></div>';
+          const grid = group.querySelector(".grid");
+          cards.forEach(c => {
+            const treat = c.treatment || c.id.split(".").slice(3).join(".") || purpose;
+            const cell = document.createElement("div");
+            cell.className = "card-cell";
+            cell.innerHTML =
+              '<div class="meta"><span class="id">' + c.id + '</span>' +
+              '<span class="treat">' + treat + '</span></div>' +
+              '<div class="frame ' + c.tier + '"><iframe src="../../' + c.file + '" scrolling="no"></iframe></div>';
+            grid.appendChild(cell);
+            const iframe = cell.querySelector("iframe");
+            iframe.addEventListener("load", () => { fitFrame(cell); driveCard(iframe); });
+            frames.push({ cell, iframe });
+          });
+          root.appendChild(group);
+        });
+        window.addEventListener("resize", () => frames.forEach(({ cell }) => fitFrame(cell)));
+      }).catch(e => {
+        document.getElementById("root").innerHTML =
+          '<div class="empty">Could not load registry.json (' + e + '). Serve from the workspace root with <code>npx serve . -p 8080 -n</code>.</div>';
+      });
+    </script>
+  </body>
+</html>

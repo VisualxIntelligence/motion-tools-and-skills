@@ -1,0 +1,173 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · label · POINTER
+  A glass label anchored right side, with a clean connector line and a glowing
+  end-dot pointing left toward the subject. The line draws in from card → dot.
+  Slots: term (~24 chars), detail (~70 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-point {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+      }
+
+      /* Localized glow — right side */
+      #t2-lb-point .local-glow {
+        position: absolute; right: 70px; top: 300px;
+        width: 560px; height: 380px; border-radius: 50%;
+        background: radial-gradient(ellipse at 50% 50%,
+          rgba(var(--accent-rgb), 0.18) 0%,
+          rgba(var(--accent-rgb), 0.05) 55%,
+          transparent 80%);
+        filter: blur(42px);
+        pointer-events: none;
+      }
+
+      /* Glass label card — right anchored */
+      #t2-lb-point .card {
+        position: absolute; right: 80px; top: 360px;
+        width: 480px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1.5px solid var(--glass-border);
+        border-top: 1.5px solid var(--glass-hi);
+        box-shadow: var(--glass-shadow),
+                    0 0 0 1px rgba(var(--accent-rgb), 0.08);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        overflow: hidden;
+        position: absolute; right: 80px; top: 360px;
+      }
+
+      /* Top neon rim */
+      #t2-lb-point .card::before {
+        content: "";
+        position: absolute; left: 0; right: 0; top: 0; height: 2px;
+        background: linear-gradient(90deg,
+          transparent 0%, rgba(var(--accent-rgb), 0.70) 40%,
+          rgba(var(--accent-rgb), 0.70) 60%, transparent 100%);
+        box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.50);
+      }
+
+      #t2-lb-point .term {
+        font-family: var(--font-display); font-weight: var(--wt-black);
+        font-size: 34px; letter-spacing: var(--track-tight);
+        color: var(--white); text-shadow: var(--textglow);
+        margin-bottom: 12px;
+      }
+
+      #t2-lb-point .detail {
+        font-family: var(--font-body); font-weight: var(--wt-reg);
+        font-size: 24px; line-height: 1.5;
+        color: var(--text-dim);
+      }
+
+      /* SVG connector — full canvas so we can draw from label to subject */
+      #t2-lb-point .connector-svg {
+        position: absolute; left: 0; top: 0;
+        width: 1920px; height: 1080px;
+        pointer-events: none;
+        overflow: visible;
+      }
+
+      /* Connector line: drawn via stroke-dashoffset animation */
+      #t2-lb-point .conn-line {
+        stroke: rgba(var(--accent-rgb), 0.60);
+        stroke-width: 2;
+        fill: none;
+        stroke-dasharray: 8 6;
+      }
+
+      /* Glowing end-dot at the tip (pointing toward subject) */
+      #t2-lb-point .conn-dot {
+        fill: var(--accent);
+        filter: drop-shadow(0 0 6px rgba(var(--accent-rgb), 0.80))
+                drop-shadow(0 0 14px rgba(var(--accent-rgb), 0.50));
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-point" data-composition-id="t2-lb-point" data-start="0" data-width="1920" data-height="1080">
+      <div class="local-glow"></div>
+
+      <!-- Connector drawn behind the card -->
+      <svg class="connector-svg" viewBox="0 0 1920 1080">
+        <!--
+          Line goes from ~left edge of the card (x=80 to x=460) at card vertical center
+          outward left, ending with a dot near the subject (center-left zone).
+          Card is at right:80px (x=1840-480=1360 right edge, left edge x=1360).
+          We draw from the card's left edge (1360, 490) diagonally to a point-tip (860, 610).
+        -->
+        <line class="conn-line" id="point-line" x1="1360" y1="490" x2="870" y2="610" />
+        <circle class="conn-dot" id="point-dot" cx="860" cy="614" r="7" />
+      </svg>
+
+      <div class="card">
+        <div class="term" data-slot="term">Attention Head</div>
+        <div class="detail" data-slot="detail">Each head learns a different relationship pattern across the token sequence.</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP = "#t2-lb-point";
+
+      /* Measure the line length for dashoffset draw */
+      const line = document.getElementById("point-line");
+      const lineLen = line ? line.getTotalLength() : 560;
+      if (line) {
+        line.style.strokeDasharray = lineLen;
+        line.style.strokeDashoffset = lineLen;
+      }
+
+      /* glow blooms in */
+      tl.from(`${COMP} .local-glow`, {
+            autoAlpha: 0, scale: 0.5, transformOrigin: "50% 50%",
+            duration: 1.3, ease: "expo.out" }, 0)
+
+        /* card glides in from right */
+        .from(`${COMP} .card`, {
+            autoAlpha: 0, x: 55, filter: "blur(14px)",
+            duration: 0.82, ease: "back.out(1.4)" }, 0.22)
+
+        /* term fades up */
+        .from(`${COMP} .term`, {
+            autoAlpha: 0, y: 12, filter: "blur(7px)",
+            duration: 0.60, ease: "power4.out" }, 0.55)
+
+        /* detail fades up */
+        .from(`${COMP} .detail`, {
+            autoAlpha: 0, y: 10, filter: "blur(5px)",
+            duration: 0.58, ease: "power3.out" }, 0.72)
+
+        /* connector line draws from card outward to dot */
+        .to(`#point-line`, {
+            strokeDashoffset: 0,
+            duration: 0.75, ease: "power3.out" }, 0.88)
+
+        /* dot appears after line finishes drawing */
+        .from(`#point-dot`, {
+            autoAlpha: 0, scale: 0, transformOrigin: "50% 50%",
+            duration: 0.40, ease: "back.out(1.6)" }, 1.58)
+
+        /* finite glow pulse on the dot */
+        .to(`#point-dot`, {
+            attr: { r: 9 },
+            duration: 0.9, ease: "sine.inOut", repeat: 2, yoyo: true }, 2.20)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-point"] = tl;
+    </script>
+  </body>
+</html>

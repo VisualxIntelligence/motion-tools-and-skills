@@ -1,0 +1,38 @@
+{
+  "words": [
+    {
+      "text": "Grow",
+      "start": 0.1,
+      "end": 0.4,
+      "sourceStart": 1.1,
+      "sourceEnd": 1.4,
+      "type": "word"
+    },
+    {
+      "text": "something.",
+      "start": 0.4,
+      "end": 1,
+      "sourceStart": 1.4,
+      "sourceEnd": 2,
+      "type": "word"
+    },
+    {
+      "text": "Start",
+      "start": 2.1,
+      "end": 2.4,
+      "sourceStart": 3.1,
+      "sourceEnd": 3.4,
+      "type": "word"
+    },
+    {
+      "text": "small.",
+      "start": 2.4,
+      "end": 3,
+      "sourceStart": 3.4,
+      "sourceEnd": 4,
+      "type": "word"
+    }
+  ],
+  "audio_duration_secs": 4,
+  "text": "Grow something. Start small."
+}

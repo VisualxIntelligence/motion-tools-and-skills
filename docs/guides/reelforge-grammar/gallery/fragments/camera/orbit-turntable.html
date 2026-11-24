@@ -1,0 +1,366 @@
+<!-- rf-gallery v1 | camera/orbit-turntable | camera-orbit-turntable | mutate=copy,duration,accent-color,orbit-angle | keep=timeline-phase-structure,easing-curves,perspective-container,preserve-3d-chain,turntable-rotation-arc,living-motion-delay -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Orbit Turntable</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-orbit-turntable {
+          position: absolute;
+          inset: 0;
+          isolation: isolate;
+          background: var(--rf-bg, #0a0b10);
+          color: var(--rf-text, #f7f7f2);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-orbit-turntable .ott-stage,
+        .rf-orbit-turntable .ott-atmosphere,
+        .rf-orbit-turntable .ott-rig {
+          position: absolute;
+          inset: 0;
+        }
+        .rf-orbit-turntable .ott-stage {
+          perspective: 1180px;
+          perspective-origin: 50% 49%;
+        }
+        .rf-orbit-turntable .ott-atmosphere {
+          pointer-events: none;
+        }
+        .rf-orbit-turntable .ott-halo {
+          position: absolute;
+          top: 6%;
+          left: 15%;
+          width: 70%;
+          height: 88%;
+          border-radius: 50%;
+          background: radial-gradient(ellipse at center, var(--rf-accent, #7768ff) 0 2%, var(--rf-accent, #7768ff) 14%, var(--rf-transparent, transparent) 64%);
+          filter: blur(58px) brightness(1);
+          opacity: 0.34;
+          animation: ott-halo-breathe 1.28s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-orbit-turntable .ott-grid {
+          position: absolute;
+          inset: 0;
+          opacity: 0.44;
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-transparent, transparent) 1px),
+            linear-gradient(var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-transparent, transparent) 1px);
+          background-position: center center;
+          background-size: 138px 138px;
+          mask-image: radial-gradient(ellipse at center, var(--rf-text, #f7f7f2) 5%, var(--rf-transparent, transparent) 68%);
+        }
+        .rf-orbit-turntable .ott-rig,
+        .rf-orbit-turntable .ott-turntable,
+        .rf-orbit-turntable .ott-hero-panel {
+          transform-style: preserve-3d;
+        }
+        .rf-orbit-turntable .ott-rig {
+          will-change: transform;
+        }
+        .rf-orbit-turntable .ott-orbit-ring {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          border: 2px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          border-radius: 50%;
+          pointer-events: none;
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-orbit-ring--wide {
+          width: 1290px;
+          height: 488px;
+          transform: translate(-50%, -50%) rotateX(67deg) translateZ(-190px);
+        }
+        .rf-orbit-turntable .ott-orbit-ring--near {
+          width: 1060px;
+          height: 396px;
+          border-color: var(--rf-accent-alt, #9bdcff);
+          transform: translate(-50%, -50%) rotateX(67deg) translateZ(-42px);
+        }
+        .rf-orbit-turntable .ott-orbit-dash {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 1110px;
+          height: 422px;
+          border: 3px dashed var(--rf-accent, #7768ff);
+          border-radius: 50%;
+          opacity: 0.72;
+          transform: translate(-50%, -50%) rotateX(67deg) translateZ(-108px);
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-orbit-dot {
+          position: absolute;
+          top: 50%;
+          left: calc(50% - 504px);
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background: var(--rf-accent-alt, #9bdcff);
+          box-shadow: 0 0 34px var(--rf-accent-alt, #9bdcff);
+          transform: translateY(-50%) translateZ(10px);
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-turntable {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: min(920px, 71vw);
+          height: min(570px, 58vh);
+          margin: calc(min(570px, 58vh) / -2) 0 0 calc(min(920px, 71vw) / -2);
+          will-change: transform;
+        }
+        .rf-orbit-turntable .ott-hero-panel {
+          position: absolute;
+          inset: 0;
+          transform-origin: center center;
+          will-change: transform;
+        }
+        .rf-orbit-turntable .ott-card-face,
+        .rf-orbit-turntable .ott-card-back,
+        .rf-orbit-turntable .ott-card-side {
+          position: absolute;
+          backface-visibility: hidden;
+        }
+        .rf-orbit-turntable .ott-card-face {
+          inset: 0;
+          border: 2px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          background: linear-gradient(135deg, var(--rf-surface-3, #292b36), var(--rf-surface-2, #171922) 58%, var(--rf-bg, #0a0b10));
+          box-shadow: 0 34px 96px var(--rf-bg, #0a0b10), inset 0 0 0 1px var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          transform: translateZ(42px);
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-card-face::before {
+          position: absolute;
+          inset: 28px;
+          content: "";
+          border: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          pointer-events: none;
+        }
+        .rf-orbit-turntable .ott-card-back {
+          inset: 0;
+          border: 2px solid var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          background: var(--rf-surface-2, #171922);
+          transform: rotateY(180deg) translateZ(42px);
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-card-side {
+          top: 0;
+          bottom: 0;
+          width: 84px;
+          background: linear-gradient(180deg, var(--rf-accent, #7768ff), var(--rf-surface-2, #171922));
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-card-side--left {
+          left: 0;
+          transform: rotateY(-90deg) translateZ(42px);
+          transform-origin: left center;
+        }
+        .rf-orbit-turntable .ott-card-side--right {
+          right: 0;
+          transform: rotateY(90deg) translateZ(42px);
+          transform-origin: right center;
+        }
+        .rf-orbit-turntable .ott-face-sheen {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(112deg, var(--rf-transparent, transparent) 24%, var(--rf-hairline-strong, rgba(255, 255, 255, 0.36)) 47%, var(--rf-transparent, transparent) 67%);
+          opacity: 0.42;
+          transform: translateX(-48%);
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-copy {
+          position: absolute;
+          top: 16%;
+          left: 11%;
+          right: 11%;
+        }
+        .rf-orbit-turntable .ott-kicker {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin: 0;
+          color: var(--rf-accent-alt, #9bdcff);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(17px, 1.35vw, 25px);
+          font-weight: 800;
+          letter-spacing: 0.11em;
+          line-height: 1.3;
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-kicker::before {
+          width: 70px;
+          height: 3px;
+          content: "";
+          background: var(--rf-accent-alt, #9bdcff);
+          box-shadow: 0 0 20px var(--rf-accent-alt, #9bdcff);
+        }
+        .rf-orbit-turntable .ott-headline {
+          display: flex;
+          flex-direction: column;
+          margin: 40px 0 0;
+          font-size: clamp(104px, 9.15vw, 176px);
+          font-weight: 800;
+          letter-spacing: -0.085em;
+          line-height: 0.91;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        .rf-orbit-turntable .ott-headline-line {
+          display: block;
+          width: max-content;
+          max-width: 100%;
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-headline-line--accent {
+          color: var(--rf-accent, #7768ff);
+          text-shadow: 0 0 40px var(--rf-accent, #7768ff);
+        }
+        .rf-orbit-turntable .ott-detail {
+          margin: 38px 0 0 3px;
+          color: var(--rf-muted-text, #c7c9d2);
+          font-size: clamp(24px, 1.82vw, 35px);
+          font-weight: 650;
+          letter-spacing: -0.045em;
+          line-height: 1.4;
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-orbit-caption {
+          position: absolute;
+          right: 11%;
+          bottom: 14%;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin: 0;
+          color: var(--rf-muted-text, #c7c9d2);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(15px, 1.08vw, 21px);
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          line-height: 1.3;
+          will-change: transform, opacity;
+        }
+        .rf-orbit-turntable .ott-orbit-caption::after {
+          width: 72px;
+          height: 1px;
+          content: "";
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+        }
+        .rf-orbit-turntable .ott-index {
+          position: absolute;
+          top: 11%;
+          right: 11%;
+          margin: 0;
+          color: var(--rf-text, #f7f7f2);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(18px, 1.28vw, 24px);
+          font-weight: 800;
+          letter-spacing: 0.08em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        @keyframes ott-halo-breathe {
+          from {
+            filter: blur(58px) brightness(1);
+            opacity: 0.34;
+          }
+          to {
+            filter: blur(58px) brightness(1.3);
+            opacity: 0.58;
+          }
+        }
+      </style>
+      <main
+        class="rf-orbit-turntable"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-camera-orbit-turntable"
+      >
+        <div class="ott-stage">
+          <div class="ott-atmosphere" aria-hidden="true">
+            <div class="ott-halo"></div>
+            <div class="ott-grid"></div>
+          </div>
+          <div class="ott-rig">
+            <div class="ott-orbit-ring ott-orbit-ring--wide" aria-hidden="true"></div>
+            <div class="ott-orbit-ring ott-orbit-ring--near" aria-hidden="true"></div>
+            <div class="ott-orbit-dash" aria-hidden="true"></div>
+            <div class="ott-orbit-dot" aria-hidden="true"></div>
+            <div class="ott-turntable">
+              <div class="ott-hero-panel">
+                <div class="ott-card-back" aria-hidden="true"></div>
+                <div class="ott-card-side ott-card-side--left" aria-hidden="true"></div>
+                <div class="ott-card-side ott-card-side--right" aria-hidden="true"></div>
+                <section class="ott-card-face">
+                  <div class="ott-face-sheen" aria-hidden="true"></div>
+                  <div class="ott-copy">
+                    <p class="ott-kicker" data-slot="kicker">시선 / 02</p>
+                    <h1 class="ott-headline">
+                      <span class="ott-headline-line" data-slot="headline-one">각도를</span>
+                      <span class="ott-headline-line ott-headline-line--accent" data-slot="headline-two">바꾸면</span>
+                    </h1>
+                    <p class="ott-detail" data-slot="detail">새 장면이 열립니다</p>
+                  </div>
+                  <p class="ott-orbit-caption" data-slot="orbit-caption">중심을 따라</p>
+                  <p class="ott-index" data-slot="index">02 / 05</p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-camera-orbit-turntable";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const turntable = root.querySelector(".ott-turntable");
+          const heroPanel = root.querySelector(".ott-hero-panel");
+          const cardFace = root.querySelector(".ott-card-face");
+          const cardBack = root.querySelector(".ott-card-back");
+          const cardSides = root.querySelectorAll(".ott-card-side");
+          const halo = root.querySelector(".ott-halo");
+          const sheen = root.querySelector(".ott-face-sheen");
+          const orbitParts = root.querySelectorAll(".ott-orbit-ring, .ott-orbit-dash, .ott-orbit-dot");
+          const kicker = root.querySelector(".ott-kicker");
+          const headlineLines = root.querySelectorAll(".ott-headline-line");
+          const detail = root.querySelector(".ott-detail");
+          const orbitCaption = root.querySelector(".ott-orbit-caption");
+          const index = root.querySelector(".ott-index");
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set(turntable, { rotationY: -44, y: 28, transformStyle: "preserve-3d", transformOrigin: "center center" }, 0)
+            .set(heroPanel, { scale: 0.91, transformStyle: "preserve-3d", transformOrigin: "center center" }, 0)
+            .set([cardFace, cardBack, cardSides], { opacity: 0 }, 0)
+            .set(orbitParts, { opacity: 0, scale: 0.74, transformOrigin: "center center" }, 0)
+            .set([kicker, detail, orbitCaption, index], { opacity: 0 }, 0)
+            .set(headlineLines, { opacity: 0, x: -54 }, 0)
+            .set(sheen, { opacity: 0, x: -180 }, 0)
+            .set(halo, { opacity: 0 }, 0)
+            .to(halo, { opacity: 0.34, duration: 0.38, ease: "power2.out" }, 0)
+            .to(orbitParts, { opacity: 1, scale: 1, duration: 0.62, ease: "power2.out", stagger: 0.06 }, 0.1)
+            .to([cardFace, cardBack, cardSides], { opacity: 1, duration: 0.34, ease: "power2.out" }, 0.22)
+            .to(turntable, { rotationY: 16, y: 0, duration: 1.56, ease: "power1.inOut" }, 0.22)
+            .to(heroPanel, { scale: 1, duration: 0.86, ease: "power3.out" }, 0.3)
+            .to(sheen, { opacity: 0.42, x: 150, duration: 0.68, ease: "power2.inOut" }, 0.54)
+            .fromTo(kicker, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, 0.66)
+            .to(headlineLines[0], { opacity: 1, x: 0, duration: 0.38, ease: "power3.out" }, 0.82)
+            .to(headlineLines[1], { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 1.06)
+            .fromTo(detail, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 1.42)
+            .fromTo([orbitCaption, index], { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.26, ease: "power3.out", stagger: 0.06 }, 1.68)
+            .to(turntable, { rotationY: 10, duration: 0.26, ease: "power2.out" }, 1.92);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "intensityBand": "40-70",
+  "arcFit": ["build", "hook"],
+  "durationRange": [2.5, 4.5],
+  "slots": [
+    { "name": "kicker", "maxChars": 7 },
+    { "name": "headline-primary", "maxChars": 6 },
+    { "name": "headline-secondary", "maxChars": 7 },
+    { "name": "phase-label", "maxChars": 7 },
+    { "name": "status-label", "maxChars": 3 }
+  ],
+  "mutate": ["copy", "duration", "accent-color"],
+  "keep": [
+    "timeline-phase",
+    "easing",
+    "outline-draw-order",
+    "fill-pulse",
+    "icon-anchor-geometry"
+  ]
+}

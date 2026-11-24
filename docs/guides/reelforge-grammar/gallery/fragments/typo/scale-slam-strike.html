@@ -1,0 +1,189 @@
+<!-- rf-gallery v1 | typo/scale-slam-strike | scale-jump-stairstep | mutate=copy,duration,accent-color,data-values | keep=timeline-phase-structure,easing-curves,entry-anchor-geometry,word-stagger,strike-sweep,stage-shake-pattern -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Scale Slam Strike</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-scale-slam-strike {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #08080b);
+          color: var(--rf-text, #ffffff);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-scale-slam-strike .sss-stage {
+          position: absolute;
+          inset: 0;
+          will-change: transform;
+        }
+        .rf-scale-slam-strike .sss-kicker {
+          position: absolute;
+          top: 5.8%;
+          left: 5.8%;
+          color: var(--rf-ink-subtle, #8a8f98);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1;
+        }
+        .rf-scale-slam-strike .sss-copy {
+          position: absolute;
+          top: 18.5%;
+          left: 8.2%;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          font-size: clamp(140px, 9.2vw, 176px);
+          font-weight: 800;
+          letter-spacing: -0.065em;
+          line-height: 0.98;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        .rf-scale-slam-strike .sss-word {
+          position: relative;
+          width: max-content;
+          will-change: transform, opacity;
+        }
+        .rf-scale-slam-strike .sss-word::after {
+          content: "·";
+          position: absolute;
+          right: -0.48em;
+          bottom: 0.06em;
+          color: var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 0.33em;
+          font-weight: 400;
+          letter-spacing: 0;
+        }
+        .rf-scale-slam-strike .sss-word--strike-target {
+          margin-top: 0.04em;
+          color: var(--rf-text, #ffffff);
+        }
+        .rf-scale-slam-strike .sss-word--strike-target::after {
+          display: none;
+        }
+        .rf-scale-slam-strike .sss-strike {
+          position: absolute;
+          left: -0.03em;
+          right: -0.09em;
+          top: 51%;
+          height: 0.09em;
+          background: var(--rf-accent, #ff48a0);
+          box-shadow: 0 0 0.14em var(--rf-accent, #ff48a0);
+          transform: scaleX(0);
+          transform-origin: left center;
+          will-change: transform;
+        }
+        .rf-scale-slam-strike .sss-ghost {
+          position: absolute;
+          top: 13.5%;
+          right: 7.2%;
+          color: var(--rf-ghost-fill, transparent);
+          -webkit-text-stroke: 2px var(--rf-hairline-strong, rgba(255, 255, 255, 0.18));
+          font-size: clamp(320px, 25.5vw, 490px);
+          font-weight: 800;
+          letter-spacing: -0.09em;
+          line-height: 0.8;
+          opacity: 0.48;
+          pointer-events: none;
+          white-space: nowrap;
+          will-change: filter, opacity;
+        }
+        .rf-scale-slam-strike .sss-running {
+          position: absolute;
+          right: 5.8%;
+          bottom: 6.4%;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          color: var(--rf-muted-text, #b4b8c0);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 15px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1;
+        }
+        .rf-scale-slam-strike .sss-running::before {
+          content: "";
+          width: 148px;
+          height: 1px;
+          background: var(--rf-hairline, rgba(255, 255, 255, 0.14));
+        }
+        @keyframes sss-target-breathe {
+          from { filter: brightness(1); opacity: 1; }
+          to { filter: brightness(1.38); opacity: 0.82; }
+        }
+        @keyframes sss-ghost-breathe {
+          from { filter: brightness(1); }
+          to { filter: brightness(1.38); }
+        }
+        .rf-scale-slam-strike .sss-word--strike-target {
+          animation: sss-target-breathe 1.1s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-scale-slam-strike .sss-ghost {
+          animation: sss-ghost-breathe 1.1s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+      </style>
+      <main
+        class="rf-scale-slam-strike"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-typo-scale-slam-strike"
+      >
+        <div class="sss-stage">
+          <div class="sss-kicker" data-slot="kicker">SEQUENCE / 01</div>
+          <div class="sss-copy">
+            <div class="sss-word" data-slot="word-one">IDEA</div>
+            <div class="sss-word" data-slot="word-two">MAKE</div>
+            <div class="sss-word" data-slot="word-three">CHECK</div>
+            <div class="sss-word sss-word--strike-target" data-slot="word-four">WAIT<span class="sss-strike" aria-hidden="true"></span></div>
+          </div>
+          <div class="sss-ghost" data-slot="duration-value" data-value="72h" aria-hidden="true">72h</div>
+          <div class="sss-running" data-slot="running-label">IMPACT / 01</div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-typo-scale-slam-strike";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+          const stage = root.querySelector(".sss-stage");
+          const words = Array.from(root.querySelectorAll(".sss-word"));
+          const strike = root.querySelector(".sss-strike");
+          const ghost = root.querySelector(".sss-ghost");
+          const kicker = root.querySelector(".sss-kicker");
+          const running = root.querySelector(".sss-running");
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([words, kicker, running, ghost], { opacity: 0 })
+            .set(words, { x: -76, scale: 0.92, transformOrigin: "left center" })
+            .set(strike, { scaleX: 0, transformOrigin: "left center" })
+            .fromTo(kicker, { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 0)
+            .fromTo(running, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 0)
+            .to(words[0], { opacity: 1, x: 0, scale: 1, duration: 0.25, ease: "power3.out" }, 0.15)
+            .to(ghost, { opacity: 0.48, duration: 0.25, ease: "power3.out" }, 0.7)
+            .to(words[1], { opacity: 1, x: 0, scale: 1, duration: 0.25, ease: "power3.out" }, 0.7)
+            .to(words[2], { opacity: 1, x: 0, scale: 1, duration: 0.25, ease: "power3.out" }, 1.25)
+            .to(words[3], { opacity: 1, x: 0, scale: 1, duration: 0.25, ease: "power3.out" }, 1.8)
+            .to(strike, { scaleX: 1, duration: 0.18, ease: "power3.out" }, 2.03)
+            .to(stage, { x: -13, y: 7, duration: 0.035, ease: "none" }, 2.03)
+            .to(stage, { x: 11, y: -6, duration: 0.04, ease: "none" }, 2.065)
+            .to(stage, { x: -8, y: 4, duration: 0.04, ease: "none" }, 2.105)
+            .to(stage, { x: 5, y: -3, duration: 0.04, ease: "none" }, 2.145)
+            .to(stage, { x: 0, y: 0, duration: 0.07, ease: "power2.out" }, 2.185);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · lower-third · GRADIENT
+  The name is rendered as gradient clip-text (white→accent blue), glowing on
+  a dark glass backing. Role appears smaller and dim beneath. The gradient text
+  is the hero; the card is restrained around it.
+  Transparent background — only the card paints.
+  Slots: name (~26 chars), role (~40 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lt-grad {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Localized bloom — follows the gradient color shift */
+      #t2-lt-grad .local-bloom {
+        position: absolute;
+        left: 52px; bottom: 108px;
+        width: 540px; height: 200px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 30% 80%,
+          rgba(var(--accent-rgb), 0.28) 0%,
+          rgba(var(--accent-rgb), 0.06) 55%,
+          transparent 72%);
+        filter: blur(32px);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Card */
+      #t2-lt-grad .card {
+        position: absolute;
+        left: 80px; bottom: 128px;
+        padding: 24px 38px 24px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border-radius: var(--radius);
+        border: var(--stroke) solid var(--glass-border);
+        box-shadow:
+          var(--glass-shadow),
+          inset 0 1px 0 var(--glass-hi);
+        z-index: 2;
+        overflow: hidden;
+      }
+
+      #t2-lt-grad .card::before {
+        content: "";
+        position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45) 45%, rgba(255,255,255,0.45) 55%, transparent);
+      }
+
+      /* Gradient clip-text name */
+      #t2-lt-grad .name {
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 46px;
+        letter-spacing: var(--track-snug);
+        line-height: 1.05;
+        /* gradient fill */
+        background: linear-gradient(100deg,
+          #ffffff 0%,
+          #d0effe 35%,
+          var(--accent) 75%,
+          rgba(var(--accent-rgb), 0.70) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* glow halo via filter (text-shadow doesn't work with clip-text) */
+        filter: drop-shadow(0 0 14px rgba(var(--accent-rgb), 0.55))
+                drop-shadow(0 0 36px rgba(var(--accent-rgb), 0.28));
+        margin-bottom: 10px;
+        white-space: nowrap;
+      }
+
+      #t2-lt-grad .role {
+        font-family: var(--font-body);
+        font-weight: var(--wt-med);
+        font-size: 22px;
+        color: var(--text-dim);
+        letter-spacing: 0.01em;
+        line-height: 1.3;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lt-grad"
+         data-composition-id="t2-lt-grad"
+         data-start="0"
+         data-width="1920"
+         data-height="1080">
+
+      <div class="local-bloom"></div>
+
+      <div class="card">
+        <div class="name" data-slot="name">Ronny Mitchell</div>
+        <div class="role" data-slot="role">Head of Content Strategy</div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* bloom in */
+      tl.from("#t2-lt-grad .local-bloom",
+        { autoAlpha: 0, scale: 0.65, duration: 1.1, ease: "power2.out" }, 0);
+
+      /* card springs in */
+      tl.from("#t2-lt-grad .card",
+        { autoAlpha: 0, x: -42, y: 26, scale: 0.91,
+          filter: "blur(14px)", transformOrigin: "left bottom",
+          duration: 0.85, ease: "back.out(1.4)" }, 0.08);
+
+      /* name glides in — blur-in for the "focus pull" feel */
+      tl.from("#t2-lt-grad .name",
+        { autoAlpha: 0, y: 16, filter: "blur(16px) drop-shadow(0 0 0 transparent)",
+          duration: 0.75, ease: "power4.out" }, 0.52);
+
+      /* role follows */
+      tl.from("#t2-lt-grad .role",
+        { autoAlpha: 0, y: 10, filter: "blur(6px)",
+          duration: 0.55, ease: "power3.out" }, 0.76);
+
+      /* gradient glow pulse via filter — finite */
+      tl.to("#t2-lt-grad .name",
+        { filter: "drop-shadow(0 0 22px rgba(55,189,248,0.80)) drop-shadow(0 0 60px rgba(55,189,248,0.42))",
+          duration: 1.2, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.7);
+
+      /* bloom pulse */
+      tl.to("#t2-lt-grad .local-bloom",
+        { opacity: 0.55, scale: 1.12,
+          duration: 1.4, ease: "sine.inOut", repeat: 2, yoyo: true }, 2.0);
+
+      tl.set({}, {}, 7);
+
+      window.__timelines["t2-lt-grad"] = tl;
+    </script>
+  </body>
+</html>

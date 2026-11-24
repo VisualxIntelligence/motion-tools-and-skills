@@ -1,0 +1,320 @@
+<!-- rf-gallery v1 | pairs/match-cut-out | match-cut-position-carry | mutate=copy,duration,accent-color | keep=timeline-phase-structure,anchor-exit-geometry,static-match-hold,accent-rect-geometry -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Match Cut Out</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-match-cut-out {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #090b12);
+          color: var(--rf-text, #f7f4ec);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-match-cut-out .mco-stage {
+          position: absolute;
+          inset: 0;
+          isolation: isolate;
+          overflow: hidden;
+        }
+        .rf-match-cut-out .mco-field {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(circle at 68% 31%, var(--rf-surface-3, #263047) 0%, var(--rf-surface-2, #151b29) 28%, var(--rf-bg, #090b12) 69%),
+            linear-gradient(124deg, var(--rf-bg, #090b12) 0%, var(--rf-surface-2, #151b29) 100%);
+        }
+        .rf-match-cut-out .mco-grid {
+          position: absolute;
+          inset: 0;
+          opacity: 0.34;
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.13)) 1px, var(--rf-bg, #090b12) 1px),
+            linear-gradient(0deg, var(--rf-hairline, rgba(255, 255, 255, 0.13)) 1px, var(--rf-bg, #090b12) 1px);
+          background-size: 96px 96px;
+          mask-image: linear-gradient(90deg, var(--rf-bg, #090b12) 0%, var(--rf-text, #f7f4ec) 24%, var(--rf-text, #f7f4ec) 76%, var(--rf-bg, #090b12) 100%);
+        }
+        .rf-match-cut-out .mco-aura {
+          position: absolute;
+          width: 105vw;
+          height: 105vw;
+          left: 30%;
+          top: -54vw;
+          border-radius: 50%;
+          opacity: 0.27;
+          background: radial-gradient(circle, var(--rf-accent, #7d8cff) 0%, var(--rf-accent-alt, #ff6dba) 34%, var(--rf-surface-2, #151b29) 72%);
+          filter: blur(8px) brightness(1);
+          animation: mco-aura-breathe 1.2s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+          will-change: filter, opacity;
+        }
+        .rf-match-cut-out .mco-rail {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 61.96%;
+          width: 1px;
+          opacity: 0.58;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.34));
+          transform-origin: top center;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-out .mco-crosshair {
+          position: absolute;
+          left: 62%;
+          top: 38%;
+          width: 30vw;
+          height: 30vw;
+          border: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.13));
+          border-radius: 50%;
+          opacity: 0.56;
+          transform: translate(-50%, -50%);
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-out .mco-crosshair::before,
+        .rf-match-cut-out .mco-crosshair::after {
+          position: absolute;
+          content: "";
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.34));
+        }
+        .rf-match-cut-out .mco-crosshair::before {
+          left: 50%;
+          top: -13%;
+          width: 1px;
+          height: 126%;
+        }
+        .rf-match-cut-out .mco-crosshair::after {
+          top: 50%;
+          left: -13%;
+          width: 126%;
+          height: 1px;
+        }
+        .rf-match-cut-out .mco-copy {
+          position: absolute;
+          left: 7.2%;
+          top: 20.4%;
+          z-index: 2;
+        }
+        .rf-match-cut-out .mco-eyebrow {
+          margin: 0 0 25px;
+          color: var(--rf-muted-text, #b9bfce);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 19px;
+          font-weight: 700;
+          letter-spacing: 0.17em;
+          line-height: 1.15;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-out .mco-title {
+          margin: 0;
+          font-size: clamp(126px, 10.25vw, 197px);
+          font-weight: 850;
+          letter-spacing: -0.085em;
+          line-height: 0.86;
+          word-break: keep-all;
+        }
+        .rf-match-cut-out .mco-title-line {
+          display: block;
+          width: max-content;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-out .mco-title-line--accent {
+          margin-top: 0.13em;
+          color: var(--rf-accent, #7d8cff);
+          text-shadow: 0 0 0.2em var(--rf-accent, #7d8cff);
+        }
+        .rf-match-cut-out .mco-anchor-readout {
+          position: absolute;
+          left: 62%;
+          top: calc(38% + 13.4vw);
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          gap: 13px;
+          color: var(--rf-muted-text, #b9bfce);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-out .mco-anchor-index {
+          color: var(--rf-accent, #7d8cff);
+        }
+        .rf-match-cut-out .mco-anchor-rule {
+          width: 104px;
+          height: 1px;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.34));
+          transform-origin: left center;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-out .mco-orbit-label {
+          position: absolute;
+          right: 7.2%;
+          bottom: 8.1%;
+          z-index: 2;
+          color: var(--rf-ink-subtle, #8891a3);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 17px;
+          font-weight: 700;
+          letter-spacing: 0.17em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-out .mco-hero {
+          position: absolute;
+          z-index: 3;
+          display: grid;
+          place-items: center;
+          width: 22vw;
+          height: 22vw;
+          min-width: 240px;
+          min-height: 240px;
+          overflow: hidden;
+          border: 1px solid var(--rf-on-accent, #f9f7f0);
+          border-radius: 5.5%;
+          background: var(--rf-accent, #7d8cff);
+          box-shadow: 0 0 0 18px var(--rf-hairline, rgba(255, 255, 255, 0.13)), 0 0 80px var(--rf-accent, #7d8cff);
+          color: var(--rf-on-accent, #f9f7f0);
+          transform-origin: center center;
+          will-change: left, top, width, height, transform, opacity;
+        }
+        .rf-match-cut-out .mco-hero::before {
+          position: absolute;
+          inset: 13%;
+          content: "";
+          border: 1px solid var(--rf-on-accent, #f9f7f0);
+          border-radius: 4%;
+          opacity: 0.74;
+        }
+        .rf-match-cut-out .mco-hero::after {
+          position: absolute;
+          width: 48%;
+          height: 1px;
+          content: "";
+          background: var(--rf-on-accent, #f9f7f0);
+          box-shadow: 0 32px 0 var(--rf-on-accent, #f9f7f0), 0 -32px 0 var(--rf-on-accent, #f9f7f0);
+          opacity: 0.72;
+        }
+        .rf-match-cut-out .mco-hero-token {
+          position: relative;
+          z-index: 1;
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(40px, 3.6vw, 70px);
+          font-weight: 800;
+          letter-spacing: -0.08em;
+          line-height: 1;
+        }
+        @keyframes mco-aura-breathe {
+          from {
+            filter: blur(8px) brightness(1);
+            opacity: 0.27;
+          }
+          to {
+            filter: blur(8px) brightness(1.28);
+            opacity: 0.43;
+          }
+        }
+      </style>
+      <main
+        class="rf-match-cut-out"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-pairs-match-cut-out"
+      >
+        <div class="mco-stage">
+          <div class="mco-field" aria-hidden="true"></div>
+          <div class="mco-grid" aria-hidden="true"></div>
+          <div class="mco-aura" aria-hidden="true"></div>
+          <div class="mco-rail" aria-hidden="true"></div>
+          <div class="mco-crosshair" aria-hidden="true"></div>
+          <div class="mco-copy">
+            <p class="mco-eyebrow" data-slot="eyebrow">같은 자리</p>
+            <h1 class="mco-title">
+              <span class="mco-title-line" data-slot="headline-first">움직임은</span>
+              <span class="mco-title-line mco-title-line--accent" data-slot="headline-second">머문다</span>
+            </h1>
+          </div>
+          <div class="mco-anchor-readout">
+            <span class="mco-anchor-index" data-slot="anchor-index">02</span>
+            <span class="mco-anchor-rule" aria-hidden="true"></span>
+            <span data-slot="anchor-label">좌표 유지</span>
+          </div>
+          <div class="mco-orbit-label" data-slot="orbit-label">다음 장면</div>
+          <div class="mco-hero">
+            <span class="mco-hero-token" data-slot="hero-token">정지</span>
+          </div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-pairs-match-cut-out";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const hero = root.querySelector(".mco-hero");
+          const eyebrow = root.querySelector(".mco-eyebrow");
+          const titleLines = Array.from(root.querySelectorAll(".mco-title-line"));
+          const anchorReadout = root.querySelector(".mco-anchor-readout");
+          const anchorRule = root.querySelector(".mco-anchor-rule");
+          const orbitLabel = root.querySelector(".mco-orbit-label");
+          const rail = root.querySelector(".mco-rail");
+          const crosshair = root.querySelector(".mco-crosshair");
+
+          window.__timelines = window.__timelines || {};
+          window.__anchors = window.__anchors || {};
+          window.__anchors[compositionId] = {
+            exit: { shape: "rect", cx: 0.62, cy: 0.38, w: 0.22, h: 0.22, scale: 1, rot: 0, color: "--rf-accent" }
+          };
+
+          const tl = gsap.timeline({ paused: true });
+          tl.set([eyebrow, anchorReadout, orbitLabel], { opacity: 0 })
+            .set(titleLines, { opacity: 0, x: -86, y: 18 })
+            .set(anchorRule, { scaleX: 0, transformOrigin: "left center" })
+            .set(rail, { opacity: 0, scaleY: 0, transformOrigin: "top center" })
+            .set(crosshair, { opacity: 0, scale: 0.72, transformOrigin: "center center" })
+            .set(hero, {
+              left: "18%",
+              top: "74%",
+              width: "22vw",
+              height: "22vw",
+              xPercent: -50,
+              yPercent: -50,
+              opacity: 0,
+              scale: 0.64,
+              rotation: -13
+            })
+            .fromTo(eyebrow, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 0.08)
+            .to(titleLines[0], { opacity: 1, x: 0, y: 0, duration: 0.36, ease: "power4.out" }, 0.18)
+            .to(titleLines[1], { opacity: 1, x: 0, y: 0, duration: 0.4, ease: "power4.out" }, 0.44)
+            .to(rail, { opacity: 0.58, scaleY: 1, duration: 0.46, ease: "power2.out" }, 0.44)
+            .to(crosshair, { opacity: 0.56, scale: 1, duration: 0.46, ease: "power2.out" }, 0.56)
+            .to(hero, { opacity: 1, scale: 0.9, rotation: -4, duration: 0.4, ease: "power3.out" }, 0.64)
+            .fromTo(anchorReadout, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.26, ease: "power3.out" }, 0.88)
+            .to(anchorRule, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 1.04)
+            .fromTo(orbitLabel, { opacity: 0, x: 22 }, { opacity: 1, x: 0, duration: 0.26, ease: "power3.out" }, 1.12)
+            .to(hero, {
+              left: "62%",
+              top: "38%",
+              width: "22vw",
+              height: "22vw",
+              scale: 1,
+              rotation: 0,
+              duration: 0.62,
+              ease: "power2.inOut"
+            }, 1.34)
+            .to(hero, { opacity: 1, duration: 0.22, ease: "none" }, 1.96);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

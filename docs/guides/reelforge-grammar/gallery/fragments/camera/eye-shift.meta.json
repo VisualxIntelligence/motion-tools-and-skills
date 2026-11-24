@@ -1,0 +1,16 @@
+{
+  "intensityBand": "0-40",
+  "arcFit": ["resolve", "build"],
+  "durationRange": [3.0, 5.0],
+  "slots": [
+    {"name": "echo-word", "maxChars": 2},
+    {"name": "kicker", "maxChars": 6},
+    {"name": "headline-one", "maxChars": 3},
+    {"name": "headline-two", "maxChars": 3},
+    {"name": "detail", "maxChars": 11},
+    {"name": "far-label", "maxChars": 2},
+    {"name": "near-label", "maxChars": 3}
+  ],
+  "mutate": ["copy", "duration", "accent-color", "origin-x", "origin-y"],
+  "keep": ["timeline-phase-structure", "easing-curves", "perspective-container", "origin-proxy-onupdate", "preserve-3d-depth-layout", "living-motion-delay"]
+}

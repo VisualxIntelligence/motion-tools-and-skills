@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Your next great edit</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#080c12;color:#f0f3f7;font-family:Arial,sans-serif}
+#starter{position:relative;width:1920px;height:1080px;overflow:hidden;background:radial-gradient(ellipse at 80% 10%,#1c2a25,transparent 65%)}
+.grid{position:absolute;inset:0;opacity:.22;background-image:linear-gradient(#45604a 1px,transparent 1px),linear-gradient(90deg,#45604a 1px,transparent 1px);background-size:80px 80px}
+.content{position:absolute;inset:0;padding:100px 130px}.eyebrow{font:26px Consolas,monospace;color:#b9f27c;letter-spacing:5px}h1{font-size:114px;line-height:1.04;letter-spacing:-5px;margin:50px 0 30px;max-width:1450px}.sub{font-size:34px;color:#aeb8c3}.steps{display:flex;gap:28px;margin-top:100px}.step{flex:1;padding:36px;border:1px solid #3a4a42;background:#111a1a;border-radius:18px}.num{color:#b9f27c;font:28px Consolas,monospace}.step h2{font-size:42px;margin:24px 0 16px}.step p{font-size:25px;line-height:1.5;color:#acb9b4;margin:0}.footer{position:absolute;left:130px;bottom:65px;font:23px Consolas,monospace;color:#839189;letter-spacing:2px}
+</style></head><body>
+<div id="starter" data-composition-id="starter" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+<div id="grid" class="grid clip" data-start="0" data-duration="8" data-track-index="0"></div>
+<div id="content" class="content clip" data-start="0" data-duration="8" data-track-index="1">
+<div class="eyebrow">HYPERFRAMES / YOUR FIRST COMPOSITION</div>
+<h1>Your next great edit<br>starts with a story.</h1><p class="sub">Bring your footage. Make every beat count.</p>
+<div class="steps"><div class="step"><span class="num">01</span><h2>Find the story</h2><p>Keep the examples.<br>Make the lesson clear.</p></div>
+<div class="step"><span class="num">02</span><h2>Shape the edit</h2><p>Trim dead air.<br>Keep natural rhythm.</p></div>
+<div class="step"><span class="num">03</span><h2>Show the idea</h2><p>Move with purpose.<br>Review every transition.</p></div></div></div>
+<div id="footer" class="footer clip" data-start="0" data-duration="8" data-track-index="2">LOCAL RENDER / YOUR FOOTAGE / YOUR VOICE</div></div>
+<script>
+const tl=gsap.timeline({paused:true});
+tl.from('.eyebrow',{opacity:0,y:12,duration:.55,ease:'power2.out'},0);
+tl.from('h1',{opacity:0,y:35,duration:.8,ease:'power2.out'},.2);
+tl.from('.sub',{opacity:0,y:14,duration:.6,ease:'power2.out'},.7);
+tl.from('.step',{opacity:0,y:35,duration:.65,stagger:.5,ease:'power2.out'},1.3);
+tl.from('#footer',{opacity:0,duration:1,ease:'power1.out'},3.1);
+tl.to('.grid',{x:-18,y:-12,duration:8,ease:'none'},0);
+window.__timelines=window.__timelines||{};window.__timelines['starter']=tl;
+</script></body></html>
