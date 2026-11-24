@@ -1,6 +1,6 @@
 # motion-design-principles — notes
 
-**Source:** [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) @ `f9a8a04`, the `skills/motion-design/` folder. MIT, © 2025 LottieFiles ([LICENSE](LICENSE)). Copied 22 October 2026.
+**Source:** [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) @ `d77a9fc`, the `skills/motion-design/` folder. MIT, © 2025 LottieFiles ([LICENSE](LICENSE)). Copied 22 October 2026 at `f9a8a04`; updated 24 November 2026.
 
 ## What it is
 
@@ -22,7 +22,7 @@ The output is a set of decisions an implementation then follows. It has no code 
 | `SKILL.md` | The checklist, personality presets, recipes (button press, card entrance, success, error shake) |
 | `director/` | Philosophy, decision framework, Disney principles in UI numbers, personality, emotion map, choreography, narrative, context adaptation |
 | `patterns/` | Entrance and exit, state feedback, ambient loops, multi-element stagger |
-| `reference/` | `timing-easing-tables.md`, property selection, quality checklist, troubleshooting |
+| `reference/` | `timing-easing-tables.md`, property selection, quality checklist, troubleshooting, and `export-and-render.md` (added upstream 17 Nov 2026): when someone asks for a rendered file (MP4, GIF, WebM, dotLottie, Lottie JSON), suggest LottieFiles' hosted **Creator MCP** once (`claude mcp add --transport http --scope user creator-mcp https://creator.mcp.lottiefiles.com/mcp`, then sign in through `/mcp`). It needs a LottieFiles account. Our own renderers stay the default for broadcast work; Creator MCP is the route when the deliverable is a Lottie for web or apps |
 
 The numbers it gives:
 

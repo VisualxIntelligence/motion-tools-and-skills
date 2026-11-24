@@ -1,6 +1,6 @@
 # mg-styles-15 — notes
 
-**Source:** [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) @ `49052d8`. MIT, © 2026 Vincentwei1021 ([LICENSE](LICENSE)). Showcase page with all 15 films: <https://vincentwei1021.github.io/mg-styles-15/>.
+**Source:** [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) @ `49052d8`, with `lib/audio/` (README, `mgaudio/samples.py`, `tools/fetch_missing_samples.py`, `tests/`) updated to `46fd009` on 24 November 2026. MIT, © 2026 Vincentwei1021 ([LICENSE](LICENSE)). Showcase page with all 15 films: <https://vincentwei1021.github.io/mg-styles-15/>.
 
 The upstream layout is kept as is, so the prompts, the renderer, the audio toolkit and the demo sources still find each other by path. Run everything from this folder.
 
@@ -50,15 +50,17 @@ node harness/render.mjs demos/22-hud      # frames → demos/22-hud/out/video.mp
 python3 -m http.server 8000               # preview: http://localhost:8000/harness/preview.html?demo=22-hud
 ```
 
-The sampled instruments (103 CC0 VCSL samples, 57 MB of FLAC) are not in this repo; synthesised parts work without them, but calls to sampled instruments and hits (`samples.inst`, `samples.hit`, `drums.crash`…) raise an error until the pack is in place. To add them, copy `lib/audio/samples/` from upstream:
+The sampled instruments are not in this repo; synthesised parts work without them, but calls to sampled instruments and hits (`samples.inst`, `samples.hit`, `drums.crash`…) raise an error until the samples are on disk. Build them with the fetcher upstream added on 21 November 2026:
 
 ```
-git clone --depth 1 --filter=blob:none --sparse https://github.com/Vincentwei1021/mg-styles-15 mg-upstream
-git -C mg-upstream sparse-checkout set lib/audio/samples
-cp mg-upstream/lib/audio/samples/*.flac lib/audio/samples/
+python3 lib/audio/tools/fetch_missing_samples.py --list               # what is missing, per instrument
+python3 lib/audio/tools/fetch_missing_samples.py                      # all 598 CC0 VCSL samples, about 175 MB
+python3 lib/audio/tools/fetch_missing_samples.py --keys piano,gong    # only some instruments
 ```
 
-(`lib/audio/tools/` holds the scripts that built them from the VCSL library: `select_vcsl.py` → `download_vcsl.sh` → `build_samples.py`.)
+It downloads the originals from [sgossner/VCSL](https://github.com/sgossner/VCSL) (CC0), builds them with the same `build_samples.process()` that made upstream's files, and checks every result against `samples/index.json`. Git ignores the built folders. Tested here 24 November 2026: `--keys fingercym` downloaded, built and matched its index entry. The loader now also takes `exclude=` (one-shots only, e.g. `samples.inst('dantranh', exclude='FX|Gliss|Trem|vib')`) and `reliable_only=True` (only samples whose detected pitch confirms their tuning), and rechecks the disk on each call. Loader tests: `PYTHONPATH=lib/audio python3 -m unittest discover -s lib/audio/tests` (15 pass; needs numpy, scipy, soundfile, numba).
+
+(`lib/audio/tools/` also holds the scripts that made the original selection: `select_vcsl.py` → `download_vcsl.sh` → `build_samples.py`.)
 
 To make a new film: open an agent in an empty folder, paste a prompt from `prompts/`, and replace only its **Creative seed** with your story, copy and colours (or change **Output** to 1080×1920). Keep **Signature features**: that is what makes the style recognisable. Then run `rubric.md` in a separate session and paste the review back. The originals took two make → review → revise rounds; one run rarely reaches the same finish.
 
@@ -70,4 +72,4 @@ To make a new film: open an agent in an empty folder, paste a prompt from `promp
 
 ## What was left out
 
-Media and binary assets: the films (`videos/`), the showcase site (`site/`, `index.html`), shared textures and the HDRI (`assets/`, CC0), the font files (their list is in `assets/fonts/README.md`), the 103 VCSL instrument samples (CC0, 57 MB; see *How to use it*), and the image and mesh assets inside the demos (the photos and cut-outs in 05, 06, 18 and 19; the glyph meshes in 04). Demos that need them say so in their code; fetch them from upstream. Code, prompts and data files are complete.
+Media and binary assets: the films (`videos/`), the showcase site (`site/`, `index.html`), shared textures and the HDRI (`assets/`, CC0), the font files (their list is in `assets/fonts/README.md`), the VCSL instrument samples (CC0; rebuilt by `fetch_missing_samples.py`, see *How to use it*), and the image and mesh assets inside the demos (the photos and cut-outs in 05, 06, 18 and 19; the glyph meshes in 04). Demos that need them say so in their code; fetch them from upstream. Code, prompts and data files are complete.
