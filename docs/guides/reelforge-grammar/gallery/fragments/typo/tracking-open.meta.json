@@ -1,0 +1,20 @@
+{
+  "intensityBand": "0-40",
+  "arcFit": ["hook", "resolve"],
+  "durationRange": [2.5, 4.5],
+  "slots": [
+    { "name": "background-mark", "maxChars": 2 },
+    { "name": "index-label", "maxChars": 5 },
+    { "name": "headline", "maxChars": 6 },
+    { "name": "descriptor", "maxChars": 9 },
+    { "name": "status", "maxChars": 6 }
+  ],
+  "mutate": ["copy", "duration", "accent-color"],
+  "keep": [
+    "timeline-phase-structure",
+    "easing-curves",
+    "tracking-endpoints",
+    "entry-anchor-geometry",
+    "accent-line-reveal"
+  ]
+}

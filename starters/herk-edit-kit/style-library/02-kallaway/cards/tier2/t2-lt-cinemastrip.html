@@ -1,0 +1,190 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · lower-third · CINEMASTRIP
+  A wide frosted-glass cinematic letter-box strip spanning the full lower third.
+  Name is left-anchored in large display type; role sits below in dimmer body
+  type. The strip wipes in from the left edge and a hairline top/bottom edge
+  animate-draw. Transparent overlay — only the strip paints over footage.
+  Slots: name (~28 chars), role (~48 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lt-cine {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Localized bloom behind strip */
+      #t2-lt-cine .local-bloom {
+        position: absolute;
+        left: -60px; bottom: 110px;
+        width: 900px; height: 220px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 35% 80%,
+          rgba(var(--accent-rgb), 0.22) 0%,
+          rgba(var(--accent-rgb), 0.06) 55%,
+          transparent 78%);
+        filter: blur(40px);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* The wide cinematic strip */
+      #t2-lt-cine .strip {
+        position: absolute;
+        left: 0; bottom: 130px;
+        width: 900px;
+        padding: 26px 72px 24px 80px;
+        background: linear-gradient(90deg,
+          rgba(10, 14, 20, 0.82) 0%,
+          rgba(16, 22, 34, 0.68) 55%,
+          rgba(16, 22, 34, 0.32) 82%,
+          transparent 100%);
+        backdrop-filter: blur(18px) saturate(130%);
+        -webkit-backdrop-filter: blur(18px) saturate(130%);
+        z-index: 2;
+        /* clip-path used for wipe-in animation */
+        clip-path: inset(0 100% 0 0);
+      }
+
+      /* Top + bottom hairlines — drawn by SVG */
+      #t2-lt-cine .hairlines {
+        position: absolute;
+        left: 0; bottom: 130px;
+        width: 900px;
+        pointer-events: none;
+        z-index: 3;
+      }
+      #t2-lt-cine .hairlines .hl-top,
+      #t2-lt-cine .hairlines .hl-bot {
+        display: block;
+        height: 1.5px;
+        width: 100%;
+        background: linear-gradient(90deg,
+          rgba(var(--accent-rgb), 0.85) 0%,
+          rgba(var(--accent-rgb), 0.45) 45%,
+          rgba(var(--accent-rgb), 0.10) 75%,
+          transparent 100%);
+        box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.50);
+        transform-origin: left center;
+        transform: scaleX(0);
+      }
+      #t2-lt-cine .hairlines .hl-top {
+        position: absolute; top: 0;
+      }
+      #t2-lt-cine .hairlines .hl-bot {
+        position: absolute; bottom: 0;
+      }
+
+      /* Strip height proxy — so hairlines know the bottom offset */
+      #t2-lt-cine .strip-height-proxy {
+        position: absolute;
+        left: 0; bottom: 130px;
+        width: 900px; height: 96px;  /* matches strip content height */
+        pointer-events: none; visibility: hidden;
+      }
+
+      #t2-lt-cine .name {
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 42px;
+        letter-spacing: var(--track-tight);
+        color: var(--white);
+        text-shadow: var(--textglow);
+        line-height: 1.08;
+        margin-bottom: 8px;
+        white-space: nowrap;
+      }
+
+      #t2-lt-cine .role {
+        font-family: var(--font-body);
+        font-weight: var(--wt-med);
+        font-size: 22px;
+        letter-spacing: 0.025em;
+        color: var(--text-dim);
+        line-height: 1.3;
+        white-space: nowrap;
+      }
+
+      /* Thin accent notch on the left edge */
+      #t2-lt-cine .strip::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 5px;
+        background: linear-gradient(180deg,
+          rgba(var(--accent-rgb), 0.95) 0%,
+          rgba(var(--accent-rgb), 0.55) 60%,
+          rgba(var(--accent-rgb), 0.10) 100%);
+        box-shadow: 0 0 14px rgba(var(--accent-rgb), 0.70),
+                    0 0 32px rgba(var(--accent-rgb), 0.35);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lt-cine"
+         data-composition-id="t2-lt-cine"
+         data-start="0"
+         data-width="1920"
+         data-height="1080">
+
+      <div class="local-bloom"></div>
+
+      <div class="hairlines">
+        <span class="hl-top"></span>
+        <span class="hl-bot" style="bottom:-96px;"></span>
+      </div>
+
+      <div class="strip">
+        <div class="name" data-slot="name">Marcus J. Holloway</div>
+        <div class="role" data-slot="role">Lead AI Curriculum Designer · AIS Academy</div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* bloom fades in */
+      tl.from("#t2-lt-cine .local-bloom",
+        { autoAlpha: 0, scale: 0.7, duration: 1.1, ease: "power2.out" }, 0);
+
+      /* hairlines draw left→right */
+      tl.to("#t2-lt-cine .hl-top",
+        { scaleX: 1, duration: 0.70, ease: "power4.out" }, 0.05);
+      tl.to("#t2-lt-cine .hl-bot",
+        { scaleX: 1, duration: 0.70, ease: "power4.out" }, 0.12);
+
+      /* strip wipes in: reveal clip-path from left */
+      tl.to("#t2-lt-cine .strip",
+        { clipPath: "inset(0 0% 0 0)", duration: 0.72, ease: "power3.out" }, 0.18);
+
+      /* name fades + blurs in */
+      tl.from("#t2-lt-cine .name",
+        { autoAlpha: 0, x: -22, filter: "blur(10px)",
+          duration: 0.65, ease: "power4.out" }, 0.62);
+
+      /* role follows */
+      tl.from("#t2-lt-cine .role",
+        { autoAlpha: 0, x: -16, filter: "blur(7px)",
+          duration: 0.60, ease: "power3.out" }, 0.80);
+
+      /* hairline glow pulse — finite */
+      tl.to(["#t2-lt-cine .hl-top", "#t2-lt-cine .hl-bot"],
+        { boxShadow: "0 0 18px rgba(55,189,248,0.75), 0 0 40px rgba(55,189,248,0.36)",
+          duration: 1.1, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.8);
+
+      tl.set({}, {}, 7);
+
+      window.__timelines["t2-lt-cine"] = tl;
+    </script>
+  </body>
+</html>

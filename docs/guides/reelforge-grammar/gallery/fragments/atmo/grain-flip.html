@@ -1,0 +1,229 @@
+<!-- rf-gallery v1 | atmo/grain-flip | film-grain-seeded-flip | mutate=copy,duration,accent-color,grain-opacity,flip-interval | keep=timeline-phase-structure,easing-curves,seeded-grain-layer-count,seed-order,grain-flip-cadence,living-wash -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Grain Flip</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-grain-flip {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          isolation: isolate;
+          background: var(--rf-bg, #101216);
+          color: var(--rf-text, #f5f2ea);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-grain-flip .gf-stage,
+        .rf-grain-flip .gf-grain-layer,
+        .rf-grain-flip .gf-wash,
+        .rf-grain-flip .gf-vignette,
+        .rf-grain-flip .gf-orbit,
+        .rf-grain-flip .gf-horizon {
+          position: absolute;
+        }
+        .rf-grain-flip .gf-stage {
+          inset: 0;
+        }
+        .rf-grain-flip .gf-wash {
+          width: 116%;
+          height: 122%;
+          top: -11%;
+          right: -19%;
+          border-radius: 50%;
+          background: var(--rf-accent, #9ec8bd);
+          filter: blur(132px) brightness(1);
+          opacity: 0.14;
+          pointer-events: none;
+          will-change: filter, opacity;
+        }
+        .rf-grain-flip .gf-vignette {
+          inset: -8%;
+          border: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          border-radius: 50%;
+          opacity: 0.42;
+          pointer-events: none;
+        }
+        .rf-grain-flip .gf-orbit {
+          width: 72vw;
+          height: 72vw;
+          min-width: 1120px;
+          min-height: 1120px;
+          top: -35vw;
+          left: -16vw;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.28));
+          border-radius: 50%;
+          opacity: 0.52;
+          transform: rotate(-18deg);
+          pointer-events: none;
+          will-change: transform, opacity;
+        }
+        .rf-grain-flip .gf-horizon {
+          left: -4%;
+          right: -4%;
+          bottom: 16.8%;
+          height: 1px;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.28));
+          transform-origin: left center;
+          will-change: transform, opacity;
+        }
+        .rf-grain-flip .gf-copy {
+          position: absolute;
+          left: 8.2%;
+          bottom: 22.5%;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.02em;
+          font-size: clamp(128px, 12.8vw, 246px);
+          font-weight: 800;
+          letter-spacing: -0.075em;
+          line-height: 0.9;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        .rf-grain-flip .gf-line {
+          display: block;
+          will-change: transform, opacity;
+        }
+        .rf-grain-flip .gf-line--soft {
+          color: var(--rf-muted-text, #c7c4bc);
+          font-weight: 500;
+        }
+        .rf-grain-flip .gf-kicker,
+        .rf-grain-flip .gf-status {
+          position: absolute;
+          z-index: 2;
+          color: var(--rf-muted-text, #c7c4bc);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1.2;
+          text-transform: uppercase;
+          will-change: transform, opacity;
+        }
+        .rf-grain-flip .gf-kicker {
+          top: 7.4%;
+          left: 8.2%;
+        }
+        .rf-grain-flip .gf-status {
+          right: 7.8%;
+          bottom: 8.2%;
+          text-align: right;
+        }
+        .rf-grain-flip .gf-status::before {
+          content: "";
+          display: inline-block;
+          width: 72px;
+          height: 1px;
+          margin: 0 14px 0.32em 0;
+          vertical-align: middle;
+          background: var(--rf-accent, #9ec8bd);
+        }
+        .rf-grain-flip .gf-grain-layer {
+          inset: -3%;
+          z-index: 4;
+          background: var(--rf-text, #f5f2ea);
+          mix-blend-mode: overlay;
+          opacity: 0;
+          pointer-events: none;
+        }
+        .rf-grain-flip .gf-grain-layer--one {
+          filter: url(#gallery-atmo-grain-flip-seed-11);
+        }
+        .rf-grain-flip .gf-grain-layer--two {
+          filter: url(#gallery-atmo-grain-flip-seed-29);
+        }
+        .rf-grain-flip .gf-grain-layer--three {
+          filter: url(#gallery-atmo-grain-flip-seed-73);
+        }
+        @keyframes gf-wash-breathe {
+          from {
+            filter: blur(132px) brightness(1);
+            opacity: 0.14;
+          }
+          to {
+            filter: blur(132px) brightness(1.2);
+            opacity: 0.24;
+          }
+        }
+        .rf-grain-flip .gf-wash {
+          animation: gf-wash-breathe 1.2s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+      </style>
+      <main
+        class="rf-grain-flip"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-atmo-grain-flip"
+      >
+        <svg width="0" height="0" aria-hidden="true">
+          <filter id="gallery-atmo-grain-flip-seed-11"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11" stitchTiles="stitch" /></filter>
+          <filter id="gallery-atmo-grain-flip-seed-29"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="29" stitchTiles="stitch" /></filter>
+          <filter id="gallery-atmo-grain-flip-seed-73"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="73" stitchTiles="stitch" /></filter>
+        </svg>
+        <div class="gf-stage">
+          <div class="gf-wash" aria-hidden="true"></div>
+          <div class="gf-vignette" aria-hidden="true"></div>
+          <div class="gf-orbit" aria-hidden="true"></div>
+          <div class="gf-horizon" aria-hidden="true"></div>
+          <div class="gf-kicker" data-slot="kicker">저강도 질감</div>
+          <div class="gf-copy">
+            <span class="gf-line" data-slot="headline-primary">고요가</span>
+            <span class="gf-line gf-line--soft" data-slot="headline-secondary">남긴 결</span>
+          </div>
+          <div class="gf-status" data-slot="status">고정된 흔들림</div>
+          <div class="gf-grain-layer gf-grain-layer--one" aria-hidden="true"></div>
+          <div class="gf-grain-layer gf-grain-layer--two" aria-hidden="true"></div>
+          <div class="gf-grain-layer gf-grain-layer--three" aria-hidden="true"></div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-atmo-grain-flip";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const kicker = root.querySelector(".gf-kicker");
+          const primary = root.querySelector("[data-slot=\"headline-primary\"]");
+          const secondary = root.querySelector("[data-slot=\"headline-secondary\"]");
+          const status = root.querySelector(".gf-status");
+          const orbit = root.querySelector(".gf-orbit");
+          const horizon = root.querySelector(".gf-horizon");
+          const grainLayers = Array.from(root.querySelectorAll(".gf-grain-layer"));
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([kicker, primary, secondary, status, orbit, horizon], { opacity: 0 })
+            .set(primary, { y: 44 })
+            .set(secondary, { y: 34 })
+            .set(kicker, { y: -18 })
+            .set(status, { x: 24 })
+            .set(orbit, { scale: 0.9, transformOrigin: "center center" })
+            .set(horizon, { scaleX: 0, transformOrigin: "left center" })
+            .set(grainLayers, { opacity: 0 })
+            .fromTo(kicker, { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 0.08)
+            .fromTo(orbit, { opacity: 0, scale: 0.9 }, { opacity: 0.52, scale: 1, duration: 0.72, ease: "power2.out" }, 0.12)
+            .fromTo(horizon, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.64, ease: "power2.out" }, 0.28)
+            .fromTo(primary, { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.56, ease: "power3.out" }, 0.42)
+            .fromTo(secondary, { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.56, ease: "power3.out" }, 0.72)
+            .fromTo(status, { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.34, ease: "power2.out" }, 1.18);
+
+          for (let t = 0; t <= 2.16; t += 0.12) {
+            const frame = Math.round(t / 0.12);
+            tl.set(grainLayers, { opacity: 0 }, t);
+            tl.set(grainLayers[frame % grainLayers.length], { opacity: 0.055 }, t);
+          }
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

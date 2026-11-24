@@ -1,0 +1,195 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · label · BRACKET
+  `term` + `detail` enclosed in glowing corner brackets that draw in — clean SVG
+  line segments that stroke-animate on, with a frosted glass backing.
+  Anchored left side. Transparent overlay.
+  Slots: term (~28 chars — heading), detail (~80 chars — supporting copy).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-brk {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Localized glow — left side, beneath the card */
+      #t2-lb-brk .local-glow {
+        position: absolute; left: 40px; top: 300px;
+        width: 520px; height: 380px; border-radius: 50%;
+        background: radial-gradient(ellipse at 50% 50%,
+          rgba(var(--accent-rgb), 0.20) 0%,
+          rgba(var(--accent-rgb), 0.06) 55%,
+          transparent 80%);
+        filter: blur(45px);
+        pointer-events: none;
+      }
+
+      /* Outer wrapper — holds glass backing + bracket SVG */
+      #t2-lb-brk .bracket-wrap {
+        position: absolute; left: 80px; top: 320px;
+        width: 500px;
+      }
+
+      /* Frosted glass backing */
+      #t2-lb-brk .glass-back {
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1.5px solid var(--glass-border);
+        border-top: 1.5px solid var(--glass-hi);
+        box-shadow: var(--glass-shadow),
+                    0 0 0 1px rgba(var(--accent-rgb), 0.07);
+        border-radius: var(--radius-sm);
+        padding: 36px 44px 34px;
+        position: relative;
+      }
+
+      /* Top neon rim */
+      #t2-lb-brk .glass-back::before {
+        content: "";
+        position: absolute; left: 0; right: 0; top: 0; height: 2px;
+        background: linear-gradient(90deg,
+          transparent 0%, rgba(var(--accent-rgb), 0.65) 40%,
+          rgba(var(--accent-rgb), 0.65) 60%, transparent 100%);
+        box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.45);
+        border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      }
+
+      /* Corner bracket SVG — sits on top of the glass */
+      #t2-lb-brk .brackets {
+        position: absolute; inset: -6px;
+        pointer-events: none;
+        overflow: visible;
+      }
+
+      #t2-lb-brk .brackets .corner-line {
+        fill: none;
+        stroke: var(--accent);
+        stroke-width: 2.5;
+        stroke-linecap: square;
+        filter: drop-shadow(0 0 6px rgba(var(--accent-rgb), 0.70));
+      }
+
+      /* Term */
+      #t2-lb-brk .term {
+        font-family: var(--font-display); font-weight: var(--wt-bold);
+        font-size: 36px; letter-spacing: var(--track-tight);
+        color: var(--white); text-shadow: var(--textglow);
+        margin-bottom: 14px; line-height: 1.2;
+      }
+
+      /* Divider rule */
+      #t2-lb-brk .rule {
+        height: 1.5px; width: 100%;
+        background: linear-gradient(90deg,
+          var(--accent) 0%, rgba(var(--accent-rgb), 0.15) 100%);
+        box-shadow: 0 0 7px rgba(var(--accent-rgb), 0.40);
+        margin-bottom: 16px;
+        transform-origin: left center;
+      }
+
+      /* Detail */
+      #t2-lb-brk .detail {
+        font-family: var(--font-body); font-weight: var(--wt-reg);
+        font-size: 26px; line-height: 1.55;
+        color: var(--text-dim);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-brk" data-composition-id="t2-lb-brk" data-start="0" data-width="1920" data-height="1080">
+      <div class="local-glow"></div>
+
+      <div class="bracket-wrap">
+        <!-- Glass backing with content -->
+        <div class="glass-back">
+          <!--
+            Corner bracket SVG — 4 L-shaped corners drawn as path segments.
+            Viewbox matches the glass-back dimensions (500 x ~160 roughly).
+            Actual size is set by CSS; paths use percentage-ish coords so
+            they scale with content. We overlay via position:absolute on the wrap.
+          -->
+          <svg class="brackets" viewBox="0 0 512 176" preserveAspectRatio="none" aria-hidden="true">
+            <!-- Top-left corner -->
+            <polyline class="corner-line tl" points="0,40 0,0 40,0"/>
+            <!-- Top-right corner -->
+            <polyline class="corner-line tr" points="472,0 512,0 512,40"/>
+            <!-- Bottom-left corner -->
+            <polyline class="corner-line bl" points="0,136 0,176 40,176"/>
+            <!-- Bottom-right corner -->
+            <polyline class="corner-line br" points="472,176 512,176 512,136"/>
+          </svg>
+
+          <div class="term" data-slot="term">Compounding Advantage</div>
+          <div class="rule"></div>
+          <div class="detail" data-slot="detail">Each iteration tightens the feedback loop, making the next cycle faster and cheaper than the last.</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP = "#t2-lb-brk";
+
+      /* ambient glow blooms in */
+      tl.from(`${COMP} .local-glow`, {
+            autoAlpha: 0, scale: 0.5, transformOrigin: "50% 50%",
+            duration: 1.2, ease: "expo.out" }, 0)
+
+        /* glass card glides in from left */
+        .from(`${COMP} .bracket-wrap`, {
+            autoAlpha: 0, x: -56, filter: "blur(14px)",
+            duration: 0.85, ease: "back.out(1.4)" }, 0.18)
+
+        /* corner brackets draw in: start with zero stroke-dashoffset trick via
+           strokeDasharray / strokeDashoffset on each polyline */
+        .from(`${COMP} .brackets .tl`, {
+            strokeDasharray: 80, strokeDashoffset: 80,
+            duration: 0.45, ease: "power3.out" }, 0.55)
+        .from(`${COMP} .brackets .tr`, {
+            strokeDasharray: 80, strokeDashoffset: 80,
+            duration: 0.45, ease: "power3.out" }, 0.62)
+        .from(`${COMP} .brackets .bl`, {
+            strokeDasharray: 80, strokeDashoffset: 80,
+            duration: 0.45, ease: "power3.out" }, 0.69)
+        .from(`${COMP} .brackets .br`, {
+            strokeDasharray: 80, strokeDashoffset: 80,
+            duration: 0.45, ease: "power3.out" }, 0.76)
+
+        /* term lifts in */
+        .from(`${COMP} .term`, {
+            autoAlpha: 0, y: 14, filter: "blur(8px)",
+            duration: 0.60, ease: "power4.out" }, 0.65)
+
+        /* rule draws */
+        .from(`${COMP} .rule`, {
+            scaleX: 0, transformOrigin: "0% 50%",
+            duration: 0.50, ease: "power3.out" }, 0.88)
+
+        /* detail fades */
+        .from(`${COMP} .detail`, {
+            autoAlpha: 0, y: 10, filter: "blur(6px)",
+            duration: 0.60, ease: "power3.out" }, 1.04)
+
+        /* bracket glow pulse — finite */
+        .to(`${COMP} .brackets .corner-line`, {
+            filter: "drop-shadow(0 0 12px rgba(55,189,248,0.90))",
+            duration: 1.1, ease: "sine.inOut", repeat: 2, yoyo: true,
+            stagger: 0.05 }, 2.0)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-brk"] = tl;
+    </script>
+  </body>
+</html>

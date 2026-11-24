@@ -1,0 +1,199 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · label · ICON CHIP
+  A compact glass chip: glowing outlined SVG icon on the left, `term` heading
+  + `detail` sub-label stacked on the right. Accent-edge glow. Right side anchor.
+  Slots: term (~24 chars — short heading), detail (~48 chars — supporting line).
+  Icon: a simple lightning bolt (universally legible at small size, no circles/arrows).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-icon {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Localized glow — right side */
+      #t2-lb-icon .local-glow {
+        position: absolute; right: 60px; top: 380px;
+        width: 480px; height: 320px; border-radius: 50%;
+        background: radial-gradient(ellipse at 50% 50%,
+          rgba(var(--accent-rgb), 0.24) 0%,
+          rgba(var(--accent-rgb), 0.07) 52%,
+          transparent 76%);
+        filter: blur(36px);
+        pointer-events: none;
+      }
+
+      /* Chip — right anchor */
+      #t2-lb-icon .chip {
+        position: absolute; right: 80px; top: 408px;
+        display: flex; align-items: center; gap: 0;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1.5px solid var(--glass-border);
+        border-top: 1.5px solid var(--glass-hi);
+        box-shadow: var(--glass-shadow),
+                    0 0 30px rgba(var(--accent-rgb), 0.22),
+                    inset 0 0 0 1px rgba(var(--accent-rgb), 0.08);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        min-width: 380px;
+      }
+
+      /* Top neon rim */
+      #t2-lb-icon .chip::before {
+        content: "";
+        position: absolute; left: 0; right: 0; top: 0; height: 1.5px;
+        background: linear-gradient(90deg,
+          transparent 0%, rgba(var(--accent-rgb), 0.70) 50%, transparent 100%);
+        box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.48);
+      }
+
+      /* Icon tile — left panel */
+      #t2-lb-icon .icon-tile {
+        width: 80px; flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
+        padding: 24px 0;
+        background: rgba(var(--accent-rgb), 0.06);
+        border-right: 1px solid rgba(var(--accent-rgb), 0.18);
+        position: relative;
+      }
+
+      /* Subtle vertical rim on the right edge of the icon tile */
+      #t2-lb-icon .icon-tile::after {
+        content: "";
+        position: absolute; right: 0; top: 10%; bottom: 10%; width: 1px;
+        background: linear-gradient(180deg,
+          transparent 0%, rgba(var(--accent-rgb), 0.55) 50%, transparent 100%);
+        box-shadow: 0 0 6px rgba(var(--accent-rgb), 0.35);
+      }
+
+      /* Icon SVG */
+      #t2-lb-icon .icon-svg {
+        width: 36px; height: 36px;
+        overflow: visible;
+        filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), 0.70))
+                drop-shadow(0 0 3px rgba(255,255,255,0.30));
+      }
+
+      #t2-lb-icon .icon-path {
+        fill: none;
+        stroke: var(--accent);
+        stroke-width: 2px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+
+      /* Text block */
+      #t2-lb-icon .text-block {
+        padding: 22px 26px 20px 22px;
+        display: flex; flex-direction: column; gap: 5px;
+        flex: 1;
+      }
+
+      #t2-lb-icon .term {
+        font-family: var(--font-display); font-weight: var(--wt-bold);
+        font-size: 28px; letter-spacing: var(--track-tight);
+        color: var(--white); text-shadow: var(--textglow);
+        line-height: 1.2;
+      }
+
+      #t2-lb-icon .detail {
+        font-family: var(--font-body); font-weight: var(--wt-reg);
+        font-size: 19px; line-height: 1.45;
+        color: var(--text-dim);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-icon" data-composition-id="t2-lb-icon" data-start="0" data-width="1920" data-height="1080">
+      <div class="local-glow"></div>
+
+      <div class="chip">
+        <!-- Icon tile — lightning bolt, outlined, accent-colored -->
+        <div class="icon-tile">
+          <!--
+            Lightning bolt path: simple chevron-down shape pointing right,
+            drawn with stroke so it looks edge-lit / outlined. No fills.
+            Stroke-dasharray animates to draw the bolt in.
+          -->
+          <svg class="icon-svg" viewBox="0 0 36 36" aria-hidden="true">
+            <path class="icon-path"
+              d="M21 3 L12 20 L18 20 L15 33 L24 16 L18 16 Z"
+              stroke-dasharray="80" stroke-dashoffset="80" />
+          </svg>
+        </div>
+
+        <!-- Text -->
+        <div class="text-block">
+          <div class="term" data-slot="term">Instant Inference</div>
+          <div class="detail" data-slot="detail">Sub-100ms response, streamed to the user in real time.</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP = "#t2-lb-icon";
+
+      /* glow blooms */
+      tl.from(`${COMP} .local-glow`, {
+            autoAlpha: 0, scale: 0.55, transformOrigin: "50% 50%",
+            duration: 1.1, ease: "expo.out" }, 0)
+
+        /* chip glides in from right + blur */
+        .from(`${COMP} .chip`, {
+            autoAlpha: 0, x: 52, filter: "blur(12px)",
+            duration: 0.75, ease: "back.out(1.4)" }, 0.18)
+
+        /* icon tile blooms — slight scale */
+        .from(`${COMP} .icon-tile`, {
+            autoAlpha: 0, scale: 0.70, transformOrigin: "50% 50%",
+            filter: "blur(8px)",
+            duration: 0.50, ease: "back.out(2.0)" }, 0.50)
+
+        /* bolt draws in — strokeDashoffset 80 → 0 */
+        .to(`${COMP} .icon-path`, {
+            strokeDashoffset: 0,
+            duration: 0.45, ease: "power3.out" }, 0.68)
+
+        /* bolt flash on complete */
+        .to(`${COMP} .icon-path`, {
+            attr: { "stroke-width": 3 },
+            duration: 0.18, ease: "power2.out" }, 1.12)
+        .to(`${COMP} .icon-path`, {
+            attr: { "stroke-width": 2 },
+            duration: 0.28, ease: "power2.in" }, 1.30)
+
+        /* term fades up */
+        .from(`${COMP} .term`, {
+            autoAlpha: 0, y: 12, filter: "blur(8px)",
+            duration: 0.52, ease: "power4.out" }, 0.62)
+
+        /* detail fades */
+        .from(`${COMP} .detail`, {
+            autoAlpha: 0, y: 8,
+            duration: 0.42, ease: "power2.out" }, 0.88)
+
+        /* icon glow pulse — finite */
+        .to(`${COMP} .icon-svg`, {
+            filter: "drop-shadow(0 0 14px rgba(55,189,248,0.90)) drop-shadow(0 0 5px rgba(255,255,255,0.35))",
+            duration: 1.0, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.60)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-icon"] = tl;
+    </script>
+  </body>
+</html>

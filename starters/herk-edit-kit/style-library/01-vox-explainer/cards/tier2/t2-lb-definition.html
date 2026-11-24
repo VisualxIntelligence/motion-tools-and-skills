@@ -1,0 +1,152 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier2 · label — DICTIONARY ENTRY  (t2-lb-def)
+  TRANSPARENT OVERLAY. A dictionary-card callout: big ink Fraunces term, phonetic
+  pronunciation in italic Fraunces, part-of-speech chip, ink rule, then definition
+  body in Archivo with hanging-indent feel.
+  Slots: term (~22 chars), detail (~70 chars definition), note (~16 chars pronunciation).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-def {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; font-family: var(--font-display);
+      }
+
+      #t2-lb-def .wrap {
+        position: absolute; left: 150px; top: 340px; width: 720px;
+      }
+
+      /* ── TERM ROW: big ink word + phonetic + POS chip ─────────────────── */
+      #t2-lb-def .term-row {
+        display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+      }
+
+      #t2-lb-def .term {
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 78px;
+        letter-spacing: var(--track-tight);
+        color: var(--ink);
+        line-height: 1;
+        display: inline-block;
+        background: rgba(239, 233, 220, 0.94);
+        padding: 4px 16px;
+        border-radius: 2px;
+      }
+
+      /* phonetic — italic Fraunces, uses the `note` slot */
+      #t2-lb-def .pronunciation {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: var(--wt-thin);
+        font-size: 34px;
+        color: var(--muted);
+        letter-spacing: 0;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      /* part-of-speech chip */
+      #t2-lb-def .pos-chip {
+        font-family: var(--font-label);
+        font-weight: var(--wt-bold);
+        font-size: var(--size-label);
+        letter-spacing: var(--track-wide);
+        text-transform: uppercase;
+        color: var(--ink);
+        background: var(--yellow);
+        padding: 3px 12px;
+        border-radius: var(--radius);
+        transform: skewX(var(--marker-skew));
+        display: inline-block;
+        white-space: nowrap;
+        align-self: center;
+      }
+
+      /* ── INK RULE ─────────────────────────────────────────────────────── */
+      #t2-lb-def .rule {
+        width: 0; /* animated to 100% */
+        height: 2px;
+        background: var(--ink);
+        margin: 14px 0 16px 0;
+        transform-origin: left center;
+      }
+
+      /* ── DEFINITION BODY ─────────────────────────────────────────────── */
+      #t2-lb-def .detail {
+        font-family: var(--font-label);
+        font-weight: var(--wt-reg);
+        font-size: var(--size-body);
+        line-height: 1.45;
+        color: var(--ink);
+        background: rgba(239, 233, 220, 0.92);
+        padding: 10px 16px 10px 32px; /* hanging indent */
+        display: inline-block;
+        max-width: 660px;
+        border-left: 4px solid var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-def"
+         data-composition-id="t2-lb-def"
+         data-start="0"
+         data-width="1920"
+         data-height="1080">
+
+      <div class="wrap">
+        <div class="term-row">
+          <div class="term" data-slot="term">epistemic drift</div>
+          <div class="pronunciation" data-slot="note">/ˌɛp.ɪˈstiː.mɪk drɪft/</div>
+          <div class="pos-chip">noun</div>
+        </div>
+        <div class="rule"></div>
+        <div class="detail" data-slot="detail">The gradual, unnoticed shift in what a group believes it knows — often faster than the facts change.</div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* 1 — term slides+fades in */
+      tl.from("#t2-lb-def .term", {
+        autoAlpha: 0, scaleX: 0, transformOrigin: "left center",
+        duration: 0.36, ease: "power3.out"
+      }, 0.0)
+
+      /* 2 — pronunciation swings in */
+      .from("#t2-lb-def .pronunciation", {
+        autoAlpha: 0, y: 10, duration: 0.28, ease: "steps(4)"
+      }, 0.22)
+
+      /* 3 — POS chip pops */
+      .from("#t2-lb-def .pos-chip", {
+        autoAlpha: 0, scale: 0.4, transformOrigin: "left center",
+        duration: 0.32, ease: "back.out(2.6)"
+      }, 0.34)
+
+      /* 4 — ink rule wipes left→right */
+      .to("#t2-lb-def .rule", {
+        width: "100%", duration: 0.38, ease: "power2.out"
+      }, 0.54)
+
+      /* 5 — definition reveals with step snap */
+      .from("#t2-lb-def .detail", {
+        autoAlpha: 0, y: 18, duration: 0.34, ease: "steps(5)"
+      }, 0.72)
+
+      .set({}, {}, 7);
+
+      window.__timelines["t2-lb-def"] = tl;
+    </script>
+  </body>
+</html>

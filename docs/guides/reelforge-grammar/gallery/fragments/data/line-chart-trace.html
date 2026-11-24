@@ -1,0 +1,339 @@
+<!-- rf-gallery v1 | data/line-chart-trace | animated-line-chart-trace | mutate=copy,duration,accent-color,data-values | keep=timeline-phase-structure,easing-curves,stroke-dashoffset-trace,leading-marker-path-follow,area-clip-reveal,final-marker-label-pop,living-breath-delay -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Line Chart Trace</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-line-chart-trace {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #0a0b0e);
+          color: var(--rf-text, #f7f8f8);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+
+        .rf-line-chart-trace .lct-stage,
+        .rf-line-chart-trace .lct-chart {
+          position: absolute;
+          inset: 0;
+        }
+
+        .rf-line-chart-trace .lct-haze {
+          position: absolute;
+          top: 38%;
+          left: 57%;
+          width: 88vw;
+          height: 76vw;
+          border-radius: 50%;
+          background: var(--rf-accent, #5e6ad2);
+          filter: blur(136px) brightness(1);
+          opacity: 0.12;
+          pointer-events: none;
+          transform: translate(-50%, -50%);
+          will-change: filter, opacity;
+          animation: lct-breathe 1.25s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+
+        .rf-line-chart-trace .lct-kicker {
+          position: absolute;
+          top: 7.8%;
+          left: 7.2%;
+          color: var(--rf-muted-text, #d0d6e0);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(16px, 1.15vw, 22px);
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+
+        .rf-line-chart-trace .lct-headline {
+          position: absolute;
+          top: 12.6%;
+          left: 7.05%;
+          max-width: 10em;
+          margin: 0;
+          color: var(--rf-text, #f7f8f8);
+          font-size: clamp(72px, 7vw, 136px);
+          font-weight: 800;
+          letter-spacing: -0.075em;
+          line-height: 0.94;
+          word-break: keep-all;
+          will-change: transform, opacity;
+        }
+
+        .rf-line-chart-trace .lct-detail {
+          position: absolute;
+          top: 16.8%;
+          right: 7.2%;
+          width: min(27vw, 500px);
+          margin: 0;
+          color: var(--rf-muted-text, #d0d6e0);
+          font-size: clamp(18px, 1.5vw, 29px);
+          font-weight: 500;
+          letter-spacing: -0.035em;
+          line-height: 1.35;
+          word-break: keep-all;
+          will-change: transform, opacity;
+        }
+
+        .rf-line-chart-trace .lct-chart {
+          top: 27%;
+          right: 5.4%;
+          bottom: auto;
+          left: 5.4%;
+          width: auto;
+          height: 61%;
+          overflow: visible;
+          will-change: transform, opacity;
+        }
+
+        .rf-line-chart-trace .lct-chart svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+          overflow: visible;
+        }
+
+        .rf-line-chart-trace .lct-grid {
+          fill: none;
+          stroke: var(--rf-hairline, #34363e);
+          stroke-width: 2;
+          opacity: 0.72;
+        }
+
+        .rf-line-chart-trace .lct-grid--strong {
+          stroke: var(--rf-hairline-strong, #474a54);
+        }
+
+        .rf-line-chart-trace .lct-area {
+          fill: var(--rf-accent, #5e6ad2);
+          opacity: 0.2;
+          clip-path: inset(0 100% 0 0);
+        }
+
+        .rf-line-chart-trace .lct-line-shadow {
+          fill: none;
+          stroke: var(--rf-surface-3, #22242a);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 20;
+          opacity: 0.9;
+        }
+
+        .rf-line-chart-trace .lct-line {
+          fill: none;
+          stroke: var(--rf-accent, #5e6ad2);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 12;
+          filter: var(--rf-glow, none);
+        }
+
+        .rf-line-chart-trace .lct-lead-marker {
+          fill: var(--rf-on-accent, #ffffff);
+          stroke: var(--rf-accent, #5e6ad2);
+          stroke-width: 8;
+        }
+
+        .rf-line-chart-trace .lct-final-pulse {
+          fill: var(--rf-accent, #5e6ad2);
+          opacity: 0.3;
+        }
+
+        .rf-line-chart-trace .lct-final-dot {
+          fill: var(--rf-on-accent, #ffffff);
+          stroke: var(--rf-accent, #5e6ad2);
+          stroke-width: 9;
+          filter: var(--rf-glow, none);
+        }
+
+        .rf-line-chart-trace .lct-label-leader {
+          fill: none;
+          stroke: var(--rf-hairline-strong, #474a54);
+          stroke-width: 3;
+        }
+
+        .rf-line-chart-trace .lct-end-value {
+          fill: var(--rf-text, #f7f8f8);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+          font-size: 76px;
+          font-weight: 800;
+          letter-spacing: -0.07em;
+        }
+
+        .rf-line-chart-trace .lct-end-caption {
+          fill: var(--rf-accent-alt, #828fff);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 22px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+        }
+
+        .rf-line-chart-trace .lct-axis {
+          position: absolute;
+          right: 7.2%;
+          bottom: 7.1%;
+          left: 7.2%;
+          display: flex;
+          justify-content: space-between;
+          color: var(--rf-ink-subtle, #8a8f98);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(14px, 1vw, 19px);
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+
+        .rf-line-chart-trace .lct-index {
+          position: absolute;
+          right: 7.2%;
+          bottom: 7.1%;
+          color: var(--rf-ink-tertiary, #62666d);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(14px, 1vw, 19px);
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+
+        @keyframes lct-breathe {
+          from {
+            filter: blur(136px) brightness(1);
+            opacity: 0.12;
+          }
+          to {
+            filter: blur(136px) brightness(1.24);
+            opacity: 0.26;
+          }
+        }
+      </style>
+
+      <main
+        class="rf-line-chart-trace"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-data-line-chart-trace"
+      >
+        <div class="lct-stage">
+          <div class="lct-haze" aria-hidden="true"></div>
+          <div class="lct-kicker" data-slot="kicker">주간 흐름</div>
+          <h1 class="lct-headline" data-slot="headline">흐름이 보이는 순간</h1>
+          <p class="lct-detail" data-slot="detail">작은 변화가 방향을 만듭니다</p>
+
+          <div class="lct-chart">
+            <svg viewBox="0 0 1440 620" preserveAspectRatio="none" aria-hidden="true">
+              <path class="lct-grid" d="M 60 105 H 1385 M 60 245 H 1385 M 60 385 H 1385"></path>
+              <path class="lct-grid lct-grid--strong" d="M 60 525 H 1385"></path>
+              <path
+                class="lct-area"
+                data-series="70,475 205,430 360,420 520,340 640,380 810,280 900,315 1080,180 1190,230 1310,100 1370,130"
+                d="M 70 475 C 190 430 250 490 360 420 S 540 340 640 380 S 800 280 900 315 S 1080 180 1190 230 S 1310 100 1370 130 L 1370 525 L 70 525 Z"
+              ></path>
+              <path
+                class="lct-line-shadow"
+                d="M 70 475 C 190 430 250 490 360 420 S 540 340 640 380 S 800 280 900 315 S 1080 180 1190 230 S 1310 100 1370 130"
+              ></path>
+              <path
+                class="lct-line"
+                data-series="70,475 205,430 360,420 520,340 640,380 810,280 900,315 1080,180 1190,230 1310,100 1370,130"
+                d="M 70 475 C 190 430 250 490 360 420 S 540 340 640 380 S 800 280 900 315 S 1080 180 1190 230 S 1310 100 1370 130"
+              ></path>
+              <circle class="lct-lead-marker" cx="70" cy="475" r="13"></circle>
+              <g class="lct-final-group">
+                <circle class="lct-final-pulse" cx="1370" cy="130" r="38"></circle>
+                <circle class="lct-final-dot" cx="1370" cy="130" r="16"></circle>
+                <path class="lct-label-leader" d="M 1358 116 L 1267 57"></path>
+                <text class="lct-end-value" x="1160" y="55" data-slot="end-value" data-value="68%">68%</text>
+                <text class="lct-end-caption" x="1163" y="96" data-slot="end-caption">마감 지점</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="lct-axis">
+            <span data-slot="axis-start">시작</span>
+            <span data-slot="axis-end">현재</span>
+          </div>
+          <div class="lct-index" data-slot="index">03 / 06</div>
+        </div>
+      </main>
+
+      <script>
+        (() => {
+          const compositionId = "gallery-data-line-chart-trace";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const kicker = root.querySelector(".lct-kicker");
+          const headline = root.querySelector(".lct-headline");
+          const detail = root.querySelector(".lct-detail");
+          const chart = root.querySelector(".lct-chart");
+          const linePath = root.querySelector(".lct-line");
+          const area = root.querySelector(".lct-area");
+          const leadMarker = root.querySelector(".lct-lead-marker");
+          const finalGroup = root.querySelector(".lct-final-group");
+          const axis = root.querySelector(".lct-axis");
+          const index = root.querySelector(".lct-index");
+          const fallbackStart = { x: 70, y: 475 };
+          const fallbackEnd = { x: 1370, y: 130 };
+          const fallbackLength = 1500;
+          const canMeasureLength = linePath && typeof linePath.getTotalLength === "function";
+          const measuredLength = canMeasureLength ? linePath.getTotalLength() : fallbackLength;
+          const length = Number.isFinite(measuredLength) && measuredLength > 0 ? measuredLength : fallbackLength;
+          const tracer = { distance: 0 };
+
+          const pointAt = (distance, fallback) => {
+            if (!linePath || typeof linePath.getPointAtLength !== "function") return fallback;
+            const point = linePath.getPointAtLength(Math.max(0, Math.min(length, distance)));
+            if (!point || !Number.isFinite(point.x) || !Number.isFinite(point.y)) return fallback;
+            return point;
+          };
+
+          const updateLeadMarker = () => {
+            const point = pointAt(tracer.distance, fallbackStart);
+            leadMarker.setAttribute("cx", String(point.x));
+            leadMarker.setAttribute("cy", String(point.y));
+          };
+
+          const endPoint = pointAt(length, fallbackEnd);
+          leadMarker.setAttribute("cx", String(fallbackStart.x));
+          leadMarker.setAttribute("cy", String(fallbackStart.y));
+          finalGroup.setAttribute("data-end-x", String(endPoint.x));
+          finalGroup.setAttribute("data-end-y", String(endPoint.y));
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([kicker, headline, detail, chart, axis, index], { opacity: 0 })
+            .set(chart, { y: 28 })
+            .set(linePath, { strokeDasharray: length, strokeDashoffset: length })
+            .set(area, { clipPath: "inset(0 100% 0 0)" })
+            .set(leadMarker, { opacity: 0, scale: 0.35, transformOrigin: "50% 50%" })
+            .set(finalGroup, { opacity: 0, scale: 0.76, transformOrigin: "1370px 130px" })
+            .fromTo(kicker, { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.26, ease: "power3.out" }, 0)
+            .fromTo(headline, { opacity: 0, x: -58 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out" }, 0.1)
+            .fromTo(detail, { opacity: 0, x: 38 }, { opacity: 1, x: 0, duration: 0.34, ease: "power3.out" }, 0.3)
+            .fromTo(chart, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.36)
+            .to(leadMarker, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(1.7)" }, 0.52)
+            .to(linePath, { strokeDashoffset: 0, duration: 1.16, ease: "power2.out" }, 0.54)
+            .to(area, { clipPath: "inset(0 0% 0 0)", duration: 1.16, ease: "power2.out" }, 0.54)
+            .to(tracer, { distance: length, duration: 1.16, ease: "power2.out", onUpdate: updateLeadMarker }, 0.54)
+            .fromTo(axis, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 1.2)
+            .fromTo(index, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 1.32)
+            .to(leadMarker, { opacity: 0, duration: 0.08, ease: "none" }, 1.68)
+            .fromTo(finalGroup, { opacity: 0, scale: 0.76 }, { opacity: 1, scale: 1, duration: 0.26, ease: "back.out(1.8)" }, 1.68);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

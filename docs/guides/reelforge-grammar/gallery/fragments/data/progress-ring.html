@@ -1,0 +1,305 @@
+<!-- rf-gallery v1 | data/progress-ring | progress-ring-radial | mutate=copy,duration,accent-color,data-values | keep=ring-fill-counter-sync,entry-orbit-scale,arc-end-marker,breathing-halo -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Progress Ring</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-progress-ring {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #0a0b0e);
+          color: var(--rf-text, #f7f8f8);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+
+        .rf-progress-ring .prr-halo {
+          position: absolute;
+          top: 50%;
+          left: 31%;
+          width: 76vw;
+          height: 76vw;
+          border-radius: 50%;
+          background: var(--rf-accent, #5e6ad2);
+          filter: blur(118px) brightness(1);
+          opacity: 0.16;
+          pointer-events: none;
+          will-change: filter, opacity;
+          transform: translate(-50%, -50%);
+          animation: prr-breathe 1.3s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+
+        .rf-progress-ring .prr-orbit {
+          position: absolute;
+          top: 50%;
+          left: 31%;
+          width: min(68vw, 1040px);
+          height: min(68vw, 1040px);
+          transform: translate(-50%, -50%);
+          will-change: transform, opacity;
+        }
+
+        .rf-progress-ring .prr-orbit::before,
+        .rf-progress-ring .prr-orbit::after {
+          position: absolute;
+          border: 1px solid var(--rf-hairline, #34363e);
+          border-radius: 50%;
+          content: "";
+          inset: 8%;
+          opacity: 0.78;
+        }
+
+        .rf-progress-ring .prr-orbit::after {
+          border-color: var(--rf-hairline-strong, #474a54);
+          inset: 18%;
+          opacity: 0.62;
+        }
+
+        .rf-progress-ring .prr-gauge {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: visible;
+        }
+
+        .rf-progress-ring .prr-track {
+          fill: none;
+          stroke: var(--rf-surface-3, #22242a);
+          stroke-width: 34;
+        }
+
+        .rf-progress-ring .prr-progress {
+          fill: none;
+          stroke: var(--rf-accent, #5e6ad2);
+          stroke-linecap: round;
+          stroke-width: 34;
+          filter: var(--rf-glow, none);
+        }
+
+        .rf-progress-ring .prr-marker {
+          fill: var(--rf-on-accent, #ffffff);
+          stroke: var(--rf-accent, #5e6ad2);
+          stroke-width: 7;
+          opacity: 0;
+        }
+
+        .rf-progress-ring .prr-core {
+          position: absolute;
+          top: 50%;
+          left: 31%;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          font-size: clamp(132px, 13.4vw, 258px);
+          font-weight: 800;
+          letter-spacing: -0.09em;
+          line-height: 0.82;
+          transform: translate(-50%, -50%);
+          font-variant-numeric: tabular-nums;
+          will-change: transform, opacity;
+        }
+
+        .rf-progress-ring .prr-value {
+          color: var(--rf-text, #f7f8f8);
+        }
+
+        .rf-progress-ring .prr-unit {
+          margin-left: 0.04em;
+          color: var(--rf-accent-alt, #828fff);
+          font-size: 0.38em;
+          font-weight: 700;
+          letter-spacing: -0.04em;
+        }
+
+        .rf-progress-ring .prr-kicker {
+          position: absolute;
+          top: 8.2%;
+          right: 7.2%;
+          color: var(--rf-muted-text, #d0d6e0);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+
+        .rf-progress-ring .prr-copy {
+          position: absolute;
+          top: 31%;
+          right: 7.2%;
+          width: min(39vw, 660px);
+          will-change: transform, opacity;
+        }
+
+        .rf-progress-ring .prr-headline {
+          max-width: 8.5em;
+          margin: 0;
+          color: var(--rf-text, #f7f8f8);
+          font-size: clamp(66px, 6.2vw, 118px);
+          font-weight: 800;
+          letter-spacing: -0.075em;
+          line-height: 0.96;
+          word-break: keep-all;
+        }
+
+        .rf-progress-ring .prr-detail {
+          max-width: 26em;
+          margin: 30px 0 0;
+          color: var(--rf-muted-text, #d0d6e0);
+          font-size: clamp(20px, 1.65vw, 31px);
+          font-weight: 500;
+          letter-spacing: -0.03em;
+          line-height: 1.45;
+          word-break: keep-all;
+        }
+
+        .rf-progress-ring .prr-annotation {
+          position: absolute;
+          bottom: 9.3%;
+          left: 7.2%;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          color: var(--rf-ink-subtle, #8a8f98);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 17px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+
+        .rf-progress-ring .prr-annotation::before {
+          width: 48px;
+          height: 9px;
+          border-top: 2px solid var(--rf-accent, #5e6ad2);
+          border-bottom: 2px solid var(--rf-accent-alt, #828fff);
+          content: "";
+        }
+
+        .rf-progress-ring .prr-index {
+          position: absolute;
+          right: 7.2%;
+          bottom: 9.3%;
+          color: var(--rf-ink-tertiary, #62666d);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 17px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+
+        @keyframes prr-breathe {
+          from {
+            filter: blur(118px) brightness(1);
+            opacity: 0.16;
+          }
+          to {
+            filter: blur(118px) brightness(1.28);
+            opacity: 0.31;
+          }
+        }
+      </style>
+
+      <main
+        class="rf-progress-ring"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-data-progress-ring"
+      >
+        <div class="prr-halo" aria-hidden="true"></div>
+        <div class="prr-orbit">
+          <svg class="prr-gauge" viewBox="0 0 720 720" aria-hidden="true">
+            <g transform="rotate(-90 360 360)">
+              <circle class="prr-track" cx="360" cy="360" r="286"></circle>
+              <circle class="prr-progress" cx="360" cy="360" r="286"></circle>
+            </g>
+            <circle class="prr-marker" cx="360" cy="74" r="15"></circle>
+          </svg>
+        </div>
+
+        <div class="prr-core">
+          <span class="prr-value" data-slot="value" data-target="72">0</span><span class="prr-unit" data-slot="unit">%</span>
+        </div>
+        <div class="prr-kicker" data-slot="kicker">진행 상태</div>
+        <div class="prr-copy">
+          <p class="prr-headline" data-slot="headline">목표까지 감기는 중</p>
+          <p class="prr-detail" data-slot="detail">한 바퀴의 집중이 다음 장면을 엽니다</p>
+        </div>
+        <div class="prr-annotation" data-slot="annotation">안정 구간</div>
+        <div class="prr-index" data-slot="index">02 / 05</div>
+      </main>
+
+      <script>
+        (() => {
+          const compositionId = "gallery-data-progress-ring";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const orbit = root.querySelector(".prr-orbit");
+          const progress = root.querySelector(".prr-progress");
+          const marker = root.querySelector(".prr-marker");
+          const value = root.querySelector(".prr-value");
+          const kicker = root.querySelector(".prr-kicker");
+          const copy = root.querySelector(".prr-copy");
+          const annotation = root.querySelector(".prr-annotation");
+          const index = root.querySelector(".prr-index");
+          const requestedTarget = Number(value.getAttribute("data-target"));
+          const target = Number.isFinite(requestedTarget) ? Math.max(0, Math.min(100, requestedTarget)) : 0;
+          const radius = 286;
+          const circumference = 2 * Math.PI * radius;
+          const targetOffset = circumference * (1 - target / 100);
+          const targetAngle = target * Math.PI * 2 / 100;
+          const markerX = 360 + radius * Math.sin(targetAngle);
+          const markerY = 360 - radius * Math.cos(targetAngle);
+          const counter = { value: 0 };
+
+          value.textContent = "0";
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set(progress, {
+            attr: {
+              "stroke-dasharray": `${circumference} ${circumference}`,
+              "stroke-dashoffset": circumference
+            }
+          })
+            .set(marker, { attr: { cx: markerX, cy: markerY }, opacity: 0, scale: 0.2, transformOrigin: "50% 50%" })
+            .set([orbit, kicker, copy, annotation, index], { opacity: 0 })
+            .set(orbit, { scale: 0.84, transformOrigin: "50% 50%" })
+            .set(root.querySelector(".prr-core"), { opacity: 0, scale: 0.82, transformOrigin: "50% 50%" })
+            .fromTo(kicker, { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, 0)
+            .fromTo(orbit, { opacity: 0, scale: 0.84 }, { opacity: 1, scale: 1, duration: 0.56, ease: "power3.out" }, 0.08)
+            .fromTo(root.querySelector(".prr-core"), { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.5)" }, 0.28)
+            .to(progress, {
+              attr: { "stroke-dashoffset": targetOffset },
+              duration: 1.18,
+              ease: "power3.out"
+            }, 0.32)
+            .to(counter, {
+              value: target,
+              duration: 1.18,
+              ease: "power3.out",
+              onUpdate: () => {
+                value.textContent = String(Math.round(counter.value));
+              }
+            }, 0.32)
+            .to(marker, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2)" }, 1.4)
+            .fromTo(copy, { opacity: 0, x: 46 }, { opacity: 1, x: 0, duration: 0.44, ease: "power3.out" }, 0.64)
+            .fromTo(annotation, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 1.18)
+            .fromTo(index, { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 1.3);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier2 · lower-third badge
+  TRANSPARENT — only the component paints. Sits lower-left so it never
+  covers a centered speaker.
+  Slots: tag (kicker above name), name (Fraunces big), role (Archivo beneath).
+  Motion: circular avatar badge pops in with back.out scale, text reveals after.
+  The circle is a functional avatar badge placeholder — not a stray scribble.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+      #t2-lt-badge {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent;
+      }
+      #t2-lt-badge .wrap {
+        position: absolute; left: 110px; bottom: 130px;
+        display: flex; flex-direction: row; align-items: flex-end; gap: 22px;
+      }
+      /* Circular avatar badge */
+      #t2-lt-badge .badge {
+        width: 148px;
+        height: 148px;
+        border-radius: 50%;
+        background: var(--yellow);
+        border: 5px solid var(--ink);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 5px 5px 0 rgba(23,19,14,0.35);
+      }
+      #t2-lt-badge .initials {
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 52px;
+        line-height: 1;
+        letter-spacing: var(--track-tight);
+        color: var(--ink);
+        /* initials are static — not a slot, just a placeholder marker */
+      }
+      #t2-lt-badge .text-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 4px;
+      }
+      #t2-lt-badge .tag {
+        font-family: var(--font-label);
+        font-weight: var(--wt-bold);
+        font-size: var(--size-label);
+        letter-spacing: var(--track-wide);
+        text-transform: uppercase;
+        color: var(--ink);
+        background: var(--yellow);
+        padding: 3px 12px;
+        transform: skewX(var(--marker-skew));
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      #t2-lt-badge .name {
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 88px;
+        line-height: 0.95;
+        letter-spacing: var(--track-tight);
+        color: var(--paper);
+        text-shadow: 0 4px 0 rgba(23,19,14,0.9), 6px 6px 0 rgba(23,19,14,0.35);
+        white-space: nowrap;
+      }
+      #t2-lt-badge .role {
+        font-family: var(--font-label);
+        font-weight: var(--wt-bold);
+        font-size: var(--size-body);
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        background: var(--paper);
+        display: inline-block;
+        padding: 5px 14px;
+        margin-top: 10px;
+        box-shadow: 4px 4px 0 rgba(23,19,14,0.22);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lt-badge" data-composition-id="t2-lt-badge" data-start="0" data-width="1920" data-height="1080">
+      <div class="wrap">
+        <!-- Avatar badge: initials are a placeholder; not a data-slot -->
+        <div class="badge">
+          <span class="initials">DW</span>
+        </div>
+        <div class="text-block">
+          <div class="tag" data-slot="tag">ANALYSIS</div>
+          <div class="name" data-slot="name">Dana Whitlock</div>
+          <div class="role" data-slot="role">Senior Correspondent · Vox</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Badge pops in with back.out scale overshoot
+      tl.from("#t2-lt-badge .badge", {
+          scale: 0, transformOrigin: "center center",
+          duration: 0.38, ease: "back.out(2.2)"
+        }, 0.0)
+        // tag scaleX wipe from left
+        .from("#t2-lt-badge .tag", {
+          scaleX: 0, transformOrigin: "left center",
+          autoAlpha: 0,
+          duration: 0.28, ease: "power3.out"
+        }, 0.32)
+        // name slides in with overshoot
+        .from("#t2-lt-badge .name", {
+          autoAlpha: 0, x: -40,
+          duration: 0.38, ease: "back.out(1.7)"
+        }, 0.44)
+        // role steps in
+        .from("#t2-lt-badge .role", {
+          autoAlpha: 0, y: 14,
+          duration: 0.3, ease: "steps(4)"
+        }, 0.7)
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lt-badge"] = tl;
+    </script>
+  </body>
+</html>

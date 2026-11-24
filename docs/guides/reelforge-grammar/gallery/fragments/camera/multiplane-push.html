@@ -1,0 +1,332 @@
+<!-- rf-gallery v1 | camera/multiplane-push | multiplane-dolly-push | mutate=copy,duration,accent-color,depth-values | keep=timeline-phases,easing,perspective-container,z-plane-layout,dolly-push-curve,living-breathe -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Multiplane Dolly Push</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-multiplane-push {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #0a0b0e);
+          color: var(--rf-text, #f7f8f8);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-multiplane-push .mpp-stage {
+          position: absolute;
+          inset: 0;
+          perspective: 930px;
+          perspective-origin: 51% 50%;
+        }
+        .rf-multiplane-push .mpp-rig {
+          position: absolute;
+          inset: 0;
+          transform-style: preserve-3d;
+          will-change: transform;
+        }
+        .rf-multiplane-push .mpp-plane {
+          position: absolute;
+          inset: -28%;
+          transform-style: preserve-3d;
+          backface-visibility: hidden;
+        }
+        .rf-multiplane-push .mpp-plane--far {
+          inset: -44%;
+        }
+        .rf-multiplane-push .mpp-far-fill {
+          position: absolute;
+          inset: 0;
+          background: var(--rf-surface-2, #1a1b20);
+          opacity: 0.74;
+        }
+        .rf-multiplane-push .mpp-haze {
+          position: absolute;
+          top: 18%;
+          left: 16%;
+          width: 76vw;
+          height: 76vw;
+          border-radius: 50%;
+          background: var(--rf-accent, #5e6ad2);
+          filter: blur(72px) brightness(1);
+          opacity: 0.32;
+          animation: mpp-haze-breathe 1.3s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-multiplane-push .mpp-far-frame {
+          position: absolute;
+          inset: 18%;
+          border: 2px solid var(--rf-hairline, #34363e);
+          transform: rotate(-5deg);
+        }
+        .rf-multiplane-push .mpp-far-frame::before,
+        .rf-multiplane-push .mpp-far-frame::after {
+          position: absolute;
+          content: "";
+          background: var(--rf-hairline, #34363e);
+        }
+        .rf-multiplane-push .mpp-far-frame::before {
+          top: 50%;
+          left: -16%;
+          width: 132%;
+          height: 2px;
+        }
+        .rf-multiplane-push .mpp-far-frame::after {
+          top: -16%;
+          left: 50%;
+          width: 2px;
+          height: 132%;
+        }
+        .rf-multiplane-push .mpp-far-echo {
+          position: absolute;
+          top: 25%;
+          left: 15%;
+          margin: 0;
+          color: var(--rf-ink-tertiary, #62666d);
+          font-size: clamp(54px, 5.1vw, 98px);
+          font-weight: 700;
+          letter-spacing: -0.06em;
+          line-height: 1.18;
+        }
+        .rf-multiplane-push .mpp-portal {
+          position: absolute;
+          top: 17%;
+          right: 13%;
+          bottom: 17%;
+          left: 13%;
+          border: 3px solid var(--rf-hairline-strong, #474a54);
+          transform: rotateY(-7deg);
+        }
+        .rf-multiplane-push .mpp-portal::before,
+        .rf-multiplane-push .mpp-portal::after {
+          position: absolute;
+          content: "";
+          border: 2px solid var(--rf-hairline, #34363e);
+        }
+        .rf-multiplane-push .mpp-portal::before {
+          inset: 8%;
+        }
+        .rf-multiplane-push .mpp-portal::after {
+          inset: 20%;
+          border-color: var(--rf-accent, #5e6ad2);
+        }
+        .rf-multiplane-push .mpp-mid-axis {
+          position: absolute;
+          top: 50%;
+          left: 4%;
+          width: 92%;
+          height: 3px;
+          background: var(--rf-accent, #5e6ad2);
+          box-shadow: 0 0 42px var(--rf-accent, #5e6ad2);
+          transform: rotate(-7deg);
+        }
+        .rf-multiplane-push .mpp-mid-note {
+          position: absolute;
+          top: 19%;
+          right: 15%;
+          margin: 0;
+          color: var(--rf-muted-text, #d0d6e0);
+          font-size: clamp(23px, 1.8vw, 34px);
+          font-weight: 700;
+          letter-spacing: -0.035em;
+          line-height: 1.35;
+        }
+        .rf-multiplane-push .mpp-copy-zone {
+          position: absolute;
+          top: 27%;
+          left: 10.5%;
+          width: 75%;
+        }
+        .rf-multiplane-push .mpp-kicker {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          margin: 0 0 30px;
+          color: var(--rf-accent-alt, #828fff);
+          font-size: clamp(21px, 1.55vw, 30px);
+          font-weight: 800;
+          letter-spacing: -0.035em;
+          line-height: 1.35;
+        }
+        .rf-multiplane-push .mpp-kicker::before {
+          width: 72px;
+          height: 3px;
+          content: "";
+          background: var(--rf-accent-alt, #828fff);
+        }
+        .rf-multiplane-push .mpp-headline {
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          font-size: clamp(130px, 11.5vw, 220px);
+          font-weight: 800;
+          letter-spacing: -0.085em;
+          line-height: 1.08;
+        }
+        .rf-multiplane-push .mpp-headline-line {
+          display: block;
+          width: max-content;
+          max-width: 100%;
+          will-change: transform, opacity;
+        }
+        .rf-multiplane-push .mpp-headline-line--accent {
+          color: var(--rf-accent, #5e6ad2);
+          text-shadow: 0 0 48px var(--rf-accent, #5e6ad2);
+        }
+        .rf-multiplane-push .mpp-detail {
+          margin: 35px 0 0 8px;
+          color: var(--rf-muted-text, #d0d6e0);
+          font-size: clamp(26px, 2.1vw, 40px);
+          font-weight: 600;
+          letter-spacing: -0.045em;
+          line-height: 1.42;
+          will-change: transform, opacity;
+        }
+        .rf-multiplane-push .mpp-near-rule {
+          position: absolute;
+          top: 14%;
+          right: 10%;
+          bottom: 14%;
+          width: 7px;
+          background: var(--rf-text, #f7f8f8);
+          box-shadow: 0 0 44px var(--rf-text, #f7f8f8);
+          transform: rotate(6deg);
+        }
+        .rf-multiplane-push .mpp-near-block {
+          position: absolute;
+          right: 13%;
+          bottom: 12%;
+          width: 290px;
+          height: 290px;
+          border: 4px solid var(--rf-accent-alt, #828fff);
+          transform: rotate(17deg);
+        }
+        .rf-multiplane-push .mpp-front-word {
+          position: absolute;
+          right: 6%;
+          bottom: 7%;
+          margin: 0;
+          color: var(--rf-text, #f7f8f8);
+          font-size: clamp(170px, 17vw, 326px);
+          font-weight: 800;
+          letter-spacing: -0.13em;
+          line-height: 1;
+          transform: rotate(-8deg);
+          will-change: transform, opacity;
+        }
+        .rf-multiplane-push .mpp-front-corner {
+          position: absolute;
+          top: 9%;
+          right: 8%;
+          width: 29vw;
+          height: 29vw;
+          border-top: 14px solid var(--rf-accent, #5e6ad2);
+          border-right: 14px solid var(--rf-accent, #5e6ad2);
+          box-shadow: 26px -26px 0 -19px var(--rf-text, #f7f8f8);
+        }
+        @keyframes mpp-haze-breathe {
+          from {
+            filter: blur(72px) brightness(1);
+            opacity: 0.32;
+          }
+          to {
+            filter: blur(72px) brightness(1.28);
+            opacity: 0.52;
+          }
+        }
+      </style>
+      <main
+        class="rf-multiplane-push"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-camera-multiplane-push"
+      >
+        <div class="mpp-stage">
+          <div class="mpp-rig">
+            <div class="mpp-plane mpp-plane--far">
+              <div class="mpp-far-fill"></div>
+              <div class="mpp-haze"></div>
+              <div class="mpp-far-frame"></div>
+              <p class="mpp-far-echo" data-slot="far-echo">아직 먼 빛</p>
+            </div>
+            <div class="mpp-plane mpp-plane--mid">
+              <div class="mpp-portal"></div>
+              <div class="mpp-mid-axis"></div>
+              <p class="mpp-mid-note" data-slot="mid-note">빛이 겹치는 곳</p>
+            </div>
+            <div class="mpp-plane mpp-plane--center">
+              <div class="mpp-copy-zone">
+                <p class="mpp-kicker" data-slot="kicker">겹친 장면 사이</p>
+                <h1 class="mpp-headline">
+                  <span class="mpp-headline-line" data-slot="headline-line-one">시선은</span>
+                  <span class="mpp-headline-line mpp-headline-line--accent" data-slot="headline-line-two">더 안쪽으로</span>
+                </h1>
+                <p class="mpp-detail" data-slot="detail">한 걸음씩 깊어집니다</p>
+              </div>
+            </div>
+            <div class="mpp-plane mpp-plane--near">
+              <div class="mpp-near-rule"></div>
+              <div class="mpp-near-block"></div>
+            </div>
+            <div class="mpp-plane mpp-plane--front">
+              <p class="mpp-front-word" data-slot="front-word">진입</p>
+              <div class="mpp-front-corner"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-camera-multiplane-push";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const rig = root.querySelector(".mpp-rig");
+          const farPlane = root.querySelector(".mpp-plane--far");
+          const midPlane = root.querySelector(".mpp-plane--mid");
+          const centerPlane = root.querySelector(".mpp-plane--center");
+          const nearPlane = root.querySelector(".mpp-plane--near");
+          const frontPlane = root.querySelector(".mpp-plane--front");
+          const farEcho = root.querySelector(".mpp-far-echo");
+          const midNote = root.querySelector(".mpp-mid-note");
+          const kicker = root.querySelector(".mpp-kicker");
+          const headlineOne = root.querySelector('[data-slot="headline-line-one"]');
+          const headlineTwo = root.querySelector('[data-slot="headline-line-two"]');
+          const detail = root.querySelector(".mpp-detail");
+          const frontWord = root.querySelector(".mpp-front-word");
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set(rig, { z: 0, transformStyle: "preserve-3d" }, 0)
+            .set([farPlane, midPlane, centerPlane, nearPlane, frontPlane], { transformStyle: "preserve-3d" }, 0)
+            .set(farPlane, { z: -620 }, 0)
+            .set(midPlane, { z: -250 }, 0)
+            .set(centerPlane, { z: 0 }, 0)
+            .set(nearPlane, { z: 130 }, 0)
+            .set(frontPlane, { z: 245 }, 0)
+            .set([farEcho, midNote, kicker, headlineOne, headlineTwo, detail, frontWord], { opacity: 0 }, 0)
+            .set(farEcho, { x: -38 }, 0)
+            .set(midNote, { x: 28 }, 0)
+            .set(kicker, { y: -22 }, 0)
+            .set([headlineOne, headlineTwo], { y: 42, scale: 0.94, transformOrigin: "left center" }, 0)
+            .set(detail, { y: 24 }, 0)
+            .set(frontWord, { x: 90, y: 36, scale: 0.82, transformOrigin: "right bottom" }, 0)
+            .to(rig, { z: 355, duration: 1.78, ease: "power2.inOut" }, 0.14)
+            .to(farEcho, { opacity: 0.86, x: 0, duration: 0.42, ease: "power2.out" }, 0.08)
+            .to(midNote, { opacity: 1, x: 0, duration: 0.38, ease: "power2.out" }, 0.3)
+            .to(kicker, { opacity: 1, y: 0, duration: 0.34, ease: "power3.out" }, 0.46)
+            .to(headlineOne, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "power3.out" }, 0.62)
+            .to(headlineTwo, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "power3.out" }, 0.82)
+            .to(detail, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 1.2)
+            .to(frontWord, { opacity: 0.92, x: 0, y: 0, scale: 1, duration: 0.42, ease: "power3.out" }, 1.46);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

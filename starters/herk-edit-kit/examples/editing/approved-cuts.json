@@ -1,0 +1,9 @@
+{
+  "cuts": [
+    {
+      "start": 0.6,
+      "end": 0.89,
+      "reason": "Synthetic exercise: repeated first We on the raw timeline"
+    }
+  ]
+}

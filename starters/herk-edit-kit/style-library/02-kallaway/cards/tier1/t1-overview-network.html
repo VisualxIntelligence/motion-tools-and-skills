@@ -1,0 +1,353 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier1 · overview · NETWORK
+  Node graph: 5 glowing nodes connected by edges that draw in (stroke-dashoffset).
+  Each node has a label; edges are dashed glowing lines. Aurora bloom.
+  Slots: title, n1, n2, n3, n4, n5.
+  Node positions are fixed in the SVG (1640x760 viewBox) and labeled via HTML overlays.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; }
+
+      #t1-ov-net {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: var(--canvas); color: var(--text);
+        font-family: var(--font-display); overflow: hidden;
+      }
+
+      #t1-ov-net .bloom {
+        position: absolute; inset: 0; background: var(--bloom-bottom); z-index: 1;
+      }
+      #t1-ov-net .dot-grid {
+        position: absolute; inset: 0; z-index: 1;
+        background-image: var(--dot); background-size: var(--dot-size); opacity: 0.42;
+        -webkit-mask-image: radial-gradient(115% 100% at 50% 60%, #000 30%, transparent 78%);
+                mask-image: radial-gradient(115% 100% at 50% 60%, #000 30%, transparent 78%);
+      }
+
+      /* Title */
+      #t1-ov-net .title-row {
+        position: absolute; left: 0; right: 0; top: 72px;
+        text-align: center; z-index: 4;
+      }
+      #t1-ov-net .title {
+        font-family: var(--font-display); font-weight: var(--wt-bold);
+        font-size: var(--size-title); letter-spacing: var(--track-snug); line-height: 1.06;
+        color: var(--white); text-shadow: var(--textglow);
+        max-width: 1400px; margin: 0 auto;
+      }
+      #t1-ov-net .title em {
+        font-style: normal; color: var(--accent); text-shadow: var(--textglow-accent);
+      }
+
+      /* Network SVG panel */
+      #t1-ov-net .net-stage {
+        position: absolute; left: 140px; right: 140px;
+        top: 228px; bottom: 72px; z-index: 4;
+      }
+      #t1-ov-net .net-svg {
+        width: 100%; height: 100%;
+        overflow: visible;
+      }
+
+      /* Node label HTML overlays */
+      #t1-ov-net .net-labels {
+        position: absolute; inset: 0; pointer-events: none;
+      }
+      .net-label {
+        position: absolute; pointer-events: none;
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+      }
+      .net-label-name {
+        font-family: var(--font-display); font-weight: var(--wt-semi);
+        font-size: 30px; letter-spacing: var(--track-snug);
+        color: var(--white); text-shadow: var(--textglow);
+        white-space: nowrap;
+      }
+      .net-label-tag {
+        font-family: var(--font-mono); font-size: var(--size-tiny);
+        font-weight: var(--wt-bold); letter-spacing: 0.12em;
+        text-transform: uppercase; color: var(--accent);
+        text-shadow: var(--textglow-accent); white-space: nowrap;
+      }
+
+      /* Vignette + grain */
+      #t1-ov-net .vignette {
+        position: absolute; inset: 0; pointer-events: none; z-index: 6;
+        background: var(--vignette);
+      }
+      #t1-ov-net .grain {
+        position: absolute; inset: -40px; background: var(--tex-grain);
+        background-size: 200px 200px; mix-blend-mode: overlay; opacity: 0.10;
+        pointer-events: none; z-index: 7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t1-ov-net" data-composition-id="t1-ov-net" data-start="0" data-width="1920" data-height="1080">
+      <div class="bloom"></div>
+      <div class="dot-grid"></div>
+
+      <div class="title-row">
+        <div class="title" data-slot="title">How the <em>System Connects</em></div>
+      </div>
+
+      <div class="net-stage">
+        <!--
+          Node layout (viewBox 1640x760):
+          N1 (center-hub): 820,380
+          N2 (top-left):   280,160
+          N3 (top-right):  1360,180
+          N4 (bottom-left):320,580
+          N5 (bottom-right):1320,600
+        -->
+        <svg class="net-svg" id="net-svg"
+             viewBox="0 0 1640 760" fill="none" preserveAspectRatio="xMidYMid meet"
+             xmlns="http://www.w3.org/2000/svg">
+
+          <defs>
+            <filter id="netNodeGlow" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <filter id="netEdgeGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <linearGradient id="edgeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#37BDF8" stop-opacity="0.80"/>
+              <stop offset="100%" stop-color="#37BDF8" stop-opacity="0.20"/>
+            </linearGradient>
+            <linearGradient id="edgeGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#37BDF8" stop-opacity="0.80"/>
+              <stop offset="100%" stop-color="#37BDF8" stop-opacity="0.20"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Edges (drawn via stroke-dashoffset) -->
+          <line id="e12" x1="820" y1="380" x2="280" y2="160"
+            stroke="rgba(55,189,248,0.55)" stroke-width="2" stroke-dasharray="10 6"
+            filter="url(#netEdgeGlow)"/>
+          <line id="e13" x1="820" y1="380" x2="1360" y2="180"
+            stroke="rgba(55,189,248,0.55)" stroke-width="2" stroke-dasharray="10 6"
+            filter="url(#netEdgeGlow)"/>
+          <line id="e14" x1="820" y1="380" x2="320" y2="580"
+            stroke="rgba(55,189,248,0.55)" stroke-width="2" stroke-dasharray="10 6"
+            filter="url(#netEdgeGlow)"/>
+          <line id="e15" x1="820" y1="380" x2="1320" y2="600"
+            stroke="rgba(55,189,248,0.55)" stroke-width="2" stroke-dasharray="10 6"
+            filter="url(#netEdgeGlow)"/>
+          <!-- cross edge 2-4 (secondary) -->
+          <line id="e24" x1="280" y1="160" x2="320" y2="580"
+            stroke="rgba(55,189,248,0.25)" stroke-width="1.5" stroke-dasharray="6 8"
+            filter="url(#netEdgeGlow)"/>
+
+          <!-- Node halos (large soft glow circles) -->
+          <circle id="halo-1" cx="820" cy="380" r="72"
+            fill="rgba(55,189,248,0.12)" opacity="0"/>
+          <circle id="halo-2" cx="280" cy="160" r="48"
+            fill="rgba(55,189,248,0.10)" opacity="0"/>
+          <circle id="halo-3" cx="1360" cy="180" r="48"
+            fill="rgba(55,189,248,0.10)" opacity="0"/>
+          <circle id="halo-4" cx="320" cy="580" r="48"
+            fill="rgba(55,189,248,0.10)" opacity="0"/>
+          <circle id="halo-5" cx="1320" cy="600" r="48"
+            fill="rgba(55,189,248,0.10)" opacity="0"/>
+
+          <!-- Nodes (glass circles) -->
+          <!-- N1 hub — larger -->
+          <g id="node-1" opacity="0">
+            <circle cx="820" cy="380" r="54"
+              fill="rgba(16,24,38,0.80)"
+              stroke="rgba(55,189,248,0.70)" stroke-width="2"
+              style="filter:drop-shadow(0 0 22px rgba(55,189,248,0.60));"/>
+            <circle cx="820" cy="380" r="28"
+              fill="rgba(55,189,248,0.90)"
+              style="filter:drop-shadow(0 0 18px rgba(55,189,248,1.0));"/>
+          </g>
+
+          <!-- N2 -->
+          <g id="node-2" opacity="0">
+            <circle cx="280" cy="160" r="36"
+              fill="rgba(16,24,38,0.75)"
+              stroke="rgba(55,189,248,0.55)" stroke-width="1.5"
+              style="filter:drop-shadow(0 0 16px rgba(55,189,248,0.50));"/>
+            <circle cx="280" cy="160" r="16"
+              fill="rgba(55,189,248,0.85)"
+              style="filter:drop-shadow(0 0 12px rgba(55,189,248,0.90));"/>
+          </g>
+
+          <!-- N3 -->
+          <g id="node-3" opacity="0">
+            <circle cx="1360" cy="180" r="36"
+              fill="rgba(16,24,38,0.75)"
+              stroke="rgba(55,189,248,0.55)" stroke-width="1.5"
+              style="filter:drop-shadow(0 0 16px rgba(55,189,248,0.50));"/>
+            <circle cx="1360" cy="180" r="16"
+              fill="rgba(55,189,248,0.85)"
+              style="filter:drop-shadow(0 0 12px rgba(55,189,248,0.90));"/>
+          </g>
+
+          <!-- N4 -->
+          <g id="node-4" opacity="0">
+            <circle cx="320" cy="580" r="36"
+              fill="rgba(16,24,38,0.75)"
+              stroke="rgba(55,189,248,0.55)" stroke-width="1.5"
+              style="filter:drop-shadow(0 0 16px rgba(55,189,248,0.50));"/>
+            <circle cx="320" cy="580" r="16"
+              fill="rgba(55,189,248,0.85)"
+              style="filter:drop-shadow(0 0 12px rgba(55,189,248,0.90));"/>
+          </g>
+
+          <!-- N5 -->
+          <g id="node-5" opacity="0">
+            <circle cx="1320" cy="600" r="36"
+              fill="rgba(16,24,38,0.75)"
+              stroke="rgba(55,189,248,0.55)" stroke-width="1.5"
+              style="filter:drop-shadow(0 0 16px rgba(55,189,248,0.50));"/>
+            <circle cx="1320" cy="600" r="16"
+              fill="rgba(55,189,248,0.85)"
+              style="filter:drop-shadow(0 0 12px rgba(55,189,248,0.90));"/>
+          </g>
+
+        </svg>
+
+        <!-- HTML labels for each node -->
+        <div class="net-labels">
+          <!-- N1 hub — below node -->
+          <div class="net-label" id="nlabel-1"
+               style="left:50%;top:65%;transform:translate(-50%,0);opacity:0;">
+            <div class="net-label-name" data-slot="n1">Core Platform</div>
+            <div class="net-label-tag">HUB</div>
+          </div>
+          <!-- N2 -->
+          <div class="net-label" id="nlabel-2"
+               style="left:14%;top:7%;transform:translate(-50%,0);opacity:0;">
+            <div class="net-label-name" data-slot="n2">Content Engine</div>
+            <div class="net-label-tag">INPUT</div>
+          </div>
+          <!-- N3 -->
+          <div class="net-label" id="nlabel-3"
+               style="left:85%;top:8%;transform:translate(-50%,0);opacity:0;">
+            <div class="net-label-name" data-slot="n3">AI Personalization</div>
+            <div class="net-label-tag">LAYER</div>
+          </div>
+          <!-- N4 -->
+          <div class="net-label" id="nlabel-4"
+               style="left:16%;top:80%;transform:translate(-50%,0);opacity:0;">
+            <div class="net-label-name" data-slot="n4">Community</div>
+            <div class="net-label-tag">NETWORK</div>
+          </div>
+          <!-- N5 -->
+          <div class="net-label" id="nlabel-5"
+               style="left:83%;top:82%;transform:translate(-50%,0);opacity:0;">
+            <div class="net-label-name" data-slot="n5">Analytics</div>
+            <div class="net-label-tag">OUTPUT</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vignette"></div>
+      <div class="grain"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* --- measure edge lengths for dashoffset animation --- */
+      function lineLength(id) {
+        const el = document.getElementById(id);
+        if (!el) return 200;
+        const x1 = parseFloat(el.getAttribute("x1")), y1 = parseFloat(el.getAttribute("y1"));
+        const x2 = parseFloat(el.getAttribute("x2")), y2 = parseFloat(el.getAttribute("y2"));
+        return Math.sqrt((x2-x1)**2 + (y2-y1)**2);
+      }
+      const edges = ["e12","e13","e14","e15","e24"];
+      edges.forEach(id => {
+        const el = document.getElementById(id);
+        const len = lineLength(id);
+        el.style.strokeDasharray = len + " " + len;
+        el.style.strokeDashoffset = len;
+      });
+
+      /* grain flicker */
+      tl.fromTo("#t1-ov-net .grain",
+        { backgroundPosition: "0px 0px" },
+        { backgroundPosition: "92px 70px", duration: 0.6, ease: "none", repeat: 11, yoyo: true }, 0);
+
+      /* environment */
+      tl.from("#t1-ov-net .bloom",
+          { autoAlpha: 0, scale: 0.90, transformOrigin: "50% 120%", duration: 1.4, ease: "expo.out" }, 0)
+        .from("#t1-ov-net .dot-grid",
+          { autoAlpha: 0, duration: 1.1, ease: "power2.out" }, 0.2)
+
+        /* title */
+        .from("#t1-ov-net .title",
+          { autoAlpha: 0, y: 28, filter: "blur(14px)", duration: 1.0, ease: "power4.out" }, 0.45);
+
+      /* hub node pops first */
+      tl.to("#node-1",
+          { autoAlpha: 1, scale: 1, transformOrigin: "820px 380px",
+            duration: 0.65, ease: "back.out(1.8)" }, 0.95)
+        .to("#halo-1",
+          { autoAlpha: 1, scale: 1.4, transformOrigin: "820px 380px",
+            duration: 0.8, ease: "power2.out" }, 1.0);
+
+      gsap.set("#node-1", { scale: 0.3 });
+      gsap.set("#halo-1", { scale: 0.5 });
+
+      /* edges draw outward from hub */
+      const edgeTimes = [1.3, 1.4, 1.5, 1.6, 1.75];
+      edges.forEach((id, i) => {
+        tl.to("#" + id, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, edgeTimes[i]);
+      });
+
+      /* spoke nodes appear */
+      const spokeNodes = [["node-2","280px 160px"], ["node-3","1360px 180px"],
+                          ["node-4","320px 580px"], ["node-5","1320px 600px"]];
+      const spokeHalos = [["halo-2","280px 160px"], ["halo-3","1360px 180px"],
+                          ["halo-4","320px 580px"], ["halo-5","1320px 600px"]];
+
+      spokeNodes.forEach(([id, origin], i) => {
+        gsap.set("#" + id, { scale: 0.3 });
+        tl.to("#" + id, {
+          autoAlpha: 1, scale: 1, transformOrigin: origin,
+          duration: 0.55, ease: "back.out(1.8)"
+        }, 1.55 + i * 0.14);
+      });
+      spokeHalos.forEach(([id, origin], i) => {
+        gsap.set("#" + id, { scale: 0.5 });
+        tl.to("#" + id, {
+          autoAlpha: 1, scale: 1.3, transformOrigin: origin,
+          duration: 0.7, ease: "power2.out"
+        }, 1.60 + i * 0.14);
+      });
+
+      /* labels appear after nodes */
+      ["nlabel-1","nlabel-2","nlabel-3","nlabel-4","nlabel-5"].forEach((id, i) => {
+        gsap.set("#" + id, { y: 12 });
+        tl.to("#" + id, {
+          autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out"
+        }, 1.6 + i * 0.14);
+      });
+
+      /* hub glow pulse (autoAlpha+scale) */
+      tl.to("#halo-1",
+        { scale: 1.8, autoAlpha: 0.4, transformOrigin: "820px 380px",
+          duration: 1.4, ease: "sine.inOut", repeat: 2, yoyo: true }, 3.0);
+
+      /* slow drift */
+      tl.to("#t1-ov-net .net-stage",
+        { y: -8, duration: 5.0, ease: "sine.inOut" }, 2.0);
+
+      tl.set({}, {}, 7);
+      window.__timelines["t1-ov-net"] = tl;
+    </script>
+  </body>
+</html>

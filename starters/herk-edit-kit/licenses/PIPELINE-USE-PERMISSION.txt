@@ -1,0 +1,15 @@
+Herk Edit Kit Use Permission
+
+Copyright 2026 the contributors to this teaching kit.
+
+Permission is granted to students and other recipients to use, copy, modify,
+and share the original teaching-kit code, templates, and documentation, and to
+use them to produce personal or commercial videos. Retain this notice when
+redistributing the kit or substantial portions of its source materials.
+
+Third-party software, fonts, and assets remain subject to their respective
+licenses. No rights to third-party trademarks, likenesses, or excluded media
+are granted. See THIRD_PARTY_NOTICES.md.
+
+THE MATERIAL IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND. THE CONTRIBUTORS
+ARE NOT LIABLE FOR CLAIMS OR DAMAGES ARISING FROM ITS USE.

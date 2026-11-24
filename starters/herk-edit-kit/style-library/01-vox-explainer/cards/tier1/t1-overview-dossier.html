@@ -1,0 +1,234 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier1 · overview · DOSSIER / CASE FILES
+  Manila-folder dossier: 4 tabbed file rows pulled from a drawer.
+  Each row has a kraft tab on the left edge (red index style), a tab code,
+  a case/topic title, and a faint ruled line + "CONFIDENTIAL" stamp.
+  Files stagger in top-to-bottom as if drawn from a filing cabinet.
+  Slots: title, tab1, file1, tab2, file2, tab3, file3, tab4, file4, source.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      html, body { margin: 0; }
+      #t1-ov-dossier {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: var(--paper-2); color: var(--ink);
+        font-family: var(--font-display); overflow: hidden;
+      }
+      #t1-ov-dossier .grain {
+        position: absolute; inset: -40px; background: var(--tex-grain);
+        background-size: 180px 180px; mix-blend-mode: multiply; opacity: 0.46;
+        pointer-events: none; z-index: 10;
+      }
+      #t1-ov-dossier .vignette {
+        position: absolute; inset: 0; pointer-events: none; z-index: 9;
+        background: radial-gradient(130% 120% at 50% 40%, transparent 52%, rgba(23,19,14,0.22) 100%);
+      }
+      /* faint halftone texture on the whole bg */
+      #t1-ov-dossier .halftone {
+        position: absolute; inset: 0;
+        background-image: var(--tex-halftone);
+        background-size: var(--tex-halftone-size);
+        opacity: 0.08; z-index: 1;
+      }
+
+      /* dossier label — marker title */
+      #t1-ov-dossier .dossier-label {
+        position: absolute; top: 72px; left: 50%;
+        transform: translateX(-50%) skewX(var(--marker-skew));
+        background: var(--red); color: var(--paper); padding: 10px 36px; z-index: 5;
+        font-weight: var(--wt-black); font-size: var(--size-title);
+        letter-spacing: var(--track-tight); text-transform: uppercase; white-space: nowrap;
+        box-shadow: 5px 5px 0 rgba(23,19,14,0.3);
+      }
+
+      /* file stack — centered vertically */
+      #t1-ov-dossier .file-stack {
+        position: absolute; left: 160px; right: 160px;
+        top: 230px; bottom: 110px;
+        display: flex; flex-direction: column; justify-content: space-between;
+        z-index: 3;
+      }
+
+      /* individual file row */
+      #t1-ov-dossier .file-row {
+        display: flex; align-items: stretch;
+        background: var(--paper);
+        border: 3px solid var(--ink);
+        box-shadow: 6px 6px 0 rgba(23,19,14,0.2);
+        position: relative; overflow: hidden;
+        min-height: 148px;
+      }
+
+      /* kraft index tab on the left */
+      #t1-ov-dossier .tab {
+        flex-shrink: 0; width: 90px;
+        background: var(--paper-2);
+        border-right: 3px solid var(--ink);
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        gap: 6px; padding: 14px 8px;
+      }
+      /* red index notch at top of tab */
+      #t1-ov-dossier .tab::before {
+        content: ''; display: block;
+        width: 30px; height: 8px;
+        background: var(--red);
+        border-radius: 2px;
+        margin-bottom: 4px;
+      }
+      #t1-ov-dossier .tab-code {
+        font-family: var(--font-label); font-weight: var(--wt-black);
+        font-size: 22px; letter-spacing: var(--track-wide);
+        text-transform: uppercase; color: var(--ink); text-align: center;
+        line-height: 1.1; word-break: break-all;
+      }
+
+      /* file body */
+      #t1-ov-dossier .file-body {
+        flex: 1; display: flex; align-items: center;
+        padding: 20px 50px; position: relative;
+      }
+      /* ruled lines inside each file */
+      #t1-ov-dossier .file-body::before {
+        content: '';
+        position: absolute; left: 50px; right: 50px; bottom: 22px;
+        height: 2px; background: rgba(23,19,14,0.14);
+      }
+      #t1-ov-dossier .file-body::after {
+        content: '';
+        position: absolute; left: 50px; right: 50px; bottom: 40px;
+        height: 1px; background: rgba(23,19,14,0.09);
+      }
+
+      #t1-ov-dossier .file-title {
+        font-family: var(--font-label); font-weight: var(--wt-bold);
+        font-size: 44px; line-height: 1.15; color: var(--ink);
+        position: relative; z-index: 1;
+      }
+
+      /* CONFIDENTIAL stamp — faint, rotated, positioned far right */
+      #t1-ov-dossier .stamp {
+        position: absolute; right: 70px; top: 50%; transform: translateY(-50%) rotate(-8deg);
+        font-family: var(--font-label); font-weight: var(--wt-black);
+        font-size: 26px; letter-spacing: 0.25em; text-transform: uppercase;
+        color: var(--red); opacity: 0.18;
+        border: 4px solid var(--red); padding: 6px 16px;
+        pointer-events: none;
+      }
+
+      /* cabinet drawer pull — decorative bar above stack */
+      #t1-ov-dossier .drawer-pull {
+        position: absolute; left: 160px; right: 160px; top: 195px;
+        height: 28px; background: var(--ink); z-index: 3;
+      }
+      #t1-ov-dossier .drawer-pull::after {
+        content: ''; position: absolute; left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px; height: 16px;
+        background: var(--paper-2); border: 3px solid var(--ink);
+        border-radius: 4px;
+      }
+
+      /* source */
+      #t1-ov-dossier .source {
+        position: absolute; left: 160px; bottom: 46px; z-index: 6;
+        font-family: var(--font-label); font-weight: var(--wt-bold);
+        font-size: var(--size-tiny); letter-spacing: var(--track-wide);
+        text-transform: uppercase; color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t1-ov-dossier" data-composition-id="t1-ov-dossier" data-start="0" data-width="1920" data-height="1080">
+      <div class="halftone"></div>
+
+      <div class="dossier-label" data-slot="title">CASE FILES</div>
+
+      <div class="drawer-pull"></div>
+
+      <div class="file-stack">
+
+        <div class="file-row fr1">
+          <div class="tab"><div class="tab-code" data-slot="tab1">FILE 01</div></div>
+          <div class="file-body">
+            <div class="file-title" data-slot="file1">The Origin — how this story started</div>
+            <div class="stamp">CONFIDENTIAL</div>
+          </div>
+        </div>
+
+        <div class="file-row fr2">
+          <div class="tab"><div class="tab-code" data-slot="tab2">FILE 02</div></div>
+          <div class="file-body">
+            <div class="file-title" data-slot="file2">The Players — who's involved and why</div>
+            <div class="stamp">CONFIDENTIAL</div>
+          </div>
+        </div>
+
+        <div class="file-row fr3">
+          <div class="tab"><div class="tab-code" data-slot="tab3">FILE 03</div></div>
+          <div class="file-body">
+            <div class="file-title" data-slot="file3">The Evidence — what the numbers say</div>
+            <div class="stamp">CONFIDENTIAL</div>
+          </div>
+        </div>
+
+        <div class="file-row fr4">
+          <div class="tab"><div class="tab-code" data-slot="tab4">FILE 04</div></div>
+          <div class="file-body">
+            <div class="file-title" data-slot="file4">The Verdict — where this goes next</div>
+            <div class="stamp">CONFIDENTIAL</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="source" data-slot="source">SOURCE · REFERENCE 2026</div>
+      <div class="vignette"></div>
+      <div class="grain"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // finite grain flicker
+      tl.fromTo("#t1-ov-dossier .grain", { backgroundPosition: "0px 0px" },
+                { backgroundPosition: "150px 115px", duration: 0.5, ease: "steps(4)", repeat: 11, yoyo: true }, 0);
+
+      // dossier label stamps in
+      tl.from("#t1-ov-dossier .dossier-label",
+              { autoAlpha: 0, scale: 0.85, transformOrigin: "center center",
+                duration: 0.35, ease: "steps(5)" }, 0.15);
+
+      // drawer pull slams down
+      tl.from("#t1-ov-dossier .drawer-pull",
+              { autoAlpha: 0, y: -20, duration: 0.28, ease: "power3.out" }, 0.4);
+
+      // files pull out of drawer — stagger top to bottom, each with a slight y from above
+      tl.from("#t1-ov-dossier .fr1",
+              { autoAlpha: 0, y: -60, duration: 0.38, ease: "back.out(1.4)" }, 0.55);
+      tl.from("#t1-ov-dossier .fr2",
+              { autoAlpha: 0, y: -60, duration: 0.38, ease: "back.out(1.4)" }, 0.75);
+      tl.from("#t1-ov-dossier .fr3",
+              { autoAlpha: 0, y: -60, duration: 0.38, ease: "back.out(1.4)" }, 0.95);
+      tl.from("#t1-ov-dossier .fr4",
+              { autoAlpha: 0, y: -60, duration: 0.38, ease: "back.out(1.4)" }, 1.15);
+
+      // stamps appear faintly after all files are in
+      tl.from("#t1-ov-dossier .stamp",
+              { autoAlpha: 0, scale: 1.2, transformOrigin: "center center",
+                duration: 0.22, ease: "steps(3)", stagger: 0.09 }, 1.5);
+
+      tl.from("#t1-ov-dossier .source", { autoAlpha: 0, duration: 0.3 }, 1.8);
+
+      tl.set({}, {}, 7);
+
+      window.__timelines["t1-ov-dossier"] = tl;
+    </script>
+  </body>
+</html>

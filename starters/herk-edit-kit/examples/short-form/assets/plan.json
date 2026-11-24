@@ -1,0 +1,84 @@
+{
+  "duration": 4,
+  "fps": 30,
+  "scenes": [
+    {
+      "id": "s00",
+      "start": 0,
+      "end": 2,
+      "layout": "face",
+      "kind": "hook",
+      "anchor": "Grow",
+      "anchorTime": 0.1
+    },
+    {
+      "id": "s01",
+      "start": 2,
+      "end": 4,
+      "layout": "face",
+      "kind": "payoff",
+      "anchor": "Start",
+      "anchorTime": 2.1
+    }
+  ],
+  "events": [
+    {
+      "time": 0,
+      "type": "title",
+      "visual": "s00",
+      "anchor": "Grow"
+    },
+    {
+      "time": 2,
+      "type": "caption",
+      "visual": "s01",
+      "anchor": "Start"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.1,
+      "end": 1,
+      "words": [
+        {
+          "text": "Grow",
+          "start": 0.1,
+          "end": 0.4,
+          "sourceStart": 1.1,
+          "sourceEnd": 1.4,
+          "type": "word"
+        },
+        {
+          "text": "something.",
+          "start": 0.4,
+          "end": 1,
+          "sourceStart": 1.4,
+          "sourceEnd": 2,
+          "type": "word"
+        }
+      ]
+    },
+    {
+      "start": 2.1,
+      "end": 3,
+      "words": [
+        {
+          "text": "Start",
+          "start": 2.1,
+          "end": 2.4,
+          "sourceStart": 3.1,
+          "sourceEnd": 3.4,
+          "type": "word"
+        },
+        {
+          "text": "small.",
+          "start": 2.4,
+          "end": 3,
+          "sourceStart": 3.4,
+          "sourceEnd": 4,
+          "type": "word"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+<!-- rf-gallery v1 | pairs/whip-pan-out | whip-pan-directional | mutate=copy,duration,accent-color | keep=timeline-phase-structure,easing-curves,entry-anchor-geometry,exit-anchor-geometry,directional-blur-ramp,right-whip-handoff -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Whip Pan Out</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-whip-pan-out {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #080a12);
+          color: var(--rf-text, #f7f4ed);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-whip-pan-out .wpo-stage {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          isolation: isolate;
+          will-change: transform, opacity, filter;
+        }
+        .rf-whip-pan-out .wpo-field {
+          position: absolute;
+          inset: -12%;
+          background:
+            linear-gradient(112deg, var(--rf-bg, #080a12) 6%, var(--rf-surface-2, #171b2a) 48%, var(--rf-bg, #080a12) 84%);
+        }
+        .rf-whip-pan-out .wpo-grid {
+          position: absolute;
+          inset: 0;
+          opacity: 0.42;
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, transparent 1px),
+            linear-gradient(0deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, transparent 1px);
+          background-size: 96px 96px;
+          mask-image: linear-gradient(90deg, transparent, var(--rf-text, #f7f4ed) 26%, var(--rf-text, #f7f4ed) 74%, transparent);
+        }
+        .rf-whip-pan-out .wpo-aura {
+          position: absolute;
+          width: 1180px;
+          height: 1180px;
+          top: -280px;
+          right: -190px;
+          border-radius: 50%;
+          opacity: 0.34;
+          background: radial-gradient(circle, var(--rf-accent, #ff5f91) 0%, var(--rf-accent-alt, #7967ff) 28%, transparent 69%);
+          filter: brightness(1);
+          animation: wpo-aura-breathe 1.2s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+          will-change: opacity, filter;
+        }
+        .rf-whip-pan-out .wpo-sweep {
+          position: absolute;
+          width: 150%;
+          height: 180px;
+          left: -19%;
+          top: 53%;
+          transform: skewX(-22deg);
+          background: linear-gradient(90deg, transparent 0%, var(--rf-accent, #ff5f91) 27%, var(--rf-on-accent, #fff7fb) 50%, var(--rf-accent-alt, #7967ff) 74%, transparent 100%);
+          mix-blend-mode: screen;
+          opacity: 0.7;
+          filter: blur(14px);
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-out .wpo-copy {
+          position: absolute;
+          left: 8.1%;
+          top: 21%;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .rf-whip-pan-out .wpo-kicker {
+          margin: 0 0 28px;
+          color: var(--rf-muted-text, #b8bdc9);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 19px;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-out .wpo-title {
+          margin: 0;
+          font-size: clamp(134px, 10.8vw, 208px);
+          font-weight: 850;
+          letter-spacing: -0.085em;
+          line-height: 0.87;
+          word-break: keep-all;
+        }
+        .rf-whip-pan-out .wpo-title-line {
+          display: block;
+          width: max-content;
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-out .wpo-title-line--accent {
+          margin-top: 0.1em;
+          color: var(--rf-accent, #ff5f91);
+          text-shadow: 0 0 0.18em var(--rf-accent, #ff5f91);
+        }
+        .rf-whip-pan-out .wpo-vector {
+          position: absolute;
+          right: 7.4%;
+          bottom: 13.2%;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          gap: 22px;
+          color: var(--rf-text, #f7f4ed);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-out .wpo-vector::after {
+          content: "";
+          width: 236px;
+          height: 2px;
+          background: var(--rf-text, #f7f4ed);
+          box-shadow: 28px 0 0 var(--rf-accent, #ff5f91);
+        }
+        .rf-whip-pan-out .wpo-direction-mark {
+          position: absolute;
+          right: 7.6%;
+          top: 15.8%;
+          z-index: 1;
+          color: var(--rf-hairline-strong, rgba(255, 255, 255, 0.38));
+          font-size: clamp(230px, 24vw, 460px);
+          font-weight: 850;
+          letter-spacing: -0.12em;
+          line-height: 0.78;
+          opacity: 0.86;
+          transform: skewX(-12deg);
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-out .wpo-watermark {
+          position: absolute;
+          left: 8.35%;
+          bottom: 7.2%;
+          z-index: 2;
+          color: var(--rf-ink-subtle, #7f8795);
+          font-size: 23px;
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-out .wpo-note {
+          position: absolute;
+          right: 7.45%;
+          bottom: 7.2%;
+          z-index: 2;
+          color: var(--rf-muted-text, #b8bdc9);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        @keyframes wpo-aura-breathe {
+          from {
+            filter: brightness(1);
+            opacity: 0.34;
+          }
+          to {
+            filter: brightness(1.32);
+            opacity: 0.48;
+          }
+        }
+      </style>
+      <main
+        class="rf-whip-pan-out"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-pairs-whip-pan-out"
+      >
+        <svg aria-hidden="true" style="position: absolute; width: 0; height: 0">
+          <filter id="gallery-pairs-whip-pan-out-blur" x="-55%" y="-55%" width="210%" height="210%">
+            <feGaussianBlur stdDeviation="0 0"></feGaussianBlur>
+          </filter>
+        </svg>
+        <div class="wpo-stage">
+          <div class="wpo-field" aria-hidden="true"></div>
+          <div class="wpo-grid" aria-hidden="true"></div>
+          <div class="wpo-aura" aria-hidden="true"></div>
+          <div class="wpo-sweep" aria-hidden="true"></div>
+          <div class="wpo-copy">
+            <p class="wpo-kicker" data-slot="kicker">다음 흐름</p>
+            <h1 class="wpo-title">
+              <span class="wpo-title-line" data-slot="title-first">흐름을</span>
+              <span class="wpo-title-line wpo-title-line--accent" data-slot="title-second">잇는다</span>
+            </h1>
+          </div>
+          <div class="wpo-direction-mark" data-slot="direction-mark" aria-hidden="true">→</div>
+          <div class="wpo-vector" data-slot="direction-label">오른쪽</div>
+          <div class="wpo-watermark" data-slot="watermark" aria-hidden="true">전환</div>
+          <div class="wpo-note" data-slot="note">곧 이어짐</div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-pairs-whip-pan-out";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const blur = root.querySelector("#gallery-pairs-whip-pan-out-blur feGaussianBlur");
+          const stage = root.querySelector(".wpo-stage");
+          const kicker = root.querySelector(".wpo-kicker");
+          const titleLines = Array.from(root.querySelectorAll(".wpo-title-line"));
+          const vector = root.querySelector(".wpo-vector");
+          const directionMark = root.querySelector(".wpo-direction-mark");
+          const watermark = root.querySelector(".wpo-watermark");
+          const note = root.querySelector(".wpo-note");
+          const sweep = root.querySelector(".wpo-sweep");
+
+          window.__timelines = window.__timelines || {};
+          window.__anchors = window.__anchors || {};
+          window.__anchors[compositionId] = {
+            exit: { dir: "right", blurPeak: 40, cx: 0.5, cy: 0.5, handoffAnchor: "right-whip-out" }
+          };
+
+          const tl = gsap.timeline({ paused: true });
+          tl.set(stage, { filter: "url(#gallery-pairs-whip-pan-out-blur)", x: 0, skewX: 0 })
+            .set(blur, { attr: { stdDeviation: "0 0" } })
+            .set([kicker, vector, watermark, note, directionMark], { opacity: 0 })
+            .set(titleLines, { opacity: 0, x: -128, skewX: 13, transformOrigin: "left center" })
+            .set(sweep, { opacity: 0, x: -920, scaleX: 0.35, transformOrigin: "left center" })
+            .fromTo(kicker, { opacity: 0, x: -34 }, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out" }, 0.08)
+            .to(titleLines[0], { opacity: 1, x: 0, skewX: 0, duration: 0.38, ease: "power4.out" }, 0.16)
+            .to(titleLines[1], { opacity: 1, x: 0, skewX: 0, duration: 0.4, ease: "power4.out" }, 0.42)
+            .fromTo(directionMark, { opacity: 0, x: -82 }, { opacity: 0.86, x: 0, duration: 0.36, ease: "power3.out" }, 0.52)
+            .to(sweep, { opacity: 0.7, x: 240, scaleX: 1, duration: 0.5, ease: "power4.out" }, 0.7)
+            .fromTo(vector, { opacity: 0, x: -48 }, { opacity: 1, x: 0, duration: 0.26, ease: "power3.out" }, 0.88)
+            .fromTo(watermark, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 1.02)
+            .fromTo(note, { opacity: 0, x: 28 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 1.08)
+            .to(sweep, { opacity: 0.38, duration: 0.24, ease: "power2.out" }, 1.32)
+            .to(stage, { x: -22, duration: 0.12, ease: "power2.in" }, 3.0)
+            .to(blur, { attr: { stdDeviation: "40 2" }, duration: 0.12, ease: "power4.in" }, 3.2)
+            .to(stage, { x: 2320, skewX: -9, duration: 0.22, ease: "power4.in" }, 3.2)
+            .to(stage, { opacity: 0.42, duration: 0.18, ease: "power3.in" }, 3.24);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -29,6 +29,8 @@ Scripts and utilities for rendering, checking and finishing motion graphics. Fol
 | [`effectcraft/`](effectcraft/NOTES.md) | Notes for an open Rust compositor in the After Effects mould (308 effects, ProRes 4444, Lottie in and out, MCP + CLI). **Alpha: watch** | Release builds | storytold/effectcraft (MIT/Apache-2.0) |
 | [`openverse/`](openverse/NOTES.md) | Notes for the Openverse API: licence filters, attribution strings, tokens, and our rules (no NC, no ND edits, keep a licence record) | curl | WordPress Openverse (per-item CC licences) |
 | [`waoowaoo/`](waoowaoo/NOTES.md) | Notes for a self-hosted AI film and TV workspace: assistant-led brief, reference canvas, model-aware image and video generation (GPT Image 2, Nano Banana, Seedance, MiniMax H3 via OpenRouter), versions. **Preview: watch** | Docker Compose (WSL2 on Windows), OpenRouter key | waooAI/waoowaoo (Elastic License 2.0) |
+| [`tegaki/`](tegaki/NOTES.md) | Handwriting animation from any font: text draws itself stroke by stroke, HarfBuzz shaping (**Arabic joins correctly**, tested), 13 bundled fonts including Amiri, controlled time for frame-exact video, a CLI that writes self-drawing SVGs. Notes only | npm `tegaki` (React, Vue, Svelte, vanilla, Web Components) | gkurt/tegaki (MIT) |
+| [`sound-sheet/`](sound-sheet/NOTES.md) | A motion cue sheet → a deterministic stereo SFX stem, every sound derived from the motion (size → pitch, x → pan, contact frame → transient), dry or with a sub bed; plus a sound-family generator (synth or ElevenLabs) | Node, no dependencies | AgentsORG/design-engineering (MIT) |
 
 ## Tools inside the skills
 

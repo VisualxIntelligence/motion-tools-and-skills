@@ -181,7 +181,7 @@ Named in the repos above and worth a look in a later survey:
 | [Orkas-AI/Orkas-VideoStudio](https://github.com/Orkas-AI/Orkas-VideoStudio) | MIT, per the list. A 14-skill video pack driven by `plan.json` |
 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | Apache-2.0, per the list. Scans skill packs before install; useful for vetting surveys like this one |
 | [garrytan/gstack](https://github.com/garrytan/gstack) | Design and motion QA passes |
-| [AbubakrChan/product-launch-motion](https://github.com/AbubakrChan/product-launch-motion) | URL → 60 fps launch video with sound effects |
+| ~~[AbubakrChan/product-launch-motion](https://github.com/AbubakrChan/product-launch-motion)~~ | Reviewed 24 November 2026 and copied: [`../skills/product-launch-motion/`](../skills/product-launch-motion/NOTES.md) |
 
 
 ## 12. React Bits — Commons Clause
@@ -281,3 +281,18 @@ From the 24 November 2026 survey (SOURCES.md rows 102–118). What was kept is i
 | [Tejashmakwana/motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) `docs/`, `studies/` | 20 MB of before/after films of third-party brands (Cluely, Spotify, Wispr Flow) | `docs/HOW-IT-WAS-BUILT.md` explains the measurement method |
 | [Leonxlnx/cinetic](https://github.com/Leonxlnx/cinetic) `scripts/test/`, `evals/` | Size; never copied into films | Fetch from upstream to run the script tests |
 | [waooAI/waoowaoo](https://github.com/waooAI/waoowaoo) | An application under Elastic License 2.0 | Notes in [`../tools/waoowaoo/`](../tools/waoowaoo/NOTES.md) |
+
+## 20. Thirteenth survey: reviewed, not copied
+
+From the second 24 November 2026 survey of nine repos (SOURCES.md rows 119–128). What was kept is in `skills/animated-diagrams/`, `skills/product-launch-motion/`, `skills/saas-motion-video/`, `starters/hyperframes-motion-library/`, `starters/herk-edit-kit/`, `docs/guides/reelforge-grammar/`, `docs/guides/launch-film-grammar/`, `docs/guides/huashu-motion/`, `tools/sound-sheet/` and `tools/tegaki/`. These parts were left out:
+
+| Item | Why not copied | Worth knowing |
+|---|---|---|
+| [gongnyang/reelforge](https://github.com/gongnyang/reelforge) engine (`bin/vf`, `src/`, `scripts/`, `schemas/`) | A whole application with Korean TTS defaults; it runs from its own clone | `node bin/vf pipeline run <dir> --profile mock` runs end to end without keys (tested); `scripts/gallery-verify.mjs` stamps new fragments after three real renders; `direction-lint.mjs` checks a storyboard against the routing table |
+| [AgentsORG/design-engineering](https://github.com/AgentsORG/design-engineering), everything but the film and sound clusters | UI design engineering (review, polish, accessibility, tokens, components), not film | `/design-engineering council` (cross-model judges scoring before/after evidence per category) and `grade.mjs` (checks first, judges second) could be adapted to judge films; install with `npx skills add AgentsORG/design-engineering` |
+| [alchaincyf/huashu-design](https://github.com/alchaincyf/huashu-design), everything but the motion references | A general design skill (prototypes, decks, infographics, carousels) that overlaps `design/`; 49 MB with assets | Its scripts (`render-video-seek.js`, `add-music.sh`, `sfx-cues.sh`) and 37 SFX files are what the copied references call; the SFX and six BGM tracks have no stated source, so check before use |
+| [nateherkai/hyperframes-video-pipeline](https://github.com/nateherkai/hyperframes-video-pipeline) | Superseded: its README sends users to the student kit, which was copied instead | — |
+| [nateherkai/hyperframes-student-kit](https://github.com/nateherkai/hyperframes-student-kit): `video-projects/`, `examples/showcase/`, the bundled HyperFrames skills, `website-to-hyperframes`, `short-form-video` | 398 MB of Nate's footage and teaching projects (no rights to the footage); upstream HeyGen skills; a legacy scaffold | The four finished videos in its README show what the editing skills produce |
+| [nutllwhy/hyperframes-motion-library](https://github.com/nutllwhy/hyperframes-motion-library) `renders/`, `redskill-submission/` | Sample films (7 MB); a packaged copy for a Chinese skill store | The live demo page shows every template's sample film |
+| [tugrawork-creator/saas-motion-kit](https://github.com/tugrawork-creator/saas-motion-kit) theme thumbnails, GIFs, Action | Size; regenerable | Rendered example films are on its v1.2 release page |
+| [AbubakrChan/product-launch-motion](https://github.com/AbubakrChan/product-launch-motion) `examples/`, Cheerful films and stills | Made for Cheerful; shown with permission, not licensed | The released films (Cheerful 30 s, the one-shape loop, the Arabic *Hoopoe Club*) are the best demonstration of the style |

@@ -1,0 +1,188 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · lower-third · UNDERBAR
+  Minimal nameplate: name displayed large, bare (no card box), and a glowing underline
+  that grows from left beneath the name as it appears, then role fades in below that
+  line as a dimmer label. The underline is the mechanical hero — a laser-drawn neon
+  stroke with a glow tail. Deliberately airy; no glass box, no background fill.
+  Slots: name (~26 chars), role (~40 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lt-ubar {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Very soft bloom — just a warmth under the text, no hard edge */
+      #t2-lt-ubar .local-bloom {
+        position: absolute;
+        left: 60px; bottom: 100px;
+        width: 640px; height: 200px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 30% 80%,
+          rgba(var(--accent-rgb), 0.18) 0%,
+          rgba(var(--accent-rgb), 0.04) 55%,
+          transparent 80%);
+        filter: blur(40px);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Text block — no card, just text on dark */
+      #t2-lt-ubar .text-block {
+        position: absolute;
+        left: 88px; bottom: 148px;
+        z-index: 2;
+      }
+
+      #t2-lt-ubar .name {
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 52px;
+        letter-spacing: var(--track-tight);
+        color: var(--white);
+        text-shadow: var(--textglow);
+        line-height: 1.0;
+        white-space: nowrap;
+      }
+
+      /* Underline track — invisible container at full final width */
+      #t2-lt-ubar .line-track {
+        position: relative;
+        height: 4px;
+        margin-top: 10px;
+        overflow: visible;
+      }
+
+      /* The animated glow underline — starts at width 0, grows right */
+      #t2-lt-ubar .line {
+        position: absolute;
+        left: 0; top: 0;
+        height: 4px;
+        width: 0;
+        border-radius: 2px;
+        background: linear-gradient(90deg,
+          rgba(255,255,255,0.95),
+          var(--accent) 25%,
+          rgba(var(--accent-rgb), 0.70) 70%,
+          transparent);
+        box-shadow:
+          0 0 12px rgba(var(--accent-rgb), 0.85),
+          0 0 30px rgba(var(--accent-rgb), 0.45),
+          0 0 2px rgba(255,255,255,0.90);
+      }
+
+      /* Trailing bright tip on the line's right edge */
+      #t2-lt-ubar .line-tip {
+        position: absolute;
+        top: 50%; transform: translateY(-50%);
+        left: 0; /* repositioned via GSAP */
+        width: 10px; height: 10px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.95);
+        box-shadow:
+          0 0 10px rgba(255,255,255,0.90),
+          0 0 24px rgba(var(--accent-rgb), 0.80);
+        pointer-events: none;
+      }
+
+      #t2-lt-ubar .role {
+        font-family: var(--font-body);
+        font-weight: var(--wt-med);
+        font-size: 23px;
+        letter-spacing: 0.01em;
+        color: var(--text-dim);
+        margin-top: 12px;
+        white-space: nowrap;
+      }
+
+      /* Small accent dot before role */
+      #t2-lt-ubar .role::before {
+        content: "";
+        display: inline-block;
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 7px rgba(var(--accent-rgb), 0.80);
+        margin-right: 10px;
+        vertical-align: middle;
+        position: relative; top: -1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lt-ubar"
+         data-composition-id="t2-lt-ubar"
+         data-start="0"
+         data-width="1920"
+         data-height="1080">
+
+      <div class="local-bloom"></div>
+
+      <div class="text-block">
+        <div class="name" data-slot="name">Ronny Mitchell</div>
+        <div class="line-track">
+          <div class="line"></div>
+          <div class="line-tip"></div>
+        </div>
+        <div class="role" data-slot="role">Head of Content Strategy</div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP = "#t2-lt-ubar";
+
+      /* bloom glows up */
+      tl.from(`${COMP} .local-bloom`,
+        { autoAlpha: 0, scale: 0.55, duration: 1.1, ease: "power2.out" }, 0);
+
+      /* name drops in from above with blur focus-pull */
+      tl.from(`${COMP} .name`,
+        { autoAlpha: 0, y: -22, filter: "blur(14px)",
+          duration: 0.75, ease: "power4.out" }, 0.10);
+
+      /* line draws left to right — width grows to 480px */
+      const lineEl = document.querySelector(`${COMP} .line`);
+      const tipEl  = document.querySelector(`${COMP} .line-tip`);
+
+      tl.to(lineEl,
+        { width: 480, duration: 0.70, ease: "power3.out" }, 0.60);
+
+      /* tip travels with the line's right edge */
+      tl.fromTo(tipEl,
+        { left: 0, autoAlpha: 1 },
+        { left: 476, duration: 0.70, ease: "power3.out" }, 0.60);
+
+      /* tip fades out as line settles */
+      tl.to(tipEl,
+        { autoAlpha: 0, scale: 0, duration: 0.30, ease: "power2.in" }, 1.28);
+
+      /* role fades in from below */
+      tl.from(`${COMP} .role`,
+        { autoAlpha: 0, y: 14, filter: "blur(6px)",
+          duration: 0.58, ease: "power3.out" }, 1.02);
+
+      /* line glow breathes finite */
+      tl.to(lineEl,
+        { boxShadow:
+            "0 0 20px rgba(55,189,248,1.00), 0 0 50px rgba(55,189,248,0.55), 0 0 2px rgba(255,255,255,0.90)",
+          duration: 1.2, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.8);
+
+      tl.set({}, {}, 7);
+
+      window.__timelines["t2-lt-ubar"] = tl;
+    </script>
+  </body>
+</html>

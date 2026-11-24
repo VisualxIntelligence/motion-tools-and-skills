@@ -1,0 +1,318 @@
+<!-- rf-gallery v1 | object/blinds-stripe-triplet | blinds-stripe-reveal | mutate=copy,duration,accent-color | keep=timeline-phase-structure,easing-curves,blind-stripe-stagger,row-content-reveal,living-breathe -->
+<!doctype html>
+<html lang="ko">
+  <body>
+    <template>
+      <style>
+        .rf-blinds-stripe-triplet {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          color: var(--rf-text, #f7f8f8);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+
+        .rf-blinds-stripe-triplet .bst-bg,
+        .rf-blinds-stripe-triplet .bst-forge-lines,
+        .rf-blinds-stripe-triplet .bst-bloom,
+        .rf-blinds-stripe-triplet .bst-stage {
+          position: absolute;
+          inset: 0;
+        }
+
+        .rf-blinds-stripe-triplet .bst-bg {
+          background: var(--rf-bg, #090a0d);
+        }
+
+        .rf-blinds-stripe-triplet .bst-forge-lines {
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, transparent 1px),
+            linear-gradient(0deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, transparent 1px);
+          background-position: 0 0, 0 0;
+          background-size: 12.5% 100%, 100% 20%;
+          opacity: 0.32;
+        }
+
+        .rf-blinds-stripe-triplet .bst-bloom {
+          top: 53%;
+          left: 50%;
+          width: 72vw;
+          height: 72vw;
+          border-radius: 50%;
+          background: var(--rf-accent, #afa3ff);
+          filter: blur(138px) brightness(1);
+          opacity: 0.14;
+          transform: translate(-50%, -50%);
+          will-change: filter, opacity;
+          animation: bst-breathe 1.55s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+
+        .rf-blinds-stripe-triplet .bst-stage {
+          z-index: 1;
+          will-change: transform, opacity;
+        }
+
+        .rf-blinds-stripe-triplet .bst-title {
+          position: absolute;
+          top: 10.5%;
+          left: 7.3%;
+          z-index: 4;
+          margin: 0;
+          font-size: clamp(114px, 9.4vw, 180px);
+          font-weight: 800;
+          letter-spacing: -0.085em;
+          line-height: 0.9;
+          white-space: nowrap;
+          word-break: keep-all;
+          will-change: transform, opacity;
+        }
+
+        .rf-blinds-stripe-triplet .bst-title::after {
+          display: block;
+          width: 2.25em;
+          height: 8px;
+          margin-top: 0.21em;
+          background: var(--rf-accent, #afa3ff);
+          content: "";
+        }
+
+        .rf-blinds-stripe-triplet .bst-stripe {
+          position: absolute;
+          left: -4%;
+          width: 108%;
+          height: 19.4%;
+          overflow: hidden;
+          border-top: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          border-bottom: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          background: linear-gradient(90deg, var(--rf-surface-2, #161820), var(--rf-surface-3, #22242a) 46%, var(--rf-surface-2, #161820));
+          will-change: transform, opacity;
+        }
+
+        .rf-blinds-stripe-triplet .bst-stripe--one {
+          top: 39.1%;
+          z-index: 3;
+        }
+
+        .rf-blinds-stripe-triplet .bst-stripe--two {
+          top: 54.8%;
+          z-index: 2;
+        }
+
+        .rf-blinds-stripe-triplet .bst-stripe--three {
+          top: 70.5%;
+          z-index: 1;
+        }
+
+        .rf-blinds-stripe-triplet .bst-stripe::before,
+        .rf-blinds-stripe-triplet .bst-stripe::after {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 12px;
+          background: var(--rf-accent, #afa3ff);
+          content: "";
+          opacity: 0.84;
+        }
+
+        .rf-blinds-stripe-triplet .bst-stripe::before {
+          left: 6.8%;
+        }
+
+        .rf-blinds-stripe-triplet .bst-stripe::after {
+          right: 6.8%;
+          background: var(--rf-accent-alt, #828fff);
+        }
+
+        .rf-blinds-stripe-triplet .bst-stripe-inner {
+          position: absolute;
+          inset: 0 9.4%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          will-change: transform, opacity;
+        }
+
+        .rf-blinds-stripe-triplet .bst-output {
+          margin: 0;
+          color: var(--rf-text, #f7f8f8);
+          font-size: clamp(54px, 5.2vw, 100px);
+          font-weight: 800;
+          letter-spacing: -0.075em;
+          line-height: 1;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+
+        .rf-blinds-stripe-triplet .bst-glyph {
+          position: relative;
+          flex: 0 0 22%;
+          height: 58%;
+          color: var(--rf-muted-text, #c6cad3);
+          opacity: 0.88;
+        }
+
+        .rf-blinds-stripe-triplet .bst-glyph::before,
+        .rf-blinds-stripe-triplet .bst-glyph::after {
+          position: absolute;
+          content: "";
+        }
+
+        .rf-blinds-stripe-triplet .bst-glyph--video::before {
+          inset: 0 0 0 auto;
+          width: 72%;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          background: repeating-linear-gradient(90deg, var(--rf-accent, #afa3ff) 0 10px, transparent 10px 22px);
+          opacity: 0.62;
+        }
+
+        .rf-blinds-stripe-triplet .bst-glyph--video::after {
+          top: 50%;
+          left: 43%;
+          width: 0;
+          height: 0;
+          border-top: 18px solid transparent;
+          border-bottom: 18px solid transparent;
+          border-left: 28px solid var(--rf-text, #f7f8f8);
+          transform: translate(-50%, -50%);
+        }
+
+        .rf-blinds-stripe-triplet .bst-glyph--gif::before {
+          top: 3%;
+          right: 0;
+          width: 32%;
+          height: 83%;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          box-shadow: -38px 0 0 -1px var(--rf-surface-3, #22242a), -38px 0 0 0 var(--rf-hairline-strong, rgba(255, 255, 255, 0.36)), -76px 0 0 -1px var(--rf-surface-3, #22242a), -76px 0 0 0 var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+        }
+
+        .rf-blinds-stripe-triplet .bst-glyph--gif::after {
+          top: 22%;
+          right: 7%;
+          width: 18%;
+          height: 10%;
+          background: var(--rf-accent-alt, #828fff);
+          box-shadow: -38px 21px 0 var(--rf-accent, #afa3ff), -76px 42px 0 var(--rf-accent-alt, #828fff);
+        }
+
+        .rf-blinds-stripe-triplet .bst-glyph--doc::before {
+          top: 4%;
+          right: 0;
+          width: 66%;
+          height: 82%;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          background: linear-gradient(135deg, transparent 0 79%, var(--rf-accent-alt, #828fff) 79% 100%);
+        }
+
+        .rf-blinds-stripe-triplet .bst-glyph--doc::after {
+          top: 27%;
+          right: 11%;
+          width: 45%;
+          height: 3px;
+          background: var(--rf-muted-text, #c6cad3);
+          box-shadow: 0 17px 0 var(--rf-muted-text, #c6cad3), 0 34px 0 var(--rf-accent, #afa3ff);
+        }
+
+        .rf-blinds-stripe-triplet .bst-blind {
+          position: absolute;
+          left: -4%;
+          width: 108%;
+          height: 19.4%;
+          z-index: 6;
+          background: var(--rf-bg, #090a0d);
+          transform-origin: 50% 50%;
+          will-change: transform;
+        }
+
+        .rf-blinds-stripe-triplet .bst-blind--one {
+          top: 39.1%;
+        }
+
+        .rf-blinds-stripe-triplet .bst-blind--two {
+          top: 54.8%;
+        }
+
+        .rf-blinds-stripe-triplet .bst-blind--three {
+          top: 70.5%;
+        }
+
+        @keyframes bst-breathe {
+          from {
+            filter: blur(138px) brightness(1);
+            opacity: 0.14;
+          }
+          to {
+            filter: blur(138px) brightness(1.42);
+            opacity: 0.34;
+          }
+        }
+      </style>
+
+      <main
+        class="rf-blinds-stripe-triplet"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-typo-blinds-stripe-triplet"
+      >
+        <div class="bst-bg" aria-hidden="true"></div>
+        <div class="bst-forge-lines" aria-hidden="true"></div>
+        <div class="bst-bloom" aria-hidden="true"></div>
+        <div class="bst-stage">
+          <h1 class="bst-title" data-slot="headline">차례로 열기</h1>
+
+          <section class="bst-stripe bst-stripe--one">
+            <div class="bst-stripe-inner">
+              <p class="bst-output" data-slot="stripe-one">첫 번째 흐름</p>
+              <div class="bst-glyph bst-glyph--video" aria-hidden="true"></div>
+            </div>
+          </section>
+          <section class="bst-stripe bst-stripe--two">
+            <div class="bst-stripe-inner">
+              <p class="bst-output" data-slot="stripe-two">두 번째 흐름</p>
+              <div class="bst-glyph bst-glyph--gif" aria-hidden="true"></div>
+            </div>
+          </section>
+          <section class="bst-stripe bst-stripe--three">
+            <div class="bst-stripe-inner">
+              <p class="bst-output" data-slot="stripe-three">세 번째 흐름</p>
+              <div class="bst-glyph bst-glyph--doc" aria-hidden="true"></div>
+            </div>
+          </section>
+
+          <div class="bst-blind bst-blind--one" aria-hidden="true"></div>
+          <div class="bst-blind bst-blind--two" aria-hidden="true"></div>
+          <div class="bst-blind bst-blind--three" aria-hidden="true"></div>
+        </div>
+      </main>
+
+      <script>
+        (() => {
+          const compositionId = "gallery-typo-blinds-stripe-triplet";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const title = root.querySelector(".bst-title");
+          const stripes = Array.from(root.querySelectorAll(".bst-stripe"));
+          const stripeInners = Array.from(root.querySelectorAll(".bst-stripe-inner"));
+          const blinds = Array.from(root.querySelectorAll(".bst-blind"));
+          const bloom = root.querySelector(".bst-bloom");
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([title, stripes, stripeInners, bloom], { opacity: 0 })
+            .set(title, { x: -44, y: 24 })
+            .set(stripes, { xPercent: -8 })
+            .set(stripeInners, { x: -38, opacity: 0 })
+            .set(blinds, { scaleY: 1, transformOrigin: "50% 50%" })
+            .fromTo(bloom, { opacity: 0 }, { opacity: 1, duration: 0.28, ease: "power2.out" }, 0)
+            .to(title, { opacity: 1, x: 0, y: 0, duration: 0.38, ease: "power4.out" }, 0.04)
+            .to(stripes, { opacity: 1, xPercent: 0, duration: 0.32, stagger: 0.07, ease: "power3.out" }, 0.16)
+            .to(blinds, { scaleY: 0, duration: 0.35, stagger: 0.13, ease: "power3.inOut" }, 0.44)
+            .to(stripeInners, { opacity: 1, x: 0, duration: 0.3, stagger: 0.13, ease: "power3.out" }, 0.76);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!-- rf-gallery v1 | typo/typewriter-stage | typewriter-vs-fade-sequence | mutate=copy,duration,accent-color | keep=timeline-phase-structure,easing-curves,character-stagger,accent-timing,stage-shake-pattern -->
+<!-- 카피 교체 시 span 재분해 규칙 1: 보이는 모든 문자는 .tw-character span 하나로 분해한다. -->
+<!-- 카피 교체 시 span 재분해 규칙 2: 공백은 문자 span 대신 aria-hidden .tw-gap span으로 순서를 보존한다. -->
+<!-- 카피 교체 시 span 재분해 규칙 3: 마지막 문자 뒤에만 .tw-cursor를 두고 span의 DOM 순서는 바꾸지 않는다. -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Typewriter stage fragment</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #typewriter-stage {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #08080b);
+          color: var(--rf-text, #ffffff);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        #typewriter-stage .tw-stage {
+          position: absolute;
+          inset: 0;
+          transform-origin: 44% 54%;
+          will-change: transform;
+        }
+        #typewriter-stage .tw-kicker {
+          position: absolute;
+          top: 5.8%;
+          left: 5.8%;
+          color: var(--rf-ink-subtle, #8a8f98);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1;
+        }
+        #typewriter-stage .tw-ghost-mark {
+          position: absolute;
+          top: -10.5%;
+          right: 3.5%;
+          color: var(--rf-ghost-fill, transparent);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: min(66vw, 1260px);
+          font-weight: 700;
+          letter-spacing: -0.12em;
+          line-height: 1;
+          -webkit-text-stroke: 1px var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          text-stroke: 1px var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          opacity: 0.58;
+          pointer-events: none;
+        }
+        #typewriter-stage .tw-light {
+          position: absolute;
+          top: -7%;
+          bottom: 18%;
+          width: 8.6%;
+          background: linear-gradient(
+            to bottom,
+            var(--rf-accent, #b99cff),
+            var(--rf-light-shaft-fade, transparent) 72%
+          );
+          filter: blur(20px);
+          opacity: 0;
+          transform: skewX(-6deg);
+          transform-origin: top center;
+          pointer-events: none;
+        }
+        #typewriter-stage .tw-light--a { left: 20.8%; }
+        #typewriter-stage .tw-light--b { left: 38.4%; width: 12.2%; }
+        #typewriter-stage .tw-light--c { left: 63.4%; width: 7%; }
+        #typewriter-stage .tw-light--d { left: 82.6%; width: 10.4%; }
+        #typewriter-stage .tw-horizon {
+          position: absolute;
+          right: 5.8%;
+          bottom: 24.8%;
+          left: 5.8%;
+          height: 1px;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          opacity: 0.82;
+          transform-origin: left center;
+        }
+        #typewriter-stage .tw-floor {
+          position: absolute;
+          right: -8%;
+          bottom: -22%;
+          left: -8%;
+          height: 49%;
+          background-image:
+            linear-gradient(var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-grid-fade, transparent) 1px),
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, var(--rf-grid-fade, transparent) 1px);
+          background-size: 100% 72px, 128px 100%;
+          opacity: 0.38;
+          transform: perspective(620px) rotateX(60deg) scaleX(1.22);
+          transform-origin: center top;
+          will-change: transform, opacity;
+        }
+        #typewriter-stage .tw-floor::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: linear-gradient(to bottom, var(--rf-floor-fade-start, transparent) 18%, var(--rf-bg, #08080b) 88%);
+          content: "";
+        }
+        #typewriter-stage .tw-prompt-line {
+          position: absolute;
+          top: 58.7%;
+          left: 8.1%;
+          width: min(66%, 1210px);
+          height: 3px;
+          background: var(--rf-accent, #b99cff);
+          box-shadow: 0 0 28px var(--rf-accent, #b99cff);
+          transform: scaleX(0);
+          transform-origin: left center;
+          will-change: transform;
+        }
+        #typewriter-stage .tw-copy {
+          position: absolute;
+          top: 25.8%;
+          left: 7.5%;
+          display: flex;
+          align-items: baseline;
+          color: var(--rf-text, #ffffff);
+          font-size: clamp(150px, 12.35vw, 237px);
+          font-weight: 800;
+          letter-spacing: -0.07em;
+          line-height: 0.98;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        #typewriter-stage .tw-character {
+          display: inline-block;
+          will-change: transform, opacity, filter;
+        }
+        #typewriter-stage .tw-gap { width: 0.17em; }
+        #typewriter-stage .tw-cursor {
+          display: inline-block;
+          width: 0.07em;
+          height: 0.91em;
+          margin: 0 0 0 0.075em;
+          background: var(--rf-accent, #b99cff);
+          box-shadow: 0 0 0.18em var(--rf-accent, #b99cff);
+          vertical-align: -0.08em;
+          will-change: transform, opacity;
+        }
+        #typewriter-stage .tw-running {
+          position: absolute;
+          right: 5.8%;
+          bottom: 6.4%;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          color: var(--rf-muted-text, #b4b8c0);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 15px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1;
+        }
+        #typewriter-stage .tw-running::before {
+          width: 148px;
+          height: 1px;
+          background: var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          content: "";
+        }
+        @keyframes typewriter-stage-light-breathe {
+          from { filter: brightness(0.82) blur(20px); opacity: 0.17; }
+          to { filter: brightness(1.42) blur(25px); opacity: 0.53; }
+        }
+        @keyframes typewriter-stage-ghost-breathe {
+          from { filter: brightness(0.86); opacity: 0.29; }
+          to { filter: brightness(1.35); opacity: 0.66; }
+        }
+        #typewriter-stage .tw-light {
+          animation: typewriter-stage-light-breathe 1.16s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        #typewriter-stage .tw-ghost-mark {
+          animation: typewriter-stage-ghost-breathe 1.5s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+      </style>
+      <main
+        id="typewriter-stage"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-typo-typewriter-stage"
+      >
+        <div class="tw-stage">
+          <div class="tw-kicker" data-slot="eyebrow">TYPE / STAGE</div>
+          <div class="tw-ghost-mark" data-slot="background-mark" aria-hidden="true">01</div>
+          <div class="tw-light tw-light--a" aria-hidden="true"></div>
+          <div class="tw-light tw-light--b" aria-hidden="true"></div>
+          <div class="tw-light tw-light--c" aria-hidden="true"></div>
+          <div class="tw-light tw-light--d" aria-hidden="true"></div>
+          <div class="tw-horizon" aria-hidden="true"></div>
+          <div class="tw-floor" aria-hidden="true"></div>
+          <div class="tw-copy" data-slot="headline" aria-label="새 문장을 써.">
+            <span class="tw-character">새</span><span class="tw-gap" aria-hidden="true"></span><span class="tw-character">문</span><span class="tw-character">장</span><span class="tw-character">을</span><span class="tw-gap" aria-hidden="true"></span><span class="tw-character">써</span><span class="tw-character">.</span><span class="tw-cursor" aria-hidden="true"></span>
+          </div>
+          <div class="tw-prompt-line" aria-hidden="true"></div>
+          <div class="tw-running" data-slot="status">INPUT / READY</div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const root = document.querySelector('[data-composition-id="gallery-typo-typewriter-stage"]');
+          if (!root) return;
+          const compositionId = root.dataset.compositionId;
+          const stage = root.querySelector(".tw-stage");
+          const kicker = root.querySelector(".tw-kicker");
+          const running = root.querySelector(".tw-running");
+          const cursor = root.querySelector(".tw-cursor");
+          const promptLine = root.querySelector(".tw-prompt-line");
+          const horizon = root.querySelector(".tw-horizon");
+          const floor = root.querySelector(".tw-floor");
+          const lights = Array.from(root.querySelectorAll(".tw-light"));
+          const characters = Array.from(root.querySelectorAll(".tw-character"));
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([kicker, running, horizon], { opacity: 0 })
+            .set(lights, { opacity: 0, scaleY: 0.14, transformOrigin: "top center" })
+            .set(floor, { opacity: 0, y: 44 })
+            .set(characters, { opacity: 0, y: 30, filter: "brightness(2.8)" })
+            .set(cursor, { opacity: 0, scaleY: 0, transformOrigin: "bottom center" })
+            .set(promptLine, { scaleX: 0, transformOrigin: "left center" })
+            .fromTo(kicker, { opacity: 0, y: -13 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 0)
+            .fromTo(running, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 0)
+            .to(horizon, { opacity: 0.82, duration: 0.3, ease: "power2.out" }, 0.02)
+            .to(floor, { opacity: 0.38, y: 0, duration: 0.38, ease: "power3.out" }, 0.02)
+            .to(lights, { opacity: 0.44, scaleY: 1, duration: 0.34, stagger: 0.035, ease: "power3.out" }, 0.06)
+            .to(cursor, { opacity: 1, scaleY: 1, duration: 0.16, ease: "power3.out" }, 0.16)
+            .to(characters, { opacity: 1, y: 0, filter: "brightness(1)", duration: 0.17, stagger: 0.105, ease: "power3.out" }, 0.29)
+            .to(promptLine, { scaleX: 1, duration: 0.26, ease: "power3.out" }, 0.88)
+            .to(cursor, { opacity: 0.24, duration: 0.12, repeat: 7, yoyo: true, ease: "none" }, 1.12)
+            .to(stage, { x: -7, y: 3, duration: 0.035, ease: "none" }, 0.88)
+            .to(stage, { x: 4, y: -2, duration: 0.04, ease: "none" }, 0.915)
+            .to(stage, { x: 0, y: 0, duration: 0.08, ease: "power2.out" }, 0.955);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

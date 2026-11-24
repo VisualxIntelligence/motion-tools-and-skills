@@ -1,0 +1,239 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · label · INFOCARD
+  A small floating glass info card with a glowing square icon tile (SVG
+  bookmark/info glyph), a bold term headline, and a detail body. The icon tile
+  springs in first, then card content reveals. Anchored right side, lower-mid.
+  Transparent overlay — only the card paints over footage.
+  Slots: term (~28 chars), detail (~90 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-icard {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Soft ambient bloom behind card — right lower */
+      #t2-lb-icard .local-glow {
+        position: absolute;
+        right: 80px; top: 520px;
+        width: 520px; height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 60% 55%,
+          rgba(var(--accent-rgb), 0.22) 0%,
+          rgba(var(--accent-rgb), 0.06) 56%,
+          transparent 82%);
+        filter: blur(44px);
+        pointer-events: none;
+      }
+
+      /* Main card — right side, lower-mid */
+      #t2-lb-icard .card {
+        position: absolute;
+        right: 120px; top: 546px;
+        width: 420px;
+        padding: 22px 26px 20px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1.5px solid var(--glass-border);
+        border-radius: var(--radius);
+        box-shadow:
+          var(--glass-shadow),
+          0 0 0 1.5px rgba(var(--accent-rgb), 0.40),
+          0 0 24px rgba(var(--accent-rgb), 0.20),
+          inset 0 1px 0 var(--glass-hi);
+        overflow: hidden;
+      }
+
+      /* Hairline top shimmer */
+      #t2-lb-icard .card::before {
+        content: "";
+        position: absolute; top: 0; left: 14px; right: 14px; height: 1px;
+        background: linear-gradient(90deg,
+          transparent,
+          rgba(255,255,255,0.52) 40%,
+          rgba(255,255,255,0.52) 60%,
+          transparent);
+      }
+
+      /* Header row: icon tile + term */
+      #t2-lb-icard .header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 14px;
+      }
+
+      /* Glowing square icon tile */
+      #t2-lb-icard .icon-tile {
+        width: 48px; height: 48px;
+        border-radius: var(--radius-sm);
+        background: linear-gradient(135deg,
+          rgba(var(--accent-rgb), 0.30) 0%,
+          rgba(var(--accent-rgb), 0.10) 100%);
+        border: 1.5px solid rgba(var(--accent-rgb), 0.52);
+        box-shadow:
+          0 0 14px rgba(var(--accent-rgb), 0.36),
+          inset 0 1px 0 rgba(255,255,255,0.22);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+
+      #t2-lb-icard .icon-tile svg {
+        width: 24px; height: 24px;
+      }
+
+      /* Term */
+      #t2-lb-icard .term {
+        font-family: var(--font-display);
+        font-weight: var(--wt-bold);
+        font-size: 28px;
+        letter-spacing: var(--track-snug);
+        color: var(--white);
+        text-shadow: var(--textglow);
+        line-height: 1.15;
+      }
+
+      /* Thin separator line */
+      #t2-lb-icard .sep {
+        height: 1px;
+        background: linear-gradient(90deg,
+          rgba(var(--accent-rgb), 0.40) 0%,
+          transparent 70%);
+        margin-bottom: 12px;
+      }
+
+      /* Detail copy */
+      #t2-lb-icard .detail {
+        font-family: var(--font-body);
+        font-weight: var(--wt-reg);
+        font-size: 19px;
+        line-height: 1.52;
+        color: var(--text-dim);
+      }
+
+      /* Accent footer dot-line */
+      #t2-lb-icard .footer-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      #t2-lb-icard .footer-dot {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: var(--glow-accent-sm);
+        flex-shrink: 0;
+      }
+
+      #t2-lb-icard .footer-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg,
+          rgba(var(--accent-rgb), 0.45) 0%,
+          transparent 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-icard" data-composition-id="t2-lb-icard"
+         data-start="0" data-width="1920" data-height="1080">
+
+      <div class="local-glow"></div>
+
+      <div class="card">
+        <div class="header">
+          <!-- Glowing info/bookmark tile icon -->
+          <div class="icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="3" width="12" height="18" rx="2"
+                stroke="#37BDF8" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="10" cy="9" r="1.4"
+                fill="#37BDF8"
+                style="filter: drop-shadow(0 0 4px rgba(55,189,248,0.90));"/>
+              <line x1="8" y1="13" x2="14" y2="13"
+                stroke="#37BDF8" stroke-width="1.5" stroke-linecap="round"
+                style="filter: drop-shadow(0 0 3px rgba(55,189,248,0.70));"/>
+              <line x1="8" y1="16" x2="12" y2="16"
+                stroke="rgba(55,189,248,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="term" data-slot="term">Active Learning Loop</div>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="detail" data-slot="detail">Prompt — recall — verify — repeat. Four stages that transform passive watching into durable expertise.</div>
+
+        <div class="footer-row">
+          <div class="footer-dot"></div>
+          <div class="footer-line"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP = "#t2-lb-icard";
+
+      /* ambient glow rises */
+      tl.from(`${COMP} .local-glow`,
+        { autoAlpha: 0, scale: 0.55, transformOrigin: "60% 55%",
+          duration: 1.15, ease: "expo.out" }, 0)
+
+      /* card springs in from right */
+        .from(`${COMP} .card`,
+          { autoAlpha: 0, x: 36, y: 18, scale: 0.90,
+            transformOrigin: "right bottom",
+            filter: "blur(14px)", duration: 0.82, ease: "back.out(1.4)" }, 0.18)
+
+      /* icon tile pops */
+        .from(`${COMP} .icon-tile`,
+          { autoAlpha: 0, scale: 0.40, rotation: 12, transformOrigin: "50% 50%",
+            duration: 0.52, ease: "back.out(2.0)" }, 0.64)
+
+      /* term glides right-to-left */
+        .from(`${COMP} .term`,
+          { autoAlpha: 0, x: 20, filter: "blur(8px)",
+            duration: 0.60, ease: "power4.out" }, 0.82)
+
+      /* sep line draws left-to-right */
+        .from(`${COMP} .sep`,
+          { scaleX: 0, transformOrigin: "left center",
+            duration: 0.42, ease: "power3.out" }, 1.00)
+
+      /* detail body fades up */
+        .from(`${COMP} .detail`,
+          { autoAlpha: 0, y: 14, filter: "blur(6px)",
+            duration: 0.62, ease: "power3.out" }, 1.12)
+
+      /* footer row draws in */
+        .from(`${COMP} .footer-row`,
+          { autoAlpha: 0, duration: 0.45, ease: "power2.out" }, 1.52)
+
+      /* icon tile glow pulse — finite */
+        .to(`${COMP} .icon-tile`, {
+          boxShadow:
+            "0 0 24px rgba(55,189,248,0.65), inset 0 1px 0 rgba(255,255,255,0.30)",
+          duration: 1.05, ease: "sine.inOut", repeat: 3, yoyo: true }, 2.00)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-icard"] = tl;
+    </script>
+  </body>
+</html>

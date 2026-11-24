@@ -1,0 +1,13 @@
+{
+  "duration": 4,
+  "fps": 30,
+  "keeps": [
+    {
+      "sourceStart": 1,
+      "sourceEnd": 5,
+      "start": 0,
+      "end": 4
+    }
+  ],
+  "removals": []
+}

@@ -1,0 +1,25 @@
+.DS_Store
+node_modules/
+dist/
+.env
+.env.*
+
+# 原始参考素材较大，不进入开源仓库
+参考视频.mp4.mp4
+
+# 保留展示站需要的 sample 预览，忽略本地临时渲染结果
+renders/**
+!renders/
+!renders/*/
+!renders/*/sample.mp4
+!renders/*/sample.webm
+!renders/*/portrait-sample.mp4
+!renders/*/portrait-sample.webm
+
+# HyperFrames / 本地工具缓存
+.hyperframes/
+capture/
+
+# 本地验证、批量渲染与临时投稿包
+.temp/
+redskill-upload-current/

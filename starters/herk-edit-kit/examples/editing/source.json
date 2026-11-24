@@ -1,0 +1,61 @@
+{
+  "language_code": "en",
+  "audio_duration_secs": 8,
+  "text": "We we build a small garden. Plants need light.",
+  "words": [
+    {
+      "text": "We",
+      "start": 0.6,
+      "end": 0.85,
+      "type": "word"
+    },
+    {
+      "text": "we",
+      "start": 0.9,
+      "end": 1.15,
+      "type": "word"
+    },
+    {
+      "text": "build",
+      "start": 1.2,
+      "end": 1.5,
+      "type": "word"
+    },
+    {
+      "text": "a",
+      "start": 1.55,
+      "end": 1.65,
+      "type": "word"
+    },
+    {
+      "text": "small",
+      "start": 1.7,
+      "end": 2,
+      "type": "word"
+    },
+    {
+      "text": "garden.",
+      "start": 2.05,
+      "end": 2.45,
+      "type": "word"
+    },
+    {
+      "text": "Plants",
+      "start": 4,
+      "end": 4.4,
+      "type": "word"
+    },
+    {
+      "text": "need",
+      "start": 4.5,
+      "end": 4.8,
+      "type": "word"
+    },
+    {
+      "text": "light.",
+      "start": 4.9,
+      "end": 5.35,
+      "type": "word"
+    }
+  ]
+}

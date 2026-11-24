@@ -1,0 +1,25 @@
+{
+  "intensityBand": "40-70",
+  "arcFit": ["build", "resolve"],
+  "durationRange": [3.0, 5.0],
+  "slots": [
+    { "name": "kicker", "maxChars": 18 },
+    { "name": "headline-primary", "maxChars": 9 },
+    { "name": "headline-secondary", "maxChars": 8 },
+    { "name": "equation", "maxChars": 28 },
+    { "name": "pipeline-step-1", "maxChars": 26 },
+    { "name": "pipeline-step-2", "maxChars": 22 },
+    { "name": "pipeline-step-3", "maxChars": 25 },
+    { "name": "pipeline-step-4", "maxChars": 21 },
+    { "name": "status", "maxChars": 18 }
+  ],
+  "mutate": ["copy", "duration", "accent-color"],
+  "keep": [
+    "timeline-phase",
+    "easing",
+    "entry-geometry",
+    "connector-stagger",
+    "node-pop",
+    "label-slide"
+  ]
+}

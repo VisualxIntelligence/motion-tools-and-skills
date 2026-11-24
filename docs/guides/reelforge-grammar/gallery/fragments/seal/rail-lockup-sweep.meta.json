@@ -1,0 +1,22 @@
+{
+  "intensityBand": "0-40",
+  "arcFit": ["resolve"],
+  "durationRange": [2.5, 4.5],
+  "slots": [
+    { "name": "kicker", "maxChars": 18 },
+    { "name": "ghost-character", "maxChars": 1 },
+    { "name": "headline-line-1", "maxChars": 13 },
+    { "name": "headline-line-2", "maxChars": 13 },
+    { "name": "destination-url", "maxChars": 32 },
+    { "name": "status-label", "maxChars": 18 }
+  ],
+  "mutate": ["copy", "duration", "accent-color"],
+  "keep": [
+    "timeline-phase",
+    "easing",
+    "anchor-geometry",
+    "ghost-rotation",
+    "cta-stagger",
+    "underline-sweep"
+  ]
+}

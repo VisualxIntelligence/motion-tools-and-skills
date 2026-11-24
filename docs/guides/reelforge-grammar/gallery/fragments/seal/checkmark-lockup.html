@@ -1,0 +1,262 @@
+<!-- rf-gallery v1 | seal/checkmark-lockup | checkmark-success-tick | mutate=copy,duration,accent-color | keep=timeline-phase,checkmark-path-draw,back-out-settle,copy-lockup,underline-sweep -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Checkmark lockup</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-checkmark-lockup {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          color: var(--rf-text, #f7f8f8);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-checkmark-lockup .cml-field {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: radial-gradient(circle at 72% 46%, var(--rf-surface-3, #22242a) 0%, var(--rf-bg, #0a0b0e) 58%);
+        }
+        .rf-checkmark-lockup .cml-field::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(118deg, var(--rf-bg, #0a0b0e) 16%, var(--rf-bg, #0a0b0e) 51%, var(--rf-surface-2, #1a1b20) 100%);
+          opacity: 0.46;
+        }
+        .rf-checkmark-lockup .cml-stage {
+          position: absolute;
+          inset: 0;
+          isolation: isolate;
+        }
+        .rf-checkmark-lockup .cml-kicker {
+          position: absolute;
+          top: 6.2%;
+          left: 7.1%;
+          z-index: 2;
+          color: var(--rf-ink-subtle, #8a8f98);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(18px, 1.3vw, 25px);
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1.2;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+        .rf-checkmark-lockup .cml-mark {
+          position: absolute;
+          top: 10%;
+          right: 8.1%;
+          z-index: 1;
+          width: min(49vw, 820px);
+          aspect-ratio: 1;
+          will-change: transform, opacity;
+        }
+        .rf-checkmark-lockup .cml-aura {
+          position: absolute;
+          inset: -20%;
+          z-index: -1;
+          border-radius: 50%;
+          background: radial-gradient(circle, var(--rf-success, #27a644) 0%, var(--rf-success, #27a644) 24%, var(--rf-bg, #0a0b0e) 71%);
+          opacity: 0.13;
+          filter: brightness(1);
+          animation: cml-aura-breathe 1.25s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-checkmark-lockup .cml-seal {
+          position: absolute;
+          inset: 0;
+          overflow: visible;
+        }
+        .rf-checkmark-lockup .cml-orbit {
+          fill: var(--rf-surface-2, #1a1b20);
+          stroke: var(--rf-hairline-strong, #474a54);
+          stroke-width: 8;
+          transform-box: fill-box;
+          transform-origin: center;
+          will-change: transform, opacity;
+        }
+        .rf-checkmark-lockup .cml-orbit--echo {
+          fill: none;
+          stroke: var(--rf-hairline, #34363e);
+          stroke-width: 2;
+          opacity: 0.78;
+        }
+        .rf-checkmark-lockup .cml-check path {
+          fill: none;
+          stroke: var(--rf-success, #27a644);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 45;
+          stroke-dasharray: 1000;
+          stroke-dashoffset: 1000;
+          filter: drop-shadow(0 0 14px var(--rf-success, #27a644));
+          will-change: stroke-dashoffset;
+        }
+        .rf-checkmark-lockup .cml-copy {
+          position: absolute;
+          top: 30.4%;
+          left: 8.1%;
+          z-index: 2;
+          font-size: clamp(126px, 9.8vw, 188px);
+          font-weight: 800;
+          letter-spacing: -0.078em;
+          line-height: 1.01;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        .rf-checkmark-lockup .cml-line {
+          position: relative;
+          width: max-content;
+          will-change: transform, opacity;
+        }
+        .rf-checkmark-lockup .cml-line--success {
+          margin-top: 0.03em;
+          color: var(--rf-success, #27a644);
+        }
+        .rf-checkmark-lockup .cml-underline {
+          position: absolute;
+          left: 0;
+          right: -0.08em;
+          bottom: -0.13em;
+          height: 0.064em;
+          background: var(--rf-success, #27a644);
+          box-shadow: 0 0 0.2em var(--rf-success, #27a644);
+          transform: scaleX(0);
+          transform-origin: left center;
+          will-change: transform, opacity;
+        }
+        .rf-checkmark-lockup .cml-cta {
+          position: absolute;
+          left: 8.4%;
+          bottom: 14.4%;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          gap: 0.62em;
+          color: var(--rf-muted-text, #d0d6e0);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(21px, 1.5vw, 29px);
+          font-weight: 700;
+          letter-spacing: -0.045em;
+          line-height: 1.25;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+        .rf-checkmark-lockup .cml-cta::before {
+          content: "→";
+          color: var(--rf-success, #27a644);
+        }
+        .rf-checkmark-lockup .cml-status {
+          position: absolute;
+          right: 6.2%;
+          bottom: 6.6%;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          color: var(--rf-ink-subtle, #8a8f98);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(14px, 1vw, 18px);
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1.2;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+        .rf-checkmark-lockup .cml-status::before {
+          content: "";
+          width: 126px;
+          height: 1px;
+          background: var(--rf-hairline, #34363e);
+        }
+        @keyframes cml-aura-breathe {
+          from {
+            filter: brightness(1);
+            opacity: 0.13;
+          }
+          to {
+            filter: brightness(1.28);
+            opacity: 0.21;
+          }
+        }
+      </style>
+      <main
+        class="rf-checkmark-lockup"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-seal-checkmark-lockup"
+      >
+        <div class="cml-field" aria-hidden="true"></div>
+        <div class="cml-stage">
+          <div class="cml-kicker" data-slot="kicker">확인 / 완료</div>
+          <div class="cml-mark" aria-hidden="true">
+            <div class="cml-aura"></div>
+            <svg class="cml-seal" viewBox="0 0 1000 1000" role="img" aria-label="">
+              <circle class="cml-orbit--echo" cx="520" cy="540" r="402"></circle>
+              <circle class="cml-orbit" cx="520" cy="540" r="350"></circle>
+              <g class="cml-check">
+                <path class="cml-check-short" d="M250 540 L515 740"></path>
+                <path class="cml-check-long" d="M515 740 L865 390"></path>
+              </g>
+            </svg>
+          </div>
+          <div class="cml-copy">
+            <div class="cml-line" data-slot="headline-prefix">준비가</div>
+            <div class="cml-line cml-line--success" data-slot="headline-success">완료됐어요<span class="cml-underline" aria-hidden="true"></span></div>
+          </div>
+          <div class="cml-cta" data-slot="cta-label">다음 단계로</div>
+          <div class="cml-status" data-slot="status-label">지금 시작</div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-seal-checkmark-lockup";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const kicker = root.querySelector(".cml-kicker");
+          const mark = root.querySelector(".cml-mark");
+          const orbit = root.querySelector(".cml-orbit");
+          const checkShort = root.querySelector(".cml-check-short");
+          const checkLong = root.querySelector(".cml-check-long");
+          const lines = Array.from(root.querySelectorAll(".cml-line"));
+          const underline = root.querySelector(".cml-underline");
+          const cta = root.querySelector(".cml-cta");
+          const status = root.querySelector(".cml-status");
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          root.querySelectorAll(".cml-check path").forEach((path) => {
+            const length = path.getTotalLength();
+            path.style.strokeDasharray = length;
+            path.style.strokeDashoffset = length;
+          });
+
+          tl.set([kicker, mark, lines, underline, cta, status], { opacity: 0 })
+            .set(mark, { x: 48, scale: 0.9, transformOrigin: "50% 50%" })
+            .set(orbit, { scale: 0.82, transformOrigin: "50% 50%" })
+            .set(underline, { scaleX: 0, transformOrigin: "left center" })
+            .fromTo(kicker, { opacity: 0, y: -13 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 0)
+            .fromTo(mark, { opacity: 0, x: 48, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.34, ease: "power3.out" }, 0.04)
+            .to(orbit, { scale: 1, duration: 0.3, ease: "power3.out" }, 0.08)
+            .to(checkShort, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 0.32)
+            .to(checkLong, { strokeDashoffset: 0, duration: 0.45, ease: "power2.out" }, 0.56)
+            .to(orbit, { scale: 1.06, duration: 0.15, ease: "back.out(2)" }, 1.01)
+            .to(orbit, { scale: 1, duration: 0.2, ease: "power2.inOut" }, 1.16)
+            .fromTo(lines, { opacity: 0, x: -58, y: 12 }, { opacity: 1, x: 0, y: 0, duration: 0.28, stagger: 0.07, ease: "power4.out" }, 0.96)
+            .to(underline, { opacity: 1, scaleX: 1, duration: 0.24, ease: "power3.out" }, 1.25)
+            .fromTo(cta, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 1.2)
+            .fromTo(status, { opacity: 0, x: 18 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 1.28);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · label · CALLOUT
+  A floating frosted glass callout card. `term` as heading with a thin accent
+  rule separator, `detail` body. Anchored right side. Transparent overlay.
+  Slots: term (~24 chars), detail (~70 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-call {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Localized glow — right side, contained */
+      #t2-lb-call .local-glow {
+        position: absolute; right: 60px; top: 310px;
+        width: 580px; height: 380px; border-radius: 50%;
+        background: radial-gradient(ellipse at 50% 50%,
+          rgba(var(--accent-rgb), 0.18) 0%,
+          rgba(var(--accent-rgb), 0.05) 55%,
+          transparent 80%);
+        filter: blur(40px);
+        pointer-events: none;
+      }
+
+      /* Card anchored right */
+      #t2-lb-call .card {
+        position: absolute; right: 80px; top: 340px;
+        width: 500px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1.5px solid var(--glass-border);
+        border-top: 1.5px solid var(--glass-hi);
+        box-shadow: var(--glass-shadow),
+                    0 0 0 1px rgba(var(--accent-rgb), 0.08);
+        border-radius: var(--radius);
+        padding: 32px 36px;
+        overflow: hidden;
+      }
+
+      /* Edge neon rim at top */
+      #t2-lb-call .card::before {
+        content: "";
+        position: absolute; left: 0; right: 0; top: 0; height: 2px;
+        background: linear-gradient(90deg,
+          transparent 0%, rgba(var(--accent-rgb), 0.70) 40%,
+          rgba(var(--accent-rgb), 0.70) 60%, transparent 100%);
+        box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.50);
+      }
+
+      /* Heading */
+      #t2-lb-call .heading {
+        font-family: var(--font-display); font-weight: var(--wt-black);
+        font-size: 38px; letter-spacing: var(--track-tight);
+        color: var(--white); text-shadow: var(--textglow);
+        margin-bottom: 18px;
+      }
+
+      /* Thin accent rule */
+      #t2-lb-call .accent-rule {
+        height: 2px; width: 100%;
+        background: linear-gradient(90deg,
+          var(--accent) 0%, rgba(var(--accent-rgb), 0.20) 100%);
+        box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.45);
+        margin-bottom: 20px;
+        transform-origin: left center;
+      }
+
+      /* Detail body */
+      #t2-lb-call .detail {
+        font-family: var(--font-body); font-weight: var(--wt-reg);
+        font-size: 27px; line-height: 1.5;
+        color: var(--text-dim);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-call" data-composition-id="t2-lb-call" data-start="0" data-width="1920" data-height="1080">
+      <div class="local-glow"></div>
+
+      <div class="card">
+        <div class="heading" data-slot="term">Why This Matters</div>
+        <div class="accent-rule"></div>
+        <div class="detail" data-slot="detail">Context collapse is the silent killer of every AI product launched without a real feedback loop.</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP = "#t2-lb-call";
+
+      tl.from(`${COMP} .local-glow`, {
+            autoAlpha: 0, scale: 0.55, transformOrigin: "50% 50%",
+            duration: 1.3, ease: "expo.out" }, 0)
+
+        /* whole card glides in from the right + blur */
+        .from(`${COMP} .card`, {
+            autoAlpha: 0, x: 60, filter: "blur(14px)",
+            duration: 0.88, ease: "back.out(1.4)" }, 0.20)
+
+        /* heading fades up */
+        .from(`${COMP} .heading`, {
+            autoAlpha: 0, y: 14, filter: "blur(8px)",
+            duration: 0.65, ease: "power4.out" }, 0.55)
+
+        /* rule draws left→right */
+        .from(`${COMP} .accent-rule`, {
+            scaleX: 0, transformOrigin: "0% 50%",
+            duration: 0.55, ease: "power3.out" }, 0.80)
+
+        /* detail fades up */
+        .from(`${COMP} .detail`, {
+            autoAlpha: 0, y: 12, filter: "blur(6px)",
+            duration: 0.65, ease: "power3.out" }, 0.98)
+
+        /* top rim pulse — finite */
+        .to(`${COMP} .card`, {
+            boxShadow: "0 24px 70px rgba(0,0,0,0.50), 0 0 0 1px rgba(55,189,248,0.28), 0 0 30px rgba(55,189,248,0.20)",
+            duration: 1.2, ease: "sine.inOut", repeat: 2, yoyo: true }, 2.2)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-call"] = tl;
+    </script>
+  </body>
+</html>

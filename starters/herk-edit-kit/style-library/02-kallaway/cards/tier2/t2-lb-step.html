@@ -1,0 +1,180 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · label · STEP
+  A STEP label: glowing step badge (number circle) + term heading + detail body.
+  Anchored left side. Transparent overlay.
+  Slots: term (~24 chars), detail (~70 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-step {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+      }
+
+      /* Localized glow — left side */
+      #t2-lb-step .local-glow {
+        position: absolute; left: 50px; top: 300px;
+        width: 580px; height: 420px; border-radius: 50%;
+        background: radial-gradient(ellipse at 50% 50%,
+          rgba(var(--accent-rgb), 0.17) 0%,
+          rgba(var(--accent-rgb), 0.05) 55%,
+          transparent 80%);
+        filter: blur(42px);
+        pointer-events: none;
+      }
+
+      /* Glass card anchored left */
+      #t2-lb-step .card {
+        position: absolute; left: 80px; top: 340px;
+        width: 510px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1.5px solid var(--glass-border);
+        border-top: 1.5px solid var(--glass-hi);
+        box-shadow: var(--glass-shadow),
+                    0 0 0 1px rgba(var(--accent-rgb), 0.07);
+        border-radius: var(--radius);
+        padding: 28px 34px 32px;
+        overflow: hidden;
+      }
+
+      /* Top neon rim */
+      #t2-lb-step .card::before {
+        content: "";
+        position: absolute; left: 0; right: 0; top: 0; height: 2px;
+        background: linear-gradient(90deg,
+          transparent 0%, rgba(var(--accent-rgb), 0.65) 38%,
+          rgba(var(--accent-rgb), 0.65) 62%, transparent 100%);
+        box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.45);
+      }
+
+      /* Step badge row */
+      #t2-lb-step .badge-row {
+        display: flex; align-items: center; gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      /* Glowing circle badge */
+      #t2-lb-step .step-badge {
+        width: 44px; height: 44px; border-radius: 50%;
+        background: linear-gradient(135deg,
+          rgba(var(--accent-rgb), 0.25) 0%,
+          rgba(var(--accent-rgb), 0.08) 100%);
+        border: 1.5px solid var(--accent);
+        box-shadow: 0 0 16px rgba(var(--accent-rgb), 0.55),
+                    0 0 40px rgba(var(--accent-rgb), 0.25);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+
+      #t2-lb-step .step-badge span {
+        font-family: var(--font-display); font-weight: var(--wt-black);
+        font-size: 20px; letter-spacing: -0.02em;
+        color: var(--accent);
+        text-shadow: 0 0 12px rgba(var(--accent-rgb), 0.80);
+        line-height: 1;
+      }
+
+      /* "STEP" kicker label */
+      #t2-lb-step .step-label {
+        font-family: var(--font-body); font-weight: var(--wt-semi);
+        font-size: 14px; letter-spacing: var(--track-wide);
+        text-transform: uppercase;
+        color: var(--accent); text-shadow: var(--textglow-accent);
+      }
+
+      /* Term heading */
+      #t2-lb-step .term {
+        font-family: var(--font-display); font-weight: var(--wt-black);
+        font-size: 38px; letter-spacing: var(--track-tight);
+        color: var(--white); text-shadow: var(--textglow);
+        line-height: 1.15; margin-bottom: 14px;
+      }
+
+      /* Thin accent rule */
+      #t2-lb-step .accent-rule {
+        height: 2px; width: 100%;
+        background: linear-gradient(90deg,
+          var(--accent) 0%, rgba(var(--accent-rgb), 0.15) 100%);
+        box-shadow: 0 0 7px rgba(var(--accent-rgb), 0.38);
+        margin-bottom: 18px;
+        transform-origin: left center;
+      }
+
+      /* Detail body */
+      #t2-lb-step .detail {
+        font-family: var(--font-body); font-weight: var(--wt-reg);
+        font-size: 26px; line-height: 1.52;
+        color: var(--text-dim);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-step" data-composition-id="t2-lb-step" data-start="0" data-width="1920" data-height="1080">
+      <div class="local-glow"></div>
+
+      <div class="card">
+        <div class="badge-row">
+          <div class="step-badge"><span>1</span></div>
+          <div class="step-label">Step</div>
+        </div>
+        <div class="term" data-slot="term">Ingest Your Data</div>
+        <div class="accent-rule"></div>
+        <div class="detail" data-slot="detail">Parse, chunk, and embed every source document into a vector store before the pipeline can retrieve anything useful.</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const COMP = "#t2-lb-step";
+
+      tl.from(`${COMP} .local-glow`, {
+            autoAlpha: 0, scale: 0.55, transformOrigin: "50% 50%",
+            duration: 1.3, ease: "expo.out" }, 0)
+
+        /* card glides in from left + blur */
+        .from(`${COMP} .card`, {
+            autoAlpha: 0, x: -58, filter: "blur(14px)",
+            duration: 0.88, ease: "back.out(1.4)" }, 0.18)
+
+        /* badge row scales + fades */
+        .from(`${COMP} .badge-row`, {
+            autoAlpha: 0, scale: 0.72, transformOrigin: "0% 50%",
+            filter: "blur(6px)",
+            duration: 0.55, ease: "back.out(1.7)" }, 0.52)
+
+        /* term glides + blur */
+        .from(`${COMP} .term`, {
+            autoAlpha: 0, y: 14, filter: "blur(8px)",
+            duration: 0.62, ease: "power4.out" }, 0.80)
+
+        /* accent rule draws */
+        .from(`${COMP} .accent-rule`, {
+            scaleX: 0, transformOrigin: "0% 50%",
+            duration: 0.50, ease: "power3.out" }, 1.04)
+
+        /* detail fades up */
+        .from(`${COMP} .detail`, {
+            autoAlpha: 0, y: 10, filter: "blur(6px)",
+            duration: 0.62, ease: "power3.out" }, 1.22)
+
+        /* badge glow pulse — finite */
+        .to(`${COMP} .step-badge`, {
+            boxShadow: "0 0 28px rgba(55,189,248,0.85), 0 0 70px rgba(55,189,248,0.38)",
+            duration: 1.1, ease: "sine.inOut", repeat: 2, yoyo: true }, 2.3)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-step"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "intensityBand": "40-70",
+  "arcFit": ["build"],
+  "durationRange": [2.5, 4.5],
+  "slots": [
+    {"name": "index-label", "maxChars": 7},
+    {"name": "motion-label", "maxChars": 6},
+    {"name": "headline-char-01", "maxChars": 1},
+    {"name": "headline-char-02", "maxChars": 1},
+    {"name": "headline-char-03", "maxChars": 1},
+    {"name": "headline-char-04", "maxChars": 1},
+    {"name": "headline-char-05", "maxChars": 1},
+    {"name": "headline-char-06", "maxChars": 1},
+    {"name": "headline-char-07", "maxChars": 1},
+    {"name": "echo-label", "maxChars": 3},
+    {"name": "pace-label", "maxChars": 9}
+  ],
+  "mutate": ["copy", "duration", "accent-color", "wave-direction", "wave-band-width"],
+  "keep": [
+    "timeline-phase-structure",
+    "easing-curves",
+    "offset-wave-driver",
+    "character-entry-stagger",
+    "entry-anchor-geometry"
+  ]
+}

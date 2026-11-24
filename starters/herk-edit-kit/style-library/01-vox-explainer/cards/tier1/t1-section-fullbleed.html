@@ -1,0 +1,78 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier1 · section · FULLBLEED
+  Title over a full-bleed halftone photo with a bottom scrim. Photo takeover.
+  Slots: kicker, headline (<em> for marker emphasis), photo (image), source.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; }
+      #t1-sec-fullbleed {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: #1a160f; color: var(--paper);
+        font-family: var(--font-display); overflow: hidden;
+      }
+      #t1-sec-fullbleed .photo {
+        position: absolute; inset: 0;
+        background-color: #2a241a; background-image: var(--tex-halftone);
+        background-size: 9px 9px;
+      }
+      #t1-sec-fullbleed .scrim {
+        position: absolute; inset: 0;
+        background: linear-gradient(0deg, rgba(12,9,6,0.92) 0%, rgba(12,9,6,0.35) 42%, rgba(12,9,6,0.0) 70%);
+      }
+      #t1-sec-fullbleed .grain {
+        position: absolute; inset: -40px; background: var(--tex-grain);
+        background-size: 180px 180px; mix-blend-mode: overlay; opacity: 0.4; pointer-events: none;
+      }
+      #t1-sec-fullbleed .stage { position: absolute; inset: 0; transform-origin: 50% 60%; }
+      #t1-sec-fullbleed .kicker {
+        position: absolute; left: 150px; bottom: 470px;
+        font-family: var(--font-label); font-weight: var(--wt-bold);
+        font-size: var(--size-label); letter-spacing: var(--track-wide);
+        text-transform: uppercase; color: var(--ink); background: var(--yellow); padding: 5px 16px;
+        transform: skewX(var(--marker-skew));
+      }
+      #t1-sec-fullbleed .headline {
+        position: absolute; left: 150px; bottom: 150px; width: 1500px;
+        font-weight: var(--wt-black); font-size: 148px; line-height: 0.94;
+        letter-spacing: var(--track-tight); color: var(--paper);
+      }
+      #t1-sec-fullbleed .headline em { font-style: normal; background: var(--yellow); color: var(--ink); padding: 0 14px; }
+      #t1-sec-fullbleed .source {
+        position: absolute; right: 150px; bottom: 96px;
+        font-family: var(--font-label); font-weight: var(--wt-bold);
+        font-size: var(--size-tiny); letter-spacing: var(--track-wide);
+        text-transform: uppercase; color: rgba(239,233,220,0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t1-sec-fullbleed" data-composition-id="t1-sec-fullbleed" data-start="0" data-width="1920" data-height="1080">
+      <div class="stage">
+        <div class="photo" data-slot="photo"></div>
+        <div class="scrim"></div>
+        <div class="kicker" data-slot="kicker">ON THE GROUND</div>
+        <div class="headline" data-slot="headline">Inside the <em>collapse</em></div>
+      </div>
+      <div class="source" data-slot="source">FIELD REPORT · 2026</div>
+      <div class="grain"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#t1-sec-fullbleed .stage", { scale: 1.08 }, { scale: 1.0, duration: 6, ease: "none" }, 0);
+      tl.fromTo("#t1-sec-fullbleed .grain", { backgroundPosition: "0px 0px" },
+                { backgroundPosition: "160px 120px", duration: 0.5, ease: "steps(4)", repeat: 11, yoyo: true }, 0);
+      tl.from("#t1-sec-fullbleed .kicker", { autoAlpha: 0, scaleX: 0, transformOrigin: "left center", duration: 0.32, ease: "power3.out" }, 0.5)
+        .from("#t1-sec-fullbleed .headline", { autoAlpha: 0, y: 40, clipPath: "inset(0 0 100% 0)", duration: 0.55, ease: "power3.out" }, 0.65)
+        .from("#t1-sec-fullbleed .source", { autoAlpha: 0, duration: 0.3 }, 1.0);
+      window.__timelines["t1-sec-fullbleed"] = tl;
+    </script>
+  </body>
+</html>

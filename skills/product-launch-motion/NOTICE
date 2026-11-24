@@ -1,0 +1,63 @@
+NOTICE — third-party material and what the MIT licence does not cover
+=====================================================================
+
+The MIT licence in LICENSE covers the material this repository's authors wrote: SKILL.md,
+the files under references/ and legacy/, and the prose of README.md.
+
+It does NOT and cannot cover the third-party material referenced or depicted here. Nothing
+in LICENSE grants you any right to the following, and you should assume you have none:
+
+The v2 sample films (examples/ and the v2.0.0 release)
+------------------------------------------------------
+The launch film and the one-shape loop were made for Cheerful (https://www.cheerful.ai) and
+are theirs, published here with permission to show what the skill produces. The launch film
+shows the logos of brands that ran campaigns on Cheerful; those marks belong to their owners
+and are not covered by any licence here. You may not reuse, redistribute or modify the films
+or their frames.
+
+Credits for the films:
+  - Music — "Swish Swed" by Arulo, Mixkit Free License (mixkit.co).
+  - Footage and stills — free-licence stock (Mixkit), checked per item.
+  - Font — DM Sans (SIL OFL 1.1).
+  - Sound effects — synthesized from scratch, no samples.
+  - Numbers on screen — real Cheerful figures at the time of the render.
+
+The v1 reference film and legacy/still-1.jpg
+-----------------------------------------------
+The film referenced throughout this repository was made for Cheerful
+(https://www.cheerful.ai) and is theirs. legacy/still-1.jpg is one title card from it,
+reproduced with permission to illustrate a point about type and stillness.
+
+Frames containing third-party brand marks, product photography or photographs of real
+people are deliberately NOT reproduced here. The documentation describes how those shots
+were constructed; it does not ship the pixels.
+
+You may not reuse, redistribute or modify the film or the still. Fork the repository and
+you take the code and the documentation, not the picture.
+
+Tools and dependencies the skill assumes
+---------------------------------------
+v2 uses Node + Playwright (Apache 2.0), FFmpeg and Python + numpy (BSD). GSAP and HyperFrames
+below apply only to the v1 scripts in legacy/. None of these are bundled here; you install them yourself and they carry their own terms.
+
+  - GSAP — GreenSock. Free for the great majority of uses under the GSAP Standard "No
+    Charge" licence (https://gsap.com/licensing/), but read it before you ship: the terms
+    turn on how your project is monetised, not on how you use the library. The docs here
+    tell you to vendor gsap.min.js into your own project; that copy is GreenSock's, under
+    GreenSock's terms, not this repository's.
+  - HyperFrames — https://github.com/heygen-com/hyperframes, the default renderer.
+  - FFmpeg — required at runtime by four of the scripts; check its licensing if you
+    redistribute a build (LGPL or GPL depending on how it was configured).
+  - Node.js — MIT.
+
+What the reference film used, as an example of a credits block
+---------------------------------------------------------------
+Not shipped here; recorded because references/12-deliverables.md tells you to keep one, and
+a worked example is more use than the instruction alone:
+
+  - Voice — Kokoro-82M (Apache 2.0), voice af_heart, generated locally.
+  - Music and SFX — Pixabay Content License.
+  - Fonts — DM Sans (SIL OFL 1.1), Inter (SIL OFL 1.1).
+  - Framework — HyperFrames.
+
+If you believe something here infringes your rights, open an issue and it will be removed.

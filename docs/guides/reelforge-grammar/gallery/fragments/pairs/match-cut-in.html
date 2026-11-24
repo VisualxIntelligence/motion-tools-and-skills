@@ -1,0 +1,305 @@
+<!-- rf-gallery v1 | pairs/match-cut-in | match-cut-position-carry | mutate=copy,duration,accent-color,data-values | keep=timeline-phase-structure,easing-curves,entry-anchor-geometry,center-anchor-hold,object-handoff-geometry -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>위치 매치컷</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-match-cut-in {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          isolation: isolate;
+          background: var(--rf-bg, #080a12);
+          color: var(--rf-text, #f7f4ed);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-match-cut-in .mci-stage {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-in .mci-field {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(circle at 50% 50%, var(--rf-surface-3, #262a3d) 0%, var(--rf-surface-2, #171b2a) 31%, var(--rf-bg, #080a12) 70%);
+        }
+        .rf-match-cut-in .mci-grid {
+          position: absolute;
+          inset: 0;
+          opacity: 0.32;
+          background-image:
+            repeating-linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 0 1px, var(--rf-bg, #080a12) 1px 96px),
+            repeating-linear-gradient(0deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 0 1px, var(--rf-bg, #080a12) 1px 96px);
+          background-size: 96px 96px;
+        }
+        .rf-match-cut-in .mci-aura {
+          position: absolute;
+          width: 1380px;
+          height: 1380px;
+          left: 50%;
+          top: 50%;
+          border-radius: 50%;
+          opacity: 0.3;
+          background: radial-gradient(circle, var(--rf-accent, #ff5f91) 0%, var(--rf-accent-alt, #7967ff) 38%, var(--rf-bg, #080a12) 72%);
+          filter: brightness(1);
+          transform: translate(-50%, -50%);
+          animation: mci-aura-breathe 1.2s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+          will-change: opacity, filter;
+        }
+        .rf-match-cut-in .mci-axis {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 102vw;
+          height: 1px;
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          transform: translate(-50%, -50%);
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-in .mci-axis--vertical {
+          width: 1px;
+          height: 102vh;
+        }
+        .rf-match-cut-in .mci-anchor {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: min(22.9167vw, 440px);
+          aspect-ratio: 1;
+          z-index: 2;
+          transform: translate(-50%, -50%);
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-in .mci-core {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          border: 2px solid var(--rf-text, #f7f4ed);
+          background: var(--rf-surface-2, #171b2a);
+          box-shadow: 0 0 0 14px var(--rf-bg, #080a12), 0 0 0 16px var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-in .mci-core::before {
+          content: "";
+          position: absolute;
+          inset: 12%;
+          background: var(--rf-accent, #ff5f91);
+          clip-path: polygon(0 0, 100% 0, 100% 32%, 32% 100%, 0 100%);
+        }
+        .rf-match-cut-in .mci-core::after {
+          content: "";
+          position: absolute;
+          width: 52%;
+          height: 52%;
+          right: -1px;
+          bottom: -1px;
+          border-top: 2px solid var(--rf-on-accent, #fff7fb);
+          border-left: 2px solid var(--rf-on-accent, #fff7fb);
+          background: var(--rf-accent-alt, #7967ff);
+        }
+        .rf-match-cut-in .mci-slash {
+          position: absolute;
+          z-index: 1;
+          left: -18%;
+          top: 48%;
+          width: 136%;
+          height: 20px;
+          background: var(--rf-on-accent, #fff7fb);
+          box-shadow: 0 0 24px var(--rf-accent, #ff5f91);
+          transform: rotate(-45deg);
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-in .mci-reticle {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: min(43.75vw, 840px);
+          aspect-ratio: 1;
+          z-index: 1;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.36));
+          transform: translate(-50%, -50%) rotate(45deg);
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-in .mci-reticle::before,
+        .rf-match-cut-in .mci-reticle::after {
+          content: "";
+          position: absolute;
+          background: var(--rf-accent, #ff5f91);
+        }
+        .rf-match-cut-in .mci-reticle::before {
+          width: 36px;
+          height: 36px;
+          left: -18px;
+          top: -18px;
+          box-shadow: 0 0 24px var(--rf-accent, #ff5f91);
+        }
+        .rf-match-cut-in .mci-reticle::after {
+          width: 100%;
+          height: 1px;
+          left: 0;
+          top: 50%;
+          background: var(--rf-hairline, rgba(255, 255, 255, 0.14));
+        }
+        .rf-match-cut-in .mci-copy {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 3;
+          width: min(88vw, 1680px);
+          transform: translate(-50%, -50%);
+          pointer-events: none;
+        }
+        .rf-match-cut-in .mci-orbit-label {
+          position: absolute;
+          left: 0;
+          top: -226px;
+          margin: 0;
+          color: var(--rf-muted-text, #b8bdc9);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-in .mci-title {
+          position: absolute;
+          right: 0;
+          top: -210px;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          font-size: clamp(132px, 10.4vw, 200px);
+          font-weight: 850;
+          letter-spacing: -0.085em;
+          line-height: 0.91;
+          text-align: right;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        .rf-match-cut-in .mci-title-line {
+          display: block;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-in .mci-title-line--accent {
+          color: var(--rf-accent, #ff5f91);
+          text-shadow: 0 0 0.18em var(--rf-accent, #ff5f91);
+        }
+        .rf-match-cut-in .mci-readout {
+          position: absolute;
+          right: 0;
+          bottom: -232px;
+          margin: 0;
+          color: var(--rf-text, #f7f4ed);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-match-cut-in .mci-readout::before {
+          content: "";
+          display: inline-block;
+          width: 172px;
+          height: 2px;
+          margin: 0 18px 6px 0;
+          background: var(--rf-accent-alt, #7967ff);
+          box-shadow: 24px 0 0 var(--rf-accent, #ff5f91);
+        }
+        @keyframes mci-aura-breathe {
+          from {
+            filter: brightness(1);
+            opacity: 0.3;
+          }
+          to {
+            filter: brightness(1.32);
+            opacity: 0.48;
+          }
+        }
+      </style>
+      <main
+        class="rf-match-cut-in"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-pairs-match-cut-in"
+      >
+        <div class="mci-stage">
+          <div class="mci-field" aria-hidden="true"></div>
+          <div class="mci-grid" aria-hidden="true"></div>
+          <div class="mci-aura" aria-hidden="true"></div>
+          <div class="mci-axis" aria-hidden="true"></div>
+          <div class="mci-axis mci-axis--vertical" aria-hidden="true"></div>
+          <div class="mci-reticle" aria-hidden="true"></div>
+          <div class="mci-anchor" aria-hidden="true">
+            <div class="mci-core">
+              <div class="mci-slash"></div>
+            </div>
+          </div>
+          <div class="mci-copy">
+            <p class="mci-orbit-label" data-slot="orbit-label">좌표 유지</p>
+            <h1 class="mci-title">
+              <span class="mci-title-line" data-slot="title">같은 자리</span>
+              <span class="mci-title-line mci-title-line--accent" data-slot="subtitle">다른 움직임</span>
+            </h1>
+            <p class="mci-readout" data-slot="readout">흐름은 이어진다</p>
+          </div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-pairs-match-cut-in";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const anchor = root.querySelector(".mci-anchor");
+          const core = root.querySelector(".mci-core");
+          const slash = root.querySelector(".mci-slash");
+          const reticle = root.querySelector(".mci-reticle");
+          const axes = Array.from(root.querySelectorAll(".mci-axis"));
+          const orbitLabel = root.querySelector(".mci-orbit-label");
+          const titleLines = Array.from(root.querySelectorAll(".mci-title-line"));
+          const readout = root.querySelector(".mci-readout");
+
+          window.__timelines = window.__timelines || {};
+          window.__anchors = window.__anchors || {};
+          window.__anchors[compositionId] = {
+            enter: { shape: "square", cx: 0.5, cy: 0.5, scale: 1.0, color: "--rf-accent" }
+          };
+
+          const tl = gsap.timeline({ paused: true });
+          tl.set(anchor, { opacity: 1, xPercent: -50, yPercent: -50, x: 0, y: 0, scale: 1, rotation: 0, transformOrigin: "center center" })
+            .set(core, { rotation: 0, transformOrigin: "center center" })
+            .set(slash, { opacity: 0, scaleX: 0.24, transformOrigin: "center center" })
+            .set(reticle, { opacity: 0, scale: 0.68, rotation: 45, transformOrigin: "center center" })
+            .set(axes, { opacity: 0, scaleX: 0.42, transformOrigin: "center center" })
+            .set(orbitLabel, { opacity: 0, x: -36 })
+            .set(titleLines, { opacity: 0, x: 72, y: 14 })
+            .set(readout, { opacity: 0, x: 42 })
+            .to(anchor, { scale: 1.055, duration: 0.16, ease: "power2.out" }, 0.18)
+            .to(anchor, { scale: 1, duration: 0.22, ease: "power2.inOut" }, 0.34)
+            .to(slash, { opacity: 1, scaleX: 1, duration: 0.3, ease: "power3.out" }, 0.38)
+            .to(reticle, { opacity: 0.86, scale: 1, rotation: 0, duration: 0.52, ease: "power3.out" }, 0.46)
+            .to(axes, { opacity: 0.7, scaleX: 1, duration: 0.4, ease: "power2.out" }, 0.58)
+            .to(core, { rotation: -4, duration: 0.22, ease: "power2.out" }, 0.66)
+            .to(core, { rotation: 0, duration: 0.28, ease: "power2.inOut" }, 0.88)
+            .to(orbitLabel, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out" }, 0.82)
+            .to(titleLines[0], { opacity: 1, x: 0, y: 0, duration: 0.38, ease: "power4.out" }, 0.94)
+            .to(titleLines[1], { opacity: 1, x: 0, y: 0, duration: 0.4, ease: "power4.out" }, 1.18)
+            .to(readout, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 1.5)
+            .to(reticle, { opacity: 0.52, duration: 0.24, ease: "power2.out" }, 1.78);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

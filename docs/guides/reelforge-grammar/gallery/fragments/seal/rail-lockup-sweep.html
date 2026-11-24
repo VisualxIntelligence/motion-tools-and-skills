@@ -1,0 +1,212 @@
+<!-- rf-gallery v1 | seal/rail-lockup-sweep | underline-emphasis-sweep | mutate=copy,duration,accent-color | keep=timeline-phase,easing,anchor-geometry,ghost-rotation,cta-stagger,underline-sweep -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Rail lockup sweep</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-rail-lockup-sweep {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #101318);
+          color: var(--rf-text, #f6f3ea);
+          font-family: var(--rf-font-sans, "Helvetica Neue", Arial, sans-serif);
+        }
+        .rf-rail-lockup-sweep .rf-stage {
+          position: absolute;
+          inset: 0;
+          isolation: isolate;
+        }
+        .rf-rail-lockup-sweep .rf-kicker {
+          position: absolute;
+          z-index: 2;
+          top: 5.8%;
+          left: 5.8%;
+          color: var(--rf-ink-subtle, #a9b0b9);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1;
+          white-space: nowrap;
+        }
+        .rf-rail-lockup-sweep .rf-rail {
+          position: absolute;
+          z-index: 1;
+          right: 7.3%;
+          top: 12.8%;
+          bottom: 12.8%;
+          width: 1px;
+          background: var(--rf-hairline, #39414a);
+          transform-origin: center top;
+          will-change: transform, opacity;
+        }
+        .rf-rail-lockup-sweep .rf-rail::before,
+        .rf-rail-lockup-sweep .rf-rail::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          width: 235px;
+          height: 1px;
+          background: var(--rf-hairline, #39414a);
+        }
+        .rf-rail-lockup-sweep .rf-rail::before {
+          top: 0;
+        }
+        .rf-rail-lockup-sweep .rf-rail::after {
+          bottom: 0;
+        }
+        .rf-rail-lockup-sweep .rf-ghost {
+          position: absolute;
+          right: 8.4%;
+          top: 12.4%;
+          z-index: 0;
+          color: var(--rf-bg, #101318);
+          font-size: clamp(510px, 40vw, 770px);
+          font-weight: 800;
+          letter-spacing: -0.12em;
+          line-height: 0.8;
+          -webkit-text-stroke: 2px var(--rf-hairline-strong, #62707c);
+          text-rendering: geometricPrecision;
+          will-change: transform, opacity, filter;
+          animation: rf-rail-ghost-breathe 1.35s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+        .rf-rail-lockup-sweep .rf-copy {
+          position: absolute;
+          top: 25.4%;
+          left: 7.8%;
+          z-index: 1;
+          font-size: clamp(122px, 9.3vw, 179px);
+          font-weight: 800;
+          letter-spacing: -0.065em;
+          line-height: 0.98;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+        .rf-rail-lockup-sweep .rf-line {
+          position: relative;
+          width: max-content;
+          will-change: transform, opacity;
+        }
+        .rf-rail-lockup-sweep .rf-line--success {
+          margin-top: 0.04em;
+          color: var(--rf-success, #6ce6a6);
+        }
+        .rf-rail-lockup-sweep .rf-underline {
+          position: absolute;
+          left: 0.01em;
+          right: -0.04em;
+          bottom: -0.125em;
+          height: 0.062em;
+          background: var(--rf-success, #6ce6a6);
+          box-shadow: 0 0 0.16em var(--rf-success, #6ce6a6);
+          transform: scaleX(0);
+          transform-origin: left center;
+          will-change: transform, opacity;
+        }
+        .rf-rail-lockup-sweep .rf-destination {
+          position: absolute;
+          z-index: 2;
+          left: 8.2%;
+          bottom: 16.2%;
+          color: var(--rf-muted-text, #b7bec7);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(21px, 1.45vw, 28px);
+          font-weight: 700;
+          letter-spacing: -0.035em;
+          line-height: 1;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+        .rf-rail-lockup-sweep .rf-destination::before {
+          content: "↗";
+          margin-right: 0.52em;
+          color: var(--rf-success, #6ce6a6);
+        }
+        .rf-rail-lockup-sweep .rf-status {
+          position: absolute;
+          z-index: 2;
+          right: 5.8%;
+          bottom: 6.4%;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          color: var(--rf-muted-text, #b7bec7);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 15px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1;
+          white-space: nowrap;
+          will-change: transform, opacity;
+        }
+        .rf-rail-lockup-sweep .rf-status::before {
+          content: "";
+          width: 148px;
+          height: 1px;
+          background: var(--rf-hairline, #39414a);
+        }
+        @keyframes rf-rail-ghost-breathe {
+          from {
+            filter: brightness(0.9) drop-shadow(0 0 0 var(--rf-success, #6ce6a6));
+            opacity: 0.13;
+          }
+          to {
+            filter: brightness(1.55) drop-shadow(0 0 34px var(--rf-success, #6ce6a6));
+            opacity: 0.34;
+          }
+        }
+      </style>
+      <main class="rf-rail-lockup-sweep" data-rf-fragment-version="1.0" data-composition-id="gallery-seal-rail-lockup-sweep">
+        <div class="rf-stage">
+          <div class="rf-kicker" data-slot="kicker">ACTION / READY</div>
+          <div class="rf-rail" aria-hidden="true"></div>
+          <div class="rf-ghost" data-slot="ghost-character" aria-hidden="true">A</div>
+          <div class="rf-copy">
+            <div class="rf-line" data-slot="headline-line-1">YOUR MOVE,</div>
+            <div class="rf-line rf-line--success" data-slot="headline-line-2">STARTS NOW.<span class="rf-underline" aria-hidden="true"></span></div>
+          </div>
+          <div class="rf-destination" data-slot="destination-url">your-link.example</div>
+          <div class="rf-status" data-slot="status-label">NEXT / READY</div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-seal-rail-lockup-sweep";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const kicker = root.querySelector(".rf-kicker");
+          const rail = root.querySelector(".rf-rail");
+          const ghost = root.querySelector(".rf-ghost");
+          const lines = Array.from(root.querySelectorAll(".rf-line"));
+          const underline = root.querySelector(".rf-underline");
+          const destination = root.querySelector(".rf-destination");
+          const status = root.querySelector(".rf-status");
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([kicker, rail, ghost, lines, underline, destination, status], { opacity: 0 })
+            .set(rail, { scaleY: 0, transformOrigin: "center top" })
+            .set(underline, { scaleX: 0, transformOrigin: "left center" })
+            .fromTo(kicker, { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0)
+            .fromTo(rail, { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.55, ease: "power3.out" }, 0.05)
+            .fromTo(ghost, { opacity: 0, x: 110, rotation: 3 }, { opacity: 0.2, x: 0, rotation: 0, duration: 0.9, ease: "power2.out" }, 0.05)
+            .fromTo(lines, { opacity: 0, x: -68, y: 15 }, { opacity: 1, x: 0, y: 0, duration: 0.45, stagger: 0.18, ease: "power4.out" }, 0.3)
+            .fromTo(status, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 0.55)
+            .fromTo(destination, { opacity: 0, x: -28 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.95)
+            .to(underline, { opacity: 1, scaleX: 1, duration: 0.55, ease: "power3.inOut" }, 1.15);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

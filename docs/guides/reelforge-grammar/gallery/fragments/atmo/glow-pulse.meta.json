@@ -1,0 +1,1 @@
+{"intensityBand":"0-40","arcFit":["build","peak","hook","resolve"],"durationRange":[2.5,5.0],"slots":[{"name":"headline","maxChars":12}],"mutate":["copy","duration","accent-color","halo-size","halo-position"],"keep":["timeline-phase-structure","easing-curves","glow-behind-composite","finite-phase-breathing","living-wash"]}

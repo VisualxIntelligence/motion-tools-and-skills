@@ -1,0 +1,183 @@
+<!-- rf-gallery v1 | atmo/glow-pulse | glow-pulse-halo | mutate=copy,duration,accent-color,halo-size,halo-position | keep=timeline-phase-structure,easing-curves,glow-behind-composite,finite-phase-breathing,living-wash -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Glow Pulse Halo</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-glow-pulse {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #090b11);
+          color: var(--rf-text, #f5f7ff);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-glow-pulse .gph-stage {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse at 50% 50%, var(--rf-surface-2, #171a26) 0%, transparent 31%),
+            linear-gradient(118deg, var(--rf-bg, #090b11) 0%, var(--rf-surface-3, #10131c) 100%);
+          will-change: transform;
+        }
+        .rf-glow-pulse .gph-wash {
+          position: absolute;
+          inset: -20%;
+          background: radial-gradient(ellipse at 50% 50%, var(--rf-accent-alt, #7c6cff) 0%, transparent 62%);
+          mix-blend-mode: screen;
+          opacity: 0.22;
+          pointer-events: none;
+          will-change: filter, opacity;
+        }
+        .rf-glow-pulse .gph-bloom {
+          position: absolute;
+          inset: -30%;
+          border-radius: 50%;
+          background: radial-gradient(circle at 50% 50%, var(--rf-accent, #6f8cff) 0%, transparent 69%);
+          mix-blend-mode: screen;
+          opacity: 0;
+          pointer-events: none;
+          transform: scale(0.82);
+          transform-origin: center center;
+          will-change: transform, opacity;
+        }
+        .rf-glow-pulse .gph-ring {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          border: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          border-radius: 50%;
+          pointer-events: none;
+          transform: translate(-50%, -50%);
+          transform-origin: center center;
+          will-change: transform, opacity;
+        }
+        .rf-glow-pulse .gph-ring--outer {
+          width: min(96vw, 1660px);
+          height: min(96vw, 1660px);
+          border-color: var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          opacity: 0;
+        }
+        .rf-glow-pulse .gph-ring--inner {
+          width: min(54vw, 920px);
+          height: min(54vw, 920px);
+          border-color: var(--rf-hairline-strong, rgba(255, 255, 255, 0.34));
+          opacity: 0;
+        }
+        .rf-glow-pulse .gph-ray {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 144vw;
+          height: 1px;
+          background: linear-gradient(90deg, transparent 0%, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 38%, var(--rf-accent, #6f8cff) 50%, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 62%, transparent 100%);
+          opacity: 0;
+          pointer-events: none;
+          transform: translate(-50%, -50%);
+          transform-origin: center center;
+          will-change: transform, opacity;
+        }
+        .rf-glow-pulse .gph-ray--vertical {
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+        .rf-glow-pulse .gph-copy {
+          position: absolute;
+          left: 50%;
+          bottom: 9.5%;
+          color: var(--rf-text, #f5f7ff);
+          font-family: var(--rf-font-display, var(--rf-font-sans, "Pretendard", system-ui, sans-serif));
+          font-size: clamp(31px, 2.7vw, 52px);
+          font-weight: 600;
+          letter-spacing: -0.055em;
+          line-height: 1.18;
+          text-align: center;
+          white-space: nowrap;
+          transform: translateX(-50%);
+          will-change: transform, opacity;
+        }
+        .rf-glow-pulse .gph-copy::after {
+          display: block;
+          width: 64px;
+          height: 2px;
+          margin: 23px auto 0;
+          background: var(--rf-accent, #6f8cff);
+          box-shadow: 0 0 18px var(--rf-accent, #6f8cff);
+          content: "";
+          transform-origin: center center;
+        }
+        @keyframes gph-wash-breathe {
+          from { filter: brightness(1); opacity: 0.22; }
+          to { filter: brightness(1.25); opacity: 0.34; }
+        }
+        .rf-glow-pulse .gph-wash {
+          animation: gph-wash-breathe 1.25s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+      </style>
+      <main
+        class="rf-glow-pulse"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-atmo-glow-pulse"
+      >
+        <div class="gph-stage">
+          <div class="gph-wash" aria-hidden="true"></div>
+          <div class="gph-bloom" aria-hidden="true"></div>
+          <div class="gph-ring gph-ring--outer" aria-hidden="true"></div>
+          <div class="gph-ring gph-ring--inner" aria-hidden="true"></div>
+          <div class="gph-ray" aria-hidden="true"></div>
+          <div class="gph-ray gph-ray--vertical" aria-hidden="true"></div>
+          <div class="gph-copy" data-slot="headline">천천히, 밝아지는 순간</div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-atmo-glow-pulse";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const BLOOM_START = 0.08;
+          const HOLD_DUR = 1.1;
+          const stage = root.querySelector(".gph-stage");
+          const bloom = root.querySelector(".gph-bloom");
+          const outerRing = root.querySelector(".gph-ring--outer");
+          const innerRing = root.querySelector(".gph-ring--inner");
+          const rays = Array.from(root.querySelectorAll(".gph-ray"));
+          const copy = root.querySelector(".gph-copy");
+          const phase = { p: 0 };
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([bloom, outerRing, innerRing, rays, copy], { opacity: 0 })
+            .set(bloom, { scale: 0.82, transformOrigin: "center center" })
+            .set(outerRing, { scale: 0.78, transformOrigin: "center center" })
+            .set(innerRing, { scale: 0.68, transformOrigin: "center center" })
+            .set(rays, { scaleX: 0.3, transformOrigin: "center center" })
+            .fromTo(bloom, { opacity: 0, scale: 0.82 }, { opacity: 0.28, scale: 1, duration: 0.86, ease: "power2.out" }, BLOOM_START)
+            .fromTo(outerRing, { opacity: 0, scale: 0.78 }, { opacity: 0.34, scale: 1, duration: 1.1, ease: "power3.out" }, 0.14)
+            .fromTo(innerRing, { opacity: 0, scale: 0.68 }, { opacity: 0.58, scale: 1, duration: 0.76, ease: "power3.out" }, 0.34)
+            .to(rays, { opacity: 0.7, scaleX: 1, duration: 0.62, ease: "power2.out" }, 0.53)
+            .fromTo(copy, { opacity: 0, y: 18, filter: "blur(5px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.42, ease: "power3.out" }, 1.12)
+            .to(phase, {
+              p: Math.PI * 2 * 2,
+              duration: HOLD_DUR,
+              ease: "none",
+              onUpdate: () => {
+                const swell = Math.sin(phase.p);
+                bloom.style.opacity = String(0.28 + swell * 0.025);
+                bloom.style.transform = `scale(${1 + swell * 0.018})`;
+              }
+            }, BLOOM_START + 0.86)
+            .to(stage, { x: 0, y: 0, duration: 0.01, ease: "none" }, 2.04);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

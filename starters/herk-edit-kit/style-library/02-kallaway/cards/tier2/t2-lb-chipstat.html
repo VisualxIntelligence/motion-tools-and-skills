@@ -1,0 +1,150 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier2 · label · DATA CHIP
+  A small glowing DATA CHIP: big value (`term`, e.g. "3.2x") + a small `detail`
+  label. Compact glass chip with accent edge-glow.
+  Anchored right side. Transparent overlay.
+  Slots: term (~8 chars — value), detail (~32 chars — label).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-chip {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; overflow: hidden;
+        font-family: var(--font-display);
+      }
+
+      /* Localized glow — right side, tight + bright since the chip is small */
+      #t2-lb-chip .local-glow {
+        position: absolute; right: 120px; top: 420px;
+        width: 380px; height: 280px; border-radius: 50%;
+        background: radial-gradient(ellipse at 50% 50%,
+          rgba(var(--accent-rgb), 0.32) 0%,
+          rgba(var(--accent-rgb), 0.10) 50%,
+          transparent 75%);
+        filter: blur(30px);
+        pointer-events: none;
+      }
+
+      /* Chip anchored right */
+      #t2-lb-chip .chip {
+        position: absolute; right: 80px; top: 440px;
+        /* intrinsic width — sized to content */
+        min-width: 240px;
+        background: var(--glass-bg-dark);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1.5px solid var(--glass-border);
+        border-top: 1.5px solid var(--glass-hi);
+        box-shadow: var(--glass-shadow),
+                    0 0 32px rgba(var(--accent-rgb), 0.28),
+                    inset 0 0 0 1px rgba(var(--accent-rgb), 0.08);
+        border-radius: var(--radius-sm); /* 16px — compact */
+        padding: 22px 30px 20px;
+        display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+        position: absolute; right: 80px; top: 440px;
+      }
+
+      /* Top neon edge rim */
+      #t2-lb-chip .chip::before {
+        content: "";
+        position: absolute; left: 16px; right: 16px; top: 0; height: 1.5px;
+        background: linear-gradient(90deg,
+          transparent 0%, rgba(var(--accent-rgb), 0.80) 50%, transparent 100%);
+        box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.55);
+        border-radius: 0 0 2px 2px;
+      }
+
+      /* Big value — Space Mono, gradient */
+      #t2-lb-chip .value {
+        font-family: var(--font-mono); font-weight: 700;
+        font-size: var(--size-headline); /* 54px */
+        letter-spacing: var(--track-tight);
+        line-height: 1.0;
+        background: linear-gradient(110deg,
+          #FFFFFF 0%, #FFFFFF 40%, var(--accent) 85%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        filter: drop-shadow(0 0 16px rgba(var(--accent-rgb), 0.55))
+                drop-shadow(0 0 5px rgba(255,255,255,0.25));
+        display: block;
+      }
+
+      /* Divider line */
+      #t2-lb-chip .chip-rule {
+        height: 1px; width: 100%;
+        background: linear-gradient(90deg,
+          rgba(var(--accent-rgb), 0.45) 0%, transparent 100%);
+        transform-origin: left center;
+      }
+
+      /* Detail label */
+      #t2-lb-chip .label {
+        font-family: var(--font-body); font-weight: var(--wt-med);
+        font-size: 19px; letter-spacing: 0.05em;
+        color: var(--text-dim);
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-chip" data-composition-id="t2-lb-chip" data-start="0" data-width="1920" data-height="1080">
+      <div class="local-glow"></div>
+
+      <div class="chip">
+        <div class="value" data-slot="term">3.2x</div>
+        <div class="chip-rule"></div>
+        <div class="label" data-slot="detail">higher retention vs. baseline</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const COMP = "#t2-lb-chip";
+
+      tl.from(`${COMP} .local-glow`, {
+            autoAlpha: 0, scale: 0.5, transformOrigin: "50% 50%",
+            duration: 1.1, ease: "expo.out" }, 0)
+
+        /* chip springs in from right + slight scale */
+        .from(`${COMP} .chip`, {
+            autoAlpha: 0, x: 48, scale: 0.88, filter: "blur(12px)",
+            transformOrigin: "100% 50%",
+            duration: 0.72, ease: "back.out(1.4)" }, 0.20)
+
+        /* value number counts feel — y drop + blur resolves */
+        .from(`${COMP} .value`, {
+            autoAlpha: 0, y: -18, filter: "blur(14px)",
+            duration: 0.55, ease: "power4.out" }, 0.52)
+
+        /* rule draws */
+        .from(`${COMP} .chip-rule`, {
+            scaleX: 0, transformOrigin: "0% 50%",
+            duration: 0.40, ease: "power3.out" }, 0.78)
+
+        /* label fades */
+        .from(`${COMP} .label`, {
+            autoAlpha: 0, y: 8,
+            duration: 0.40, ease: "power2.out" }, 0.92)
+
+        /* chip glow pulse — finite */
+        .to(`${COMP} .chip`, {
+            boxShadow: "0 24px 70px rgba(0,0,0,0.50), 0 0 50px rgba(55,189,248,0.55), inset 0 0 0 1px rgba(55,189,248,0.20)",
+            duration: 1.0, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.6)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-chip"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<!--
+  KALLAWAY · tier1 · stat · COUNTER PILL
+  A big glowing number centered inside a glass pill, counts up from 0. Kicker above,
+  label below. The pill has a neon accent border rim. Aurora bloom.
+  Slots: kicker (~28 chars uppercase), stat (e.g. "12,400"), label (~70 chars, <em>),
+         source (~40 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; }
+
+      #t1-stat-cpill {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: var(--canvas); color: var(--text);
+        font-family: var(--font-display); overflow: hidden;
+      }
+
+      #t1-stat-cpill .bloom {
+        position: absolute; inset: 0; background: var(--bloom-bottom); z-index: 1;
+      }
+      #t1-stat-cpill .grid {
+        position: absolute; inset: 0; z-index: 1;
+        background-image: var(--dot); background-size: var(--dot-size);
+        opacity: 0.5;
+        -webkit-mask-image: radial-gradient(120% 100% at 50% 60%, #000 35%, transparent 80%);
+                mask-image: radial-gradient(120% 100% at 50% 60%, #000 35%, transparent 80%);
+      }
+
+      /* Content */
+      #t1-stat-cpill .content {
+        position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+        display: flex; flex-direction: column; align-items: center;
+        justify-content: center; z-index: 4; gap: 52px; padding-bottom: 40px;
+      }
+
+      #t1-stat-cpill .kicker {
+        font-family: var(--font-mono);
+        font-size: var(--size-label);
+        font-weight: var(--wt-bold);
+        letter-spacing: var(--track-wide);
+        text-transform: uppercase;
+        color: var(--accent);
+        text-shadow: var(--textglow-accent);
+      }
+
+      /* Glass pill container */
+      #t1-stat-cpill .pill {
+        display: flex; align-items: center; justify-content: center;
+        padding: 48px 120px;
+        border-radius: 80px;
+        background: var(--glass-bg);
+        border: 1.5px solid var(--glass-border);
+        box-shadow:
+          var(--glass-shadow),
+          inset 0 1px 0 var(--glass-hi),
+          /* neon accent rim glow */
+          0 0 60px rgba(var(--accent-rgb), 0.18),
+          0 0 120px rgba(var(--accent-rgb), 0.10);
+        -webkit-backdrop-filter: var(--glass-blur);
+        backdrop-filter: var(--glass-blur);
+        position: relative;
+        /* Extra neon top edge highlight */
+        overflow: hidden;
+      }
+      /* Top-edge accent line inside the pill */
+      #t1-stat-cpill .pill::before {
+        content: "";
+        position: absolute; top: 0; left: 10%; right: 10%; height: 2px;
+        background: linear-gradient(to right,
+          transparent 0%,
+          rgba(var(--accent-rgb), 0.70) 35%,
+          rgba(255,255,255,0.90) 50%,
+          rgba(var(--accent-rgb), 0.70) 65%,
+          transparent 100%);
+        box-shadow: 0 0 14px 2px rgba(var(--accent-rgb), 0.55);
+        border-radius: 2px;
+      }
+
+      /* The stat number */
+      #t1-stat-cpill .stat {
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 200px;
+        line-height: 1;
+        letter-spacing: var(--track-tight);
+        background: linear-gradient(160deg, #ffffff 15%, rgba(var(--accent-rgb),0.85) 82%);
+        -webkit-background-clip: text; background-clip: text;
+        -webkit-text-fill-color: transparent; text-fill-color: transparent;
+        filter: drop-shadow(0 0 28px rgba(var(--accent-rgb), 0.55))
+                drop-shadow(0 0 70px rgba(var(--accent-rgb), 0.28));
+      }
+
+      #t1-stat-cpill .label {
+        font-family: var(--font-body);
+        font-size: var(--size-body);
+        font-weight: var(--wt-med);
+        color: var(--text-dim);
+        text-align: center;
+        max-width: 900px;
+        line-height: 1.45;
+      }
+      #t1-stat-cpill .label em {
+        font-style: normal; color: var(--text); text-shadow: var(--textglow);
+      }
+
+      #t1-stat-cpill .source {
+        position: absolute; left: var(--pad); bottom: 44px;
+        font-family: var(--font-mono); font-size: var(--size-tiny);
+        font-weight: var(--wt-reg); letter-spacing: 0.12em;
+        text-transform: uppercase; color: var(--text-faint); z-index: 5;
+      }
+
+      #t1-stat-cpill .vignette {
+        position: absolute; inset: 0; pointer-events: none; z-index: 6;
+        background: var(--vignette);
+      }
+      #t1-stat-cpill .grain {
+        position: absolute; inset: -40px; background: var(--tex-grain);
+        background-size: 200px 200px; mix-blend-mode: overlay; opacity: 0.10;
+        pointer-events: none; z-index: 7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t1-stat-cpill" data-composition-id="t1-stat-cpill" data-start="0" data-width="1920" data-height="1080">
+      <div class="bloom"></div>
+      <div class="grid"></div>
+
+      <div class="content">
+        <div class="kicker" data-slot="kicker">LEARNERS ENROLLED · LIVE</div>
+
+        <div class="pill">
+          <div class="stat" id="t1-stat-cpill-num" data-slot="stat">12,400</div>
+        </div>
+
+        <div class="label" data-slot="label">students are <em>actively enrolled</em> in AI certification tracks as of this week</div>
+      </div>
+
+      <div class="source" data-slot="source">SOURCE · PLATFORM ANALYTICS 2026</div>
+
+      <div class="vignette"></div>
+      <div class="grain"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const numEl = document.getElementById("t1-stat-cpill-num");
+      const raw   = numEl.textContent.trim();
+
+      /* Strip commas and suffix for parsing; reconstruct with commas on update */
+      const numericStr = raw.replace(/,/g, "");
+      const suffix     = numericStr.replace(/[\d.]+/, "");
+      const target     = parseFloat(numericStr) || 12400;
+      const hasCommas  = raw.includes(",");
+
+      function formatNum(v) {
+        const rounded = Math.round(v);
+        return hasCommas ? rounded.toLocaleString("en-US") + suffix : rounded + suffix;
+      }
+
+      /* ambient grain flicker */
+      tl.fromTo("#t1-stat-cpill .grain",
+        { backgroundPosition: "0px 0px" },
+        { backgroundPosition: "110px 80px", duration: 0.6, ease: "none", repeat: 11, yoyo: true }, 0);
+
+      /* bloom + grid */
+      tl.from("#t1-stat-cpill .bloom",
+        { autoAlpha: 0, scale: 0.88, transformOrigin: "50% 120%", duration: 1.4, ease: "expo.out" }, 0)
+        .from("#t1-stat-cpill .grid",
+          { autoAlpha: 0, duration: 1.1, ease: "power2.out" }, 0.2)
+
+        /* kicker */
+        .from("#t1-stat-cpill .kicker",
+          { autoAlpha: 0, y: 18, filter: "blur(8px)", duration: 0.75, ease: "power3.out" }, 0.50)
+
+        /* pill springs in */
+        .from("#t1-stat-cpill .pill",
+          { autoAlpha: 0, scaleX: 0.65, scaleY: 0.7, transformOrigin: "50% 50%",
+            filter: "blur(18px)", duration: 1.05, ease: "back.out(1.4)" }, 0.72)
+
+        /* count-up + number focus pull */
+        .from("#t1-stat-cpill .stat",
+          { autoAlpha: 0, filter: "blur(24px)", duration: 0.85, ease: "power3.out" }, 0.85)
+        .to({ val: 0 }, { val: target,
+          duration: 2.0, ease: "power2.out",
+          onUpdate: function() {
+            numEl.textContent = formatNum(this.targets()[0].val);
+          }
+        }, 0.88)
+
+        /* label */
+        .from("#t1-stat-cpill .label",
+          { autoAlpha: 0, y: 20, filter: "blur(8px)", duration: 0.85, ease: "power3.out" }, 2.00)
+
+        /* source */
+        .from("#t1-stat-cpill .source",
+          { autoAlpha: 0, duration: 0.7, ease: "power2.out" }, 2.30)
+
+        /* breathing glow on pill */
+        .to("#t1-stat-cpill .pill",
+          { boxShadow: "0 24px 70px rgba(0,0,0,0.50), inset 0 1px 0 rgba(255,255,255,0.22), 0 0 100px rgba(55,189,248,0.30), 0 0 200px rgba(55,189,248,0.15)",
+            duration: 1.5, ease: "sine.inOut", repeat: 2, yoyo: true }, 2.60)
+
+        .set({}, {}, 7);
+
+      window.__timelines["t1-stat-cpill"] = tl;
+    </script>
+  </body>
+</html>

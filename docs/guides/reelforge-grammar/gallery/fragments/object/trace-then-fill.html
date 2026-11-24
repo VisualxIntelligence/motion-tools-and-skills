@@ -1,0 +1,315 @@
+<!-- rf-gallery v1 | object/trace-then-fill | trace-then-fill | mutate=copy,duration,accent-color | keep=timeline-phase,easing,outline-draw-order,fill-pulse,icon-anchor-geometry -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>선을 따라 채우기</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-trace-then-fill {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #090a0e);
+          color: var(--rf-text, #f7f7f4);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+
+        .rf-trace-then-fill .ttf-stage {
+          position: absolute;
+          inset: 0;
+          isolation: isolate;
+          overflow: hidden;
+        }
+
+        .rf-trace-then-fill .ttf-grid {
+          position: absolute;
+          z-index: 0;
+          inset: 0;
+          opacity: 0.46;
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.13)) 1px, var(--rf-bg, #090a0e) 1px),
+            linear-gradient(0deg, var(--rf-hairline, rgba(255, 255, 255, 0.13)) 1px, var(--rf-bg, #090a0e) 1px);
+          background-position: 0 0, 0 0;
+          background-size: 9.1vw 9.1vw;
+          mask-image: linear-gradient(90deg, var(--rf-bg, #090a0e), var(--rf-bg, #090a0e) 72%, var(--rf-ghost-fill, transparent));
+          pointer-events: none;
+        }
+
+        .rf-trace-then-fill .ttf-halo {
+          position: absolute;
+          z-index: 1;
+          top: 50%;
+          left: 67.2%;
+          width: 63vw;
+          height: 63vw;
+          border: 1px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.32));
+          border-radius: 50%;
+          box-shadow: 0 0 170px 24px var(--rf-accent, #9c7cff);
+          opacity: 0.24;
+          transform: translate(-50%, -50%);
+          will-change: opacity, filter, transform;
+          animation: ttf-halo-breathe 1.25s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+
+        .rf-trace-then-fill .ttf-orbit {
+          position: absolute;
+          z-index: 1;
+          top: 50%;
+          left: 67.2%;
+          width: 43vw;
+          height: 43vw;
+          border: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.13));
+          border-radius: 50%;
+          opacity: 0.72;
+          transform: translate(-50%, -50%);
+          pointer-events: none;
+        }
+
+        .rf-trace-then-fill .ttf-rail {
+          position: absolute;
+          z-index: 1;
+          top: 13.5%;
+          right: 6.2%;
+          bottom: 13.5%;
+          width: 1px;
+          background: var(--rf-hairline, rgba(255, 255, 255, 0.13));
+          pointer-events: none;
+        }
+
+        .rf-trace-then-fill .ttf-rail::before,
+        .rf-trace-then-fill .ttf-rail::after {
+          position: absolute;
+          right: -4px;
+          width: 8px;
+          height: 8px;
+          border: 1px solid var(--rf-text, #f7f7f4);
+          border-radius: 50%;
+          content: "";
+        }
+
+        .rf-trace-then-fill .ttf-rail::before { top: 0; }
+        .rf-trace-then-fill .ttf-rail::after { bottom: 0; }
+
+        .rf-trace-then-fill .ttf-kicker {
+          position: absolute;
+          z-index: 4;
+          top: 6.1%;
+          left: 6.2%;
+          color: var(--rf-ink-subtle, #9297a2);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(17px, 1.15vw, 22px);
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+
+        .rf-trace-then-fill .ttf-copy {
+          position: absolute;
+          z-index: 4;
+          top: 27.4%;
+          left: 7.7%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          font-size: clamp(118px, 9.1vw, 175px);
+          font-weight: 800;
+          letter-spacing: -0.075em;
+          line-height: 0.92;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+
+        .rf-trace-then-fill .ttf-copy-line {
+          display: block;
+          will-change: transform, opacity;
+        }
+
+        .rf-trace-then-fill .ttf-copy-line--accent {
+          margin-top: 0.12em;
+          color: var(--rf-accent, #9c7cff);
+          text-shadow: 0 0 0.16em var(--rf-accent, #9c7cff);
+        }
+
+        .rf-trace-then-fill .ttf-phase {
+          position: absolute;
+          z-index: 4;
+          top: 61.8%;
+          left: 8.2%;
+          color: var(--rf-muted-text, #b7bbc4);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(17px, 1.3vw, 25px);
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+
+        .rf-trace-then-fill .ttf-phase::before {
+          display: inline-block;
+          width: 2.6em;
+          height: 2px;
+          margin: 0 0.72em 0.28em 0;
+          content: "";
+          background: var(--rf-accent, #9c7cff);
+          vertical-align: middle;
+        }
+
+        .rf-trace-then-fill .ttf-badge-wrap {
+          position: absolute;
+          z-index: 3;
+          top: 50%;
+          left: 67.2%;
+          width: min(44vw, 720px);
+          height: min(44vw, 720px);
+          transform: translate(-50%, -50%);
+          will-change: transform, filter, opacity;
+          animation: ttf-badge-breathe 1.15s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+
+        .rf-trace-then-fill .ttf-badge {
+          display: block;
+          width: 100%;
+          height: 100%;
+          overflow: visible;
+        }
+
+        .rf-trace-then-fill .ttf-badge-face {
+          fill: var(--rf-accent, #9c7cff);
+          fill-opacity: 0;
+          stroke: var(--rf-text, #f7f7f4);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 12;
+          filter: drop-shadow(0 0 14px var(--rf-accent, #9c7cff));
+          vector-effect: non-scaling-stroke;
+        }
+
+        .rf-trace-then-fill .ttf-check {
+          fill: none;
+          stroke: var(--rf-on-accent, #ffffff);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 26;
+          filter: drop-shadow(0 0 10px var(--rf-on-accent, #ffffff));
+          vector-effect: non-scaling-stroke;
+        }
+
+        .rf-trace-then-fill .ttf-status {
+          position: absolute;
+          z-index: 4;
+          right: 8.7%;
+          bottom: 8.2%;
+          display: flex;
+          align-items: center;
+          gap: 0.76em;
+          color: var(--rf-muted-text, #b7bbc4);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: clamp(15px, 1.05vw, 20px);
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+
+        .rf-trace-then-fill .ttf-status::before {
+          width: 102px;
+          height: 1px;
+          content: "";
+          background: var(--rf-hairline-strong, rgba(255, 255, 255, 0.32));
+        }
+
+        @keyframes ttf-halo-breathe {
+          from { filter: brightness(1); opacity: 0.2; }
+          to { filter: brightness(1.28); opacity: 0.38; }
+        }
+
+        @keyframes ttf-badge-breathe {
+          from { filter: brightness(1); opacity: 0.94; }
+          to { filter: brightness(1.24); opacity: 1; }
+        }
+      </style>
+      <main
+        class="rf-trace-then-fill"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-object-trace-then-fill"
+      >
+        <div class="ttf-stage">
+          <div class="ttf-grid" aria-hidden="true"></div>
+          <div class="ttf-halo" aria-hidden="true"></div>
+          <div class="ttf-orbit" aria-hidden="true"></div>
+          <div class="ttf-rail" aria-hidden="true"></div>
+          <div class="ttf-kicker" data-slot="kicker">진행 / 01</div>
+          <h1 class="ttf-copy">
+            <span class="ttf-copy-line" data-slot="headline-primary">윤곽을 따라</span>
+            <span class="ttf-copy-line ttf-copy-line--accent" data-slot="headline-secondary">확신을 채운다</span>
+          </h1>
+          <div class="ttf-phase" data-slot="phase-label">추적 / 채움</div>
+          <div class="ttf-badge-wrap" aria-hidden="true">
+            <svg class="ttf-badge" viewBox="0 0 600 600" role="img">
+              <path
+                class="ttf-badge-face ttf-trace"
+                d="M300 42C372 86 432 103 506 112V276C506 409 427 509 300 558C173 509 94 409 94 276V112C168 103 228 86 300 42Z"
+              />
+              <path class="ttf-check ttf-trace" d="M178 294L263 379L425 213" />
+            </svg>
+          </div>
+          <div class="ttf-status" data-slot="status-label">준비됨</div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-object-trace-then-fill";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const kicker = root.querySelector(".ttf-kicker");
+          const copyLines = Array.from(root.querySelectorAll(".ttf-copy-line"));
+          const phase = root.querySelector(".ttf-phase");
+          const halo = root.querySelector(".ttf-halo");
+          const badgeWrap = root.querySelector(".ttf-badge-wrap");
+          const badgeFace = root.querySelector(".ttf-badge-face");
+          const check = root.querySelector(".ttf-check");
+          const status = root.querySelector(".ttf-status");
+
+          root.querySelectorAll(".ttf-trace").forEach((path) => {
+            const length = path.getTotalLength();
+            path.style.strokeDasharray = length;
+            path.style.strokeDashoffset = length;
+          });
+
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([kicker, copyLines, phase, status], { opacity: 0 })
+            .set(copyLines, { x: -42, y: 18 })
+            .set(phase, { x: -24 })
+            .set(status, { x: 22 })
+            .set(halo, { opacity: 0, scale: 0.76, transformOrigin: "center center" })
+            .set(badgeWrap, { scale: 0.91, transformOrigin: "50% 50%" })
+            .set(badgeFace, { fillOpacity: 0 })
+            .set(check, { opacity: 0 })
+            .fromTo(kicker, { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.22, ease: "power3.out" }, 0)
+            .to(halo, { opacity: 0.24, scale: 1, duration: 0.38, ease: "power2.out" }, 0.04)
+            .to(copyLines[0], { opacity: 1, x: 0, y: 0, duration: 0.28, ease: "power3.out" }, 0.16)
+            .to(badgeFace, { strokeDashoffset: 0, duration: 0.52, ease: "power2.out" }, 0.28)
+            .to(copyLines[1], { opacity: 1, x: 0, y: 0, duration: 0.28, ease: "power3.out" }, 0.46)
+            .to(phase, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out" }, 0.58)
+            .to(badgeFace, { fillOpacity: 1, duration: 0.28, ease: "power1.out" }, 0.83)
+            .to(badgeWrap, { scale: 1.04, duration: 0.12, ease: "power2.out", transformOrigin: "50% 50%" }, 0.83)
+            .set(check, { opacity: 1 }, 0.94)
+            .to(check, { strokeDashoffset: 0, duration: 0.32, ease: "power2.out" }, 0.96)
+            .to(badgeWrap, { scale: 1, duration: 0.18, ease: "power2.inOut" }, 0.95)
+            .to(status, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out" }, 1.16);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

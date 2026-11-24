@@ -1,0 +1,129 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier2 · lower-third highlight
+  TRANSPARENT — only the component paints. Sits lower-left so it never
+  covers a centered speaker.
+  Slots: tag (tiny kicker above), name (large ink Fraunces, highlighted),
+         role (cream chip beneath).
+  Motion: yellow highlighter swipe sweeps left-to-right BEHIND the name
+          (scaleX from left, z-index behind text). Tag and role reveal after.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+      #t2-lt-hl {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent;
+      }
+      #t2-lt-hl .wrap {
+        position: absolute; left: 110px; bottom: 130px;
+      }
+      #t2-lt-hl .tag {
+        font-family: var(--font-label);
+        font-weight: var(--wt-bold);
+        font-size: var(--size-tiny);
+        letter-spacing: var(--track-wide);
+        text-transform: uppercase;
+        color: var(--ink);
+        display: block;
+        margin-bottom: 6px;
+      }
+      /* Name + highlight wrapper — allows z-layering */
+      #t2-lt-hl .name-row {
+        position: relative;
+        display: inline-block;
+      }
+      /* Yellow highlighter band behind the name */
+      #t2-lt-hl .highlight-band {
+        position: absolute;
+        left: -6px;
+        /* vertically centered on the cap-height; adjust via top/height */
+        top: 16px;
+        bottom: 8px;
+        right: -6px;
+        background: var(--yellow);
+        z-index: 0;
+        transform-origin: left center;
+        transform: scaleX(0);
+        /* slight skew for that hand-marker feel */
+        transform: skewX(var(--marker-skew)) scaleX(0);
+      }
+      #t2-lt-hl .name {
+        position: relative;
+        z-index: 1;
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 96px;
+        line-height: 1.0;
+        letter-spacing: var(--track-tight);
+        color: var(--ink);
+        white-space: nowrap;
+        display: block;
+      }
+      /* Role chip — cream background, sits below */
+      #t2-lt-hl .role-row {
+        margin-top: 12px;
+        display: inline-block;
+      }
+      #t2-lt-hl .role {
+        font-family: var(--font-label);
+        font-weight: var(--wt-bold);
+        font-size: var(--size-body);
+        letter-spacing: 0.05em;
+        color: var(--ink);
+        background: var(--paper);
+        display: inline-block;
+        padding: 6px 18px;
+        box-shadow: 5px 5px 0 rgba(23,19,14,0.22);
+        transform: skewX(var(--marker-skew));
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lt-hl" data-composition-id="t2-lt-hl" data-start="0" data-width="1920" data-height="1080">
+      <div class="wrap">
+        <div class="tag" data-slot="tag">FEATURED GUEST</div>
+        <div class="name-row">
+          <div class="highlight-band"></div>
+          <div class="name" data-slot="name">Simone Adeyemi</div>
+        </div>
+        <div class="role-row">
+          <div class="role" data-slot="role">Economist · Brookings Institution</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Name appears first (bare, no highlight yet) — snaps in from left
+      tl.from("#t2-lt-hl .name", {
+          autoAlpha: 0, x: -28,
+          duration: 0.32, ease: "back.out(1.7)"
+        }, 0.0)
+        // Highlight band sweeps left-to-right BEHIND the name text
+        .to("#t2-lt-hl .highlight-band", {
+          scaleX: 1, transformOrigin: "left center",
+          duration: 0.38, ease: "power3.out"
+        }, 0.28)
+        // tag drops in above
+        .from("#t2-lt-hl .tag", {
+          autoAlpha: 0, y: -10,
+          duration: 0.25, ease: "steps(3)"
+        }, 0.5)
+        // role chip slides up with steps
+        .from("#t2-lt-hl .role", {
+          autoAlpha: 0, y: 16,
+          duration: 0.3, ease: "steps(4)"
+        }, 0.64)
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lt-hl"] = tl;
+    </script>
+  </body>
+</html>

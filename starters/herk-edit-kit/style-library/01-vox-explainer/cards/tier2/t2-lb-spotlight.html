@@ -1,0 +1,114 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier2 · label — SPOTLIGHT  (t2-lb-spot)
+  SEMI-TRANSPARENT OVERLAY. A soft radial-gradient darkening covers the frame,
+  transparent at the focal point (left-center) and darkening toward edges — max
+  ~0.45 alpha. The `term` sits on a small cream chip inside the lit zone;
+  `detail` Archivo beneath.
+  Slots: term (~22 chars), detail (~70 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-spot {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; font-family: var(--font-display);
+      }
+
+      /* ── SOFT SPOTLIGHT VIGNETTE ─────────────────────────────────────── */
+      /* Radial gradient: transparent at focal point (~350px 540px),
+         darkens to rgba(23,19,14,0.44) at edges. Intentional per brief. */
+      #t2-lb-spot .vignette {
+        position: absolute; inset: 0;
+        /* focal point roughly around the term chip (left: 260px, top: 430px → center ~350,490) */
+        background: radial-gradient(
+          ellipse 680px 560px at 340px 490px,
+          transparent 0%,
+          rgba(23, 19, 14, 0.10) 42%,
+          rgba(23, 19, 14, 0.35) 70%,
+          rgba(23, 19, 14, 0.44) 100%
+        );
+        pointer-events: none;
+      }
+
+      /* ── CONTENT WRAP ────────────────────────────────────────────────── */
+      #t2-lb-spot .wrap {
+        position: absolute; left: 150px; top: 370px; width: 720px;
+      }
+      /* term — ink Fraunces on a small cream chip so it reads over the dark */
+      #t2-lb-spot .term {
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 72px;
+        letter-spacing: var(--track-tight);
+        color: var(--ink);
+        background: var(--paper);
+        padding: 6px 22px;
+        display: inline-block;
+        transform: skewX(var(--marker-skew));
+        box-shadow: 6px 6px 0 rgba(23, 19, 14, 0.25);
+        line-height: 1.1;
+      }
+
+      /* detail — Archivo beneath, semi-transparent paper backing */
+      #t2-lb-spot .detail {
+        display: block;
+        margin-top: 22px;
+        font-family: var(--font-label);
+        font-weight: var(--wt-reg);
+        font-size: var(--size-body);
+        line-height: 1.4;
+        color: var(--paper);
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-spot"
+         data-composition-id="t2-lb-spot"
+         data-start="0"
+         data-width="1920"
+         data-height="1080">
+
+      <!-- intentional radial darkening vignette (spotlight) -->
+      <div class="vignette"></div>
+
+      <div class="wrap">
+        <div class="term" data-slot="term">compounding risk</div>
+        <div class="detail" data-slot="detail">Small errors stack silently until the system tips — and by then it's too late to reverse course.</div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* 1 — vignette fades in: the room dims around the focal point */
+      tl.from("#t2-lb-spot .vignette", {
+        autoAlpha: 0, duration: 0.55, ease: "power2.out"
+      }, 0.0)
+
+
+      /* 3 — term chips in with scaleX wipe */
+      .from("#t2-lb-spot .term", {
+        autoAlpha: 0, scaleX: 0, transformOrigin: "left center",
+        duration: 0.34, ease: "power3.out"
+      }, 0.54)
+
+      /* 4 — detail snaps in stepped */
+      .from("#t2-lb-spot .detail", {
+        autoAlpha: 0, y: 14, duration: 0.30, ease: "steps(4)"
+      }, 0.74)
+
+      .set({}, {}, 7);
+
+      window.__timelines["t2-lb-spot"] = tl;
+    </script>
+  </body>
+</html>

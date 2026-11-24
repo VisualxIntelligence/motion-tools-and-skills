@@ -1,0 +1,129 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier2 · label-tag  (overlay: luggage/price-tag callout)
+  TRANSPARENT. A paper-colored rectangle with a notched top-left corner and
+  a punch-hole circle, plus a short ink string line. Term printed on tag in
+  ink; detail beneath. Tag swings in with rotation settle.
+  Slots: term (~22 chars), detail (~70 chars).
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+
+      #t2-lb-tag {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent;
+      }
+
+      #t2-lb-tag .wrap {
+        position: absolute; left: 160px; top: 310px; width: 700px;
+      }
+
+      /* Short vertical ink "string" above the tag */
+      #t2-lb-tag .string {
+        width: 3px; height: 40px;
+        background: var(--ink);
+        margin-left: 32px;
+        transform-origin: top center;
+      }
+
+      /* The luggage tag shape — notched top-left via clip-path */
+      #t2-lb-tag .tag-body {
+        position: relative;
+        background: var(--paper);
+        border: 3px solid var(--ink);
+        /* notch: cut a triangle from top-left corner */
+        clip-path: polygon(
+          0% 14%,    /* notch start on left edge */
+          14% 0%,    /* notch corner cut */
+          100% 0%,
+          100% 100%,
+          0% 100%
+        );
+        padding: 28px 28px 24px 32px;
+        min-width: 380px;
+        transform-origin: top center;
+        box-shadow: 5px 5px 0 rgba(23,19,14,0.22);
+      }
+
+      /* Punch-hole circle — sits in the notch area */
+      #t2-lb-tag .hole {
+        position: absolute; top: 10px; left: 10px;
+        width: 18px; height: 18px;
+        border-radius: 50%;
+        border: 2.5px solid var(--ink);
+        background: transparent;
+      }
+
+      /* Yellow top-edge accent stripe */
+      #t2-lb-tag .tag-accent {
+        position: absolute; top: 0; left: 0; right: 0; height: 6px;
+        background: var(--yellow);
+        /* clip to match the notch: start from right of notch */
+        clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 14% 100%);
+      }
+
+      #t2-lb-tag .term {
+        font-family: var(--font-display); font-weight: var(--wt-black);
+        font-size: 58px; letter-spacing: var(--track-tight); color: var(--ink);
+        line-height: 1; display: block;
+      }
+
+      /* Detail beneath the tag */
+      #t2-lb-tag .detail {
+        margin-top: 18px;
+        font-family: var(--font-label); font-weight: var(--wt-reg);
+        font-size: var(--size-body); line-height: 1.4; color: var(--ink);
+        background: rgba(239,233,220,0.92); padding: 10px 16px;
+        display: inline-block; max-width: 560px;
+      }    </style>
+  </head>
+  <body>
+    <div id="t2-lb-tag" data-composition-id="t2-lb-tag" data-start="0" data-width="1920" data-height="1080">
+      <div class="wrap">
+        <div class="string"></div>
+        <div class="tag-body">
+          <div class="tag-accent"></div>
+          <div class="hole"></div>
+          <div class="term" data-slot="term">sunk cost fallacy</div>
+        </div>
+        <div class="detail" data-slot="detail">Past investment shouldn't dictate future decisions.</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* String drops/appears first */
+      tl.from("#t2-lb-tag .string", {
+            scaleY: 0, transformOrigin: "top center",
+            duration: 0.22, ease: "power2.out"
+          }, 0.0)
+        /* Tag swings in: drops + rotates, settles with back.out overshoot */
+        .from("#t2-lb-tag .tag-body", {
+            autoAlpha: 0, y: -60, rotation: -18,
+            transformOrigin: "top center",
+            duration: 0.52, ease: "back.out(2.4)"
+          }, 0.10)
+        /* Term wipes across the tag face */
+        .from("#t2-lb-tag .term", {
+            autoAlpha: 0, scaleX: 0,
+            transformOrigin: "left center",
+            duration: 0.30, ease: "power3.out"
+          }, 0.42)
+        /* Detail steps in beneath */
+        .from("#t2-lb-tag .detail", {
+            autoAlpha: 0, y: 14,
+            duration: 0.28, ease: "steps(4)"
+          }, 0.62)
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-tag"] = tl;
+    </script>
+  </body>
+</html>

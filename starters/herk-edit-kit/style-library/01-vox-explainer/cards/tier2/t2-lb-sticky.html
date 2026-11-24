@@ -1,0 +1,95 @@
+<!doctype html>
+<!--
+  VOX EXPLAINER · tier2 · label-sticky (overlay: term on a yellow sticky note)
+  TRANSPARENT. The term is written on a rotated yellow sticky note with a soft drop
+  shadow. Detail caption sits in a cream chip
+  beneath the note. Note drops in with rotation overshoot.
+  Slots: term, detail.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../tokens.css" />
+    <style>
+      html, body { margin: 0; background: transparent; }
+      #t2-lb-sticky {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        background: transparent; font-family: var(--font-display);
+      }
+      #t2-lb-sticky .wrap {
+        position: absolute; left: 150px; top: 330px; width: 720px;
+      }
+
+      /* sticky note card */
+      #t2-lb-sticky .sticky {
+        position: relative;
+        display: inline-block;
+        background: var(--yellow);
+        padding: 32px 40px 40px 40px;
+        transform: rotate(-3deg);
+        box-shadow: 6px 8px 24px rgba(23,19,14,0.28), 2px 2px 0 rgba(23,19,14,0.10);
+        /* folded bottom-right corner via a pseudo element */
+      }
+      /* folded corner triangle */
+      #t2-lb-sticky .sticky::after {
+        content: "";
+        position: absolute; bottom: 0; right: 0;
+        width: 0; height: 0;
+        border-style: solid;
+        border-width: 0 0 28px 28px;
+        border-color: transparent transparent rgba(23,19,14,0.18) transparent;
+      }
+
+      #t2-lb-sticky .term {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: var(--wt-black);
+        font-size: 64px;
+        letter-spacing: var(--track-tight);
+        color: var(--ink);
+        line-height: 1.05;
+        white-space: nowrap;
+      }
+      /* cream chip detail below the note */
+      #t2-lb-sticky .detail {
+        margin-top: 28px;
+        max-width: 620px;
+        font-family: var(--font-label); font-weight: var(--wt-reg);
+        font-size: var(--size-body); line-height: 1.4; color: var(--ink);
+        background: rgba(239,233,220,0.92); padding: 10px 16px; display: inline-block;
+        /* undo sticky's rotation so detail is level */
+        transform: rotate(3deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="t2-lb-sticky" data-composition-id="t2-lb-sticky" data-start="0" data-width="1920" data-height="1080">
+      <div class="wrap">
+        <div class="sticky">
+          <div class="term" data-slot="term">sunk cost fallacy</div>
+        </div>
+        <div class="detail" data-slot="detail">Spending more to justify what you've already spent — a trap.</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* Sticky drops in from above with rotation overshoot — back.out overshoots the -3deg */
+      tl.from("#t2-lb-sticky .sticky", {
+          autoAlpha: 0, y: -80, rotation: 14,
+          transformOrigin: "center top",
+          duration: 0.44, ease: "back.out(2.4)"
+        }, 0.0)
+      /* Detail steps in beneath */
+        .from("#t2-lb-sticky .detail", {
+          autoAlpha: 0, y: 16, duration: 0.30, ease: "steps(4)"
+        }, 0.62)
+        .set({}, {}, 7);
+
+      window.__timelines["t2-lb-sticky"] = tl;
+    </script>
+  </body>
+</html>

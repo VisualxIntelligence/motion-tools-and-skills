@@ -1,0 +1,152 @@
+<!-- rf-gallery v1 | data/count-up-punch | hold-keyframe-stepped-values | mutate=copy,duration,accent-color,data-values | keep=timeline-phases,easing,entry-geometry,tag-stagger -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>count-up punch</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-count-up-punch {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+          color: var(--rf-text, #ffffff);
+        }
+
+        .rf-count-up-punch .rf-cup-line {
+          position: absolute;
+          left: 6%;
+          font-size: 176px;
+          font-weight: 800;
+          letter-spacing: -0.03em;
+          line-height: 1.02;
+          word-break: keep-all;
+        }
+
+        .rf-count-up-punch .rf-cup-line1 {
+          top: 26%;
+        }
+
+        .rf-count-up-punch .rf-cup-line2 {
+          top: 44%;
+        }
+
+        .rf-count-up-punch .rf-cup-accent {
+          color: var(--rf-accent, #ff48a0);
+          text-shadow: var(--rf-glow, none);
+        }
+
+        .rf-count-up-punch .rf-cup-count {
+          position: absolute;
+          right: 5%;
+          top: 18%;
+          font-size: 460px;
+          font-weight: 800;
+          letter-spacing: -0.05em;
+          line-height: 1;
+          color: var(--rf-bg, #0b0d12);
+          -webkit-text-stroke: 2px var(--rf-accent, #ff48a0);
+          opacity: 0.55;
+          font-variant-numeric: tabular-nums;
+        }
+
+        .rf-count-up-punch .rf-cup-tags {
+          position: absolute;
+          left: 6.1%;
+          bottom: 16%;
+          display: flex;
+          gap: 18px;
+          font-size: 26px;
+          font-weight: 500;
+          letter-spacing: 0.04em;
+          color: var(--rf-ink-subtle, #8a8f98);
+        }
+
+        .rf-count-up-punch .rf-cup-tags span {
+          border: 1px solid var(--rf-hairline, rgba(255, 255, 255, 0.14));
+          padding: 8px 18px;
+        }
+
+        @keyframes rf-cup-living {
+          from {
+            filter: brightness(1);
+            opacity: 0.55;
+          }
+          to {
+            filter: brightness(1.35);
+            opacity: 0.75;
+          }
+        }
+
+        .rf-count-up-punch .rf-cup-count {
+          animation: rf-cup-living 1.3s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+
+        @keyframes rf-cup-living-accent {
+          from {
+            filter: brightness(1);
+          }
+          to {
+            filter: brightness(1.22);
+          }
+        }
+
+        .rf-count-up-punch .rf-cup-line2 {
+          animation: rf-cup-living-accent 1.3s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+        }
+      </style>
+
+      <main class="rf-count-up-punch" data-rf-fragment-version="1.0" data-composition-id="gallery-data-count-up-punch">
+        <div class="rf-cup-line rf-cup-line1" data-slot="headline">MAKE IT</div>
+        <div class="rf-cup-line rf-cup-line2"><span class="rf-cup-accent" data-slot="emphasis">COUNT.</span></div>
+        <div class="rf-cup-count" data-slot="value" data-target="8">0</div>
+        <div class="rf-cup-tags">
+          <span data-slot="tag-1">signal</span><span data-slot="tag-2">motion</span><span data-slot="tag-3">impact</span><span data-slot="tag-4">rhythm</span>
+          <span data-slot="tag-5">tempo</span><span data-slot="tag-6">focus</span><span data-slot="tag-7">scale</span><span data-slot="tag-8">punch</span>
+        </div>
+      </main>
+
+      <script>
+        (() => {
+          const compositionId = "gallery-data-count-up-punch";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const line1 = root.querySelector(".rf-cup-line1");
+          const line2 = root.querySelector(".rf-cup-line2");
+          const count = root.querySelector(".rf-cup-count");
+          const tags = Array.from(root.querySelectorAll(".rf-cup-tags span"));
+          const requestedTarget = Number(count.getAttribute("data-target"));
+          const target = Number.isFinite(requestedTarget) ? requestedTarget : 0;
+          const counter = { v: 0 };
+
+          count.textContent = String(Math.round(counter.v));
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          tl.set([line1, line2, count], { opacity: 0 })
+            .set(tags, { opacity: 0, y: 14 })
+            .fromTo(line1, { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out" }, 0)
+            .fromTo(line2, { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out" }, 0.12)
+            .fromTo(count, { opacity: 0, scale: 1.25 }, { opacity: 0.55, scale: 1, duration: 0.4, ease: "expo.out" }, 0.2)
+            .to(counter, {
+              v: target,
+              duration: 0.4,
+              ease: "expo.out",
+              onUpdate: () => {
+                count.textContent = String(Math.round(counter.v));
+              }
+            }, 0.2)
+            .to(tags, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out", stagger: 0.05 }, 0.42);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

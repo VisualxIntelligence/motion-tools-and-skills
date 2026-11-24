@@ -1,0 +1,1 @@
+{"intensityBand":"40-70","arcFit":["build","hook"],"durationRange":[2.5,4.5],"slots":[{"name":"line-one","maxChars":3},{"name":"line-two","maxChars":3},{"name":"line-three","maxChars":3}],"mutate":["copy","duration","accent-color"],"keep":["timeline-phase-structure","easing-curves","line-mask-geometry","line-stagger","accent-rail","living-breathe"]}

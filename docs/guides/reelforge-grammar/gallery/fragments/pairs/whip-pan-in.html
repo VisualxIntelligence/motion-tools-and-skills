@@ -1,0 +1,280 @@
+<!-- rf-gallery v1 | pairs/whip-pan-in | whip-pan-directional | mutate=copy,duration,accent-color | keep=timeline-phase-structure,easing-curves,entry-anchor-geometry,directional-blur-ramp,right-whip-handoff -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Whip Pan In</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        .rf-whip-pan-in {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--rf-bg, #080a12);
+          color: var(--rf-text, #f7f4ed);
+          font-family: var(--rf-font-sans, "Pretendard", system-ui, sans-serif);
+        }
+        .rf-whip-pan-in .wpi-underlay {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background:
+            linear-gradient(108deg, var(--rf-bg, #080a12) 9%, var(--rf-surface-2, #171b2a) 51%, var(--rf-bg, #080a12) 92%);
+        }
+        .rf-whip-pan-in .wpi-underlay::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          opacity: 0.42;
+          background-image:
+            linear-gradient(90deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, transparent 1px),
+            linear-gradient(0deg, var(--rf-hairline, rgba(255, 255, 255, 0.14)) 1px, transparent 1px);
+          background-size: 96px 96px;
+          mask-image: linear-gradient(90deg, transparent, var(--rf-text, #f7f4ed) 24%, var(--rf-text, #f7f4ed) 76%, transparent);
+        }
+        .rf-whip-pan-in .wpi-stage {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          isolation: isolate;
+          will-change: transform, opacity, filter;
+        }
+        .rf-whip-pan-in .wpi-field {
+          position: absolute;
+          inset: -12%;
+          background:
+            linear-gradient(112deg, transparent 4%, var(--rf-surface-2, #171b2a) 48%, transparent 92%);
+        }
+        .rf-whip-pan-in .wpi-aura {
+          position: absolute;
+          width: 1220px;
+          height: 1220px;
+          top: -336px;
+          left: -210px;
+          border-radius: 50%;
+          opacity: 0.34;
+          background: radial-gradient(circle, var(--rf-accent, #ff5f91) 0%, var(--rf-accent-alt, #7967ff) 31%, transparent 70%);
+          filter: brightness(1);
+          animation: wpi-aura-breathe 1.2s ease-in-out calc(var(--rf-scene-start, 0s) + 1.2s) infinite alternate;
+          will-change: opacity, filter;
+        }
+        .rf-whip-pan-in .wpi-arc {
+          position: absolute;
+          width: 1040px;
+          height: 1040px;
+          right: -212px;
+          top: 38px;
+          border: 3px solid var(--rf-hairline-strong, rgba(255, 255, 255, 0.38));
+          border-left-color: transparent;
+          border-bottom-color: var(--rf-accent, #ff5f91);
+          border-radius: 50%;
+          opacity: 0.54;
+          transform: rotate(-27deg);
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-in .wpi-sweep {
+          position: absolute;
+          width: 164%;
+          height: 180px;
+          left: -42%;
+          top: 47%;
+          transform: skewX(-22deg);
+          background: linear-gradient(90deg, transparent 0%, var(--rf-accent-alt, #7967ff) 24%, var(--rf-on-accent, #fff7fb) 50%, var(--rf-accent, #ff5f91) 76%, transparent 100%);
+          mix-blend-mode: screen;
+          opacity: 0.58;
+          filter: blur(14px);
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-in .wpi-copy {
+          position: absolute;
+          left: 8.1%;
+          top: 20.4%;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .rf-whip-pan-in .wpi-kicker {
+          margin: 0 0 28px;
+          color: var(--rf-muted-text, #b8bdc9);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 19px;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-in .wpi-title {
+          margin: 0;
+          font-size: clamp(144px, 11.6vw, 222px);
+          font-weight: 850;
+          letter-spacing: -0.09em;
+          line-height: 0.9;
+          word-break: keep-all;
+        }
+        .rf-whip-pan-in .wpi-title-line {
+          display: block;
+          width: max-content;
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-in .wpi-title-line--accent {
+          margin-top: 0.08em;
+          color: var(--rf-accent, #ff5f91);
+          text-shadow: 0 0 0.18em var(--rf-accent, #ff5f91);
+        }
+        .rf-whip-pan-in .wpi-direction-mark {
+          position: absolute;
+          left: 7.3%;
+          bottom: 13.2%;
+          z-index: 1;
+          color: var(--rf-hairline-strong, rgba(255, 255, 255, 0.38));
+          font-size: clamp(242px, 25vw, 478px);
+          font-weight: 850;
+          letter-spacing: -0.12em;
+          line-height: 0.78;
+          opacity: 0.86;
+          transform: skewX(-12deg);
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-in .wpi-vector {
+          position: absolute;
+          right: 7.4%;
+          bottom: 13.2%;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          gap: 22px;
+          color: var(--rf-text, #f7f4ed);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-in .wpi-vector::before {
+          content: "";
+          width: 236px;
+          height: 2px;
+          background: var(--rf-text, #f7f4ed);
+          box-shadow: -28px 0 0 var(--rf-accent, #ff5f91);
+        }
+        .rf-whip-pan-in .wpi-watermark {
+          position: absolute;
+          right: 8.35%;
+          top: 7.2%;
+          z-index: 2;
+          color: var(--rf-ink-subtle, #7f8795);
+          font-size: 23px;
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        .rf-whip-pan-in .wpi-note {
+          position: absolute;
+          left: 8.1%;
+          bottom: 7.2%;
+          z-index: 2;
+          color: var(--rf-muted-text, #b8bdc9);
+          font-family: var(--rf-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          line-height: 1;
+          will-change: transform, opacity;
+        }
+        @keyframes wpi-aura-breathe {
+          from {
+            filter: brightness(1);
+            opacity: 0.34;
+          }
+          to {
+            filter: brightness(1.32);
+            opacity: 0.48;
+          }
+        }
+      </style>
+      <main
+        class="rf-whip-pan-in"
+        data-rf-fragment-version="1.0"
+        data-composition-id="gallery-pairs-whip-pan-in"
+      >
+        <svg aria-hidden="true" style="position: absolute; width: 0; height: 0">
+          <filter id="gallery-pairs-whip-pan-in-blur" x="-55%" y="-55%" width="210%" height="210%">
+            <feGaussianBlur stdDeviation="40 2"></feGaussianBlur>
+          </filter>
+        </svg>
+        <div class="wpi-underlay" aria-hidden="true"></div>
+        <div class="wpi-stage">
+          <div class="wpi-field" aria-hidden="true"></div>
+          <div class="wpi-aura" aria-hidden="true"></div>
+          <div class="wpi-arc" aria-hidden="true"></div>
+          <div class="wpi-sweep" aria-hidden="true"></div>
+          <div class="wpi-copy">
+            <p class="wpi-kicker" data-slot="kicker">새 장면</p>
+            <h1 class="wpi-title">
+              <span class="wpi-title-line" data-slot="title-first">새로운</span>
+              <span class="wpi-title-line wpi-title-line--accent" data-slot="title-second">순간</span>
+            </h1>
+          </div>
+          <div class="wpi-direction-mark" data-slot="direction-mark" aria-hidden="true">←</div>
+          <div class="wpi-vector" data-slot="direction-label">오른쪽</div>
+          <div class="wpi-watermark" data-slot="watermark" aria-hidden="true">전환</div>
+          <div class="wpi-note" data-slot="note">속도를잇다</div>
+        </div>
+      </main>
+      <script>
+        (() => {
+          const compositionId = "gallery-pairs-whip-pan-in";
+          const root = document.querySelector(`[data-composition-id="${compositionId}"]`);
+          if (!root) return;
+
+          const blur = root.querySelector("#gallery-pairs-whip-pan-in-blur feGaussianBlur");
+          const stage = root.querySelector(".wpi-stage");
+          const kicker = root.querySelector(".wpi-kicker");
+          const titleLines = Array.from(root.querySelectorAll(".wpi-title-line"));
+          const vector = root.querySelector(".wpi-vector");
+          const directionMark = root.querySelector(".wpi-direction-mark");
+          const watermark = root.querySelector(".wpi-watermark");
+          const note = root.querySelector(".wpi-note");
+          const sweep = root.querySelector(".wpi-sweep");
+          const arc = root.querySelector(".wpi-arc");
+
+          window.__timelines = window.__timelines || {};
+          window.__anchors = window.__anchors || {};
+          window.__anchors[compositionId] = {
+            enter: { dir: "right", blurPeak: 40, cx: 0.5, cy: 0.5, handoffAnchor: "right-whip-in" }
+          };
+
+          const tl = gsap.timeline({ paused: true });
+          tl.set(stage, { filter: "url(#gallery-pairs-whip-pan-in-blur)", x: 2360, skewX: -9 })
+            .set(blur, { attr: { stdDeviation: "40 2" } })
+            .set([kicker, vector, watermark, note, directionMark], { opacity: 0 })
+            .set(titleLines, { opacity: 0, x: 104, skewX: -12, transformOrigin: "right center" })
+            .set(sweep, { opacity: 0, x: 980, scaleX: 0.35, transformOrigin: "right center" })
+            .set(arc, { opacity: 0, rotation: 18, transformOrigin: "center center" })
+            .to(stage, { x: 42, skewX: -1.5, duration: 0.21, ease: "power4.out" }, 0.3)
+            .to(blur, { attr: { stdDeviation: "0 0" }, duration: 0.19, ease: "power4.out" }, 0.3)
+            .to(stage, { x: 0, skewX: 0, duration: 0.12, ease: "power2.out" }, 0.51)
+            .fromTo(kicker, { opacity: 0, x: 34 }, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out" }, 0.56)
+            .to(titleLines[0], { opacity: 1, x: 0, skewX: 0, duration: 0.32, ease: "power4.out" }, 0.6)
+            .to(titleLines[1], { opacity: 1, x: 0, skewX: 0, duration: 0.36, ease: "power4.out" }, 0.8)
+            .to(arc, { opacity: 0.54, rotation: 0, duration: 0.42, ease: "power3.out" }, 0.7)
+            .to(sweep, { opacity: 0.58, x: 0, scaleX: 1, duration: 0.44, ease: "power4.out" }, 0.76)
+            .fromTo(directionMark, { opacity: 0, x: 82 }, { opacity: 0.86, x: 0, duration: 0.34, ease: "power3.out" }, 0.88)
+            .fromTo(vector, { opacity: 0, x: 48 }, { opacity: 1, x: 0, duration: 0.26, ease: "power3.out" }, 1.02)
+            .fromTo(watermark, { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 1.1)
+            .fromTo(note, { opacity: 0, x: -28 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 1.16)
+            .to(sweep, { opacity: 0.34, duration: 0.24, ease: "power2.out" }, 1.34);
+
+          window.__timelines[compositionId] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

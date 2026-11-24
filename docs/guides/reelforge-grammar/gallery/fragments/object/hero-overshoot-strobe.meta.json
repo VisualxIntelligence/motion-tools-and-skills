@@ -1,0 +1,23 @@
+{
+  "intensityBand": "70-100",
+  "arcFit": ["peak"],
+  "durationRange": [2.5, 4.5],
+  "slots": [
+    { "name": "kicker", "maxChars": 14 },
+    { "name": "index", "maxChars": 20 },
+    { "name": "hero-prompt", "maxChars": 5 },
+    { "name": "hero-response", "maxChars": 5 },
+    { "name": "swatch-label", "maxChars": 8 },
+    { "name": "swatch-count", "maxChars": 7 },
+    { "name": "running-label", "maxChars": 14 }
+  ],
+  "mutate": ["copy", "duration", "accent-color"],
+  "keep": [
+    "timeline-phase",
+    "easing",
+    "stagger",
+    "overshoot-geometry",
+    "strobe-pattern",
+    "bloom-settle"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "intensityBand": "40-70",
+  "arcFit": ["hook", "build"],
+  "durationRange": [3.0, 5.5],
+  "slots": [
+    { "name": "eyebrow", "maxChars": 14 },
+    { "name": "background-mark", "maxChars": 2 },
+    { "name": "headline", "maxChars": 8 },
+    { "name": "status", "maxChars": 14 }
+  ],
+  "mutate": ["copy", "duration", "accent-color"],
+  "keep": [
+    "timeline-phase-structure",
+    "easing-curves",
+    "character-stagger",
+    "accent-timing",
+    "stage-shake-pattern"
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "HyperFrames Video Beats"
+  short_description: "Plan and build talking-head motion graphics"
+  default_prompt: "Use $hyperframes-video-beats to plan and build paced HyperFrames motion graphics for this talking-head video."

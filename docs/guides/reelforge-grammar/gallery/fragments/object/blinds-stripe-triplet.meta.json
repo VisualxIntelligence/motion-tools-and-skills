@@ -1,0 +1,40 @@
+{
+  "intensityBand": "70-100",
+  "arcFit": [
+    "build"
+  ],
+  "durationRange": [
+    2.5,
+    4.5
+  ],
+  "slots": [
+    {
+      "name": "headline",
+      "maxChars": 8
+    },
+    {
+      "name": "stripe-one",
+      "maxChars": 7
+    },
+    {
+      "name": "stripe-two",
+      "maxChars": 7
+    },
+    {
+      "name": "stripe-three",
+      "maxChars": 7
+    }
+  ],
+  "mutate": [
+    "copy",
+    "duration",
+    "accent-color"
+  ],
+  "keep": [
+    "timeline-phase-structure",
+    "easing-curves",
+    "blind-stripe-stagger",
+    "row-content-reveal",
+    "living-breathe"
+  ]
+}
