@@ -1,0 +1,25 @@
+{
+ "template": "CAM21-PanReveal",
+ "person": {
+  "name": "Alex",
+  "pronoun": "he",
+  "face_traits": "hair and facial hair",
+  "photo_ignore": "its background, its lighting and its clothing"
+ },
+ "goal": "Generate a live-action night shot on an empty city street under mustard-amber sodium streetlights: the camera starts on an empty wall, pans across to reveal Alex waiting alone on the pavement, and then holds on him in a medium shot while he speaks one quiet line into his phone, a man trying to sound fine on the quietest street in the city.",
+ "subjects": "The red-and-black striped capsule in @video1 corresponds to Alex, standing on the pavement beside the kerb. The long grey blocks are shuttered shopfronts and apartment buildings, the tall thin posts are sodium street lamps, the pale low block beside him is a concrete bus shelter wall, and the small light far down the street is a traffic signal showing red.\nAlex, the person from @image1, wears a dark olive waxed jacket over a grey hoodie with the hood down, dark jeans and boots; his phone is in his right hand and his left hand is in his pocket. He looks tired and lonely and tries to hold his face steady.",
+ "script": "One continuous shot with no cuts, on a 40 mm anamorphic lens from a fixed position about four metres from where he will stand, 7 seconds.\nThe first three seconds show NO person and no road: only a flat blank wall and a closed shopfront with one street lamp glowing on it, filling the whole frame. Alex does not appear until the pan brings him in.\nIt opens on an empty stretch of wall and shuttered shopfront with an amber lamp glowing on it, nobody in the frame. From the first frame the camera pans smoothly to the right through about 40 degrees over 3.5 seconds, sliding along the wall and the empty pavement until Alex slides into the frame and settles in the middle, then it stops and holds a steady full-length shot of him, head to feet, about half the frame height, for the rest of the shot.\nAlex: he stands very still, shoulders slightly hunched against the cold, breath showing faintly. As the pan arrives he glances down the road to his left, then back, and lifts the phone to his ear. From about 4.5 seconds he says the line in a low, tired, warm voice, lips clearly forming every word, eyes tracking the empty road beyond the lens, and he gives a small, brief, forced smile on the last words. After the line he lowers his eyes and listens, and the amber light flickers once on his face.\nWet asphalt reflects the lamps in long amber streaks; a slow drift of mist moves through the lamplight.",
+ "sound": "The sound includes Alex's soft voice, a faint electric buzz from the street lamps, a low distant city hum, one car passing far away and the tick of a traffic signal. There is no music of any kind: no score, no song, no singing and no humming, only these natural sounds.",
+ "look": "a real empty city street at night under sodium streetlights: mustard-amber light, dirty olive shadows, a concrete bus shelter, shuttered shopfronts, wet black asphalt with a painted centre line, tiny red traffic lights far away.",
+ "keep": "Keep Alex's identity and clothing, the empty wall at the start, the 40-degree pan to the right that brings him into the middle by 3.5 seconds, the steady medium shot after it, the street, lamps and bus shelter consistent with @video1 and @image2. Keep the lighting and time of day constant from start to end.",
+ "place": "an empty city street at night under old sodium streetlights. The road is wet black asphalt with a worn, yellowed painted centre line and long, broken reflections of every lamp lying across it; on both sides are low shuttered shopfronts with rolled-down steel doors, stained plaster walls and a plain concrete bus shelter on the pavement; far down the street a single traffic signal glows a small red. The palette is mustard amber and dirty olive green, with deep brown-black shadows that keep a little colour and never go flat black. The light comes only from the lamps: each is a soft mustard-amber pool with a wide, hazy halo, a faint cyan-green fringe at its edge, and an amber bloom that spills over whatever is near it, while the shadow side of everything falls to olive. A thin low mist hangs in the air and catches the lamplight so each lamp has a visible glow and the street fades softly into a warm haze with distance. The look is soft and analog: a gentle black-pro-mist diffusion, halation round every bright source, lifted low contrast, slightly smeared highlights on the wet road, fine film grain and a restrained, naturalistic grade. The feeling is lonely, still and slightly uneasy, a street that belongs to nobody at this hour.",
+ "mood": {
+  "environment": "02",
+  "panel": 2
+ },
+ "line": {
+  "text": "I'm at the corner where you said, so I'll just wait here.",
+  "how": "quietly and tiredly, into the phone",
+  "at": 4.5
+ }
+}

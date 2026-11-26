@@ -1,0 +1,31 @@
+{
+  "name": "camera-control-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "three.js + Remotion engine for striped-pill camera blockouts (see the repo README)",
+  "engines": { "node": ">=22.12" },
+  "scripts": {
+    "render": "node render.mjs",
+    "check": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "0.14.0",
+    "@react-three/fiber": "9.8.1",
+    "@remotion/bundler": "4.0.522",
+    "@remotion/renderer": "4.0.522",
+    "@remotion/three": "4.0.522",
+    "esbuild": "0.28.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "4.0.522",
+    "three": "0.170.0",
+    "three-gpu-pathtracer": "0.0.23"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/three": "0.170.0",
+    "typescript": "^5.9.3"
+  }
+}

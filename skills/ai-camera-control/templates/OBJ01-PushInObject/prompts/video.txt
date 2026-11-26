@@ -1,0 +1,24 @@
+【Generation Goal】
+Generate a live-action push-in on a suitcase standing alone in a plaza: from a wide that shows where it is, past the objects in front of it, down to a low insert where it fills the frame.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions, their paths and the timing of what happens. Every object in it is a simple grey or tinted stand-in that only marks where things stand and how they move: take every shape, material and look from this description. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The sand-coloured stand-in case in @video1 corresponds to the suitcase; there is only one, standing upright on the paving with its handle on top. Between the camera and the suitcase stand a long low stone wall on the left and a dark barrel and two crates on the right. Behind the suitcase are a bench, boulders, stone columns, pines and a pale wall. Nobody is in the scene.
+The suitcase is a battered vintage brown leather suitcase with brass clasps and a worn handle.
+
+【Camera and Event Script】
+One continuous shot with no cuts.
+Opening frame: a dolly at about standing eye height, looking slightly down across the plaza, with a 50 mm lens feel. Extreme wide: the low wall runs across the left half of the frame, the barrel and crates stand on the right, and beyond them, small and easy to miss, the suitcase stands just right of centre in front of the bench, the columns and pines behind.
+Movement, beat by beat: the dolly starts forward slowly and eases into a steady push, while the camera lowers at the same time. In the first third the wall and the barrel grow and spread toward the frame edges. Just before the halfway point the camera passes between them at knee height: the end of the wall slides out of the left edge and the barrel sweeps past the right edge, close and blurred, like a curtain opening, and the suitcase is revealed alone on open paving, small, just right of centre, the bench behind it.
+In the second half the camera keeps pushing in and sinking until it is just above the paving, looking level. The suitcase grows steadily in the frame, the bench and background falling into soft blur, and the move eases out and settles into a held insert: a low, ground-level, three-quarter view of the suitcase, which fills the right-centre of the frame from the paving almost to the top edge, the handle just under the top of the frame, a paving seam running beneath it, the wall and trees behind reduced to soft grey shapes.
+Only the camera moves; the suitcase stays perfectly still.
+Mood: quiet suspense. The object is abandoned and significant, a clue someone has left behind. The steady, unhurried approach, the reveal from behind the barrel and the low final angle that makes the suitcase loom all say that it matters.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only quiet outdoor ambience and a soft breeze. There is no music.
+The final visuals are live-action and photographic: a real Mediterranean stone plaza of worn limestone paving, weathered limestone columns, tall Scots pines and leafy plane trees, in crisp late-morning sun. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the suitcase's structure, colour, single count and upright position, the wall, barrel and crates in front of it, the reveal as the camera passes them, and the plaza behind it consistent with @video1. Keep the lighting and time of day constant from start to end.

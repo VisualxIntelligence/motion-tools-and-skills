@@ -1,0 +1,25 @@
+【Generation Goal】
+Generate a live-action shot in one take. A late-afternoon café full of hazy sun. Alex sits across a small table from someone he has not seen in years and tells them, with a smile he cannot hold back, that they have not changed.
+
+【Dialogue, exact words】
+Alex says exactly, warmly, a little amazed: "You look exactly the way I remembered." The film contains exactly this line and no other words.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which the person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as he is, standing exactly where he stands, with a round white dot on the side he faces, at eye height. Use it for the camera: positions, movements, lens feel, framing, shot size and their timing, and for where Alex stands, how large he is in the frame and which way he faces. The capsule carries no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description. Never show a capsule: the capsule becomes Alex. Do not adopt its grey clay set or its stand-in shapes.
+The set in @video1 is only a layout of crude placeholders: rebuild every wall, window, piece of furniture, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, tile or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsule's red and black stripes are only a label for where Alex is: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; ignore its white background, its lighting and the black hoodie and microphone.
+@audio1 is Alex's own voice, a real recording: he speaks the line in that voice, with its timbre, pace and accent.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, seated front-on in the middle of the frame at a small table, facing the lens. He wears a worn tan corduroy jacket over a grey t-shirt. The place: Honey and golden cream, brown wood, tall windows with low sun coming through haze and steam in soft broad beams, hanging plants, a milky glow with soft bloom on every bright edge, warm shadows. Dreamy and analog, light diffusion, fine film grain.
+
+【Camera and Event Script】
+Shot 1, the only shot: the camera is on a pedestal with a 50 mm lens feel, facing Alex front-on at a steady distance, in a medium close-up with Alex's head and upper chest filling the middle of the frame. It starts about 0.9 metres above his eye line looking slightly down and over the six seconds it sinks smoothly to about 0.6 metres below his eye line looking slightly up, with no change in distance: Alex stays the same size in the frame while the windows and the haze behind him rise past him. It never pans or zooms.
+Alex's performance: He came ready to be casual about it, and seeing them across the table takes that away. Before he can stop it the smile arrives and his eyes crinkle. He speaks straight to them, a little amazed at his own warmth, and the last word goes soft and tender with a slight catch. Then he lets out a small laugh at himself and keeps looking at them, still smiling, as if checking they are really there. He says exactly: "You look exactly the way I remembered."
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks. Alex is a real human being with natural skin, hair and clothing; no mannequin, clay figure, capsule or doll appears anywhere, at any moment.
+The sound is only his warm voice, the murmur of a nearly empty café, cups on saucers and the hiss of a coffee machine. There is no music of any kind.
+The final visuals are live-action and photographic: photoreal cinema shot on an ARRI Alexa 35 with anamorphic lenses, natural film grain, soft diffusion and halation on the lights, shallow depth of field, motivated light and real atmospheric haze.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the place and its light, the camera move, the shot size and Alex's size and position in the frame consistent with @video1. Keep the lighting and time of day constant from start to end.

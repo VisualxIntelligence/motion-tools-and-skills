@@ -30,7 +30,7 @@ Short films as HTML pages in which **every frame is a pure function `seek(t)`**,
 | `beats.py` | Pure-Python tempo and onset analysis |
 | `music_edit.py` | Cuts music to **whole bars** so cues stay on the beat |
 | `sfx.py`, `voiceover.py` | Effects and voiceover mix |
-| `tts_kokoro.py`, `tts_chatterbox.py` | Local TTS |
+| `tts_kokoro.py`, `tts_chatterbox.py` | Local TTS; `tts_chatterbox.py` also speaks Arabic and 22 other languages (see *Other languages* below) |
 | `music_gen.py` | Music generation with ACE-Step (optional setup) |
 | `build_single.py` | Packs a film into one HTML file |
 | `assets.py`, `sheet.py`, `new_film.sh`, `doctor.sh` | Asset packing, contact sheets, film scaffold, setup check |
@@ -65,9 +65,25 @@ The references are specific and tested:
   - `symbols.swift` is macOS-only (SF Symbols), and is only needed for Apple-style app films.
 - **GPU.** `cdp.mjs` launches Chrome with `--disable-gpu`, which suits DOM and canvas pages. For WebGL or Three.js scenes, remove it and add `--use-angle=d3d11`.
 
+## Other languages (Chatterbox)
+
+Added here on 26 Nov 2026: give a voice (or a single line) a `"lang"` code in the voice-over script and `tts_chatterbox.py` speaks it with **Chatterbox Multilingual** instead of the English model.
+
+```json
+"voices": { "narrator": { "lang": "ar", "sample": "voices/narrator-ar.wav", "exaggeration": 0.4 } },
+"lines":  [ { "id": "l01", "voice": "narrator", "text": "..." } ]
+```
+
+- **Languages:** `ar` da de el en es fi fr he hi it ja ko ms nl no pl pt ru sv sw tr zh. No `lang`, or `en`, keeps the original English model, so existing scripts sound the same.
+- **V3 or V2.** Multilingual V3 (better speaker likeness, fewer hallucinated words) is only in Chatterbox's git source; the PyPI release that `setup_tts.sh` installs (0.1.7) loads V2, and the script falls back to it with a warning. For V3: `VIRTUAL_ENV=<venv> uv pip install "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox@ab55923"`.
+- **Give an Arabic voice sample.** `"sample": "turbo"` makes an English reference voice, so an Arabic line would carry an English accent. Use a 10 s clip of the target voice, recorded with that person's consent.
+- **Length check.** `voiceover.py` compares each take with the line read plainly, using macOS `say` at an English rate (or words ÷ 2.6 where `say` is missing). If good Arabic takes are rejected as too long or short, reword the line or relax the 0.8–1.6 window for that film.
+- **Watermark.** Every Chatterbox file carries Resemble AI's PerTh watermark, which survives MP3 and editing; check one with the `perth` package. Still label synthetic voices on air.
+- **Not tested here** (no GPU in this sandbox, and the models are 2 GB). Try one Arabic line on the 4090 before a full script.
+
 ## Changes from upstream
 
-- **Unchanged.** The skill folder.
+- **Unchanged,** except `scripts/tts_chatterbox.py`: per-voice or per-line `lang` with Chatterbox Multilingual (26 Nov 2026).
 - **Left out:**
   - `examples/` and `docs/`: 94 MB, almost all media — preview films, base64 asset bundles of real app UIs, fonts, and licensed music.
   - `site/`, `evals/`, `tests/`, the plugin manifests and the README.

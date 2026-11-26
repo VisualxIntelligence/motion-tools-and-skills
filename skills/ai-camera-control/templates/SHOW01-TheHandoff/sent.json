@@ -1,0 +1,572 @@
+{
+ "id": "SHOW01-TheHandoff",
+ "routes": {
+  "video": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "job": "v1",
+     "group": "video route, run v1",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/video-v1.txt",
+      "chars": 15088,
+      "sha256": "ad4f271c86edde0f0d6f758d693ebf20873def390d8a2c800f60f3112027aa00",
+      "provenance": "showcase/v1/full.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "pill clip (the 30 s blockout, 29 s trimmed)",
+       "file": "capsule-ref.mp4"
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg"
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "approved voice clip",
+       "file": "your-voice-clip.wav"
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 29,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-04",
+      "stage": "draft (480p preview)",
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4228.2,
+       "was_draft": true,
+       "file": "video-v1.mp4"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "job": "v2-video",
+     "group": "video route, run v2-video",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": true,
+     "prompt": {
+      "file": "prompts/video-v2-video.txt",
+      "chars": 16598,
+      "sha256": "053dacc242dacdbfb545cc95d2edda6ea9abbc5b359b6d130f430a27f6e7277c",
+      "provenance": "showcase/v2-video/full.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "pill clip (the 30 s blockout, 29 s trimmed)",
+       "file": "capsule-ref.mp4"
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg"
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "approved voice clip",
+       "file": "your-voice-clip.wav"
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 29,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-04",
+      "stage": "draft (480p preview)",
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4228.2,
+       "was_draft": true,
+       "file": "video-v2-video.mp4"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "job": "v3",
+     "group": "video route, run v3",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/video-v3.txt",
+      "chars": 16405,
+      "sha256": "44acfc3d0159c2eb7d0ff4c3957d72c7d244aa7a08e70032461db1add362cb94",
+      "provenance": "showcase/v3/full.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "pill clip (the 30 s blockout, 29 s trimmed)",
+       "file": "capsule-ref.mp4"
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg"
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "approved voice clip",
+       "file": "your-voice-clip.wav"
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 29,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-04",
+      "stage": "draft (480p preview)",
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4228.2,
+       "was_draft": true,
+       "file": "video-v3.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  "sketch": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "job": "v2-sheet",
+     "group": "sketch route, run v2-sheet",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/sketch-v2-sheet.txt",
+      "chars": 16686,
+      "sha256": "24c0b892b0947be6b5f2354be2c30172f683ca02eb9698dfbd5a1c1fafbe2059",
+      "provenance": "showcase/v2-sheet/full.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg"
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "pill contact sheet (30 panels)",
+       "file": "capsule-sheet.jpg"
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "approved voice clip",
+       "file": "your-voice-clip.wav"
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 29,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-04",
+      "stage": "draft (480p preview)",
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3543.8,
+       "was_draft": true,
+       "file": "sketch-v2-sheet.mp4"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "job": "v3-sheet",
+     "group": "sketch route, run v3-sheet",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/sketch-v3-sheet.txt",
+      "chars": 16493,
+      "sha256": "750bf69e22e4498e73285e268cbfae4c732487246fe8cc4bf42f0a2f2689ab24",
+      "provenance": "showcase/v3-sheet/full.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg"
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "pill contact sheet (30 panels)",
+       "file": "capsule-sheet.jpg"
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "approved voice clip",
+       "file": "your-voice-clip.wav"
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 29,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-04",
+      "stage": "draft (480p preview)",
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3543.8,
+       "was_draft": true,
+       "file": "sketch-v3-sheet.mp4"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "job": "v4-sheet",
+     "group": "sketch route, run v4-sheet",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/sketch-v4-sheet.txt",
+      "chars": 16594,
+      "sha256": "a012eb5f43498c3766db02c4c858d2d192abb9f02de497cf57620860dc2dc503",
+      "provenance": "showcase/v4-sheet/full.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg"
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "pill contact sheet (30 panels)",
+       "file": "capsule-sheet.jpg"
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "approved voice clip",
+       "file": "your-voice-clip.wav"
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 29,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-04",
+      "stage": "draft (480p preview)",
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3543.8,
+       "was_draft": true,
+       "file": "sketch-v4-sheet.mp4"
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "job": "v5-sheet",
+     "group": "sketch route, run v5-sheet",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": true,
+     "prompt": {
+      "file": "prompts/sketch-v5-sheet.txt",
+      "chars": 17035,
+      "sha256": "8319469ef37e06bfb9710429b4030204a0023e2cffa681611b8f9d818411ec83",
+      "provenance": "showcase/v5-sheet/full.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg"
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "pill contact sheet (30 panels)",
+       "file": "capsule-sheet.jpg"
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "approved voice clip",
+       "file": "your-voice-clip.wav"
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 29,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-04",
+      "stage": "draft (480p preview)",
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3543.8,
+       "was_draft": true,
+       "file": "sketch-v5-sheet.mp4"
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "job": "v6-sheet",
+     "group": "sketch route, run v6-sheet",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/sketch-v6-sheet.txt",
+      "chars": 17574,
+      "sha256": "2e1d20ab1f004e434c5ca34e8b6682e533c12ada64f061ccfe6902f0f2a3ac82",
+      "provenance": "showcase/v6-sheet/full.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg"
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "pill contact sheet (30 panels)",
+       "file": "capsule-sheet.jpg"
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "approved voice clip",
+       "file": "your-voice-clip.wav"
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 29,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-04",
+      "stage": "draft (480p preview)",
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3543.8,
+       "was_draft": true,
+       "file": "sketch-v6-sheet.mp4"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "note": "Run v2-video (video input) and v5-sheet (30 panel sheet) are the two takes compared in the tutorial: video input landed 9 of 9 cuts within a frame, the sheet 1 of 9.",
+ "stand_in": {
+  "in_pill_clip": "capsule",
+  "how_known": "the first gallery clips (the single striped capsule)"
+ }
+}

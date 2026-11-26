@@ -14,6 +14,7 @@ SEEDS = (1, 2, 3)
 lines = json.loads(Path(sys.argv[1]).read_text())
 cache = Path(sys.argv[2])
 _model = None
+_mtl = None
 
 
 def model():
@@ -22,6 +23,29 @@ def model():
         from chatterbox.tts import ChatterboxTTS
         _model = ChatterboxTTS.from_pretrained(device=DEVICE)
     return _model
+
+
+def multilingual():
+    # Chatterbox Multilingual V3 (23 languages, Arabic included); loaded only when a line asks for a language.
+    global _mtl
+    if _mtl is None:
+        from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+        try:
+            _mtl = ChatterboxMultilingualTTS.from_pretrained(device=DEVICE, t3_model="v3")
+        except TypeError:
+            # chatterbox-tts 0.1.7 on PyPI predates V3 and loads the V2 multilingual model (Arabic included).
+            print("Chatterbox Multilingual V3 needs chatterbox-tts from git; using V2.", file=sys.stderr, flush=True)
+            _mtl = ChatterboxMultilingualTTS.from_pretrained(device=DEVICE)
+    return _mtl
+
+
+def engine(lang):
+    # No "lang", or "en", keeps the original English model; any other code (e.g. "ar") uses Multilingual V3.
+    if lang and lang.lower() != "en":
+        m = multilingual()
+        return m, lambda text, **kw: m.generate(text, language_id=lang.lower(), **kw)
+    m = model()
+    return m, m.generate
 
 
 def turbo_sample(voice):
@@ -61,18 +85,20 @@ for line in lines:
         kw["audio_prompt_path"] = turbo_sample(line["voice"])
     elif sample:
         kw["audio_prompt_path"] = sample
+    lang = line.get("lang") or s.get("lang")
+    tts, gen = engine(lang)
     takes = []
     for seed in SEEDS:
         torch.manual_seed(seed)
-        wav = model().generate(line["text"], **kw)
-        m = measure(wav, model().sr)
+        wav = gen(line["text"], **kw)
+        m = measure(wav, tts.sr)
         usable = 0.8 <= m["length"] / line["plain"] <= 1.6 and m["gap"] < 0.6
         takes.append((not usable, abs(m["range"] - 8), seed, wav, m))
     takes.sort(key=lambda x: (x[0], x[1]))
     unusable, _, seed, wav, m = takes[0]
     if unusable:
         raise SystemExit(f"{line['id']} {line['text']!r}: no usable take in {[t[4] for t in takes]}; reword the line")
-    torchaudio.save(str(cache / f"{line['id']}.wav"), wav, model().sr)
-    report[line["id"]] = {"seed": seed, "text": line["text"], **m}
+    torchaudio.save(str(cache / f"{line['id']}.wav"), wav, tts.sr)
+    report[line["id"]] = {"seed": seed, "text": line["text"], "lang": lang or "en", **m}
     print(f"{line['id']}: take {seed}, {m['length']:.2f}s, pitch range {m['range']:.1f} semitones  {line['text']}", flush=True)
 report_path.write_text(json.dumps(report, indent=1))

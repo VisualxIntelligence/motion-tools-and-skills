@@ -1,0 +1,93 @@
+{
+ "id": "OBJ05-TrackingCarLow",
+ "routes": {
+  "video": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "group": "video (3D pill clip)",
+     "send_confirmed": true,
+     "send_confirmed_note": "logged: the receipt and the HTTP 200 reply exist",
+     "is_the_take_in_the_gallery": true,
+     "prompt": {
+      "file": "prompts/video.txt",
+      "chars": 3303,
+      "sha256": "27bec467e2abcdcc1381086341c9ed2d61d1abcf8800356beb44095e217296e0",
+      "provenance": "logged (the exact text in the payload file that was posted)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "pill clip (the 3D blockout)",
+       "sentence_in_prompt_that_defines_it": "@video1 is a coarse-blockout reference: a grey clay set with no people in it. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. Every object in it is a simple grey stand-in that only",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 952026,
+        "duration_s": 7.0,
+        "width": 1280,
+        "height": 534,
+        "fps": "24/1",
+        "has_audio_track": false
+       },
+       "note": null,
+       "provenance": null
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 7,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": false,
+       "output_format": "mp4",
+       "webhook_url": "(a callback address, not kept)"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type (reference | edit | extend)",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format",
+       "webhook_url": "callback_url"
+      },
+      "seed": "not supported",
+      "note": "the 'audios' list is present only on takes that used the author's voice clip",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "a98e21b9",
+      "queued_at": "2026-11-04",
+      "stage": "draft (480p preview)",
+      "http_status": 200
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1020.6,
+       "was_draft": true,
+       "file": "g-obj05.mp4"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "other_attempts": null,
+ "provenance_legend": {
+  "logged": "read from a file written when the send happened (payload, receipt, result)",
+  "reconstructed": "worked out afterwards from other files",
+  "not found": "no file survives"
+ },
+ "stand_in": {
+  "in_pill_clip": "capsule",
+  "how_known": "the first gallery clips (the single striped capsule)"
+ }
+}

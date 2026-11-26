@@ -1,0 +1,26 @@
+【Generation Goal】
+Generate a live-action Steadicam follow: the camera glides behind Alex as Alex walks straight across a plaza between columns toward the trees.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white dot on the side they face, at eye height. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use the capsules only for blocking: where each person stands, how tall they are in frame, which way they face, and when they move, crouch, jump or fall. The capsules carry no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from @image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsules' red, yellow, green, blue, magenta, orange and cyan stripes are only labels for who is who: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, walking alone away from the camera. The grey stand-in columns, cone-shaped trees, round-topped trees and rocks in @video1 correspond to stone columns standing on both sides of Alex's path, pine trees, broadleaf trees and boulders ahead. Large square paving stones cover the ground.
+Alex, the man from @image1, wears a black hoodie, grey joggers and white trainers.
+
+【Camera and Event Script】
+Shot 1, the only shot: the camera is on a Steadicam three to four metres behind Alex, at about Alex's head height and looking slightly down, with a 32 mm lens feel. It frames Alex's head, shoulders and back down to the waist, centred, in a medium shot from behind, the top of the head a little below the top edge; the paving runs ahead toward the columns and trees, soft in the distance.
+The camera glides forward at Alex's walking speed, reacting a beat after each change in Alex's pace, with a gentle floating bob and a slight side-to-side sway, and no handheld shake. Alex stays the same size in the centre of the frame from start to end, while the columns and trees ahead slowly grow and pass out of the left and right frame edges.
+Alex is already walking at the start and keeps walking straight away from the lens at a steady pace to the end: the shoulder blades shift under the clothes with each stride, the arms swing in opposition, the head stays steady and level, the eyes on the way ahead. Alex moves with quiet purpose, drawn toward something ahead: the shoulders loose, the stride never hesitating, the breathing even.
+The mood is immersive and forward-moving, as if the viewer is walking into the place with Alex, in steady daylight.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.
+Every person in the video is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment. There are no floating dots or specks hanging in the air.
+Characters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.
+The sound includes only outdoor ambience and <Alex's footsteps on stone paving>. There is no music.
+The final visuals are live-action and photographic: a real Mediterranean stone plaza of worn limestone paving, weathered limestone columns, tall Scots pines and leafy plane trees, in crisp late-morning sun. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the straight walk away from the camera, Alex's centred size and the plaza layout consistent with @video1. Keep the lighting and time of day constant from start to end.

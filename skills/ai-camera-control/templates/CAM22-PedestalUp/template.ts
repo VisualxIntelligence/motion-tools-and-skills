@@ -1,0 +1,16 @@
+// CAM22-PedestalUp
+// Copied from engine/cinematic/src/templates/cameras2.ts (lines 40-42 of that file).
+// The set builders, rigs and stand-ins it calls live in engine/cinematic/src and kit/.
+// Render it: cd engine/cinematic && tools/render-pill.sh CAM22-PedestalUp
+import * as THREE from "three";
+import { smoother, ramp } from "../util";
+import { aimFor } from "../framer";
+import { framed, rig } from "../kit/rigs";
+import type { Cam } from "../shots";
+import { ALEX, SAM, V, make as baseMake } from "./cameras";
+import { stageFor } from "./studios";
+import type { Piece } from "../piece";
+
+make({ id: "CAM22-PedestalUp", name: "Pedestal up", says: "We rise gently to meet their eyes, or to look down on what they have done.", use: "A character standing up, a rising mood, finding the eyeline.", numbers: "50 mm, MCU, the camera rises from 0.6 m below to 0.9 m above eye level over 6 s at a steady distance.", avoid: "Letting the distance change: it is a rise, not a push." },
+    [stand(0, 0, 0.35)],
+    (P) => [{ start: 0, end: 7, label: "50mm  PEDESTAL UP", rig: "PEDESTAL · DOLLY", subject: "ALEX", size: "MCU", stop: 3, cam: rig.crane(P("ALEX"), { size: "MCU", mm: 50, deg: 25 }, -0.6, 0.9, 0.3, 6.7, 1, 0.5), cut: "Opens the template" }]),

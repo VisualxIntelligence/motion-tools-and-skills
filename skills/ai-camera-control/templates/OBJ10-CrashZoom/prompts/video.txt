@@ -1,0 +1,24 @@
+【Generation Goal】
+Generate a live-action crash zoom: a held wide of a plaza, then the lens slams in on the head and raised arm of a statue and holds there.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set with no people in it. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. Every object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description, never from the blockout's shapes. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders, and its trees, plants, rocks, lamps and benches are left out on purpose: place them freely, as the description says, with natural, irregular shapes. Beyond that, rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The sand-coloured figure on a square plinth in @video1 corresponds to the statue; there is only one. It faces the camera, one arm raised and reaching up toward the right of frame. It stands in the centre of a plaza among stone columns, pine trees and round-crowned trees.
+The statue is a weathered bronze figure of a standing woman with a green patina, on a pale stone plinth.
+
+【Camera and Event Script】
+One continuous shot with no cuts. The camera is on a fixed tripod at standing eye height, level, with a zoom lens. The camera never moves, pans or tilts; only the focal length changes.
+Beat one, the wide: it opens on a held wide at about 24 mm, everything in deep focus. The statue stands small in the centre on its plinth, columns and pines framing it on both sides, round-crowned trees beyond, the paving across the bottom. Nothing moves for just over two seconds.
+Beat two, the crash: at about two point two seconds the lens zooms in under half a second to roughly 150 mm, slamming in on the statue with a hard streak of zoom blur. The perspective flattens.
+Beat three, the close-up: from about two point six seconds the frame holds still to the end on a close-up of the statue's head and raised arm. The head sits just left of centre in the upper half of the frame, the arm cutting diagonally up toward the upper right, the top of the body cut by the bottom edge. A column directly behind on the right becomes a soft, compressed wall, and a round tree crown blurs into a pale shape at the lower left.
+Mood: a still, ordinary calm that is broken by a jolt of shock, then a stare. The held wide lulls; the zoom hits like a punchline; the close-up insists that this figure matters. The light is flat, even daylight throughout, and the only change of pace is the single violent snap.
+Nothing in the scene moves.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only quiet outdoor ambience and a sharp <whoosh> on the zoom. There is no music.
+The final visuals are live-action and photographic: a real Mediterranean stone plaza of worn limestone paving, weathered limestone columns, tall Scots pines and leafy plane trees, in crisp late-morning sun. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the statue's structure, pose and colour, the fixed camera position, the timing of the zoom and the plaza layout consistent with @video1. Keep the lighting and time of day constant from start to end.

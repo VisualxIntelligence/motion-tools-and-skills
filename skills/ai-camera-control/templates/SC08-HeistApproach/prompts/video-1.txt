@@ -1,0 +1,26 @@
+【Generation Goal】
+Generate a live-action six-shot heist approach at dusk: Nyx and Ash cross a walled courtyard unseen, Nyx spots a guard through a warehouse door and slips inside, and Ash keeps watch.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white dot on the side they face, at eye height. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use the capsules only for blocking: where each person stands, how tall they are in frame, which way they face, and when they move, crouch, jump or fall. The capsules carry no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from @image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+@image1 is used only for Nyx's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.
+
+【Subjects and Relationships】
+The blue-and-black striped capsule in @video1 corresponds to Nyx, the magenta-and-black striped capsule corresponds to Ash, and the green-and-black striped capsule corresponds to the Guard. Nyx and Ash are inside a courtyard behind a high wall with a closed gate; Nyx heads for the open door of a warehouse, Ash for a corner of the wall. The Guard walks inside past shelving and never sees them. Nyx and Ash are tense and controlled; the Guard is bored.
+Nyx, the man from @image1, wears a black tactical jacket, black cargo trousers and thin black gloves. Ash is a lean woman in her thirties with a short black bob, in a dark olive utility jacket and black trousers. The Guard is a heavyset man in his fifties in a navy security uniform and peaked cap.
+
+【Camera and Event Script】
+Shot 1: a crane with a 28 mm lens feel opens high outside the wall, looking down over it into the courtyard, the warehouse door at the top of frame, Ash on the left and Nyx on the right crouch-walking toward it. It descends over the wall in one smooth move, settling low behind Nyx.
+The shot cuts down beside Nyx to Shot 2: a low tracking dolly at crouched head height with a 40 mm lens feel and slight handheld drift, side-on at their pace. Nyx moves left to right, knees deeply bent, back rounded, placing each foot carefully; Ash is small behind at the left edge.
+The shot cuts ahead to the door for Shot 3: a locked-off frame low beside the doorway with a 32 mm lens feel, the dark door frame upright on the right. Nyx crouch-walks in from the left and stops, still crouched. Far behind, Ash reaches the corner of the wall and straightens up.
+The shot cuts to Nyx's point of view for Shot 4: handheld at crouched eye height with a 32 mm lens feel, the door frame along the right edge. Inside, the Guard walks right to left past the shelves, never glancing at the door.
+The shot cuts to Ash for Shot 5: a locked profile medium close-up at eye level with an 85 mm lens feel, Ash at frame right facing left, the wall behind soft. Ash holds still, then turns the head round toward the lens and the gate, listening.
+The shot cuts high over the wall to Shot 6: a locked high wide with a 40 mm lens feel looking down on the warehouse door. Nyx rises, walks into the doorway and is swallowed by the dark, while Ash stays at the corner on the far left.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.
+Every person in the video is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment. There are no floating dots or specks hanging in the air.
+Characters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.
+The sound includes only quiet city ambience, <soft footsteps on concrete> and <the Guard's footsteps> inside. There is no music.
+The final visuals are live-action and photographic: a walled industrial courtyard and brick warehouse at blue-hour dusk, sodium lamps just on.
+
+【Maintain Consistency】
+Keep all three identities and clothing, Nyx at the door, Ash at the corner, the Guard inside and unaware, and the courtyard and warehouse layout consistent with @video1. Keep the lighting and time of day constant from start to end.

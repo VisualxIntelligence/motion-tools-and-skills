@@ -1,0 +1,792 @@
+{
+ "id": "FAM04-LeapOfFaith",
+ "routes": {
+  "video": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "group": "video (3D pill clip)",
+     "send_confirmed": true,
+     "send_confirmed_note": "confirmed: receipt t-leap/film3.receipt.json (queued 2026-11-05)",
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/video.txt",
+      "chars": 8580,
+      "sha256": "8f7fbd9bde670d4d30b5da4608df3a9b569b13ee8514acd71ab946c2930032e2",
+      "provenance": "logged (the exact text in the payload file that was posted)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "pill clip (the 3D blockout)",
+       "sentence_in_prompt_that_defines_it": "@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white do",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 5410554,
+        "duration_s": 13.083,
+        "width": 1280,
+        "height": 534,
+        "fps": "24/1",
+        "has_audio_track": false
+       },
+       "note": null,
+       "provenance": null
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "sentence_in_prompt_that_defines_it": null,
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "width": 2000,
+        "height": 1509
+       },
+       "note": "The author's own face photo (not included). Use a photo of yourself or of someone who agreed.",
+       "provenance": null
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 14,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4",
+       "webhook_url": "(a callback address, not kept)"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type (reference | edit | extend)",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format",
+       "webhook_url": "callback_url"
+      },
+      "seed": "not supported",
+      "note": "the 'audios' list is present only on takes that used the author's voice clip",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-05",
+      "stage": "draft (480p preview)",
+      "http_status": null,
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": []
+    },
+    {
+     "n": 2,
+     "group": "video (recovered from the job folder t-leap)",
+     "send_confirmed": true,
+     "send_confirmed_note": "a receipt file exists in the job folder",
+     "prompt": {
+      "file": "prompts/video-recovered-film.txt",
+      "chars": 8330,
+      "sha256": "259c06cf293fbc3b32f9fcb49f5c262cb9adda963d7f8800ab1ddb7bee4a7e4f",
+      "provenance": "recovered from t-leap/film.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "pill clip (the 3D blockout)",
+       "file": "capsule-clip.mp4",
+       "order": 1
+      },
+      {
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg",
+       "order": 2
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 14,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-05",
+      "stage": "draft (480p preview)",
+      "http_status": null,
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1968.3,
+       "was_draft": true,
+       "file": "t-leap-video2.mp4"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "group": "video (recovered from the job folder t-leap)",
+     "send_confirmed": true,
+     "send_confirmed_note": "a receipt file exists in the job folder",
+     "prompt": {
+      "file": "prompts/video-recovered-film2.txt",
+      "chars": 8337,
+      "sha256": "ebffd554213db7df909e1c41236ae32841432bdf5cc04c2c2921bf52a04f8c80",
+      "provenance": "recovered from t-leap/film2.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "pill clip (the 3D blockout)",
+       "file": "capsule-clip.mp4",
+       "order": 1
+      },
+      {
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg",
+       "order": 2
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 14,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-05",
+      "stage": "draft (480p preview)",
+      "http_status": null,
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1968.3,
+       "was_draft": true,
+       "file": "t-leap-video2.mp4"
+      }
+     ]
+    }
+   ]
+  },
+  "sketch": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "group": "sketch (contact sheet)",
+     "send_confirmed": true,
+     "send_confirmed_note": "logged: the receipt and the HTTP 200 reply exist",
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/sketch-1.txt",
+      "chars": 8759,
+      "sha256": "6c7c43b51c4ae828e093926b8b3454acf849030c4dece023626e67bdfdbf453c",
+      "provenance": "logged (the exact text in the payload file that was posted)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "sentence_in_prompt_that_defines_it": "@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.  【Subjects and Relationships】 The red-and-black striped capsu",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "width": 2000,
+        "height": 1509
+       },
+       "note": "The author's own face photo (not included). Use a photo of yourself or of someone who agreed.",
+       "provenance": null
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "contact sheet of the pill (a few frames on one image)",
+       "sentence_in_prompt_that_defines_it": "@image2 is a storyboard drawing, not a picture of the scene: twelve numbered panels drawn in thin black line on white paper, read left to right and top to bottom. Panels 1 to 12 are one continuous shot, sampled evenly fr",
+       "file": "capsule-sheet.jpg",
+       "file_info": {
+        "bytes": 1479996,
+        "width": 3880,
+        "height": 2186
+       },
+       "note": null,
+       "provenance": null
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 14,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4",
+       "webhook_url": "(a callback address, not kept)"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type (reference | edit | extend)",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format",
+       "webhook_url": "callback_url"
+      },
+      "seed": "not supported",
+      "note": "the 'audios' list is present only on takes that used the author's voice clip",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "6d8b0c13",
+      "queued_at": "2026-11-05",
+      "stage": "draft (480p preview)",
+      "http_status": 200
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1710.8,
+       "was_draft": true,
+       "file": "t-leap-sketch.mp4"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "group": "sketch (contact sheet)",
+     "send_confirmed": true,
+     "send_confirmed_note": "logged: the receipt and the HTTP 200 reply exist",
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/sketch-2.txt",
+      "chars": 8516,
+      "sha256": "b33b0590c0620aa5e45d6d5fa5911bf6bb32d4b4b9b106cd9cdc3d5710896ced",
+      "provenance": "logged (the exact text in the payload file that was posted)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "sentence_in_prompt_that_defines_it": "@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.  【Subjects and Relationships】 The red-and-black striped capsu",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "width": 2000,
+        "height": 1509
+       },
+       "note": "The author's own face photo (not included). Use a photo of yourself or of someone who agreed.",
+       "provenance": null
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "contact sheet of the pill (a few frames on one image)",
+       "sentence_in_prompt_that_defines_it": "@image2 is a storyboard drawing, not a picture of the scene: twelve numbered panels drawn in thin black line on white paper, read left to right and top to bottom. Panels 1 to 12 are one continuous shot, sampled evenly fr",
+       "file": "capsule-sheet.jpg",
+       "file_info": {
+        "bytes": 1479996,
+        "width": 3880,
+        "height": 2186
+       },
+       "note": null,
+       "provenance": null
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 14,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4",
+       "webhook_url": "(a callback address, not kept)"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type (reference | edit | extend)",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format",
+       "webhook_url": "callback_url"
+      },
+      "seed": "not supported",
+      "note": "the 'audios' list is present only on takes that used the author's voice clip",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "f3a1096e",
+      "queued_at": "2026-11-05",
+      "stage": "draft (480p preview)",
+      "http_status": 200
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1710.8,
+       "was_draft": true,
+       "file": "t-leap-sketch2.mp4"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "group": "sketch (contact sheet)",
+     "send_confirmed": true,
+     "send_confirmed_note": "logged: the receipt and the HTTP 200 reply exist",
+     "is_the_take_in_the_gallery": true,
+     "prompt": {
+      "file": "prompts/sketch-3.txt",
+      "chars": 8759,
+      "sha256": "6c7c43b51c4ae828e093926b8b3454acf849030c4dece023626e67bdfdbf453c",
+      "provenance": "logged (the exact text in the payload file that was posted)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "sentence_in_prompt_that_defines_it": "@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.  【Subjects and Relationships】 The red-and-black striped capsu",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "width": 2000,
+        "height": 1509
+       },
+       "note": "The author's own face photo (not included). Use a photo of yourself or of someone who agreed.",
+       "provenance": null
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "contact sheet of the pill (a few frames on one image)",
+       "sentence_in_prompt_that_defines_it": "@image2 is a storyboard drawing, not a picture of the scene: twelve numbered panels drawn in thin black line on white paper, read left to right and top to bottom. Panels 1 to 12 are one continuous shot, sampled evenly fr",
+       "file": "capsule-sheet.jpg",
+       "file_info": {
+        "bytes": 1479996,
+        "width": 3880,
+        "height": 2186
+       },
+       "note": null,
+       "provenance": null
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 14,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4",
+       "webhook_url": "(a callback address, not kept)"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type (reference | edit | extend)",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format",
+       "webhook_url": "callback_url"
+      },
+      "seed": "not supported",
+      "note": "the 'audios' list is present only on takes that used the author's voice clip",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "d1b89aad",
+      "queued_at": "2026-11-05",
+      "stage": "draft (480p preview)",
+      "http_status": 200
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1710.8,
+       "was_draft": true,
+       "file": "t-leap-sketch3.mp4"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "other_attempts": [
+  {
+   "payload_file": "film.json",
+   "group": "other attempt (film)",
+   "send_confirmed": true,
+   "send_confirmed_note": "logged: the receipt and the HTTP 200 reply exist",
+   "prompt": {
+    "text": "【Generation Goal】\nGenerate a live-action vertigo shot in one take, the kind that ends a trailer: Alex stands on a window ledge high on a skyscraper, steps off, falls at real speed down the face of the tower while the camera dives after him and rolls through a half turn, then time stretches into slow motion on an upside-down view of the city with Alex small in the middle of it, and the camera slowly pushes in on his face.\n\n【Reference Asset Roles】\n@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white dot on the side they face, at eye height. Use it for the camera: positions, movements, lens feel, framing and their timing. Its speed ramps are kept. For the people, use the capsules only for blocking: where each person stands, how tall they are in frame, which way they face, and when they move, crouch, jump or turn. The capsules carry no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from @image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set or its stand-in shapes.\nThe set in @video1 is only a layout of crude placeholders: rebuild every wall, building, vehicle, light, piece of furniture and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, fabric or metal. No cone, sphere, plain box or untextured surface appears in the final video.\nThe capsules' red, yellow, green, blue, magenta, orange, cyan and white stripes are only labels for who is who: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background.\n@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.\n\n【Subjects and Relationships】\nThe red-and-black striped capsule in @video1 corresponds to Alex, the only person, standing on a narrow window ledge of a tall glass-and-concrete skyscraper about two hundred metres up. The pale thin pieces at his feet and falling around him are shards of the shattered window glass. The towers all round are a dense financial district of real glass-and-steel skyscrapers.\nAlex, the man from @image1, wears a black hooded bomber jacket, a dark grey T-shirt, black jeans and white trainers.\n\n【Camera and Event Script】\nOne continuous shot with no cuts. The first frames are a held full-body shot of Alex on the ledge from about five metres away, front-left, on a 28 mm lens, the city blurred behind him.\n0 to 1 second, real speed: Alex stands on the ledge with the wind pulling at his jacket, looking out over the city, chest heaving, a trembling steadying breath. His face is white with fear and fixed with resolve, eyes wide, jaw tight, not a hint of a smile.\n1 to 1.6 seconds: he crouches, the glass edge cracking under his toes, and pushes off outward into the air. The glass lip shatters into a spray of shards that falls with him.\n1.6 to 4.9 seconds, real speed, the fall: he drops head-first and then spread-eagled, belly toward the street, the sleeves and hood of his jacket whipping and snapping, hair flattened back, the skin of his face rippling in the wind, eyes streaming and wide with raw terror and exhilaration, mouth stretched open in a silent gasp. The camera dives after him: it climbs, looks steeply down at the street far below and the towers converging, then plunges down the face of the building in a fast, smooth, curving move, swinging round to his side and rolling a half turn as it catches him. Glass shards tumble with him. The facade streaks past with heavy motion blur, the street rushing up.\n4.9 to 5.6 seconds: time eases down into extreme slow motion, about one thirtieth of real speed, and stays there to the end. By 5.6 seconds the camera has finished rolling and is level beside him, and the view is upside-down: the city hangs from the top of the frame, towers reaching down toward the sky, which fills the bottom of the picture.\n5.6 to 7.1 seconds, slow motion, the famous frame: Alex is small and dead centre, about a fifth of the frame height, falling in the middle of the upside-down city, the towers hanging full height at both edges, the glass shards drifting around him like glitter. His body is quiet and weightless now, arms open, hair and jacket floating.\n7.1 to 11.6 seconds: the camera glides in toward him in one long soft push, still upside down and still level, arcing round to his front, the lens lengthening from wide toward 35 mm. His face grows in frame: eyes wide and wet, pupils huge, lips parted, a slow shaky breath, fear melting into awe, the pure suspended instant between terror and wonder.\n11.6 to 13.1 seconds: a held close-up of his head and shoulders, the camera drifting only with the fall, his eyes looking straight into the lens, a single tear lifting from his cheek, the upside-down towers and open sky wheeling slowly behind his head.\nType of shot: a vertigo free-fall shot with a camera dive, a half roll and a slow-motion push-in, in the tradition of the great falling shots. Motion and blur: during the fall the facade, the street and the glass all streak with heavy, directional motion blur and the picture shakes with speed; at the upside-down frame the blur vanishes and everything is crisp, every pane of glass and every shard sharp. Lens and focus: a 28 mm wide lens for the fall and ledge, lengthening to about 35 mm as it pushes in, deep focus on the towers until the close-up, where only his face is sharp and the city behind softens into glowing bokeh. Light: hard golden sun and deep blue shade slicing across the towers, his face lit gold on one side and cool blue on the other, sun flares in the glass, a teal-and-orange cinema grade with rich contrast. Mood and feel: dizzying, breathless and awestruck, terror flipping into serene wonder. Emotion: raw fear and exhilaration, never a smile, ending in a still, wide-eyed awe. It must look like a frame from a big-budget thriller shot on film, not a video game, not CGI and not a render.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nEvery person in the video is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only the roar of wind, the crack and tinkle of glass, a pounding heartbeat and his ragged breath, all dropping low and stretched when the footage slows, and a deep sub-bass hum under the slow motion. There is no speech and there is no music of any kind: no score, no song, no singing and no humming.\nThe final visuals are live-action and photographic: a real financial district of glass-and-steel skyscrapers photographed at magic hour: a low gold-orange sun raking across the towers and throwing long hard shadows down the avenues, glittering glass facades reflecting the sky, a thin amber haze, wispy high cloud lit pink and violet, real street-level traffic, trees and tiny cars far below. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the ledge start, the shattering glass, the real-speed fall and the camera's dive and half roll, the change to extreme slow motion at the upside-down frame, Alex small and centred against the hanging towers, and the slow push-in to his face consistent with @video1. Keep the lighting and time of day constant from start to end.",
+    "chars": 8329,
+    "sha256": "1ac5f420436154acbebede183ab462b7e3a7e75352641804b5f9a0085d8b8785",
+    "provenance": "logged (the exact text in the payload file that was posted)"
+   },
+   "references_in_send_order": [
+    {
+     "order": 1,
+     "kind": "video",
+     "tag_in_prompt": "@video1",
+     "role": "pill clip (the 3D blockout)",
+     "prompt_sentence_that_defines_it": "@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white do",
+     "local_file": "capsule-clip.mp4",
+     "file_info": {
+      "path": "capsule-clip.mp4",
+      "exists": true,
+      "bytes": 5410554,
+      "duration_s": 13.083,
+      "width": 1280,
+      "height": 534,
+      "fps": "24/1",
+      "has_audio_track": false
+     },
+     "upload": "re-uploaded to a temporary file host right before each send; the link is not kept",
+     "uploaded_link": "not kept"
+    },
+    {
+     "order": 2,
+     "kind": "image",
+     "tag_in_prompt": "@image1",
+     "role": "person photo (face reference)",
+     "prompt_sentence_that_defines_it": "@image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set or its stand-in shapes. The set in @video1 is only a layout of crude placeholders: rebuil",
+     "local_file": "your-photo.jpg",
+     "file_info": {
+      "path": "your-photo.jpg",
+      "exists": true,
+      "bytes": 374425,
+      "width": 2000,
+      "height": 1509
+     },
+     "upload": "re-uploaded to a temporary file host right before each send; the link is not kept",
+     "uploaded_link": "not kept",
+     "note": "The author's own face photo (not included). Use a photo of yourself or of someone who agreed."
+    }
+   ],
+   "approved_reference_files": [
+    "capsule-clip.mp4",
+    "your-photo.jpg",
+    "capsule-sheet.jpg"
+   ],
+   "api_parameters": {
+    "values_sent": {
+     "mode": "multi_reference",
+     "duration": 14,
+     "resolution": "1080p",
+     "is_draft": true,
+     "aspect_ratio": "21:9",
+     "pass_faces": true,
+     "output_format": "mp4",
+     "webhook_url": "not kept (a private callback address that only received the finish call)"
+    },
+    "model_id": "seedance2.5 (from the endpoint path in the receipt)",
+    "seed": "not sent (the provider picks one)",
+    "generate_audio": "not sent (provider default: audio on)",
+    "other": "the 'audios' list is present only on takes that used the author's voice clip",
+    "provenance": "logged"
+   },
+   "request_shape": {
+    "provider": "a hosted Seedance 2.5 API",
+    "endpoint": "POST {the first service_BASE_URL}/api/seedance2.5/v1/queue (JSON body = the payload above with the reference links filled in)",
+    "status_endpoint": "{the first service_BASE_URL}/api/seedance2.5/v1/status",
+    "auth": "an API key in a request header, read from the local env file; never stored here",
+    "base_url_in_receipt": "not kept (the host is in the user's env file)"
+   },
+   "receipt": {
+    "file": "film.receipt.json",
+    "request_id": "76c9224d",
+    "queued_at": "2026-11-05T21:31:49.651879",
+    "label": "t-leap-video",
+    "stage": "draft (480p preview, upgrade with: the send script final <this receipt>)",
+    "http_status": 200
+   },
+   "output": [
+    {
+     "result_log": "t-leap-video.result.json",
+     "output_file": "t-leap-video.mp4",
+     "status": "COMPLETED",
+     "cost_credits": 1968.3,
+     "was_draft": true
+    }
+   ],
+   "provenance_of_result": "logged"
+  },
+  {
+   "payload_file": "film2.json",
+   "group": "other attempt (film2)",
+   "send_confirmed": true,
+   "send_confirmed_note": "logged: the receipt and the HTTP 200 reply exist",
+   "prompt": {
+    "text": "【Generation Goal】\nGenerate a live-action vertigo shot in one take, the kind that ends a trailer: Alex stands on a window ledge high on a skyscraper, steps off, falls at real speed down the face of the tower while the camera dives after him and rolls through a half turn, then time stretches into slow motion on an upside-down view of the city with Alex small in the middle of it, and the camera slowly pushes in on his face.\n\n【Reference Asset Roles】\n@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white dot on the side they face, at eye height. Use it for the camera: positions, movements, lens feel, framing and their timing. Its speed ramps are kept. For the people, use the capsules only for blocking: where each person stands, how tall they are in frame, which way they face, and when they move, crouch, jump or turn. The capsules carry no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from @image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set or its stand-in shapes.\nThe set in @video1 is only a layout of crude placeholders: rebuild every wall, building, vehicle, light, piece of furniture and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, fabric or metal. No cone, sphere, plain box or untextured surface appears in the final video.\nThe capsules' red, yellow, green, blue, magenta, orange, cyan and white stripes are only labels for who is who: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background.\n@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.\n\n【Subjects and Relationships】\nThe red-and-black striped capsule in @video1 corresponds to Alex, the only person, standing on a narrow solid stone-and-steel window ledge of a tall glass-and-concrete skyscraper about two hundred metres up. The towers all round are a dense financial district of real glass-and-steel skyscrapers.\nAlex, the man from @image1, wears a black hooded bomber jacket, a dark grey T-shirt, black jeans and white trainers.\n\n【Camera and Event Script】\nOne continuous shot with no cuts. The first frames are a held full-body shot of Alex on the ledge from about five metres away, front-left, on a 28 mm lens, the city blurred behind him.\n0 to 1 second, real speed: Alex stands on the ledge with the wind pulling at his jacket, looking out over the city, chest heaving, a trembling steadying breath. His face is pale and set with fear and resolve, jaw tight, not a hint of a smile; the expression is small and real, not theatrical.\n1 to 1.6 seconds: he crouches on the solid ledge and pushes off outward into the air. Nothing breaks: the ledge, the windows and the glass stay perfectly intact, and no glass, debris or shard ever falls.\n1.6 to 4.9 seconds, real speed, the fall: he drops head-first and then spread-eagled, belly toward the street, the sleeves and hood of his jacket whipping and snapping, hair flattened back, the skin of his face rippling in the wind, eyes narrowed and streaming against the wind, jaw clenched, a held breath, fear and exhilaration shown in small real expressions, never an exaggerated scream. The camera dives after him: it climbs, looks steeply down at the street far below and the towers converging, then plunges down the face of the building in a fast, smooth, curving move, swinging round to his side and rolling a half turn as it catches him. The facade streaks past with heavy motion blur, the street rushing up.\n4.9 to 5.6 seconds: time eases down into extreme slow motion, about one thirtieth of real speed, and stays there to the end. By 5.6 seconds the camera has finished rolling and is level beside him, and the view is upside-down: the city hangs from the top of the frame, towers reaching down toward the sky, which fills the bottom of the picture.\n5.6 to 7.1 seconds, slow motion, the famous frame: Alex is small and dead centre, about a fifth of the frame height, falling in the middle of the upside-down city, the towers hanging full height at both edges, nothing drifts around him but air and light. His body is quiet and weightless now, arms open, hair and jacket floating.\n7.1 to 11.6 seconds: the camera glides in toward him in one long soft push, still upside down and still level, arcing round to his front, the lens lengthening from wide toward 35 mm. His face grows in frame: eyes open and wet, lips slightly parted, a slow breath, fear melting into quiet awe, played small and sincere, the suspended instant between terror and wonder.\n11.6 to 13.1 seconds: a held close-up of his head and shoulders, the camera drifting only with the fall, his eyes looking straight into the lens, calm and awestruck, the upside-down towers and open sky wheeling slowly behind his head.\nType of shot: a vertigo free-fall shot with a camera dive, a half roll and a slow-motion push-in, in the tradition of the great falling shots. Motion and blur: during the fall the facade, the street and the glass all streak with heavy, directional motion blur and the picture shakes with speed; at the upside-down frame the blur vanishes and everything is crisp, every pane of glass sharp. Lens and focus: a 28 mm wide lens for the fall and ledge, lengthening to about 35 mm as it pushes in, deep focus on the towers until the close-up, where only his face is sharp and the city behind softens into glowing bokeh. Light: hard golden sun and deep blue shade slicing across the towers, his face lit gold on one side and cool blue on the other, sun flares in the glass, a teal-and-orange cinema grade with rich contrast. Mood and feel: dizzying, breathless and awestruck, terror flipping into serene wonder. Emotion: fear and exhilaration played small and real, never a smile and never theatrical, ending in still awe. It must look like a frame from a big-budget thriller shot on film, not a video game, not CGI and not a render.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nEvery person in the video is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only the roar of wind, a pounding heartbeat and his ragged breath, all dropping low and stretched when the footage slows, and a deep sub-bass hum under the slow motion. There is no speech and there is no music of any kind: no score, no song, no singing and no humming.\nThe final visuals are live-action and photographic: a real financial district of glass-and-steel skyscrapers photographed at magic hour: a low gold-orange sun raking across the towers and throwing long hard shadows down the avenues, glittering glass facades reflecting the sky, a thin amber haze, wispy high cloud lit pink and violet, real street-level traffic, trees and tiny cars far below. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the ledge start, the intact ledge and unbroken glass, the real-speed fall and the camera's dive and half roll, the change to extreme slow motion at the upside-down frame, Alex small and centred against the hanging towers, and the slow push-in to his face consistent with @video1. Keep the lighting and time of day constant from start to end.",
+    "chars": 8336,
+    "sha256": "01dc9d632f27f60ca28206d46727941a931876f78147c1cd3a41e5f30c2c81a3",
+    "provenance": "logged (the exact text in the payload file that was posted)"
+   },
+   "references_in_send_order": [
+    {
+     "order": 1,
+     "kind": "video",
+     "tag_in_prompt": "@video1",
+     "role": "pill clip (the 3D blockout)",
+     "prompt_sentence_that_defines_it": "@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white do",
+     "local_file": "capsule-clip.mp4",
+     "file_info": {
+      "path": "capsule-clip.mp4",
+      "exists": true,
+      "bytes": 5410554,
+      "duration_s": 13.083,
+      "width": 1280,
+      "height": 534,
+      "fps": "24/1",
+      "has_audio_track": false
+     },
+     "upload": "re-uploaded to a temporary file host right before each send; the link is not kept",
+     "uploaded_link": "not kept"
+    },
+    {
+     "order": 2,
+     "kind": "image",
+     "tag_in_prompt": "@image1",
+     "role": "person photo (face reference)",
+     "prompt_sentence_that_defines_it": "@image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set or its stand-in shapes. The set in @video1 is only a layout of crude placeholders: rebuil",
+     "local_file": "your-photo.jpg",
+     "file_info": {
+      "path": "your-photo.jpg",
+      "exists": true,
+      "bytes": 374425,
+      "width": 2000,
+      "height": 1509
+     },
+     "upload": "re-uploaded to a temporary file host right before each send; the link is not kept",
+     "uploaded_link": "not kept",
+     "note": "The author's own face photo (not included). Use a photo of yourself or of someone who agreed."
+    }
+   ],
+   "approved_reference_files": [
+    "capsule-clip.mp4",
+    "your-photo.jpg",
+    "capsule-sheet.jpg"
+   ],
+   "api_parameters": {
+    "values_sent": {
+     "mode": "multi_reference",
+     "duration": 14,
+     "resolution": "1080p",
+     "is_draft": true,
+     "aspect_ratio": "21:9",
+     "pass_faces": true,
+     "output_format": "mp4",
+     "webhook_url": "not kept (a private callback address that only received the finish call)"
+    },
+    "model_id": "seedance2.5 (from the endpoint path in the receipt)",
+    "seed": "not sent (the provider picks one)",
+    "generate_audio": "not sent (provider default: audio on)",
+    "other": "the 'audios' list is present only on takes that used the author's voice clip",
+    "provenance": "logged"
+   },
+   "request_shape": {
+    "provider": "a hosted Seedance 2.5 API",
+    "endpoint": "POST {the first service_BASE_URL}/api/seedance2.5/v1/queue (JSON body = the payload above with the reference links filled in)",
+    "status_endpoint": "{the first service_BASE_URL}/api/seedance2.5/v1/status",
+    "auth": "an API key in a request header, read from the local env file; never stored here",
+    "base_url_in_receipt": "not kept (the host is in the user's env file)"
+   },
+   "receipt": {
+    "file": "film2.receipt.json",
+    "request_id": "f2402cdf",
+    "queued_at": "2026-11-05T21:42:43.298919",
+    "label": "t-leap-video2",
+    "stage": "draft (480p preview, upgrade with: the send script final <this receipt>)",
+    "http_status": 200
+   },
+   "output": [
+    {
+     "result_log": "t-leap-video2.result.json",
+     "output_file": "t-leap-video2.mp4",
+     "status": "COMPLETED",
+     "cost_credits": 1968.3,
+     "was_draft": true
+    }
+   ],
+   "provenance_of_result": "logged"
+  },
+  {
+   "payload_file": "film3.json",
+   "group": "other attempt (film3)",
+   "send_confirmed": true,
+   "send_confirmed_note": "logged: the receipt and the HTTP 200 reply exist",
+   "prompt": {
+    "text": "【Generation Goal】\nGenerate a live-action vertigo shot in one take, the kind that ends a trailer: Alex stands on a window ledge high on a skyscraper, steps off, falls at real speed down the face of the tower while the camera dives after him and rolls through a half turn, then time stretches into slow motion on an upside-down view of the city with Alex small in the middle of it, and the camera slowly pushes in on his face.\n\n【Reference Asset Roles】\n@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white dot on the side they face, at eye height. Use it for the camera: positions, movements, lens feel, framing and their timing. Its speed ramps are kept. For the people, use the capsules only for blocking: where each person stands, how tall they are in frame, which way they face, and when they move, crouch, jump or turn. The capsules carry no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from @image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set or its stand-in shapes.\nThe set in @video1 is only a layout of crude placeholders: rebuild every wall, building, vehicle, light, piece of furniture and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, fabric or metal. No cone, sphere, plain box or untextured surface appears in the final video.\nThe capsules' red, yellow, green, blue, magenta, orange, cyan and white stripes are only labels for who is who: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background.\n@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.\n\n【Subjects and Relationships】\nThe red-and-black striped capsule in @video1 corresponds to Alex, the only person, standing on a narrow solid stone-and-steel window ledge of a tall glass-and-concrete skyscraper about two hundred metres up. The towers all round are a dense financial district of real glass-and-steel skyscrapers.\nAlex, the man from @image1, wears a black hooded bomber jacket, a dark grey T-shirt, black jeans and white trainers.\n\n【Camera and Event Script】\nOne continuous shot with no cuts. The first frames are a held full-body shot of Alex on the ledge from about five metres away, front-left, on a 28 mm lens, the city blurred behind him.\n0 to 1 second, real speed: Alex stands on the ledge with the wind pulling at his jacket, looking out over the city, chest heaving, a trembling steadying breath. His face is calm and certain: steady eyes, a level gaze out over the city, jaw set, shoulders loose, the face of a man who has already decided and is in control. He is confident, not frightened, and not theatrical.\n1 to 1.6 seconds: he crouches on the solid ledge and pushes off outward into the air. Nothing breaks: the ledge, the windows and the glass stay perfectly intact, and no glass, debris or shard ever falls.\n1.6 to 4.9 seconds, real speed, the fall: he drops head-first and then spread-eagled, belly toward the street, the sleeves and hood of his jacket whipping and snapping, hair flattened back, the skin of his face rippling in the wind, eyes clear, open and fixed ahead, jaw set, a controlled breath, composed and exhilarated, a man who chose to jump and is enjoying the fall, never a scream, never panic. The camera dives after him: it climbs, looks steeply down at the street far below and the towers converging, then plunges down the face of the building in a fast, smooth, curving move, swinging round to his side and rolling a half turn as it catches him. The facade streaks past with heavy motion blur, the street rushing up.\n4.9 to 5.6 seconds: time eases down into extreme slow motion, about one thirtieth of real speed, and stays there to the end. By 5.6 seconds the camera has finished rolling and is level beside him, and the view is upside-down: the city hangs from the top of the frame, towers reaching down toward the sky, which fills the bottom of the picture.\n5.6 to 7.1 seconds, slow motion, the famous frame: Alex is small and dead centre, about a fifth of the frame height, falling in the middle of the upside-down city, the towers hanging full height at both edges, nothing drifts around him but air and light. His body is quiet and weightless now, arms open, hair and jacket floating.\n7.1 to 11.6 seconds: the camera glides in toward him in one long soft push, still upside down and still level, arcing round to his front, the lens lengthening from wide toward 35 mm. His face grows in frame: eyes clear and steady, lips relaxed, a slow, even breath, a calm, confident, almost serene look, the suspended instant of a man at ease in free fall; at most the corner of his mouth lifts very slightly at the end.\n11.6 to 13.1 seconds: a held close-up of his head and shoulders, the camera drifting only with the fall, his eyes looking straight into the lens, calm, sure and unafraid, the upside-down towers and open sky wheeling slowly behind his head.\nType of shot: a vertigo free-fall shot with a camera dive, a half roll and a slow-motion push-in, in the tradition of the great falling shots. Motion and blur: during the fall the facade, the street and the glass all streak with heavy, directional motion blur and the picture shakes with speed; at the upside-down frame the blur vanishes and everything is crisp, every pane of glass sharp. Lens and focus: a 28 mm wide lens for the fall and ledge, lengthening to about 35 mm as it pushes in, deep focus on the towers until the close-up, where only his face is sharp and the city behind softens into glowing bokeh. Light: hard golden sun and deep blue shade slicing across the towers, his face lit gold on one side and cool blue on the other, sun flares in the glass, a teal-and-orange cinema grade with rich contrast. Mood and feel: dizzying, breathless and awestruck, but cool. Emotion: calm confidence and controlled exhilaration, played small and real, never fear, never panic, never crying and never theatrical, ending in still, sure composure. It must look like a frame from a big-budget thriller shot on film, not a video game, not CGI and not a render.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nEvery person in the video is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only the roar of wind, a pounding heartbeat and his ragged breath, all dropping low and stretched when the footage slows, and a deep sub-bass hum under the slow motion. There is no speech and there is no music of any kind: no score, no song, no singing and no humming.\nThe final visuals are live-action and photographic: a real financial district of glass-and-steel skyscrapers photographed at magic hour: a low gold-orange sun raking across the towers and throwing long hard shadows down the avenues, glittering glass facades reflecting the sky, a thin amber haze, wispy high cloud lit pink and violet, real street-level traffic, trees and tiny cars far below. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, his calm confident expression with no tears at any point, the ledge start, the intact ledge and unbroken glass, the real-speed fall and the camera's dive and half roll, the change to extreme slow motion at the upside-down frame, Alex small and centred against the hanging towers, and the slow push-in to his face consistent with @video1. Keep the lighting and time of day constant from start to end.",
+    "chars": 8579,
+    "sha256": "f80c2ec2185689b75a7415b15aab218ebe50e8a733ac4d7fd3a03ec3a14efabc",
+    "provenance": "logged (the exact text in the payload file that was posted)"
+   },
+   "references_in_send_order": [
+    {
+     "order": 1,
+     "kind": "video",
+     "tag_in_prompt": "@video1",
+     "role": "pill clip (the 3D blockout)",
+     "prompt_sentence_that_defines_it": "@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white do",
+     "local_file": "capsule-clip.mp4",
+     "file_info": {
+      "path": "capsule-clip.mp4",
+      "exists": true,
+      "bytes": 5410554,
+      "duration_s": 13.083,
+      "width": 1280,
+      "height": 534,
+      "fps": "24/1",
+      "has_audio_track": false
+     },
+     "upload": "re-uploaded to a temporary file host right before each send; the link is not kept",
+     "uploaded_link": "not kept"
+    },
+    {
+     "order": 2,
+     "kind": "image",
+     "tag_in_prompt": "@image1",
+     "role": "person photo (face reference)",
+     "prompt_sentence_that_defines_it": "@image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set or its stand-in shapes. The set in @video1 is only a layout of crude placeholders: rebuil",
+     "local_file": "your-photo.jpg",
+     "file_info": {
+      "path": "your-photo.jpg",
+      "exists": true,
+      "bytes": 374425,
+      "width": 2000,
+      "height": 1509
+     },
+     "upload": "re-uploaded to a temporary file host right before each send; the link is not kept",
+     "uploaded_link": "not kept",
+     "note": "The author's own face photo (not included). Use a photo of yourself or of someone who agreed."
+    }
+   ],
+   "approved_reference_files": [
+    "capsule-clip.mp4",
+    "your-photo.jpg",
+    "capsule-sheet.jpg"
+   ],
+   "api_parameters": {
+    "values_sent": {
+     "mode": "multi_reference",
+     "duration": 14,
+     "resolution": "1080p",
+     "is_draft": true,
+     "aspect_ratio": "21:9",
+     "pass_faces": true,
+     "output_format": "mp4",
+     "webhook_url": "not kept (a private callback address that only received the finish call)"
+    },
+    "model_id": "seedance2.5 (from the endpoint path in the receipt)",
+    "seed": "not sent (the provider picks one)",
+    "generate_audio": "not sent (provider default: audio on)",
+    "other": "the 'audios' list is present only on takes that used the author's voice clip",
+    "provenance": "logged"
+   },
+   "request_shape": {
+    "provider": "a hosted Seedance 2.5 API",
+    "endpoint": "POST {the first service_BASE_URL}/api/seedance2.5/v1/queue (JSON body = the payload above with the reference links filled in)",
+    "status_endpoint": "{the first service_BASE_URL}/api/seedance2.5/v1/status",
+    "auth": "an API key in a request header, read from the local env file; never stored here",
+    "base_url_in_receipt": "not kept (the host is in the user's env file)"
+   },
+   "receipt": {
+    "file": "film3.receipt.json",
+    "request_id": "60ecc71f",
+    "queued_at": "2026-11-05T21:44:27.520957",
+    "label": "t-leap-video3",
+    "stage": "draft (480p preview, upgrade with: the send script final <this receipt>)",
+    "http_status": 200
+   },
+   "output": [
+    {
+     "result_log": "t-leap-video3.result.json",
+     "output_file": "t-leap-video3.mp4",
+     "status": "COMPLETED",
+     "cost_credits": 1968.3,
+     "was_draft": true
+    }
+   ],
+   "provenance_of_result": "logged"
+  }
+ ],
+ "provenance_legend": {
+  "logged": "read from a file written when the send happened (payload, receipt, result)",
+  "reconstructed": "worked out afterwards from other files",
+  "not found": "no file survives"
+ },
+ "stand_in": {
+  "in_pill_clip": "capsule",
+  "how_known": "the first gallery clips (the single striped capsule)"
+ }
+}

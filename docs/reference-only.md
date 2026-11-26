@@ -6,7 +6,7 @@ These are the useful things found while surveying the source repos ([`../SOURCES
 
 To unlock any item, open an issue on the upstream repo asking the author to add a licence (MIT or Apache-2.0).
 
-Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4), 21 October 2026 (sections 5–6), 22 October 2026 (sections 7–11), 31 October 2026 (section 12), 14 November 2026 (section 13) and 15 November 2026 (section 14). PDoomVideo was rechecked on 21 October: same commit, still no licence.
+Commit hashes are the versions surveyed on 6 October 2026 (sections 1–4), 21 October 2026 (sections 5–6), 22 October 2026 (sections 7–11), 31 October 2026 (section 12), 14 November 2026 (section 13), 15 November 2026 (section 14) and 26 November 2026 (section 21). PDoomVideo was rechecked on 21 October: same commit, still no licence.
 
 ---
 
@@ -296,3 +296,24 @@ From the second 24 November 2026 survey of nine repos (SOURCES.md rows 119–128
 | [nutllwhy/hyperframes-motion-library](https://github.com/nutllwhy/hyperframes-motion-library) `renders/`, `redskill-submission/` | Sample films (7 MB); a packaged copy for a Chinese skill store | The live demo page shows every template's sample film |
 | [tugrawork-creator/saas-motion-kit](https://github.com/tugrawork-creator/saas-motion-kit) theme thumbnails, GIFs, Action | Size; regenerable | Rendered example films are on its v1.2 release page |
 | [AbubakrChan/product-launch-motion](https://github.com/AbubakrChan/product-launch-motion) `examples/`, Cheerful films and stills | Made for Cheerful; shown with permission, not licensed | The released films (Cheerful 30 s, the one-shape loop, the Arabic *Hoopoe Club*) are the best demonstration of the style |
+
+## 21. Fourteenth survey: reviewed, not copied
+
+From the 26 November 2026 survey of 33 repos (SOURCES.md rows 129–141). What was kept is in `skills/ai-camera-control/`, `skills/social-media-research/`, `design/flexoki/`, `tools/davinci-resolve-mcp/`, `tools/auto-editor/`, `tools/hyperframes-skills/`, `tools/yt-dlp/` and the Chatterbox `lang` option in `skills/motion-designer/`.
+
+| Item | Why not added | Worth knowing |
+|---|---|---|
+| [sirioberati/ai-filmmaking-camera-control-seedance-2-5](https://github.com/sirioberati/ai-filmmaking-camera-control-seedance-2-5) media | 689 MB of clips, previews, pictures and results; two 16 MB rig GLBs | The v0.1.0 release (`camera-control-results.zip`) has every Seedance result beside its pill clip; the gallery page is the quickest way to judge a move before using it |
+| [Rikorose/DeepFilterNet](https://github.com/Rikorose/DeepFilterNet) | **The PyPI package (0.5.6) fails to import on current torchaudio** (tested 26 Nov 2026: `torchaudio.backend` is gone in 2.11) | Good speech denoising for voice-over and field audio. On a workstation, use the `deep-filter` Rust binary from its releases, or pin torch/torchaudio 2.0 on Python ≤ 3.11. The connected Adobe Enhance Speech skill (`adobe-cleanup-audio`) needs no install |
+| [facebookresearch/demucs](https://github.com/facebookresearch/demucs) | Already used (`tools/song-analysis/`, several skills) | Upstream says it is no longer maintained; bug fixes go to [adefossez/demucs](https://github.com/adefossez/demucs). Pin the version you tested |
+| [danielgatis/rembg](https://github.com/danielgatis/rembg) | Already used in `starters/mg-styles-15/` | Prefer the BiRefNet models for edges (`birefnet-general`, `birefnet-portrait` with `-dc`). **`bria-rmbg` loads BRIA's RMBG weights, released for non-commercial use**: check before client work. Per-frame, so it flickers on video; keep it for stills and cut-outs |
+| [Tonejs/Tone.js](https://github.com/Tonejs/Tone.js) 15.5 | Our scores are synthesised in Python (`mgaudio`, `sound-sheet`) | `Tone.Offline` renders a Web Audio score to a buffer faster than real time and the same every run: a browser-side option for HyperFrames and three.js films |
+| [gkjohnson/three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh) 0.10 | A library, nothing to vendor | Fast raycasts and shape casts for three.js: camera collision, scattering on surfaces, picking. It underlies three-gpu-pathtracer, which the camera-control engine uses for clean stills |
+| [juliangarnier/anime](https://github.com/juliangarnier/anime) 4.5, [gre/gl-react](https://github.com/gre/gl-react) 6, [motion-canvas/motion-canvas](https://github.com/motion-canvas/motion-canvas) 3.17 | Overlap GSAP, raw shaders and HyperFrames/Remotion | anime.js is MIT, so it suits a template that must ship under an MIT-only bundle (GSAP has its own no-charge licence). Motion Canvas has been quiet since July 2026; `remotion-to-hyperframes` can port its scenes |
+| [bulletphysics/bullet3](https://github.com/bulletphysics/bullet3) | Blender's rigid bodies already run on Bullet | On the web use Rapier (as the camera-control engine does) with a fixed step and a seed, then bake |
+| [ffmpegwasm/ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) | No commits since September 2025; far slower than native ffmpeg | Only for an in-browser tool that must encode without a server |
+| [xinntao/Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) | Already listed in section 17 as superseded for video | — |
+| [mifi/lossless-cut](https://github.com/mifi/lossless-cut) | A GPL-2.0 desktop app, not an agent tool | Good for trimming long source footage without re-encoding, by hand |
+| [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut) | Being rewritten; the usable version is `opencut-classic` | The rewrite promises an MCP server, headless rendering and an editor API. Watch |
+| [obsidianmd/jsoncanvas](https://github.com/obsidianmd/jsoncanvas) | A file-format spec | JSON Canvas 1.0 (MIT): a shot list or storyboard exported as `.canvas` opens as a board in Obsidian |
+| [kepano/kepano-obsidian](https://github.com/kepano/kepano-obsidian), [obsidian-releases](https://github.com/obsidianmd/obsidian-releases), [obsidian-sample-plugin](https://github.com/obsidianmd/obsidian-sample-plugin), [obsidian-minimal](https://github.com/kepano/obsidian-minimal), [40-questions](https://github.com/kepano/40-questions) | Not motion tools (40-questions also has no licence) | This repo is plain Markdown with relative links, so it opens as an Obsidian vault as it is |

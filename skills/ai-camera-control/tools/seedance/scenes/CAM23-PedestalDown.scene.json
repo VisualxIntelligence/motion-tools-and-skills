@@ -1,0 +1,30 @@
+{
+ "template": "CAM23-PedestalDown",
+ "person": {
+  "name": "Alex",
+  "pronoun": "he",
+  "face_traits": "hair and facial hair",
+  "photo_ignore": "its background, its lighting and its clothing",
+  "wears": "a worn tan corduroy jacket over a grey t-shirt"
+ },
+ "goal": "A late-afternoon café full of hazy sun. Alex sits across a small table from someone he has not seen in years and tells them, with a smile he cannot hold back, that they have not changed.",
+ "place": "Honey and golden cream, brown wood, tall windows with low sun coming through haze and steam in soft broad beams, hanging plants, a milky glow with soft bloom on every bright edge, warm shadows. Dreamy and analog, light diffusion, fine film grain.",
+ "performance": "He came ready to be casual about it, and seeing them across the table takes that away. Before he can stop it the smile arrives and his eyes crinkle. He speaks straight to them, a little amazed at his own warmth, and the last word goes soft and tender with a slight catch. Then he lets out a small laugh at himself and keeps looking at them, still smiling, as if checking they are really there. {LINE}",
+ "sound": "The sound is only his warm voice, the murmur of a nearly empty café, cups on saucers and the hiss of a coffee machine.",
+ "subject_position": "seated front-on in the middle of the frame at a small table, facing the lens",
+ "camera": "Shot 1, the only shot: the camera is on a pedestal with a 50 mm lens feel, facing Alex front-on at a steady distance, in a medium close-up with Alex's head and shoulders in the middle of the frame. It starts about 0.9 metres above his eye line looking slightly down and over the six seconds it sinks smoothly to about 0.6 metres below his eye line looking slightly up, with no change in distance: Alex stays the same size in the frame while the windows and the haze behind him rise past him. It never pans or zooms.",
+ "camera_numbers": [
+  "50 mm",
+  "pedestal",
+  "0.9 metres",
+  "0.6 metres"
+ ],
+ "mood": {
+  "environment": "10",
+  "panel": 0
+ },
+ "line": {
+  "text": "You look exactly the way I remembered.",
+  "how": "warmly, a little amazed"
+ }
+}

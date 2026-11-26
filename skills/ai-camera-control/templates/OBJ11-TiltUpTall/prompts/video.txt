@@ -1,0 +1,24 @@
+【Generation Goal】
+Generate a live-action tilt up a tall pine tree, from its trunk at the ground to its very tip against the sky, to show how tall it is.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set with no people in it. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. Every object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description, never from the blockout's shapes. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The tall sage-coloured conical tree in @video1 corresponds to the pine tree; there is one hero pine, standing about eleven metres in front of the lens, with stacked tiers of branches that grow narrower toward a pointed tip. Smaller pines, round-crowned trees, stone columns and low blocks stand around the plaza behind it.
+The pine tree is a very tall, old Scots pine with a long bare reddish trunk and a ragged, wind-shaped crown.
+
+【Camera and Event Script】
+One continuous shot with no cuts. The camera is on a fixed tripod with a fluid head, its lens low, about half a metre off the ground, with an 18 mm ultra-wide lens feel and deep focus. The camera never travels; it only tilts.
+Opening: looking nearly level and slightly up. The pine stands in the centre of the frame, its trunk rising from the ground just below the middle, its lowest tiers spreading wide across the frame, their dark undersides facing the lens, and its upper tiers cut off by the top edge. A thin strip of paving runs along the bottom, with columns, small pines and round trees standing low on both sides, so the hero pine dwarfs everything around it.
+Tilt up: after a brief hold the head begins to tilt upward in one slow, eased, judder-free move. The trunk and the ground drop out of the bottom of the frame by about five seconds, the surrounding trees and columns fall away, and the camera climbs tier after tier as the tree narrows. The pointed tip enters from the top edge at about four and a half seconds.
+Arrival: the tilt slows and lands exactly on the tip at about seven and a half seconds, and holds still to the end without tilting past it. In the final frame the tip sits in the upper third, dead centre, against plain open sky, with the top three tiers stacked beneath it and the wider tiers cut off by the bottom edge.
+Mood: awe and quiet scale. The tree begins as a wall of branches above the lens and ends as a single point high overhead; the slow, steady climb lets the height sink in. The light is soft daylight, the sky pale and even, and the pace never hurries.
+Only a light breeze stirs the branches.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only wind in the branches and quiet outdoor ambience. There is no music.
+The final visuals are live-action and photographic: a real Mediterranean stone plaza of worn limestone paving, weathered limestone columns, tall Scots pines and leafy plane trees, in golden late-afternoon sun. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the pine tree's structure, tiers and single count, the low camera position, the tilt with no travel and the landing on its tip consistent with @video1. Keep the lighting and time of day constant from start to end.

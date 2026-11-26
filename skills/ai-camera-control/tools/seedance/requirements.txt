@@ -1,0 +1,5 @@
+# Needed by every script here except the two marked optional in README.md.
+# Tested together on Python 3.10.12 (macOS), 7 Nov 2026. Also run on Python 3.14.6 with numpy 2.4.3 and Pillow 12.1.1.
+numpy==1.26.4
+Pillow==10.4.0
+# ffmpeg and ffprobe must be on PATH (tested with ffmpeg 9.0.2). Node 22+ only for shots.sh.

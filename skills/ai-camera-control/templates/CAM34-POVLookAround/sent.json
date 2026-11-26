@@ -1,0 +1,16 @@
+{
+ "id": "CAM34-POVLookAround",
+ "best_job": null,
+ "why_best": "never sent; no job folder at all; POV: no person in frame by design",
+ "routes": {
+  "video": {
+   "was_run": false,
+   "sends": [],
+   "note": "POV: no person in frame by design"
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "pin",
+  "how_known": "copied from render-pin"
+ }
+}

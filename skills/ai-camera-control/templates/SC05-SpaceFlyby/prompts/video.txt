@@ -1,0 +1,22 @@
+【Generation Goal】
+Generate a live-action four-shot space sequence: a small ship flies past drifting asteroids toward an enormous ringed planet, alone, fast and tiny against it.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing, and for where the ship flies and how fast. Every object in it is a simple grey stand-in that only marks where things are and how they move: take every shape, material and look from this description. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The grey winged stand-in craft with twin engines in @video1 corresponds to the ship; there is only one. The ringed planet and drifting rocks belong to the scene and keep the ship's small scale readable in every shot. The mood is silent, lonely awe: speed against a scale too large to take in, lit by one hard distant sun that leaves deep black shadows.
+The ship is a small, worn grey cargo craft with a glowing blue engine. The asteroids are rough dark rocks; the planet is an enormous gas giant with pale bands and wide rings.
+
+【Camera and Event Script】
+Shot 1: a locked-off wide with a 35 mm lens feel. The ringed planet fills the left and centre of the frame, its broad flat ring sweeping across the lower frame and round behind it, scattered asteroids drifting across its face and the starfield. The ship enters close in the right foreground, a wing and engine pod cut by the frame edge, and flies straight away from the lens toward the planet, shrinking steadily until it is a small silhouette with two glowing engine points against the planet's face at centre.
+The shot cuts behind it to Shot 2: a chase drone with a 28 mm lens feel just behind and slightly above the ship, matched to its speed. The tail fin and two engine nozzles, glowing white, sit large in the lower centre with the wings spread to both sides; ahead, the ring and planet fill the upper half. Asteroids drift past on both sides and stars streak by; near the end a large rock tumbles past close over the top right. The ship holds steady in frame with a slight banking drift.
+The shot cuts ahead to Shot 3: a flyby pan with a 35 mm lens feel from a fixed point in its path. Dark space fills the frame, a black rock on the right; the ship approaches small from the centre, grows fast and streaks past the lens side-on, filling the frame for an instant in a dark motion-blurred rush. The camera pans hard to follow it as it goes, and the pan sweeps the planet and its ring into frame from the right, the ship ending small against the planet's face with a rock drifting beside it.
+The shot cuts behind to Shot 4: a long-lens recede with an 85 mm lens feel, locked from behind. The planet's pale surface fills almost the entire background, flattened by the long lens, with a sliver of dark space at the top right. The ship sits small and centred, engines glowing, falling away and shrinking toward the planet, while a tumbling rock drifts into the top-left corner in the foreground.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only <a low engine rumble> and <the rush as the ship passes the lens>. There is no music.
+The final visuals are live-action and photographic: real deep space, black with scattered stars, the planet lit hard from one side by a distant sun. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the ship's structure, colour and single count, its course toward the planet, the planet and asteroids and the sense of scale consistent with @video1. Keep the lighting and time of day constant from start to end.

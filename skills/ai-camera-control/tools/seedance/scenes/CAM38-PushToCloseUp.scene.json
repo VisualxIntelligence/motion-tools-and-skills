@@ -1,0 +1,29 @@
+{
+ "template": "CAM38-PushToCloseUp",
+ "person": {
+  "name": "Alex",
+  "pronoun": "he",
+  "face_traits": "hair and facial hair",
+  "photo_ignore": "its background, its lighting and its clothing",
+  "wears": "bare shoulders and wet dark hair, water running down his face"
+ },
+ "goal": "A cramped old shower room flooded with teal light. Alex stands alone under the water and says aloud what he has been practising for days.",
+ "place": "Small worn square tiles with dark grout, wet and glossy, a basin with a dripping tap, deep cyan-teal light with navy-black corners and a tiny amber glint at the drain, thin steam near the water, soft bloom on the wet highlights. Claustrophobic and raw, fine film grain.",
+ "performance": "He has been rehearsing a speech for days and now, tired and alone, the truth comes out: none of it sounds like him. His shoulders rise and fall with each breath and his lips move silently around a rehearsed phrase before he gives up on it. He speaks low and rough, his lips unsteady, his head turning slightly away from his own words, and his voice breaks on \"me\". Then he stays under the water as it runs down his face, his eyes lowering and slowly lifting, raw and resigned. {LINE}",
+ "sound": "The sound is only his low voice, a tap dripping, water in far-off pipes, his breathing and a small echo off the tiles.",
+ "subject_position": "standing front-on in the middle of the frame, facing the lens",
+ "camera": "Shot 1, the only shot: the camera is on a slow dolly with an 85 mm lens feel and shallow focus, level with Alex's eyes, facing him front-on. It opens on a medium close-up with his head and shoulders in the middle of the frame and his eyes on the upper third, then pushes straight toward him very slowly over the six seconds, easing in and out, until it arrives on an extreme close-up with his face filling the frame, both eyes still in it. The tiled wall behind him melts further into soft teal as the camera nears. It never pans, tilts or arcs; only the distance closes.",
+ "camera_numbers": [
+  "85 mm",
+  "dolly",
+  "close-up"
+ ],
+ "mood": {
+  "environment": "22",
+  "panel": 0
+ },
+ "line": {
+  "text": "I keep rehearsing what I'll say to him, and none of it sounds like me.",
+  "how": "low and rough"
+ }
+}

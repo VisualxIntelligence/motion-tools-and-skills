@@ -1,0 +1,23 @@
+【Generation Goal】
+Generate a live-action low tracking shot of a car driving fast across a plaza, the camera just above the ground and matched to the car's speed, so the car holds still in the frame while the world streams past behind it.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set with no people in it. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. Every object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description, never from the blockout's shapes. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+
+【Subjects and Relationships】
+The slate-blue car in @video1 corresponds to the car; there is only one. It drives in a straight line across the plaza from the right of frame toward the left, its nose pointing to the left edge. Pine trees, round-crowned trees, lamp posts, stone columns, crates and low rocks stand on the far side of its path; one column stands on the near side, between the car and the camera.
+The car is a dark blue 1990s estate car with chrome trim and black tyres.
+
+【Camera and Event Script】
+One continuous shot with no cuts. The camera is on a low mount on a camera car, its lens about forty centimetres off the ground, level, side-on to the car and a little ahead of it, with a 35 mm lens feel and deep focus.
+Framing: the car's side fills the right two-thirds of the frame. Its nose sits about a third in from the left edge, its rear runs off the right edge, and the top of its windows sits just under the top edge. The wheels sit just above the middle of the frame, and the paving fills the lower half, so the car looks heavy, planted and fast.
+Movement: the camera travels at exactly the car's speed, so the car holds its place in the frame for the whole shot, wheels spinning, body steady. Behind it, the trees, lamp posts, columns and crates stream across the frame from left to right with motion blur, and the joints and shadows of the paving rush under the lens.
+The wipe: at about four seconds a stone column on the near side passes close in front of the lens, crossing from the left of frame toward the centre as a dark, blurred vertical wipe over the middle of the car for a fraction of a second, its long shadow sweeping across the paving. The car reappears unchanged in the same place, and the tracking runs on to the end at the same speed.
+Mood: speed and power. The low angle makes the car muscular and relentless; nothing slows, nothing settles. The light is clear daylight with crisp shadows under the car, and the pace is constant and driving.
+The car drives straight and steady throughout.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only <the car's engine at speed> and <tyres rolling on stone paving>. There is no music.
+The final visuals are live-action and photographic: a sunlit stone plaza lined with columns and trees in late-afternoon light.
+
+【Maintain Consistency】
+Keep the car's structure, colour and single count, its right-to-left direction with its nose toward the left edge, its place in the frame, the low side-on camera and the plaza background consistent with @video1. Keep the lighting and time of day constant from start to end.

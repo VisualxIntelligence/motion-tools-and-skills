@@ -1,0 +1,78 @@
+{
+ "id": "PRD03-ExplodedBuild",
+ "routes": {
+  "video": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "group": "video (3D pill clip), a product photo as the only image",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/video.txt",
+      "chars": 7903,
+      "sha256": "27845ac38274e9be34f47a86b49ed6437ff79f991579f61a5ead47bf1a2c023e",
+      "provenance": "payload.json of the job",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "pill clip (the 3D blockout)",
+       "file": "clay-clip.mp4"
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "product photo",
+       "file": "product.jpg"
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 8,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": false,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)",
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1166.4,
+       "was_draft": true,
+       "file": "video-draft.mp4"
+      }
+     ],
+     "verdict": [
+      "Left out of the gallery: the author judged the draft unconvincing (the exploded parts read as CG, the product unbranded). Kept here as a failure example."
+     ]
+    }
+   ]
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "capsule",
+  "how_known": "the first gallery clips (the single striped capsule)"
+ }
+}
