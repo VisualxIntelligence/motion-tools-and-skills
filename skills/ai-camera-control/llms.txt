@@ -1,0 +1,24 @@
+# AI filmmaking camera control with Seedance 2.5 and three.js
+
+> Direct the camera of an AI film made with Seedance 2.5 by writing the move in three.js: dolly, crane, orbit, whip pan, FPV, one-takes, action and famous shots. Render a grey clip where people are striped pills, send it as the reference video with a face photo and a prompt, and the model copies the camera and invents the people and place. 137 templates with code, clips, prompts and results. Videos are generated through Tein (tein.ai), by its MCP or API, with the user's own key. Sign up at https://tein.ai to get one.
+
+## Start here
+- [AGENTS.md](AGENTS.md): rules and where things are, for agents
+- [README.md](README.md): the idea, a showcase and a ten-minute start
+- [docs/idea.md](docs/idea.md): the method in one page
+- [docs/rules.md](docs/rules.md): every rule, with why and evidence
+
+## Use it
+- [templates/INDEX.md](templates/INDEX.md): all 137 templates with previews
+- [docs/build-your-own-template.md](docs/build-your-own-template.md): make a new camera move
+- [docs/prompt-anatomy.md](docs/prompt-anatomy.md): how a prompt is built
+- [docs/tein-endpoint.md](docs/tein-endpoint.md): Tein MCP and API setup for sending a template, drafts, finalizing
+- [docs/tein/api-reference.md](docs/tein/api-reference.md): the Tein API, every field, error and rate limit
+- [docs/tein/mcp-setup.md](docs/tein/mcp-setup.md): connect the Tein MCP in Claude Code, Claude Desktop or Cursor
+- [docs/tein/limits.md](docs/tein/limits.md): Seedance 2.5 input and output limits
+- [docs/tein/billing.md](docs/tein/billing.md): how a run is billed, no prices
+
+## Understand it
+- [docs/why/](docs/why/): why pills, why no limbs, why a coarse set, why words beat a specific video
+- [docs/known-limits.md](docs/known-limits.md): what does not work and what was never tested
+- [answers/README.md](answers/README.md): 137 answered questions with evidence

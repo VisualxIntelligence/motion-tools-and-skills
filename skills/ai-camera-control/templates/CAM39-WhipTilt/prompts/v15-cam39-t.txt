@@ -1,0 +1,21 @@
+【Generation Goal】
+Generate a live-action shot in one take. A cobalt-blue night on an old city rooftop. Alex has come up here after a bad night just to breathe, and he is on edge.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which the person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as he is, standing exactly where he stands, with a round white dot on the side he faces, at eye height. Use it for the camera: positions, movements, lens feel, framing, shot size and their timing, and for where Alex stands, how large he is in the frame and which way he faces. The capsule carries no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description. Never show a capsule: the capsule becomes Alex. Do not adopt its grey clay set or its stand-in shapes.
+The set in @video1 is only a layout of crude placeholders: rebuild every wall, window, piece of furniture, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, tile or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsule's red and black stripes are only a label for where Alex is: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; ignore its white background, its lighting and the black hoodie and microphone.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, standing at the centre-right of the frame beside a round rooftop water tank, facing the lens at a slight angle. He wears a dark jacket with the collar up, his hands in the pockets. The place: Saturated midnight blue, cyan rooftop practicals, tiny distant amber accents; a deserted old hotel rooftop with a vent, a round water tank, a billowing loose tarp and the city skyline beyond. Cobalt and cyan against deep shadow, soft bloom on the practicals, fine film grain.
+
+【Camera and Event Script】
+Shot 1, the only shot: the camera is locked off on a fluid head with a 35 mm lens feel, framing Alex in a medium shot, from the head to the hips, at the centre-right of the frame beside a round rooftop water tank with the city haze behind him. For the first three seconds it holds still; then in about a third of a second it whips vertically up to the night sky and the last second stays on the sky in soft motion blur, one firework bloom smeared across it.
+Alex's performance: He stands with his hands in his jacket pockets, his shoulders hunched and his eyes on the street far below, breathing out a thin cloud. Then, at about two and a half seconds, a firecracker cracks, sharp and sudden, in the street, and he flinches, his shoulders jerking up and one hand coming out of his pocket, his eyes snapping up toward the sky. He says nothing.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks. Alex is a real human being with natural skin, hair and clothing; no mannequin, clay figure, capsule or doll appears anywhere, at any moment.
+The sound is only the sudden crack of a firecracker in the street below, a dull distant boom, the hum of the city, wind on the loose tarp and his sharp intake of breath. There are no words. There is no music of any kind.
+The final visuals are live-action and photographic: photoreal cinema shot on an ARRI Alexa 35 with anamorphic lenses, natural film grain, soft diffusion and halation on the lights, shallow depth of field, motivated light and real atmospheric haze.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the place and its light, the camera move, the shot size and Alex's size and position in the frame consistent with @video1. Keep the lighting and time of day constant from start to end.

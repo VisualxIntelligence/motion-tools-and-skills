@@ -1,0 +1,1238 @@
+{
+ "count": 137,
+ "templates": [
+  {
+   "id": "ACT01-BulletTimeOrbit",
+   "file": "action.ts",
+   "lines": [
+    212,
+    226
+   ],
+   "line_count": 15
+  },
+  {
+   "id": "ACT02-Snorricam",
+   "file": "action.ts",
+   "lines": [
+    229,
+    249
+   ],
+   "line_count": 21
+  },
+  {
+   "id": "ACT03-CrashZoomFight",
+   "file": "action.ts",
+   "lines": [
+    252,
+    278
+   ],
+   "line_count": 27
+  },
+  {
+   "id": "ACT04-SprintDollyZoom",
+   "file": "action.ts",
+   "lines": [
+    281,
+    291
+   ],
+   "line_count": 11
+  },
+  {
+   "id": "ACT05-ParkourTrack",
+   "file": "action.ts",
+   "lines": [
+    294,
+    305
+   ],
+   "line_count": 12
+  },
+  {
+   "id": "ACT06-HeroLowArc",
+   "file": "action.ts",
+   "lines": [
+    308,
+    317
+   ],
+   "line_count": 10
+  },
+  {
+   "id": "ACT07-FightCoverage",
+   "file": "action.ts",
+   "lines": [
+    320,
+    342
+   ],
+   "line_count": 23
+  },
+  {
+   "id": "ACT08-FallDrop",
+   "file": "action.ts",
+   "lines": [
+    345,
+    361
+   ],
+   "line_count": 17
+  },
+  {
+   "id": "ANG01-ExtremeWide",
+   "file": "angles.ts",
+   "lines": [
+    20,
+    21
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG02-Wide",
+   "file": "angles.ts",
+   "lines": [
+    22,
+    23
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG03-Full",
+   "file": "angles.ts",
+   "lines": [
+    24,
+    25
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG04-Cowboy",
+   "file": "angles.ts",
+   "lines": [
+    26,
+    27
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG05-Medium",
+   "file": "angles.ts",
+   "lines": [
+    28,
+    29
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG06-MediumCloseUp",
+   "file": "angles.ts",
+   "lines": [
+    30,
+    31
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG07-CloseUp",
+   "file": "angles.ts",
+   "lines": [
+    32,
+    33
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG08-ExtremeCloseUp",
+   "file": "angles.ts",
+   "lines": [
+    34,
+    35
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG10-EyeLevel",
+   "file": "angles.ts",
+   "lines": [
+    38,
+    39
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG11-BirdsEye",
+   "file": "angles.ts",
+   "lines": [
+    40,
+    42
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "ANG12-WormsEye",
+   "file": "angles.ts",
+   "lines": [
+    43,
+    45
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "ANG13-Profile",
+   "file": "angles.ts",
+   "lines": [
+    46,
+    47
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG14-ThreeQuarter",
+   "file": "angles.ts",
+   "lines": [
+    48,
+    49
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG15-FromBehind",
+   "file": "angles.ts",
+   "lines": [
+    50,
+    51
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG16-DutchLow",
+   "file": "angles.ts",
+   "lines": [
+    52,
+    53
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG17-UpsideDown",
+   "file": "angles.ts",
+   "lines": [
+    54,
+    55
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG18-TwoThirdsHigh",
+   "file": "angles.ts",
+   "lines": [
+    56,
+    57
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG20-SuperWide",
+   "file": "angles.ts",
+   "lines": [
+    60,
+    61
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG21-UltraWideCloseUp",
+   "file": "angles.ts",
+   "lines": [
+    62,
+    63
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG22-Fisheye",
+   "file": "angles.ts",
+   "lines": [
+    64,
+    65
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG23-FisheyeLow",
+   "file": "angles.ts",
+   "lines": [
+    66,
+    68
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "ANG24-Peephole",
+   "file": "angles.ts",
+   "lines": [
+    69,
+    71
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "ANG25-SecurityCam",
+   "file": "angles.ts",
+   "lines": [
+    72,
+    74
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "ANG26-LongLens",
+   "file": "angles.ts",
+   "lines": [
+    75,
+    76
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG27-TelephotoCloseUp",
+   "file": "angles.ts",
+   "lines": [
+    77,
+    78
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG30-HipLevel",
+   "file": "angles.ts",
+   "lines": [
+    81,
+    82
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG31-KneeLevel",
+   "file": "angles.ts",
+   "lines": [
+    83,
+    84
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG32-GroundLevelWalk",
+   "file": "angles.ts",
+   "lines": [
+    85,
+    87
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "ANG33-ShoulderLevel",
+   "file": "angles.ts",
+   "lines": [
+    88,
+    89
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG34-HighThreeQuarter",
+   "file": "angles.ts",
+   "lines": [
+    92,
+    93
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG35-LowThreeQuarter",
+   "file": "angles.ts",
+   "lines": [
+    94,
+    95
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG36-OverTheHead",
+   "file": "angles.ts",
+   "lines": [
+    96,
+    97
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "ANG37-Symmetrical",
+   "file": "angles.ts",
+   "lines": [
+    98,
+    100
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "ANG38-FramedShot",
+   "file": "angles.ts",
+   "lines": [
+    101,
+    103
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "ANG39-LeadingLines",
+   "file": "angles.ts",
+   "lines": [
+    104,
+    106
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "ANG40-SlightLowCloseUp",
+   "file": "angles.ts",
+   "lines": [
+    107,
+    108
+   ],
+   "line_count": 2
+  },
+  {
+   "id": "CAM01-LockedOff",
+   "file": "cameras.ts",
+   "lines": [
+    25,
+    27
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM02-PanWith",
+   "file": "cameras.ts",
+   "lines": [
+    29,
+    34
+   ],
+   "line_count": 6
+  },
+  {
+   "id": "CAM03-PushIn",
+   "file": "cameras.ts",
+   "lines": [
+    36,
+    38
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM04-PullOutReveal",
+   "file": "cameras.ts",
+   "lines": [
+    40,
+    42
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM05-DollyZoom",
+   "file": "cameras.ts",
+   "lines": [
+    44,
+    46
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM06-Orbit",
+   "file": "cameras.ts",
+   "lines": [
+    48,
+    50
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM07-CraneUp",
+   "file": "cameras.ts",
+   "lines": [
+    52,
+    54
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM08-CraneDown",
+   "file": "cameras.ts",
+   "lines": [
+    56,
+    58
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM09-SteadicamFollow",
+   "file": "cameras.ts",
+   "lines": [
+    60,
+    62
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM10-SteadicamLead",
+   "file": "cameras.ts",
+   "lines": [
+    64,
+    66
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM11-TrackingSide",
+   "file": "cameras.ts",
+   "lines": [
+    68,
+    70
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM12-OTSPair",
+   "file": "cameras.ts",
+   "lines": [
+    72,
+    77
+   ],
+   "line_count": 6
+  },
+  {
+   "id": "CAM13-WhipPan",
+   "file": "cameras.ts",
+   "lines": [
+    79,
+    86
+   ],
+   "line_count": 8
+  },
+  {
+   "id": "CAM14-Handheld",
+   "file": "cameras.ts",
+   "lines": [
+    88,
+    90
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM15-ChaseDrone",
+   "file": "cameras.ts",
+   "lines": [
+    92,
+    94
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM16-FPV",
+   "file": "cameras.ts",
+   "lines": [
+    96,
+    98
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM17-SlowZoomIn",
+   "file": "cameras2.ts",
+   "lines": [
+    20,
+    22
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM18-SlowZoomOut",
+   "file": "cameras2.ts",
+   "lines": [
+    24,
+    26
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM19-TiltUp",
+   "file": "cameras2.ts",
+   "lines": [
+    28,
+    30
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM20-TiltDown",
+   "file": "cameras2.ts",
+   "lines": [
+    32,
+    34
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM21-PanReveal",
+   "file": "cameras2.ts",
+   "lines": [
+    36,
+    38
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM22-PedestalUp",
+   "file": "cameras2.ts",
+   "lines": [
+    40,
+    42
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM23-PedestalDown",
+   "file": "cameras2.ts",
+   "lines": [
+    44,
+    46
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM24-ShortArc",
+   "file": "cameras2.ts",
+   "lines": [
+    48,
+    50
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM25-ArcAndRise",
+   "file": "cameras2.ts",
+   "lines": [
+    52,
+    54
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM26-DutchAngle",
+   "file": "cameras2.ts",
+   "lines": [
+    56,
+    58
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM27-DutchPush",
+   "file": "cameras2.ts",
+   "lines": [
+    60,
+    62
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM28-BarrelRoll",
+   "file": "cameras2.ts",
+   "lines": [
+    64,
+    66
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM29-LowAngleHero",
+   "file": "cameras2.ts",
+   "lines": [
+    68,
+    70
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM30-HighAngle",
+   "file": "cameras2.ts",
+   "lines": [
+    72,
+    74
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM31-OverheadRise",
+   "file": "cameras2.ts",
+   "lines": [
+    76,
+    78
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM32-RunAndGun",
+   "file": "cameras2.ts",
+   "lines": [
+    80,
+    82
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM33-POVWalk",
+   "file": "cameras2.ts",
+   "lines": [
+    84,
+    86
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM34-POVLookAround",
+   "file": "cameras2.ts",
+   "lines": [
+    88,
+    90
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM35-OTSPushIn",
+   "file": "cameras2.ts",
+   "lines": [
+    92,
+    94
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM36-TwoShotTruck",
+   "file": "cameras2.ts",
+   "lines": [
+    96,
+    98
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM37-SliderPortrait",
+   "file": "cameras2.ts",
+   "lines": [
+    100,
+    102
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM38-PushToCloseUp",
+   "file": "cameras2.ts",
+   "lines": [
+    104,
+    106
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM39-WhipTilt",
+   "file": "cameras2.ts",
+   "lines": [
+    108,
+    110
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM40-ReverseDollyZoom",
+   "file": "cameras2.ts",
+   "lines": [
+    112,
+    114
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM41-DroneOrbitHigh",
+   "file": "cameras2.ts",
+   "lines": [
+    116,
+    118
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM42-DroneDive",
+   "file": "cameras2.ts",
+   "lines": [
+    120,
+    122
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM43-DroneRevealOverTerrace",
+   "file": "cameras2.ts",
+   "lines": [
+    124,
+    126
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM44-DroneRiseUp",
+   "file": "cameras2.ts",
+   "lines": [
+    128,
+    130
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM45-LowFollow",
+   "file": "cameras2.ts",
+   "lines": [
+    132,
+    134
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM46-RackBetweenPeople",
+   "file": "cameras2.ts",
+   "lines": [
+    136,
+    138
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM47-HandheldPushIn",
+   "file": "cameras2.ts",
+   "lines": [
+    140,
+    142
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "CAM48-OrbitWalk",
+   "file": "cameras2.ts",
+   "lines": [
+    144,
+    146
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "FAM01-Booth360",
+   "file": "famous/f01-booth-360.ts",
+   "lines": [
+    1,
+    226
+   ],
+   "line_count": 226
+  },
+  {
+   "id": "FAM02-ExplosionWalk",
+   "file": "famous/f02-explosion-walk.ts",
+   "lines": [
+    1,
+    278
+   ],
+   "line_count": 278
+  },
+  {
+   "id": "FAM03-TrunkShot",
+   "file": "famous/f03-trunk-shot.ts",
+   "lines": [
+    1,
+    198
+   ],
+   "line_count": 198
+  },
+  {
+   "id": "FAM04-LeapOfFaith",
+   "file": "famous/f04-leap-of-faith.ts",
+   "lines": [
+    1,
+    283
+   ],
+   "line_count": 283
+  },
+  {
+   "id": "FAM05-Bay360",
+   "file": "famous/f05-bay-360.ts",
+   "lines": [
+    1,
+    110
+   ],
+   "line_count": 110
+  },
+  {
+   "id": "FAM06-PeterPanFlight",
+   "file": "famous/f06-peter-pan-flight.ts",
+   "lines": [
+    1,
+    362
+   ],
+   "line_count": 362
+  },
+  {
+   "id": "OBJ01-PushInObject",
+   "file": "objects.ts",
+   "lines": [
+    25,
+    27
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "OBJ02-OrbitHero",
+   "file": "objects.ts",
+   "lines": [
+    29,
+    31
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "OBJ03-CraneUpStatue",
+   "file": "objects.ts",
+   "lines": [
+    33,
+    35
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "OBJ04-TruckPastParallax",
+   "file": "objects.ts",
+   "lines": [
+    37,
+    39
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "OBJ05-TrackingCarLow",
+   "file": "objects.ts",
+   "lines": [
+    41,
+    43
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "OBJ06-TopDown",
+   "file": "objects.ts",
+   "lines": [
+    45,
+    47
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "OBJ07-RackFocus",
+   "file": "objects.ts",
+   "lines": [
+    49,
+    54
+   ],
+   "line_count": 6
+  },
+  {
+   "id": "OBJ08-WipeReveal",
+   "file": "objects.ts",
+   "lines": [
+    56,
+    58
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "OBJ09-ThroughDoorway",
+   "file": "objects.ts",
+   "lines": [
+    60,
+    65
+   ],
+   "line_count": 6
+  },
+  {
+   "id": "OBJ10-CrashZoom",
+   "file": "objects.ts",
+   "lines": [
+    67,
+    69
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "OBJ11-TiltUpTall",
+   "file": "objects.ts",
+   "lines": [
+    71,
+    73
+   ],
+   "line_count": 3
+  },
+  {
+   "id": "OBJ12-FlybyPan",
+   "file": "objects.ts",
+   "lines": [
+    75,
+    80
+   ],
+   "line_count": 6
+  },
+  {
+   "id": "OBJ13-MacroSlider",
+   "file": "oners.ts",
+   "lines": [
+    282,
+    287
+   ],
+   "line_count": 6
+  },
+  {
+   "id": "OBJ14-FlyThroughWindow",
+   "file": "oners.ts",
+   "lines": [
+    289,
+    301
+   ],
+   "line_count": 13
+  },
+  {
+   "id": "OBJ15-TopDownSpiral",
+   "file": "oners.ts",
+   "lines": [
+    303,
+    317
+   ],
+   "line_count": 15
+  },
+  {
+   "id": "OBJ16-ProductSpin",
+   "file": "oners.ts",
+   "lines": [
+    319,
+    327
+   ],
+   "line_count": 9
+  },
+  {
+   "id": "ONE01-CraneToFollowWhip",
+   "file": "oners.ts",
+   "lines": [
+    214,
+    229
+   ],
+   "line_count": 16
+  },
+  {
+   "id": "ONE02-DroneDiveChase",
+   "file": "oners.ts",
+   "lines": [
+    231,
+    244
+   ],
+   "line_count": 14
+  },
+  {
+   "id": "ONE03-InteriorOner",
+   "file": "oners.ts",
+   "lines": [
+    246,
+    261
+   ],
+   "line_count": 16
+  },
+  {
+   "id": "ONE04-OrbitPushRack",
+   "file": "oners.ts",
+   "lines": [
+    263,
+    279
+   ],
+   "line_count": 17
+  },
+  {
+   "id": "PRD01-FrozenSplashOrbit",
+   "file": "products/p01-frozen-splash-orbit.ts",
+   "lines": [
+    1,
+    199
+   ],
+   "line_count": 199
+  },
+  {
+   "id": "PRD02-RobotArmSnap",
+   "file": "products/p02-robot-arm-snap.ts",
+   "lines": [
+    1,
+    161
+   ],
+   "line_count": 161
+  },
+  {
+   "id": "PRD03-ExplodedBuild",
+   "file": "products/p03-exploded-build.ts",
+   "lines": [
+    1,
+    168
+   ],
+   "line_count": 168
+  },
+  {
+   "id": "PRD04-ProbeFlyThrough",
+   "file": "products/p04-probe-fly-through.ts",
+   "lines": [
+    1,
+    219
+   ],
+   "line_count": 219
+  },
+  {
+   "id": "PRD05-SkylineDive",
+   "file": "products/p05-skyline-dive.ts",
+   "lines": [
+    1,
+    235
+   ],
+   "line_count": 235
+  },
+  {
+   "id": "PRD06-Glambot",
+   "file": "products/p06-glambot.ts",
+   "lines": [
+    1,
+    211
+   ],
+   "line_count": 211
+  },
+  {
+   "id": "SC01-ForestClearing",
+   "file": "scenes.ts",
+   "lines": [
+    84,
+    94
+   ],
+   "line_count": 11
+  },
+  {
+   "id": "SC02-InteriorDialogue",
+   "file": "scenes.ts",
+   "lines": [
+    96,
+    109
+   ],
+   "line_count": 14
+  },
+  {
+   "id": "SC03-StreetWalkTalk",
+   "file": "scenes.ts",
+   "lines": [
+    111,
+    120
+   ],
+   "line_count": 10
+  },
+  {
+   "id": "SC04-CarInterior",
+   "file": "scenes.ts",
+   "lines": [
+    122,
+    136
+   ],
+   "line_count": 15
+  },
+  {
+   "id": "SC05-SpaceFlyby",
+   "file": "scenes.ts",
+   "lines": [
+    138,
+    146
+   ],
+   "line_count": 9
+  },
+  {
+   "id": "SC06-RooftopChase",
+   "file": "scenes2.ts",
+   "lines": [
+    293,
+    309
+   ],
+   "line_count": 17
+  },
+  {
+   "id": "SC07-AlleyFight",
+   "file": "scenes2.ts",
+   "lines": [
+    311,
+    336
+   ],
+   "line_count": 26
+  },
+  {
+   "id": "SC08-HeistApproach",
+   "file": "scenes2.ts",
+   "lines": [
+    338,
+    360
+   ],
+   "line_count": 23
+  },
+  {
+   "id": "SC09-StandoffDebris",
+   "file": "scenes2.ts",
+   "lines": [
+    362,
+    389
+   ],
+   "line_count": 28
+  },
+  {
+   "id": "SC10-CarCrashBarrier",
+   "file": "scenes2.ts",
+   "lines": [
+    391,
+    412
+   ],
+   "line_count": 22
+  },
+  {
+   "id": "SHOW01-TheHandoff",
+   "file": "showcase.ts",
+   "lines": [
+    1,
+    364
+   ],
+   "line_count": 364
+  },
+  {
+   "id": "STORY02-DiveToShutter",
+   "file": "story.ts",
+   "lines": [
+    1,
+    145
+   ],
+   "line_count": 145
+  },
+  {
+   "id": "STORY03-TheGap",
+   "file": "story.ts",
+   "lines": [
+    1,
+    145
+   ],
+   "line_count": 145
+  }
+ ]
+}

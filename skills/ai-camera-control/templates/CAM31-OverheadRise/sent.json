@@ -1,0 +1,16 @@
+{
+ "id": "CAM31-OverheadRise",
+ "best_job": null,
+ "why_best": "never sent; no job folder at all; blockout bug: the pin is hidden behind a wall for the first second",
+ "routes": {
+  "video": {
+   "was_run": false,
+   "sends": [],
+   "note": "blockout bug: the pin is hidden behind a wall for the first second"
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "pin",
+  "how_known": "copied from render-pin"
+ }
+}

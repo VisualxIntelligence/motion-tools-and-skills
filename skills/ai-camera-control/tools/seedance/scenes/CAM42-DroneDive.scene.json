@@ -1,0 +1,25 @@
+{
+ "template": "CAM42-DroneDive",
+ "person": {
+  "name": "Alex",
+  "pronoun": "he",
+  "face_traits": "hair and facial hair",
+  "photo_ignore": "its background, its lighting and its clothing",
+  "wears": "a long charcoal wool coat with the collar turned up and a grey scarf, dust in his hair"
+ },
+ "goal": "A vast abandoned plaza under a burnt-orange dust storm. Alex stands alone among the ruins, a man who has walked a long way to this place.",
+ "place": "Ruined brutalist concrete and old brick, colonnaded halls with dark arcades, cracked stone paving drifted with sand, a tall abandoned tower dissolving into the dust. Burnt orange, terracotta and ochre, the sun hidden so the whole sky is one soft orange glow, dust thickening with distance, warm bloom, lifted warm blacks, fine film grain.",
+ "performance": "He is tired and resolved, a man who has walked a long way. He stands in the dust with the wind dragging at his coat, and when a gust hits he turns his body into it, one forearm raised to shield his head, the scarf pulled up. As it passes he lowers his arm and takes one slow, deep breath, then straightens and looks out over the ruins, steady.",
+ "sound": "The sound is only a low steady wind, grit on fabric and stone, the flap of his coat and a distant metallic creak.",
+ "subject_position": "a small figure in the middle of the plaza at the start, growing to fill the middle of the frame as the camera nears",
+ "camera": "Shot 1, the only shot: the camera is on a drone gimbal and starts about 25 metres up and 14 metres out, looking steeply down on the plaza, where Alex is a small figure in the middle of a huge, empty space with a 24 mm lens feel. Over the six seconds it dives toward him in one smooth, gravity-eased move while the lens tightens from 24 to 50 mm, flattening out as it falls, and arrives about 3.4 metres from him on a medium wide shot with him from the head to the thighs, centred, the ruins and the dust-wrapped tower behind him.",
+ "camera_numbers": [
+  "25 metres",
+  "24 to 50 mm",
+  "3.4 metres"
+ ],
+ "mood": {
+  "environment": "17",
+  "panel": 0
+ }
+}

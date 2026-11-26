@@ -1,0 +1,832 @@
+{
+ "id": "CAM38-PushToCloseUp",
+ "best_job": "v7-cam38-m",
+ "why_best": "latest shower take (silent reaction); mood twin chosen because the measured framing was 4/4 s with the mood panel vs 0/4 prompt-only",
+ "routes": {
+  "video": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "job": "v3-cam38-m",
+     "group": "the same prompt as the -t twin plus ONE mood panel as @image2",
+     "variant_code": "m-mood-twin",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/v3-cam38-m.txt",
+      "chars": 2623,
+      "sha256": "3758cd9920a13edab304e8cf7f5362844d10c93cd80ced5626cfaf2262465a42",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 2911721,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 7.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "ONE panel of the environment contact sheet (panel 1); prompt says: \"@image2 is a mood reference only (palette, light, haze, film feel).\"",
+       "file": "env-22-panel1.png",
+       "file_info": {
+        "bytes": 598973,
+        "pixels": [
+         768,
+         512
+        ]
+       }
+      },
+      {
+       "order": 4,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 7,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "00a10cfe",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1020.6,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "v3-cam38-m.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 7.042
+      }
+     ],
+     "verdict": []
+    },
+    {
+     "n": 2,
+     "job": "v3-cam38-t",
+     "group": "prompt only: no @image2, the place written out in words",
+     "variant_code": "t-words-only",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/v3-cam38-t.txt",
+      "chars": 2527,
+      "sha256": "553427b19199f8a744a0174fea771d39719a82903613eaa2b8c515d01820abc7",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 2911721,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 7.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 7,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "c3555778",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1020.6,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "v3-cam38-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 7.042
+      }
+     ],
+     "verdict": []
+    },
+    {
+     "n": 3,
+     "job": "v4-cam38-m",
+     "group": "the same prompt as the -t twin plus ONE mood panel as @image2",
+     "variant_code": "m-mood-twin",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/v4-cam38-m.txt",
+      "chars": 4994,
+      "sha256": "dd35f350b32b55b035576e9ec32f2f83fc017c8a81fd03130d639cff5d00a71a",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 2911721,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 7.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "ONE panel of the environment contact sheet (panel 1); prompt says: \"@image2 is used only for the mood of the place: its colour palette, the quality of its light, haze and glow, and its film feel.\"",
+       "file": "env-22-panel1.png",
+       "file_info": {
+        "bytes": 598973,
+        "pixels": [
+         768,
+         512
+        ]
+       }
+      },
+      {
+       "order": 4,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 7,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "85add8c7",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1020.6,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "v4-cam38-m.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 7.042
+      }
+     ],
+     "verdict": []
+    },
+    {
+     "n": 4,
+     "job": "v4-cam38-t",
+     "group": "prompt only: no @image2, the place written out in words",
+     "variant_code": "t-words-only",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/v4-cam38-t.txt",
+      "chars": 4765,
+      "sha256": "297244dd77d822a0bf6d6d7007eb50de38bfc6c9cf4d1eba715a398dc6fefffa",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 2911721,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 7.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 7,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "846bad74",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1020.6,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "v4-cam38-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 7.042
+      }
+     ],
+     "verdict": []
+    },
+    {
+     "n": 5,
+     "job": "v6-cam38-m",
+     "group": "the same prompt as the -t twin plus ONE mood panel as @image2",
+     "variant_code": "m-mood-twin",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/v6-cam38-m.txt",
+      "chars": 5017,
+      "sha256": "4fb988c16a53d5f1d4ae03a234313aa16084fb25cd366ef2e2a5a6ed845febd4",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 1852566,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 7.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "ONE panel of the environment contact sheet (panel 1); prompt says: \"@image2 is used only for the mood of the place: its colour palette, the quality of its light, haze and glow, and its film feel.\"",
+       "file": "env-22-panel1.png",
+       "file_info": {
+        "bytes": 598973,
+        "pixels": [
+         768,
+         512
+        ]
+       }
+      },
+      {
+       "order": 4,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 7,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "2e649aa0",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1020.6,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "v6-cam38-m.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 7.042
+      }
+     ],
+     "verdict": [
+      "these are not contextual (the shower and the hospital drafts)"
+     ]
+    },
+    {
+     "n": 6,
+     "job": "v6-cam38-t",
+     "group": "prompt only: no @image2, the place written out in words",
+     "variant_code": "t-words-only",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/v6-cam38-t.txt",
+      "chars": 4788,
+      "sha256": "fe9ff51818a493bc606dfed50121b11f50288d94f3e0887028f8d69aa0e76f02",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 1852566,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 7.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 7,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "f59380ed",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1020.6,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "v6-cam38-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 7.042
+      }
+     ],
+     "verdict": [
+      "these are not contextual (the shower and the hospital drafts)"
+     ]
+    },
+    {
+     "n": 7,
+     "job": "v7-cam38-m",
+     "group": "the same prompt as the -t twin plus ONE mood panel as @image2",
+     "variant_code": "m-mood-twin",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": true,
+     "prompt": {
+      "file": "prompts/v7-cam38-m.txt",
+      "chars": 4785,
+      "sha256": "ce698d88240fbce920a472a71fb7b190358f8c8e2630e08b979c47cd57047b92",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 1852566,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 7.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "ONE panel of the environment contact sheet (panel 1); prompt says: \"@image2 is used only for the mood of the place: its colour palette, the quality of its light, haze and glow, and its film feel.\"",
+       "file": "env-22-panel1.png",
+       "file_info": {
+        "bytes": 598973,
+        "pixels": [
+         768,
+         512
+        ]
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 7,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "afb3dbb4",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1020.6,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "v7-cam38-m.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 7.042
+      }
+     ],
+     "verdict": []
+    },
+    {
+     "n": 8,
+     "job": "v7-cam38-t",
+     "group": "prompt only: no @image2, the place written out in words",
+     "variant_code": "t-words-only",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/v7-cam38-t.txt",
+      "chars": 4556,
+      "sha256": "9a38d7af5921e28c3d2567cada602880b9c947b142fbc3142702571129306782",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 1852566,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 7.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 7,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "d558fdbc",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1020.6,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "v7-cam38-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 7.042
+      }
+     ],
+     "verdict": []
+    }
+   ]
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "pin",
+  "how_known": "frame comparison of the clip that was sent"
+ }
+}

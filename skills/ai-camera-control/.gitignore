@@ -1,0 +1,8 @@
+node_modules/
+.work/
+out/
+*.log
+.DS_Store
+.env
+.env.*
+release-media/

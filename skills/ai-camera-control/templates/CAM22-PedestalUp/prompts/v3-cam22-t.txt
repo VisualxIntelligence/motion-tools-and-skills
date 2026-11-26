@@ -1,0 +1,20 @@
+【Goal】
+A long sterile hospital corridor. Alex waits outside a door, holding himself together, and tells the person beside him when he is allowed to go in and see someone he loves.
+
+【Dialogue】
+Alex says exactly, quietly, steady, afraid: "They told me I could go in at five." The film contains this line and no other words.
+
+【References】
+@video1 is the shot. The camera and every movement of it, the framing, how large Alex is in the frame and where he stands, and the timing all come exactly from @video1 and never from this text. In it the grey set and the striped capsule are only placeholders. The capsule is Alex. Every grey stand-in only marks where something stands: rebuild each as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt; no cone, sphere, plain box or untextured surface appears in the final video, and the grey clay set is not adopted. The capsule's red and black stripes are only a label: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment. Never show a capsule. @image1 is only for Alex's face, short dark curly hair and beard; ignore its background, lighting and clothes. @audio1 is Alex's own voice: he speaks the line in that voice.
+
+【Place】
+Pale cyan glazed brick, grey floor polished and scuffed, numbered doors, a cream fluorescent ceiling with a soft glow and a faint bloom on every tube, cold and even, the shadows staying cyan-grey. Clinical but not crisp, light diffusion, fine film grain.
+
+【Alex】
+The red-and-black capsule is Alex, who wears a navy overcoat over a white shirt without a tie, holding a paper cup of coffee.
+
+【Performance】
+He has been given one fact and keeps repeating it because saying it keeps him upright. He stands very straight outside the door with both hands around the paper cup. He says it to the person beside him without turning his head, quiet and level, like handing over something fragile, and the last word comes out thinner than the first. Then his whole body gives a little, the way a held breath is let go, and he goes on looking at the door. He says exactly: "They told me I could go in at five."
+
+【Sound and look】
+The sound is only his quiet voice, the hum of fluorescent tubes, a trolley wheel far away and his breathing. No music. Photoreal live-action cinema shot on an ARRI Alexa 35, anamorphic look, soft diffusion and halation on the lights, natural film grain.

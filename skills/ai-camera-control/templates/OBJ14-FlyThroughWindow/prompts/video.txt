@@ -1,0 +1,24 @@
+【Generation Goal】
+Generate a live-action fly-through: a small drone flies through the open window of a building and settles on a statue inside, crossing from outside to inside without a cut.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set with simple stand-in shapes. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @video1 is a simple grey or tinted stand-in that only marks where things stand: take each subject's and object's shape, material and look only from this description, never from the blockout's shapes. Do not adopt its clay figures, grey clay set, stand-in shapes, empty set or floating specks.
+The set in @video1 is only a layout of crude placeholders, and its trees, plants, rocks, lamps and benches are left out on purpose: place them freely, as the description says, with natural, irregular shapes. Beyond that, rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The sand-coloured figure on a plinth in @video1 corresponds to the statue: one standing figure with one arm raised at a diagonal toward the right of frame; there is only one. It stands inside a skylit gallery with pale walls, a row of pilasters and a cornice on the back wall, a bench and a tall dark panel on the right. The gallery sits behind a plain pale facade with one open window, two blind panels on either side of it, and trees beyond the building.
+The statue is a small white marble bust of a woman on a dark wooden pedestal.
+
+【Camera and Event Script】
+Fly-through: one continuous shot from a small cinewhoop FPV drone with a 24 mm wide-lens feel and deep focus, the horizon held level throughout.
+It opens outside at about two and a half metres up, a little left of the window, facing the facade square on from across the open ground. The pale facade fills the frame; the window is just below and right of centre, small, with the statue visible through it on its plinth, and the blind panels sit evenly to either side.
+The drone flies straight at the window in one smooth line, descending slightly. For the first two and a half seconds the window grows only slowly; then, as the drone gathers speed, it swells fast. At about three seconds the window opening fills the frame and its frame edges rush past within a metre of the lens at the fastest point, flicking by on all four sides. The drone does not slow in the opening.
+By three and a half seconds it is inside: the gallery opens up, skylight pouring down, a hard diagonal shadow on the left wall, the statue on its plinth in the centre of the frame, small and full-length, the back wall and pilasters behind. The drone keeps flying forward across the floor, slowing smoothly, the statue growing until it fills about three quarters of the frame height. From about six seconds it eases to a hover and holds a front-on medium shot: the statue's head in the upper third, its raised arm reaching toward the upper right, the plinth along the bottom, the pilasters framing it behind.
+Only the camera moves.
+The mood moves from quiet anticipation outside, to a rush at the threshold, to a hush of reverence inside: bright, even daylight on the facade, then the softer, cooler light of the hall, with the statue lit from above.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only <the soft whir of the drone>, outdoor ambience outside, <a brief rush of air> through the window, and quiet room tone with a faint echo inside. There is no music.
+The final visuals are live-action and photographic: a real old stone townhouse with tall shuttered windows, a quiet garden outside, and inside a high-ceilinged room with worn parquet and soft daylight. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the statue's structure, pose and colour, the single open window, the facade and gallery layout, the timing of the crossing and the continuous path from outside to inside consistent with @video1. Keep the lighting and time of day constant from start to end.

@@ -1,0 +1,16 @@
+{
+ "id": "CAM35-OTSPushIn",
+ "best_job": null,
+ "why_best": "never sent; the clip was fixed on 7 Nov 2026 (the first version rendered an empty grey frame because a set box stood in front of the camera)",
+ "routes": {
+  "video": {
+   "was_run": false,
+   "sends": [],
+   "note": "never sent; the pill clip was re-rendered after the camera was moved to a clear place (environment 02) and pulled back to 4.6 m"
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "pin",
+  "how_known": "copied from render-pin"
+ }
+}

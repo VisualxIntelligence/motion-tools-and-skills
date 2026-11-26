@@ -1,0 +1,28 @@
+【Generation Goal】
+Generate a live-action six-shot crash scene: a car speeds down a city street and smashes through a roadblock of crates and barrels while Leo watches from the sidewalk.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white dot on the side they face, at eye height. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. Its speed ramps are kept. For the people, use the capsules only for blocking: where each person stands, how tall they are in frame, which way they face, and when they move, crouch, jump or fall. The capsules carry no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from @image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsules' red, yellow, green, blue, magenta, orange and cyan stripes are only labels for who is who: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Leo's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.
+
+【Subjects and Relationships】
+The green-and-black striped capsule in @video1 corresponds to Leo, the sand-coloured stand-in car corresponds to the car, and the roadblock of stacked crates, barrels and a plank on trestles across the road corresponds to the barrier. Leo stands on the sidewalk just short of the barrier, on the side the car approaches from; every camera is on her side of the road. Leo goes from idle to shaken.
+Leo, the man from @image1, wears a navy overcoat over a grey sweater. The car is a dark grey 1990s saloon. The barrier is a roadblock of wooden crates, blue plastic barrels and a plank on trestles.
+
+【Camera and Event Script】
+Shot 1: a locked-off wide with a 24 mm lens feel at head height from the sidewalk, looking down the street, a building wall on the left edge. The barrier stretches across the road right of centre in the middle distance; Leo stands small on the left sidewalk beyond; the car is still far off.
+The shot cuts low beside the car to Shot 2: a low-mount tracking shot with a 20 mm lens feel at wheel height, matched to the car's speed with light shake. The car's flank fills the upper half, driving toward frame right, lamp posts streaming past.
+The shot cuts to Leo for Shot 3: a locked medium close-up at eye level with a 65 mm lens feel, the wall behind soft. Leo's head turns toward the car, eyes widening, shoulders stiffening.
+The shot cuts up the road to Shot 4: a locked-off wide with a 35 mm lens feel from far beyond the barrier, looking back down the street, Leo tiny on the left sidewalk. The car smashes through the barrier toward the lens in real time, crates and barrels bursting apart, and Leo flinches back.
+The shot cuts back in time to Shot 5: a locked replay from the sidewalk beside the barrier at head height with a 24 mm lens feel, a lamp post in the right foreground. The car drives in from the left through the barrier at about a fifth of real speed: crates lift, a barrel tumbles high, dust spreads.
+The shot cuts behind Leo to Shot 6: a locked wide with a 32 mm lens feel from further down the street, the wreckage left of centre with dust settling, the car stopped beyond. Leo, on the right sidewalk, steps back a few paces toward the lens, then turns to face the wreck.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.
+Every person in the video is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment. There are no floating dots or specks hanging in the air.
+Characters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.
+The sound includes only street ambience, <the car's engine at speed>, <a violent crash of wood and metal> and <debris clattering down>. There is no music.
+The final visuals are live-action and photographic: a real narrow European street of old stone buildings in grey overcast daylight. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep Leo's identity and clothing, the car, the barrier's makeup, the car's single direction through it and the street layout consistent with @video1. Keep the lighting and time of day constant from start to end.

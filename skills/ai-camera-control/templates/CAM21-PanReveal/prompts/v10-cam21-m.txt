@@ -1,0 +1,27 @@
+【Generation Goal】
+Generate a live-action shot in one take. A deserted street at night under sodium streetlights. Alex stands on the pavement opposite her building holding flowers and phones up to her flat, nervous and hopeful, to tell her he has arrived.
+
+【Dialogue, exact words】
+Alex says exactly, softly, warm, a little nervous: "I'm outside, come down when you're ready." The film contains exactly this line and no other words.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which the person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as he is, standing exactly where he stands, with a round white dot on the side he faces, at eye height. Use it for the camera: positions, movements, lens feel, framing, shot size and their timing, and for where Alex stands, how large he is in the frame and which way he faces. The capsule carries no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description. Never show a capsule: the capsule becomes Alex. Do not adopt its grey clay set or its stand-in shapes.
+The set in @video1 is only a layout of crude placeholders: rebuild every wall, window, piece of furniture, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, tile or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsule's red and black stripes are only a label for where Alex is: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; ignore its white background, its lighting and the black hoodie and microphone.
+@image2 is used only for the mood of the place: its colour palette, the quality of its light, haze and glow, and its film feel. It is not a layout and not a set to copy: do not reproduce its architecture, objects or composition.
+@audio1 is Alex's own voice, a real recording: he speaks the line in that voice, with its timbre, pace and accent.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, revealed by the pan after about three seconds, standing at full length near the lamp post, centre-right of the frame, in three-quarter profile facing across the street toward her building. He wears a dark green overcoat over a white shirt, a small bunch of white flowers wrapped in brown paper in his left hand and a phone in his right. The place: Mustard-amber sodium lamps, each a soft pool with a hazy halo and a faint cyan-green fringe, wet black asphalt with long lamp reflections, shuttered shopfronts, a thin mist catching the light, olive shadows. Soft and analog, light diffusion, fine film grain.
+
+【Camera and Event Script】
+Shot 1, the only shot: the camera is on a tripod about four metres from the pavement with a 40 mm lens feel. It opens on an empty stretch of wall and pavement with the streetlamps receding down the street, no one in the frame, then pans about 40 degrees to the right over the first three and a half seconds and settles on Alex standing at full length near a lamp post, centre-right of the frame and about a third of the height of the frame, dark shop windows behind him and her building across the street in front of him. The camera then holds still.
+Alex's performance: He raises the phone to his ear and speaks at once, because he wants her to hear that he came, the flowers held low at his side, his voice soft, warm and a little unsteady, a nervous breath between phrases. He says exactly: "I'm outside, come down when you're ready."
+ He rocks very slightly on his heels while he waits for her answer, and his hand tightens around the flower paper. Then a light comes on in a window across the street, his shoulders ease, he lowers the phone and his eyes lift to it, and he cannot hide a smile.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks. Alex is a real human being with natural skin, hair and clothing; no mannequin, clay figure, capsule or doll appears anywhere, at any moment.
+The sound is only his soft voice, the hum of the city far off, the buzz of the streetlights, the rustle of the flower paper and a faint car passing a long way away. Her reply is not audible. There is no music of any kind.
+The final visuals are live-action and photographic: photoreal cinema shot on an ARRI Alexa 35 with anamorphic lenses, natural film grain, soft diffusion and halation on the lights, shallow depth of field, motivated light and real atmospheric haze.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the place and its light, the camera move, the shot size and Alex's size and position in the frame consistent with @video1. Keep the lighting and time of day constant from start to end.

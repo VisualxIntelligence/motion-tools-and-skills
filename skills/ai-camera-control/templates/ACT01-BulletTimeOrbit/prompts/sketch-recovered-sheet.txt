@@ -1,0 +1,45 @@
+【Generation Goal】
+Generate a live-action bullet-time orbit: Alex leaps off a stone block, time freezes at the top of the leap while the camera circles Alex, then time resumes for the landing.
+
+【The World】
+The whole video is filmed for real in a Mediterranean stone plaza: worn limestone paving, weathered limestone columns, tall Scots pines with dark green needles and rough brown bark, leafy plane trees, low limestone walls and benches, a timber pergola beam, and old stone buildings beyond, in crisp late-morning sun. Every frame looks like a photograph of this real place.
+
+【Reference Asset Roles】
+@image2 is a layout diagram, not a picture of the scene: twelve numbered panels from a rough 3D blockout, read left to right and top to bottom, one continuous shot sampled evenly from start to end. Read from it only where the camera is, how it is angled and framed, where Alex is in the frame and how big. Nothing in it shows what anything looks like. Its objects are markers for real things: each grey cone marks a real Scots pine; each grey lollipop shape marks a real leafy plane tree; each grey pillar marks a weathered limestone column; the long grey bar marks a timber pergola beam; the low grey slabs mark limestone walls and benches; the pale tall rectangles mark old stone buildings; the plain grey floor marks worn limestone paving; the grey box marks a waist-high limestone block. The red-and-black striped capsule with a white dot marks Alex: where Alex is, how tall in frame and which way Alex faces; it has no body, so every pose comes from the words below. No cone-shaped tree, smooth grey sphere, grey pillar, plain box, untextured grey surface, striped capsule, panel border or number ever appears in the video.
+The capsules' red, yellow, green, blue, magenta, orange and cyan stripes are only labels for who is who: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.
+
+【Subjects and Relationships】
+Alex, the man from @image1, is the only person; Alex starts standing on top of the block and lands on the paving in front of it.
+Alex, the man from @image1, wears a black hoodie, grey joggers and white trainers.
+
+【Camera and Event Script】
+One continuous shot with a 28 mm wide-lens feel, Alex centred in a full shot throughout.
+It opens on Alex standing on the block, the camera at the height of its top edge, looking slightly up. Alex faces screen left, seen from Alex's front-left, close to profile. Alex is focused and calm, eyes fixed on the landing spot.
+At about half a second Alex crouches, arms swinging back. At about one and a quarter seconds Alex swings the arms forward and leaps forward and up. The camera rises with the jump to look level at Alex in the air.
+Bullet time: at the top of the leap, around one and a half seconds, time slows to a near stop within a split second. Alex hangs in mid-air, knees drawn up, arms spread wide, frozen, jaw set, eyes locked on the ground ahead.
+While time stays frozen, the camera travels a half circle around Alex at the same height, over about four seconds, easing in and out. It starts on Alex's front-left with Alex near profile facing screen left, swings round in front of Alex so that at about three and a half seconds Alex faces straight into the lens, continues past Alex's right side, and arrives just behind Alex's right shoulder, so Alex is seen from the back three-quarter, facing away toward screen right. Alex stays centred and the same size, while the columns and trees behind sweep across the frame from left to right. It is one continuous camera move with no cut.
+At about five and a half seconds time eases back to real speed: Alex drops and lands on both feet, knees bending deep to absorb the weight, while the camera lowers to waist height. Alex straightens and stands tall, shoulders dropping as a held breath goes out. The camera settles behind Alex's right shoulder and holds.
+The mood is hushed and suspended, in clear, even daylight.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.
+Every person in the video is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment. There are no floating dots or specks hanging in the air.
+Characters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.
+The sound includes only outdoor ambience, <the push-off>, a muffled hush while time is frozen and <feet landing on stone paving>. There is no music.
+The final visuals are live-action and photographic: a real Mediterranean stone plaza of worn limestone paving, weathered limestone columns, tall Scots pines and leafy plane trees, in crisp late-morning sun. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Panel by Panel, in the real plaza】
+Panel 1: Alex stands on the limestone block, seen from Alex's left side at about knee height, the camera 5 m away looking slightly up; pines and columns behind; Alex centred, two-thirds of the frame height.
+Panel 2: the same angle; Alex crouches on the block, arms swung back.
+Panel 3: Alex springs off the block; the camera, still on Alex's left side, starts to rise with the leap.
+Panel 4: Alex hangs at the top of the leap, frozen; the camera, now level with Alex's chest, on Alex's left side.
+Panel 5: the camera has swung round to Alex's front-left; columns and plane trees slide across behind.
+Panel 6: the camera is straight in front of Alex, close, Alex frozen mid-air facing the lens, arms spread.
+Panel 7: the camera has moved round to Alex's front-right; the pergola beam and a plane tree now behind Alex.
+Panel 8: the camera is at Alex's right side, Alex still frozen in profile facing screen right.
+Panel 9: the camera is a little behind Alex's right side; time starts to move again and Alex begins to drop.
+Panel 10: Alex lands on the paving, knees bent deep; the camera lowered to waist height on Alex's right, slightly behind.
+Panel 11: Alex straightens up; the camera behind Alex's right shoulder, benches and pines ahead.
+Panel 12: Alex stands tall, seen from behind the right shoulder; the camera settles and holds.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the single leap to the ground, the frozen pose during the orbit, the orbit from Alex's front-left, past the front, to behind Alex's right shoulder, and the plaza layout consistent with the panels of @image2. Keep the lighting and time of day constant from start to end.

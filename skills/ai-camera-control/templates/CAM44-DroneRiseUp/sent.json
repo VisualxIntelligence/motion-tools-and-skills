@@ -1,0 +1,16 @@
+{
+ "id": "CAM44-DroneRiseUp",
+ "best_job": null,
+ "why_best": "never sent; no job folder at all; drone: pin stays tiny",
+ "routes": {
+  "video": {
+   "was_run": false,
+   "sends": [],
+   "note": "drone: pin stays tiny"
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "pin",
+  "how_known": "copied from render-pin"
+ }
+}

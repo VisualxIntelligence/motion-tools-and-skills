@@ -1,0 +1,25 @@
+{
+ "template": "CAM48-OrbitWalk",
+ "person": {
+  "name": "Alex",
+  "pronoun": "he",
+  "face_traits": "hair and facial hair",
+  "photo_ignore": "its background, its lighting and its clothing",
+  "wears": "a black leather jacket over a dark t-shirt, dark jeans and boots, a set of keys in his right hand"
+ },
+ "goal": "An empty concrete parking structure at night. Alex walks across a bay between red and green fluorescent light, a man who has parked here for a reason he is not telling anyone.",
+ "place": "Bare grey concrete pillars and a low ceiling, painted bay lines, oil-stained floor, long fluorescent strips spilling crimson on one side and cold green on the other so the floor carries both colours in glossy streaks, a few tiny city lights beyond. Soft bloom on the strips, black shadows with a little colour, fine film grain.",
+ "performance": "He crosses the bay at an even, deliberate pace with his eyes on something ahead of him, red light and then green sliding across his face and his breath misting in the cold. Once he glances back over his shoulder toward the dark and his pace tightens for a moment, then he closes his hand on the keys so they stop jingling and goes on without looking back.",
+ "sound": "The sound is only his footsteps on concrete, the jingle of keys, the buzz of fluorescent tubes and an echoing drip.",
+ "subject_position": "walking near the middle of the frame, turning gradually from side-on to facing away as the camera arcs round him",
+ "camera": "Shot 1, the only shot: the camera is on a technocane with a 35 mm lens feel, level at Alex's chest height, in a medium shot with Alex from the head to the hips near the middle of the frame. Alex walks about six metres across the bay at one metre a second while, over seven seconds, the camera arcs 130 degrees round him at a steady distance, from his front left through to behind his right side, so that the pillars and the red and green strips swing past behind him and Alex stays at the same size near the middle of the frame.",
+ "camera_numbers": [
+  "35 mm",
+  "130 degrees",
+  "seven seconds"
+ ],
+ "mood": {
+  "environment": "11",
+  "panel": 0
+ }
+}

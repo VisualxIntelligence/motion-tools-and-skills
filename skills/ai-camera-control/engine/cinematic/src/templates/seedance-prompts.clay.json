@@ -1,0 +1,827 @@
+{
+ "skill": "sd25-pe",
+ "references": {
+  "video": "@Video1 = seedance/<id>.mp4, the clean 2.39:1 blockout clip (1280x534, 24 fps)",
+  "images": "one per named subject, then the scene"
+ },
+ "prompts": {
+  "CAM01-LockedOff": {
+   "prompt": "【Generation Goal】\nGenerate a live-action locked-off wide shot: Alex walks across a stone plaza while the camera stays completely still.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, the only person in frame. Columns, trees and paving stay fixed behind Alex.\n\n【Camera and Event Script】\nLocked-off: the camera sits on a tripod at eye level with a 24 mm wide-lens feel and deep focus, the plaza sharp from the foreground paving to the trees. It never pans, tilts, zooms or shakes.\nThe frame opens on the empty plaza and holds. Alex enters from the left edge in profile and walks to the right across the middle distance at a steady, natural pace, feet planted, arms swinging loosely, a shadow moving beside Alex. Alex is still walking through the right third of the frame at the end; the camera never follows.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only light outdoor ambience and <Alex's footsteps on stone paving>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the left-to-right walk, the fixed camera and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM02-PanWith": {
+   "prompt": "【Generation Goal】\nGenerate a live-action pan-with shot: the camera stands in one place and turns to follow Alex walking across a plaza.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, the only person in frame, walking past columns, pine trees, a bench and rocks.\n\n【Camera and Event Script】\nPan with: the camera sits on a fixed tripod with a fluid head and a 50 mm lens feel, Alex sharp, the background slightly soft.\nIt opens on a full shot of Alex far away in the left half of the frame, walking diagonally toward the right foreground. The camera never travels; it pans smoothly right at Alex's speed, keeping lead room ahead of Alex, the columns and trees sliding across the background without judder. As Alex comes nearer, the framing tightens from a distant full shot to a closer full shot, ending with Alex in the right half of the frame, still walking.\nAlex walks at an unhurried pace, feet planted, arms relaxed.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only light outdoor ambience and <Alex's footsteps on stone paving>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the walk from far left to near right, the single camera position and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM03-PushIn": {
+   "prompt": "【Generation Goal】\nGenerate a live-action push-in on Alex, who stands still in a plaza while a realisation dawns.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, standing alone in a three-quarter front view, with columns, pine trees and a bench behind.\n\n【Camera and Event Script】\nPush in: the camera is on a dolly with a 50 mm lens feel, slightly above Alex's eye line, with shallow focus that keeps Alex sharp and melts the background into soft shapes.\nIt opens on a held medium shot from the waist up, then pushes slowly straight toward Alex, starting gently and easing to a stop, and arrives at a held medium close-up from the chest up, the background blurring further as it goes.\nAlex stands still with planted feet, lowers the gaze to the ground, holds it, then slowly lifts the head back to level as the push continues.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience and a soft breeze. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, Alex's standing position and three-quarter facing, and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM04-PullOutReveal": {
+   "prompt": "【Generation Goal】\nGenerate a live-action pull-out reveal: the camera starts close on Alex's face and pulls back to show how small Alex is among the trees of a plaza.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, standing alone and still; pine trees, broadleaf trees, a bench and a lamp post surround the spot.\n\n【Camera and Event Script】\nPull out: the camera is on a dolly and crane with a 60 mm lens feel. It opens on a held close-up of Alex's face and shoulders in a three-quarter view, the background soft, then pulls straight back and slightly up in one eased move. The world enters in layers: Alex's torso, the full figure, then the bench, the lamp post and the trees on both sides. The focus deepens as it widens, and the move settles on a wide shot with Alex small in the middle of the plaza, the trees towering around.\nAlex stands still with planted feet and lifts the gaze upward early on, keeping it there.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience and wind in the trees. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, Alex's fixed position and upward gaze, and the trees, bench and lamp post consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM05-DollyZoom": {
+   "prompt": "【Generation Goal】\nGenerate a live-action dolly zoom on Alex: Alex stays the same size while the world behind seems to slide toward Alex.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, standing alone and facing the camera, with columns, trees and rocks behind.\n\n【Camera and Event Script】\nThe camera is on a dolly, framing Alex front on in a medium close-up from the chest up, slightly above eye level.\nDolly zoom: the camera travels steadily backward while the lens zooms in from about 32 mm to about 90 mm in exact proportion, so Alex's head and shoulders keep the same size and position from start to end. Behind Alex, the columns, trees and rocks swell and seem to rush toward Alex's back, the space compressing and growing softer as the lens lengthens. The move starts gently, eases to a stop and holds.\nAlex stands still with planted feet, eyes fixed ahead, only breathing.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, Alex's constant size and centred position, and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM06-Orbit": {
+   "prompt": "【Generation Goal】\nGenerate a live-action orbit: the camera circles Alex, who stands still at the centre of a plaza.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, standing alone; columns, pine trees, a bench and rocks stand around the plaza.\n\n【Camera and Event Script】\nOrbit: the camera is on a technocrane with a 35 mm lens feel, framing Alex from the chest up with a soft background. It opens on a front three-quarter view of Alex, then travels in a steady, eased arc of about 120 degrees around Alex, past Alex's side to a view over Alex's back and shoulder, rising slightly so it ends looking a little down. Alex stays centred while the columns, trees and paving lines sweep across the background in the opposite direction, never fast enough to smear.\nAlex stands still with planted feet, head slightly bowed, only breathing.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, Alex's fixed position at the centre of the arc and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM07-CraneUp": {
+   "prompt": "【Generation Goal】\nGenerate a live-action crane-up: Alex walks away from the camera and the camera rises high above to show where Alex is heading.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, walking alone across a plaza toward two low stone walls, with a bench, columns and trees beyond.\n\n【Camera and Event Script】\nCrane up: the camera is on a technocrane with a 28 mm wide-lens feel and deep focus. It opens at eye level behind Alex in a wide shot, Alex walking away toward the walls. It then rises steadily in one eased move to high above the plaza, tilting down as it climbs to keep Alex in frame, until it looks down on the whole layout: the two walls, the bench, the long column shadows and the paving grid, with Alex small in the lower middle of the frame.\nAlex walks at a natural pace, then slows and stops near the walls as the crane finishes its rise.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only open outdoor ambience and <Alex's footsteps on stone paving> fading as the camera rises. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the walk away from the camera, the walls and bench and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM08-CraneDown": {
+   "prompt": "【Generation Goal】\nGenerate a live-action crane-down arrival: the camera descends from high above a plaza to meet Sam at eye level.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Sam's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe slate mannequin in @Video1 corresponds to Sam, standing alone on the paving; trees, columns, rocks and a bench surround the plaza.\n\n【Camera and Event Script】\nCrane down: the camera is on a technocrane with a 28 mm wide-lens feel. It opens high above, looking almost straight down at Sam, small near the middle of the frame with a shadow on the paving grid. It descends in one smooth move that eases in at the end, tilting up as it comes down, so the view turns from the paving pattern to the trees, columns and bench on the horizon. It lands at eye level in front of Sam on a held medium-wide frame, the plaza and trees behind.\nSam stands still facing the camera, with small natural shifts of weight.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only open outdoor ambience and a light breeze. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Sam's identity and clothing, Sam's fixed position and facing direction, and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM09-SteadicamFollow": {
+   "prompt": "【Generation Goal】\nGenerate a live-action Steadicam follow: the camera walks behind Alex across a plaza, sharing Alex's way forward.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, walking alone straight across the plaza between columns toward the trees.\n\n【Camera and Event Script】\nSteadicam follow: the camera is three to four metres behind Alex, slightly above eye level, with a 32 mm lens feel, framing Alex's head, shoulders and back centred in a medium shot, the way ahead soft.\nIt glides forward at Alex's walking speed, a beat behind each change of pace, with a gentle floating bob and no handheld shake. Alex keeps the same size in the centre while the columns and trees ahead slowly grow and pass the frame edges.\nAlex walks away from the lens at a steady pace from start to end, arms swinging.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience and <Alex's footsteps on stone paving>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the straight walk away from the camera, Alex's centred size and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM10-SteadicamLead": {
+   "prompt": "【Generation Goal】\nGenerate a live-action Steadicam lead: Alex strides toward the camera with purpose while the camera moves backward ahead of Alex.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, walking alone toward the lens, with columns, trees and rocks behind.\n\n【Camera and Event Script】\nSteadicam lead: the camera is in front of Alex, slightly above eye level, with a 40 mm lens feel, framing Alex from the chest up, centred, the background soft. The operator walks backward at exactly Alex's pace, so Alex holds the same size and position throughout while the columns and trees behind slowly recede. The move floats with a gentle bob and no shake.\nAlex walks toward the lens with a purposeful stride from start to end, arms swinging, eyes looking just past the lens.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience and <Alex's footsteps on stone paving>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the walk toward the camera, Alex's constant framing and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM11-TrackingSide": {
+   "prompt": "【Generation Goal】\nGenerate a live-action tracking shot alongside Alex: the camera travels beside Alex while the plaza streams past behind.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, walking alone across the plaza in profile, with columns, trees and rocks behind.\n\n【Camera and Event Script】\nTracking alongside: the camera is on a dolly track side-on to Alex, slightly above eye level, with a 50 mm lens feel, framing Alex in profile from the chest up on the left of the frame with open lead room to the right.\nIt moves sideways at exactly Alex's walking speed, so Alex holds the same place in frame from start to end while the columns and trees stream from right to left behind. Shallow focus keeps Alex sharp and turns the passing background into soft shapes with slight motion blur.\nAlex walks from left to right at a steady pace, looking ahead.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience and <Alex's footsteps on stone paving>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the left-to-right walk, the lead room ahead of Alex and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM12-OTSPair": {
+   "prompt": "【Generation Goal】\nGenerate a live-action over-the-shoulder pair: a cut between Alex and Sam standing face to face in a plaza.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the slate mannequin corresponds to Sam. They stand about two metres apart facing each other. Alex is always on the left of the frame and Sam on the right; the camera never crosses the line between them.\n\n【Camera and Event Script】\nShot 1: over Alex's shoulder onto Sam, on a Steadicam with a 75 mm lens feel from a few metres behind Alex. Alex's head and shoulder are soft in the left-centre foreground; Sam is sharp in a medium close-up on the right. The background is compressed and blurred, and the camera floats almost still.\nThe shot cuts to Shot 2: the reverse, over Sam's shoulder onto Alex, at the same lens, distance and height. Sam is soft in the right foreground; Alex is sharp in a medium close-up on the left.\nIn both shots they stand still and hold eye contact, with only small movements of the head and breathing.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep both identities and clothing, Alex left and Sam right in both shots, the matched framing and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM13-WhipPan": {
+   "prompt": "【Generation Goal】\nGenerate a live-action whip pan that snaps from Alex to Sam, who stand facing each other across a plaza.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the slate mannequin corresponds to Sam. Alex stands on the left of the space facing right, Sam on the right facing left, several metres apart, with the camera between them.\n\n【Camera and Event Script】\nThe camera is on a fixed tripod with a fluid head and a 50 mm lens feel. It opens on a held medium shot of Alex in a three-quarter view, the bench, trees and columns soft behind.\nWhip pan: after the hold, the camera swings right in a fraction of a second, the whole frame smearing into horizontal motion blur, and lands cleanly on a composed medium shot of Sam in a three-quarter view, which holds steady to the end.\nBoth stand still facing each other, with small shifts of weight.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience and a short <whoosh of air> with the whip. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep both identities and clothing, Alex on the left and Sam on the right, the single camera position and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM14-Handheld": {
+   "prompt": "【Generation Goal】\nGenerate a live-action handheld medium close-up of Alex standing in a plaza, unsteady and close.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, standing alone in a three-quarter front view, with columns, trees and a bench behind.\n\n【Camera and Event Script】\nHandheld: the camera is held slightly above Alex's eye line with a 40 mm lens feel, framing Alex from the chest up on the right of the frame, shallow focus blurring the background. It does not travel; it breathes with the operator, with slow rotational drift and light micro-jitter, like a held breath, never violent. The framing wanders a few centimetres but always keeps Alex's face in frame.\nAlex stands still with the gaze lowered, glances up, holds the look for a moment and lowers the gaze again, breathing visibly.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience and a light breeze. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, Alex's place on the right of the frame and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM15-ChaseDrone": {
+   "prompt": "【Generation Goal】\nGenerate a live-action chase-drone shot: the camera flies behind the glider as it soars low over a forest and a round stone plaza.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the glider's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe plum winged flyer in @Video1 corresponds to the glider; there is only one. Below it, pine and broadleaf trees surround a round plaza with columns, a curved beam and a stair.\n\n【Camera and Event Script】\nChase drone: the camera is a drone on a gimbal with a 28 mm wide-lens feel and deep focus, about twenty metres behind the glider and several metres above it, looking forward and down. It flies at the glider's speed, so the glider holds the centre of the frame, wings spread, while the treetops, the plaza, its columns and the stair pass beneath. The glider banks through a long curve and the drone banks with it into the turn, the horizon tilting slightly, the glider's shadow racing over the ground. The shot ends still in flight over the trees.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only wind and <the rush of air over the glider's wings>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the glider's structure, colour and single count, its flight path, the drone's distance behind it and the forest and plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the glider: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "CAM16-FPV": {
+   "prompt": "【Generation Goal】\nGenerate a live-action FPV-drone shot: the camera chases Alex at speed on a winding run through a plaza.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, running alone past a stair, between columns and past benches and crates.\n\n【Camera and Event Script】\nFPV: the camera is a drone with an 18 mm ultra-wide lens feel and deep focus, two to three metres behind Alex and less than a metre above Alex's head, Alex's whole body in the lower middle of the frame. It flies at Alex's running speed along the same curving path, weaving and banking into every turn so the horizon rolls, the paving streaking under the lens and the columns whipping past the frame edges. It starts beside the stair and ends still chasing Alex across the far side of the plaza.\nAlex sprints throughout, arms pumping, leaning into the curves.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only rushing air, outdoor ambience and <fast footsteps on stone paving>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the winding path past the stair and columns, the drone's place behind Alex and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ01-PushInObject": {
+   "prompt": "【Generation Goal】\nGenerate a live-action push-in on a suitcase standing alone in a plaza: from a wide that shows where it is to an insert that fills the frame.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the suitcase's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe sand-coloured case in @Video1 corresponds to the suitcase; there is only one, standing upright on the paving, handle on top. Low walls, a barrel and crates stand behind it.\n\n【Camera and Event Script】\nPush in: the camera is on a dolly with a 50 mm lens feel, looking slightly down. It opens on an extreme wide of the plaza, the walls, barrel and crates visible and the suitcase small near the middle of the frame. The dolly then pushes steadily forward and lowers toward the suitcase in one eased move, the walls and crates sliding out of the frame edges, and arrives at a held insert where the suitcase fills most of the frame in a three-quarter view, the background soft.\nOnly the camera moves.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience and a soft breeze. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the suitcase's structure, colour, single count and upright position, and the plaza behind it consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the suitcase: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ02-OrbitHero": {
+   "prompt": "【Generation Goal】\nGenerate a live-action hero orbit around a parked car in a plaza.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the car's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe slate-blue car in @Video1 corresponds to the car; there is only one, parked and still, with trees, columns, benches and rocks around the plaza.\n\n【Camera and Event Script】\nHero orbit: the camera is on a technocrane with a 35 mm lens feel, slightly above the roofline, framing the whole car. It opens on the front three-quarter view and travels in a slow, eased arc of about 180 degrees around the car, past its full side profile, and settles on the rear three-quarter view. The car stays centred and the same size while the trees, columns and benches sweep slowly behind without smearing, highlights gliding across the bodywork.\nThe car does not move.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the car's structure, colour and single count, its parked position and orientation, and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the car: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ03-CraneUpStatue": {
+   "prompt": "【Generation Goal】\nGenerate a live-action crane-up on a statue: from low at its base to high above it, showing its scale and what it watches over.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the statue's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe stone-grey figure on a square plinth in @Video1 corresponds to the statue, one arm raised; there is only one. Columns, pine trees, benches and rocks surround it.\n\n【Camera and Event Script】\nCrane up: the camera is on a technocrane with a 28 mm wide-lens feel and deep focus. It opens low near the plinth in front of the statue, looking slightly up, the raised arm against the trees and columns. It rises steadily and drifts slightly back in one eased move, tilting down as it climbs, so the plinth, the paving, the benches and the ring of columns enter the frame. It settles high above on a wide shot looking down on the statue, small in the middle of the plaza, its shadow on the paving.\nOnly the camera moves.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only open outdoor ambience and a light breeze. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the statue's structure, pose, colour and single count, its plinth and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the statue: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ04-TruckPastParallax": {
+   "prompt": "【Generation Goal】\nGenerate a live-action sideways truck past crates and barrels, with a tall monolith standing beyond them: a layered parallax shot.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the monolith's structure, material and colour.\n@Image2 is used for the crates' structure, material and colour.\n@Image3 is used for the barrels' structure, material and colour.\n@Image4 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe tall plum slab in @Video1 corresponds to the monolith, more than ten metres from the lens. The two sand-coloured boxes close to the lens correspond to two crates, and the two grey cylinders to two barrels, one to three metres away. Columns and trees stand between and beyond.\n\n【Camera and Event Script】\nTruck right: the camera is on a dolly track at about eye level with a 35 mm lens feel and deep focus, aimed straight ahead throughout. It slides sideways to the right at a steady pace without turning. The crates and barrels sweep quickly from right to left through the bottom of the frame, slightly motion-blurred; the columns drift more slowly; the distant monolith moves only a little, so every layer travels at its own speed. The move ends with a barrel in the lower foreground and the monolith on the left.\nOnly the camera moves.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image4.\n\n【Maintain Consistency】\nKeep the monolith's structure and colour, the count and order of the crates and barrels, their distances from the lens and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the monolith: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "the crates: structure, material and colour"
+    },
+    {
+     "ref": "@Image3",
+     "for": "the barrels: structure, material and colour"
+    },
+    {
+     "ref": "@Image4",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ05-TrackingCarLow": {
+   "prompt": "【Generation Goal】\nGenerate a live-action low tracking shot of a car driving at speed, the camera just above the ground and matched to it.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the car's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe slate-blue car in @Video1 corresponds to the car; there is only one, driving from left to right across the plaza past trees and columns.\n\n【Camera and Event Script】\nLow tracking: the camera is on a low mount on a camera car, its lens about forty centimetres off the ground, side-on and a little ahead, with a 35 mm lens feel framing the car's whole side. It travels at exactly the car's speed, so the car holds its place in the frame, wheels spinning, while the trees and columns stream from right to left with motion blur and the paving rushes under the lens. Partway through, a column passes close in front of the lens as a brief blurred wipe, and the car reappears unchanged.\nThe car drives straight and steady throughout.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only <the car's engine at speed> and <tyres rolling on stone paving>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the car's structure, colour and single count, its left-to-right direction, its place in the frame and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the car: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ06-TopDown": {
+   "prompt": "【Generation Goal】\nGenerate a live-action top-down shot looking straight down on a parked car with Alex standing beside it, slowly rotating like a map.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for the car's structure, material and colour.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the slate-blue car corresponds to the car. The car is parked diagonally across the paving grid; Alex stands just outside one corner of it, a shadow on the ground.\n\n【Camera and Event Script】\nTop-down: the camera is on a technocrane with a remote head, about fourteen metres up, looking straight down with a 35 mm lens feel and deep focus. It does not rise, fall or tilt; it slowly rotates about the vertical axis by about thirty degrees over the whole shot, easing in and out, so the car, Alex and the paving lines turn gently together.\nAlex stands still beside the car; the car does not move.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the car's structure and colour, Alex beside the car's corner and the car's diagonal orientation consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "the car: structure, material and colour"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ07-RackFocus": {
+   "prompt": "【Generation Goal】\nGenerate a live-action rack focus: the focus moves from a suitcase close to the lens to Alex standing far behind it.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for the suitcase's structure, material and colour.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the sand-coloured case corresponds to the suitcase. The suitcase stands upright close to the lens in the lower right; Alex stands far behind it, centre-left, facing the camera, with columns and trees beyond.\n\n【Camera and Event Script】\nThe camera is low on a fixed tripod with a 50 mm lens feel at a very wide aperture, the depth of field extremely shallow. It never moves or zooms.\nRack focus: it opens with the suitcase crisp and Alex and the background blurred into soft shapes, and holds. On a clear beat about halfway through, the focus pulls smoothly from the suitcase to Alex in under a second: the suitcase softens into a blurred foreground shape as Alex becomes sharp. It holds on Alex to the end.\nAlex stands still, looking toward the camera.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the suitcase's structure and colour, the suitcase near and Alex far, and the fixed framing consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "the suitcase: structure, material and colour"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ08-WipeReveal": {
+   "prompt": "【Generation Goal】\nGenerate a live-action wipe reveal: as the camera slides sideways, a stone slab near the lens briefly fills the frame and then uncovers a statue.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the statue's structure, material and colour.\n@Image2 is used for the stone slab's structure, material and colour.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe sand-coloured figure on a plinth in @Video1 corresponds to the statue, one arm raised, in the middle distance among columns and trees. The stone-grey upright slab close to the lens corresponds to the stone slab, standing between the camera and the statue. There is one of each.\n\n【Camera and Event Script】\nWipe reveal: the camera is on a dolly track at eye level with a 35 mm lens feel, sliding steadily to the right while turning slightly to keep the statue centred. It opens on a medium shot of the statue on its plinth. Midway, the out-of-focus slab enters from the right edge, fills the entire frame for a moment like a curtain, then slides out to the left, revealing the statue again from a new angle with different columns and trees behind. The move keeps one speed through the wipe and eases to a stop.\nOnly the camera moves.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep the statue's structure, pose and colour, the slab between the lens and the statue, the single count of each and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the statue: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "the stone slab: structure, material and colour"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ09-ThroughDoorway": {
+   "prompt": "【Generation Goal】\nGenerate a live-action move through a doorway in a stone wall that discovers Alex standing beyond it.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for the doorway's structure, material and colour.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the stone wall with a single open door frame corresponds to the doorway. The camera starts outside; Alex stands on the far side in the plaza, facing the doorway, with columns and trees behind.\n\n【Camera and Event Script】\nThrough a doorway: the camera is on a Steadicam at eye level with a 28 mm wide-lens feel. It opens on a wide of the wall, Alex small and framed in the open doorway. It moves straight forward at a pace that starts gently; the door frame grows until its edges slide past the left and right sides of the frame, and the camera crosses the threshold without slowing. It continues toward Alex and eases to a stop on a front-on medium shot, columns and trees behind.\nAlex stands still, facing the camera.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the doorway's structure, Alex beyond the doorway and the straight line of the move consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "the doorway: structure, material and colour"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ10-CrashZoom": {
+   "prompt": "【Generation Goal】\nGenerate a live-action crash zoom that slams in from a wide of a plaza onto the head and raised arm of a statue.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the statue's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe sand-coloured figure on a square plinth in @Video1 corresponds to the statue, one arm raised; there is only one, standing among columns and pine trees.\n\n【Camera and Event Script】\nThe camera is on a fixed tripod with a zoom lens and never moves; only the focal length changes.\nIt opens on a held wide at about 24 mm, the statue small in the centre among the columns and pines, all in deep focus. Crash zoom: after the hold, the lens zooms in a fraction of a second to about 150 mm, slamming in on the statue's head and raised arm in a close-up; the perspective flattens and the column behind becomes a soft, compressed wall. The close-up holds still to the end.\nNothing in the scene moves.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience and a sharp <whoosh> on the zoom. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the statue's structure, pose and colour, the fixed camera position and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the statue: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ11-TiltUpTall": {
+   "prompt": "【Generation Goal】\nGenerate a live-action tilt up a tall pine tree, from its base to its very top, to show its height.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the pine tree's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe tall sage-coloured conical tree in @Video1 corresponds to the pine tree; there is one hero pine in front of the lens, with columns, smaller trees and blocks around the plaza.\n\n【Camera and Event Script】\nThe camera is on a fixed tripod with a fluid head, low and close to the base of the pine, with an 18 mm ultra-wide lens feel and deep focus, so the trunk and lowest branches tower over the lens.\nTilt up: the camera never travels; it tilts slowly upward in one eased, judder-free move, climbing the trunk and the stacked tiers of branches as the columns and trees around the base drop out of the frame. It slows and lands exactly on the pointed tip against open sky, and holds without tilting past it.\nOnly a light breeze stirs the branches.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only wind in the branches and quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the pine tree's structure, tiers and single count, the low camera position and the landing on its tip consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the pine tree: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ12-FlybyPan": {
+   "prompt": "【Generation Goal】\nGenerate a live-action flyby: a spacecraft roars low over a plaza, passes close to the camera and flies away while the camera pans with it.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the spacecraft's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe grey winged craft in @Video1 corresponds to the spacecraft; there is only one. A curved stone beam crosses the top of the frame, with a terrace, a stair, columns and pine trees below.\n\n【Camera and Event Script】\nFlyby pan: the camera is on a fixed tripod with a fluid head and a 35 mm lens feel; it only pans and tilts. It opens on the spacecraft far away on the left, small above the trees, flying fast to the right. The camera pans right with it, slightly lagging, as it grows quickly and passes close to the lens, its side, wing and engines briefly filling much of the frame with motion blur. The pan keeps turning as it flies on, and it shrinks into the right background with its engine nozzles toward the lens, still in frame at the end.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience and <the spacecraft's engine roar> rising, peaking as it passes and falling away. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the spacecraft's structure, colour and single count, its left-to-right path, the single camera position and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the spacecraft: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ACT01-BulletTimeOrbit": {
+   "prompt": "【Generation Goal】\nGenerate a live-action bullet-time orbit: Alex leaps off a stone block, time freezes at the top of the leap while the camera circles Alex, then resumes for the landing.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Its speed ramps and frozen moments are kept. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, the only person. The grey block in @Video1 is a waist-high stone block; Alex starts on top of it and lands on the paving in front of it.\n\n【Camera and Event Script】\nThe camera uses a 28 mm wide-lens feel, framing Alex in a full shot with the block. It opens in profile on Alex standing on the block. Alex crouches, swings the arms and leaps forward and up, and the camera rises with the jump.\nBullet time: at the top of the leap, time slows to a near stop within a split second and Alex hangs in mid-air, knees drawn up, arms spread, frozen. While time stays frozen, the camera travels a half circle around Alex at the same height, about three seconds long: it starts on Alex's right side with Alex in profile facing screen left, swings round in front of Alex so that halfway through Alex faces straight into the lens, and arrives on Alex's left side with Alex in profile facing screen right. Alex stays centred and the same size the whole time, while the columns and trees behind Alex sweep across the frame from left to right. It is one continuous camera move with no cut.\nTime then eases back to real speed: Alex drops and lands on both feet with bent knees absorbing the weight, then straightens as the camera lowers to the landing and settles.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience, <the push-off>, a muffled hush while frozen and <feet landing on stone paving>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the single leap from block to ground, the frozen pose during the orbit and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ACT02-Snorricam": {
+   "prompt": "【Generation Goal】\nGenerate a live-action snorricam shot: a camera strapped to Alex's chest while Alex runs, so Alex holds still in frame and the world lurches behind.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, the only person, running a curving path through a plaza with columns, a curved beam, low walls and trees.\n\n【Camera and Event Script】\nSnorricam: the camera is a body-mounted rig on a short arm out from Alex's chest, facing back at Alex, with an 18 mm ultra-wide lens feel and deep focus. Alex's head and torso stay locked in the middle of the frame while the whole world behind swings, bounces and tilts with every stride: the columns, beam, walls and trees lurch past, and the horizon leans into each curve of the S-shaped path. Alex's arms pump in and out of the frame edges.\nAlex runs hard, glances to one side partway through, then slows to a walk and stops near the end, breathing hard, as the background settles.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience, <heavy breathing> and <fast footsteps on stone paving> slowing to a stop. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, Alex's fixed place in the frame, the S-shaped path and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ACT03-CrashZoomFight": {
+   "prompt": "【Generation Goal】\nGenerate a live-action fight beat: Alex lands a decisive punch on Sam, the lens crash-zooms in on the hit and whips down with Sam's fall, then the scene cuts to a low wide of Alex standing over Sam.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the slate mannequin corresponds to Sam. They face each other in fighting stances about an arm's length apart, Alex on the left and Sam on the right; both shots stay on the same side of the line.\n\n【Camera and Event Script】\nShot 1: a handheld side-on two-shot with a 35 mm lens feel and light drift. Sam's jab snaps Alex's head back. Alex steps in and drives a straight cross into Sam's chest. Crash zoom: the instant it lands, not before, the lens slams in to about 85 mm in a fraction of a second, tight on Alex's fist and Sam's head and shoulders, and holds a beat as Sam's legs give way. Whip: the camera then whips down with Sam's fall, motion-blurred, landing on a composed frame of Sam lying on the back on the paving.\nThe shot cuts on the stillness to Shot 2: a low locked-off wide near the ground with a 24 mm lens feel, same side of the line. Alex stands over Sam in a raised guard, breathing hard; Sam lies still in the foreground.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience, <a jab smacking>, <a heavy body punch>, <a body hitting stone paving> and Alex's breathing. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep both identities and clothing, Alex left and Sam right, who hits whom and in what order, Sam's final position and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ACT04-SprintDollyZoom": {
+   "prompt": "【Generation Goal】\nGenerate a live-action sprint dolly zoom: Alex runs toward the camera down a long colonnade while the gate at the far end looms closer behind.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, the only person, sprinting down the middle of a long paved avenue lined with columns, trees beyond them and a tall gate building closing the far end behind Alex.\n\n【Camera and Event Script】\nThe camera is on a camera car leading Alex at hip height, level, moving backward at Alex's speed and framing Alex head to feet in the centre.\nDolly zoom: as Alex runs, the lens zooms steadily from about 24 mm to about 85 mm while the car pulls farther back in exact proportion, so Alex holds the same full-shot size throughout. Behind Alex, the gate building swells to several times its starting size and the rows of columns stack closer, the avenue seeming to close in, the background softening as the lens lengthens.\nAlex sprints toward the lens throughout, arms pumping, feet striking with full weight.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience, <fast footsteps> and hard breathing. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the run toward the camera down the avenue's middle, Alex's constant size and the avenue and gate layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ACT05-ParkourTrack": {
+   "prompt": "【Generation Goal】\nGenerate a live-action parkour tracking shot in one take: Alex runs, climbs onto a stone block, runs across it, drops off into a roll and runs on.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, the only person. The grey box in @Video1 is a waist-high stone block; Alex's whole route runs from left to right over it.\n\n【Camera and Event Script】\nTracking: the camera is on a tracking vehicle with a remote head, about five metres to Alex's side and slightly behind, a little above eye level, with a 35 mm lens feel framing Alex's whole body. It matches Alex's speed in one continuous side-on take, trees, benches and lamp posts streaming from right to left. The rig does not hop with Alex; the head pans and tilts a beat behind to keep the whole body in frame.\nAlex sprints in from the left, plants both hands on the block and climbs onto it, runs across its top, drops off the far edge into a forward roll over one shoulder, comes up running and exits right.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience, <fast footsteps>, <hands slapping stone>, <the thud of the roll> and breathing. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the left-to-right direction, the order climb, run, drop, roll, run, and the block's position consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ACT06-HeroLowArc": {
+   "prompt": "【Generation Goal】\nGenerate a live-action hero low arc: Alex walks toward the camera while a low camera sweeps round the front, and time bends for a moment in the middle.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Its speed ramps and frozen moments are kept. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, the only person, walking across a plaza with columns and pine trees standing tall behind.\n\n【Camera and Event Script】\nLow arc: the camera is on a Steadicam in low mode, its lens just above the ground, looking up steeply with a 21 mm ultra-wide lens feel; Alex towers in a medium-wide frame and the columns and trees converge upward against the sky. The camera travels a steady arc of about eighty degrees around Alex's front, from one side to the other, at constant speed, keeping Alex centred as the background wheels past.\nAlex walks toward the lens with a strong stride. Speed ramp: midway through the arc, Alex's walk slows to about a third of real speed, each step heavy and deliberate, then eases back to normal speed, while the camera's arc keeps its own steady real-time pace.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience and footsteps on stone that deepen and stretch during the slow moment. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the walk toward the camera, the low angle, the arc direction and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ACT07-FightCoverage": {
+   "prompt": "【Generation Goal】\nGenerate a live-action four-shot fight coverage of a short exchange of blows between Alex and Sam, ending with Sam knocked down.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the slate mannequin corresponds to Sam. They face each other in fighting stances about an arm's length apart, Alex on the left and Sam on the right. Every shot is on the same side of the line, and each cut lands on the start of a blow, never in the middle of one.\n\n【Camera and Event Script】\nShot 1: a handheld wide master side-on with a 28 mm lens feel and gentle drift, both full figures in frame. Sam's jab lands on Alex's face, snapping Alex's head back.\nThe shot cuts, as Alex starts a cross, to Shot 2: a handheld over-the-shoulder over Sam onto Alex with a 50 mm lens feel. The cross lands in Sam's chest and Sam rocks back.\nThe shot cuts, as Alex starts a jab, to Shot 3: a locked insert with an 85 mm lens feel, tight on Sam's face as the jab lands.\nThe shot cuts, as Alex starts the final cross, to Shot 4: a handheld single on Sam with a 32 mm lens feel. The cross knocks Sam off the feet; the camera tilts down after Sam to the floor, Alex's legs at the frame edge.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience, <punches landing>, short grunts of effort and <a body hitting stone paving>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep both identities and clothing, Alex left and Sam right, the order jab, cross, jab, cross, Sam's knockdown and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ACT08-FallDrop": {
+   "prompt": "【Generation Goal】\nGenerate a live-action fall drop: Alex punches Sam, Sam collapses, and the camera drops to the floor a beat behind Sam, leaving Alex towering above.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the slate mannequin corresponds to Sam. Sam stands nearer the camera, back three-quarters to it; Alex faces the camera beyond Sam.\n\n【Camera and Event Script】\nThe camera starts at standing height behind Sam's shoulder on a technocrane with a 35 mm lens feel, framing Alex past Sam in a medium shot.\nAlex throws a straight cross into Sam's chest, and Sam staggers and collapses to the floor. Fall drop: a beat after Sam starts to fall, never before, the camera drops straight down with a gravity-like acceleration, widening slightly to a 28 mm feel, its aim riding Sam's head down, and lands just above the floor about a body's length from Sam's head. Sam lies across the foreground; Alex towers above in a low-angle wide, in guard.\nRack focus: the focus then pulls from Sam's head on the floor to Alex standing behind, and the frame holds.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience, <a heavy body punch>, <a body hitting stone paving> and Alex's breathing. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep both identities and clothing, who hits whom, Sam falling toward the camera side, Alex standing beyond and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ONE01-CraneToFollowWhip": {
+   "prompt": "【Generation Goal】\nGenerate a live-action one-take shot: the camera cranes down onto Alex crossing a plaza, leads Alex at eye level, then whips round to reveal the statue Alex is walking toward.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for the statue's structure, material and colour.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the stone-grey figure on a plinth corresponds to the statue, one arm raised; there is only one statue, behind the camera at the start. Alex walks alone across the plaza toward it.\n\n【Camera and Event Script】\nOne continuous shot with no cuts and a 32 mm lens feel throughout, passing through three stages.\nStage 1, crane down: the camera starts high above and well in front of Alex, looking down at Alex small on the paving, and descends in one eased move to eye level a few metres in front of Alex, tilting up as trees, benches and columns rise into frame.\nStage 2, Steadicam lead: it hands off seamlessly to a Steadicam moving backward ahead of Alex at Alex's pace, a beat behind each change of speed, in a medium-wide frame. Alex builds to a purposeful stride, gaze fixed on something behind the lens.\nStage 3, whip reveal: the operator plants and whip-pans round in a fraction of a second, motion blur smearing the frame, landing on a composed, held frame of the statue. Alex walks into the frame past the lens toward it.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only outdoor ambience, <footsteps on stone paving> and a <whoosh> with the whip. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the statue's structure and pose, the single take, Alex's direction toward the statue and the plaza layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "the statue: structure, material and colour"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ONE02-DroneDiveChase": {
+   "prompt": "【Generation Goal】\nGenerate a live-action one-take drone shot: from high above a winding road, the drone dives behind a moving car, rides with it, then climbs away and lets it go.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the car's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe slate-blue car in @Video1 corresponds to the car; there is only one, driving at a steady speed along a winding road through low hills with trees, rocks and a line of poles along the verge.\n\n【Camera and Event Script】\nOne continuous shot with no cuts, from a drone on a gimbal with a 35 mm lens feel and deep focus, in three stages.\nStage 1, dive: it opens high up and far behind the car, the car small on the curving road. Already matched to the car's speed, the drone dives smoothly down and forward without any jolt until it rides close behind the car, just above its roof.\nStage 2, chase: it holds there at the car's speed, the car large and centred from behind, poles flicking past and the road streaming under the lens.\nStage 3, rise: the drone climbs and falls back in one eased move, the car shrinking on the winding road as the hills spread out, ending high and wide.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only open-air wind, <the car's engine> and <tyres on asphalt>, fading as the drone rises. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the car's structure, colour and single count, its steady direction and speed, the single take and the road layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the car: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ONE03-InteriorOner": {
+   "prompt": "【Generation Goal】\nGenerate a live-action interior one-take: the camera leads Alex down a corridor, swings around behind Alex, follows through a doorway and settles over Alex's shoulder on Sam waiting in the room.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used for the doorway's structure, material and colour.\n@Image4 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, the slate mannequin corresponds to Sam, and the door frame between the corridor and the room corresponds to the doorway. Alex walks down a panelled corridor; Sam stands inside the room beyond, arms folded, near a table and a window.\n\n【Camera and Event Script】\nOne continuous shot with no cuts, on a Steadicam with a 35 mm lens feel, in four stages.\nStage 1, lead: the camera moves backward in front of Alex down the corridor in a medium-wide frame, Alex walking toward the lens.\nStage 2, swing: it swings a half circle around Alex's right side, keeping Alex's eyes in frame, until it is behind Alex, the corridor walls sweeping past.\nStage 3, follow: it follows Alex at Alex's pace through the doorway, the door frame passing the frame edges.\nStage 4, over the shoulder: inside, it settles over Alex's right shoulder onto Sam as Alex stops facing Sam.\nAlex walks at a steady pace and looks at Sam once inside; Sam stands still, arms folded, watching Alex enter.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet room tone and <footsteps> moving from the corridor runner to the room floor. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image4.\n\n【Maintain Consistency】\nKeep both identities and clothing, the doorway's structure, the single take, Alex's route from corridor to room and Sam's position consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "the doorway: structure, material and colour"
+    },
+    {
+     "ref": "@Image4",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "ONE04-OrbitPushRack": {
+   "prompt": "【Generation Goal】\nGenerate a live-action one-take shot that circles Alex and Sam in conversation, pushes in on Sam over Alex's shoulder, and racks focus to Alex when Alex looks away.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the slate mannequin corresponds to Sam. They stand facing each other about a metre and a half apart on a plaza and stay on their marks throughout.\n\n【Camera and Event Script】\nOne continuous shot with no cuts, a 40 mm lens feel at a wide aperture, in three stages.\nStage 1, orbit: a brief held two-shot of both in profile, then a steady arc of a little over a quarter turn around the pair, just above their eye line, the plaza turning behind them.\nStage 2, push: from the end of the orbit, a dolly pushes in smoothly to a medium close-up of Sam over Alex's shoulder, Alex's shoulder and head soft in the foreground, Sam sharp facing the lens.\nStage 3, rack focus: Alex looks down, and the focus pulls from Sam's face to Alex's head in the foreground, Sam softening behind; the frame holds.\nEarly on they make small conversational hand gestures, Alex first, then Sam, holding each other's gaze until Alex looks down.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet outdoor ambience. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep both identities and clothing, their fixed marks, the single take, the order orbit, push, rack and the plaza background consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ13-MacroSlider": {
+   "prompt": "【Generation Goal】\nGenerate a live-action macro slider shot creeping past a suitcase resting on a crate, made precious by the slow move.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the suitcase's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe rose-coloured case in @Video1 corresponds to the suitcase; there is only one, resting on a crate, handle up. Bottles and a small box sit on a lower crate just in front of the lens; a bench and a stack of crates stand behind.\n\n【Camera and Event Script】\nMacro slider: the camera is on a slider with a 100 mm lens feel at a wide aperture, its lens level with the top of the suitcase, the depth of field very shallow: the suitcase sharp, the bottles in front and the bench and crates behind blurred into soft shapes. It creeps sideways to the right very slowly and evenly, aimed straight ahead, so the suitcase drifts from the right toward the left by about a third of the frame while the soft bottles pass through the bottom of the frame and the blurred crates behind slide in from the right.\nOnly the camera moves.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only a quiet room tone. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the suitcase's structure, colour and single count, its place on the crate, the foreground bottles and the background crates consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the suitcase: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ14-FlyThroughWindow": {
+   "prompt": "【Generation Goal】\nGenerate a live-action fly-through: a small drone flies through the open window of a building and settles on a statue inside.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the statue's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe sand-coloured figure on a plinth in @Video1 corresponds to the statue, one arm raised; there is only one, inside a skylit gallery behind a facade with one open window and blind panels either side.\n\n【Camera and Event Script】\nFly-through: the camera is a cinewhoop FPV drone with a 24 mm wide-lens feel and deep focus. It opens outside, facing the facade, the statue visible through the window. The drone flies straight at the window, gathering speed and descending slightly; the window frame grows until its edges rush past very close to the lens at the fastest point, without slowing in the opening. Inside, it crosses the gallery floor and eases to a stop on a front-on medium shot of the statue on its plinth, the gallery walls and pillars behind.\nOnly the camera moves.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only <the soft whir of the drone>, outdoor ambience outside and quiet room tone inside. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the statue's structure, pose and colour, the single window, the facade and gallery layout and the continuous path from outside to inside consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the statue: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ15-TopDownSpiral": {
+   "prompt": "【Generation Goal】\nGenerate a live-action top-down spiral: the camera comes down out of the sky around a monolith in a ring of stones and ends looking up at it.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the monolith's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe tall plum slab in @Video1 corresponds to the monolith; there is only one, at the centre of a paved circle inside a ring of twelve stones, with trees far off on the plain.\n\n【Camera and Event Script】\nThe camera is on a technocrane with a remote head, a wide lens of about 24 mm widening slightly to about 20 mm, and deep focus.\nTop-down spiral: it opens straight down from high above, the circle, the stones and the monolith's top reading like a map, and holds briefly. It then spirals about three-quarters of a turn around the monolith while descending and swinging outward, its tilt turning from straight down to level and then upward; the rotation eases out near the ground so the paving never smears. It arrives low beside the base, looking up the full height of the monolith against open sky, stones and distant trees along the bottom, and holds.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only wind across an open plain. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the monolith's structure, colour and single count, the ring of stones and the plain layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the monolith: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "OBJ16-ProductSpin": {
+   "prompt": "【Generation Goal】\nGenerate a live-action product spin: a car on a studio turntable arrives spinning fast and brakes to a stop on its best angle.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the car's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe slate-blue car in @Video1 corresponds to the car; there is only one, on a large round turntable in an open studio.\n\n【Camera and Event Script】\nThe camera is on a low dolly with a 40 mm lens feel, its lens just under the roofline, framing the whole car and the turntable.\nProduct spin: it opens with the turntable already spinning fast, the rear, side and front of the car passing in quick succession with motion blur. The turntable brakes smoothly and progressively until the car stops dead on the three-quarter front view and stays perfectly still. Through the braking, the camera creeps slowly forward and slightly lower, easing to a stop, and the three-quarter front frame holds.\nThe car does not drive; only the turntable turns it.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only <the turntable motor's hum> winding down and quiet studio room tone. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the car's structure, colour and single count, the turntable, the stop on the three-quarter front and the studio consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the car: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC01-ForestClearing": {
+   "prompt": "【Generation Goal】\nGenerate a live-action five-shot scene: Alex walks into a forest clearing, stops, looks up at a standing stone, and the camera rises away.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for the standing stone's structure, material and colour.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the tall plum slab corresponds to the standing stone; there is only one, at the far side of a clearing ringed by pines and broadleaf trees, with rocks, bushes and a fallen log. Alex always walks toward the stone.\n\n【Camera and Event Script】\nShot 1: the video fades in from black. A crane down with a 28 mm lens feel starts high, looking steeply down at Alex walking away across open ground, and descends until the trees and the stone rise into frame, ending wide behind Alex.\nThe shot cuts in behind Alex to Shot 2: a Steadicam follow with a 32 mm lens feel, medium-wide from behind at Alex's pace, the stone growing ahead.\nThe shot cuts round to Alex's face for Shot 3: a slow dolly push with a 55 mm lens feel from a medium close-up to a close-up as Alex stops and looks up, the trees blurring behind.\nThe shot cuts to Shot 4: a reverse over Alex's shoulder onto the stone with a 50 mm lens feel, the shoulder soft, the stone tall and sharp.\nThe shot cuts wide to Shot 5: a crane up with a 24 mm lens feel rises away from Alex, who stands still near the stone and the log, small in the clearing.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only forest ambience, birdsong, wind in the trees and <footsteps on the forest floor>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep Alex's identity and clothing, the stone, Alex's direction toward it, the face before the reveal and the clearing layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "the standing stone: structure, material and colour"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC02-InteriorDialogue": {
+   "prompt": "【Generation Goal】\nGenerate a live-action five-shot two-person scene in a living room: Alex sits on a sofa, Sam stands by the window, and the camera shows whose moment it is.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the slate mannequin corresponds to Sam. Alex sits on the sofa beside a low table and a bookshelf; Sam stands across the room near the window, facing Alex. Alex is always on the left of the frame and Sam on the right; no camera crosses the line.\n\n【Camera and Event Script】\nShot 1: a locked-off master two-shot with a 24 mm lens feel from a corner of the room, Alex seated on the left, Sam standing by the window on the right, gesturing with both hands.\nThe shot cuts in to Shot 2: over Alex's shoulder onto Sam with a 75 mm lens feel, Alex's head soft in the foreground, Sam sharp and gesturing, the background compressed.\nThe shot cuts to Shot 3: the reverse over Sam's shoulder onto Alex, same lens and distance, Alex seated and sharp, now gesturing in reply.\nThe shot cuts in tighter to Shot 4: a slow dolly push with a 65 mm lens feel on Alex from a medium close-up to a close-up, the turn of the scene.\nThe shot cuts back out to Shot 5: a locked-off master from at least thirty degrees round, with a 28 mm lens feel, past Alex's back toward Sam at the window.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet room tone and faint outdoor ambience through the window. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep both identities and clothing, Alex seated and Sam standing, Alex left and Sam right in every shot, and the room layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC03-StreetWalkTalk": {
+   "prompt": "【Generation Goal】\nGenerate a live-action four-shot walk-and-talk: Alex and Sam walk side by side along a city sidewalk while the street carries on around them.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, and the slate mannequin corresponds to Sam. They walk side by side in the same direction in every shot, Alex on the kerb side and Sam on the building side, past parked cars, lamp posts and tall buildings.\n\n【Camera and Event Script】\nShot 1: a high establishing wide with a 24 mm lens feel from a crane several metres above the road, holding still: the long street, parked cars and a crossing, Alex and Sam small on the sidewalk walking toward the camera.\nThe shot cuts to the front for Shot 2: a Steadicam lead with a 32 mm lens feel moving backward at their pace, both in a full shot; Alex glances at Sam.\nThe shot cuts to the side for Shot 3: a long-lens tracking shot with an 85 mm lens feel from a camera car across the road, matching their pace in a medium shot; parked cars slide through the foreground as blurred wipes. Sam glances at Alex.\nThe shot cuts low ahead of them for Shot 4: a locked-off low-angle wide with a 20 mm lens feel, the buildings converging upward, as they walk into the frame toward the lens.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only city ambience, distant traffic and <footsteps on the pavement>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep both identities and clothing, Alex on the kerb side and Sam on the building side, their single direction of travel and the street layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC04-CarInterior": {
+   "prompt": "【Generation Goal】\nGenerate a live-action four-shot car scene: Alex drives with Sam beside Alex on a road through a forest, ending on their view of the road ahead.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Alex's appearance and clothing.\n@Image2 is used for Sam's appearance and clothing.\n@Image3 is used for the car ahead's structure, material and colour.\n@Image4 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Alex, the slate mannequin corresponds to Sam, and the sand-coloured car far up the road corresponds to the car ahead. Alex sits in the driver's seat, hands on the wheel; Sam sits in the passenger seat. Their car moves steadily forward, trees and poles streaming past.\n\n【Camera and Event Script】\nShot 1: a windshield two-shot from a hood mount with a 28 mm lens feel, both seen through the glass, the forest sliding past the side windows. Alex glances at Sam.\nThe shot cuts to Shot 2: a driver single from the windshield's passenger-side corner with a 32 mm lens feel, Alex in a medium close-up, steering.\nThe shot cuts to Shot 3: the reverse passenger single from the driver-side corner, Sam in a medium close-up, making small hand gestures and glancing at Alex. Both singles are from in front, so the line holds.\nThe shot cuts to Shot 4: a point-of-view shot from inside with a 24 mm lens feel and a light handheld sway, through the windshield at the road ahead, the car ahead in the distance.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only <the car's engine hum>, <tyres on the road> and wind against the windows. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image4.\n\n【Maintain Consistency】\nKeep both identities and clothing, Alex driving on the left and Sam on the right, the forward motion outside and the car ahead consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Alex: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Sam: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "the car ahead: structure, material and colour"
+    },
+    {
+     "ref": "@Image4",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC05-SpaceFlyby": {
+   "prompt": "【Generation Goal】\nGenerate a live-action four-shot space sequence: a small ship flies past drifting asteroids toward an enormous ringed planet.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for the ship's structure, material and colour.\n@Image2 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe grey winged craft with twin engines in @Video1 corresponds to the ship; there is only one. The ringed planet and drifting rocks belong to the scene and keep the ship's small scale readable in every shot.\n\n【Camera and Event Script】\nShot 1: a locked-off wide with a 35 mm lens feel, the ringed planet filling much of the frame among asteroids. The ship enters close in the right foreground and flies away toward the planet, shrinking.\nThe shot cuts behind it to Shot 2: a chase drone with a 28 mm lens feel matched to the ship's speed just behind and above, the glowing engines large in the foreground, the planet and rings ahead, an asteroid drifting past.\nThe shot cuts ahead to Shot 3: a flyby pan with a 35 mm lens feel from a fixed point; the ship streaks past the lens side-on against dark space and the camera pans to follow it away.\nThe shot cuts behind to Shot 4: a long-lens recede with an 85 mm lens feel, the ship small and centred, falling away toward the planet that fills the background, a rock in the foreground corner.\nThere is no narration, and no subtitles or on-screen text appear.\nThe sound includes only <a low engine rumble> and <the rush as the ship passes the lens>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image2.\n\n【Maintain Consistency】\nKeep the ship's structure, colour and single count, its course toward the planet, the planet and asteroids and the sense of scale consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "the ship: structure, material and colour"
+    },
+    {
+     "ref": "@Image2",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC06-RooftopChase": {
+   "prompt": "【Generation Goal】\nGenerate a live-action six-shot rooftop chase: Kit runs from Rook, leaps the gap to the next roof and gets away, while Rook pulls up at the edge.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Its speed ramps and frozen moments are kept. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Kit's appearance and clothing.\n@Image2 is used for Rook's appearance and clothing.\n@Image3 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Kit, who is being chased, and the slate mannequin corresponds to Rook, the pursuer. They cross a flat city rooftop with vents and air-conditioning units toward a gap above a street; the next roof is a metre lower and has a water tower. Kit is always ahead, and both always run from left to right.\n\n【Camera and Event Script】\nShot 1: a chase drone with a 24 mm lens feel behind and above Rook, both runners ahead, the city around.\nThe shot cuts beside Kit to Shot 2: side-on tracking with a 40 mm lens feel and light handheld shake, Kit in a full shot, rooftop units streaming past.\nThe shot cuts to Shot 3: a snorricam on Kit's body with a 27 mm lens feel, Kit locked in frame as the roof bounces behind, Rook gaining over Kit's shoulder.\nThe shot cuts wide off the roof to Shot 4: a drone hovering beside the gap with a 24 mm lens feel pans with Kit, who leaps the gap above the street. Time slows to about a fifth of real speed through the flight, then returns as Kit lands on the lower roof into a roll and comes up running.\nThe shot cuts behind Rook to Shot 5: a Steadicam over Rook's shoulder with a 50 mm lens feel; Rook pulls up at the edge, looks down, then at Kit already away.\nThe shot cuts wide to Shot 6: a drone with a 24 mm lens feel climbs away behind Rook, alone at the edge, as Kit shrinks past the water tower.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only city ambience, wind, <running footsteps on the roof>, <a hard landing and roll> and heavy breathing. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image3.\n\n【Maintain Consistency】\nKeep both identities and clothing, Kit always ahead, the left-to-right direction, the single jump and the rooftop layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Kit: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Rook: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC07-AlleyFight": {
+   "prompt": "【Generation Goal】\nGenerate a live-action six-shot alley fight: Vic confronts Brick, they trade blows, and Vic's last punch throws Brick back into a stack of crates.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Vic's appearance and clothing.\n@Image2 is used for Brick's appearance and clothing.\n@Image3 is used for the crate stack's structure, material and colour.\n@Image4 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe ochre mannequin in @Video1 corresponds to Vic, the slate mannequin corresponds to Brick, and the stacked grey boxes behind Brick correspond to the crate stack. Brick stands with the back to the stack; Vic faces Brick from the open alley. Bins, barrels and pallets line the walls. Every camera stays on the same side of the fighters.\n\n【Camera and Event Script】\nShot 1: a locked-off wide master from a few metres up with a 24 mm lens feel, the crate stack behind Brick shown first; Brick stands, arms folded, as Vic walks in and stops an arm's length away.\nThe shot cuts in over Vic's shoulder to Shot 2: a Steadicam shot with a 50 mm lens feel; Brick's cross comes at the lens and lands in Vic's chest.\nThe shot cuts round to Vic for Shot 3: a near-still single with a 35 mm lens feel; Vic jabs Brick's head, and Brick's reply jab snaps Vic's head back.\nThe shot cuts side-on as Vic loads a cross to Shot 4: a tripod crash zoom from about 32 mm to about 100 mm in a fraction of a second, slamming in on Brick.\nThe shot cuts low on the blow to Shot 5: a low handheld wide with a 20 mm lens feel and strong shake; the cross folds Brick and throws Brick back into the stack, which topples, Brick ending on the ground among the crates.\nThe shot cuts behind the wreck to Shot 6: a crane with a 24 mm lens feel rises behind Brick and the fallen crates as Vic turns and walks away down the alley.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only alley ambience, <punches landing>, grunts of effort, <crates crashing and tumbling> and <footsteps> walking off. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image4.\n\n【Maintain Consistency】\nKeep both identities and clothing, who hits whom and in what order, the crate stack behind Brick, Brick down among the crates and the alley layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Vic: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Brick: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "the crate stack: structure, material and colour"
+    },
+    {
+     "ref": "@Image4",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC08-HeistApproach": {
+   "prompt": "【Generation Goal】\nGenerate a live-action six-shot heist approach: Nyx and Ash cross a walled courtyard unseen, Nyx spots a guard through a warehouse door and slips inside, and Ash keeps watch.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Nyx's appearance and clothing.\n@Image2 is used for Ash's appearance and clothing.\n@Image3 is used for the Guard's appearance and clothing.\n@Image4 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe sage mannequin in @Video1 corresponds to Nyx, the plum mannequin corresponds to Ash, and the rose mannequin corresponds to the Guard. Nyx and Ash are inside a courtyard behind a high wall with a closed gate; Nyx heads for the open door of a warehouse, Ash for a corner of the wall. The Guard walks inside the warehouse past shelving under a hanging lamp and never sees them.\n\n【Camera and Event Script】\nShot 1: a crane with a 28 mm lens feel opens outside the wall, rises over it and drops in on Nyx and Ash crouch-walking across the courtyard.\nThe shot cuts down beside Nyx to Shot 2: a low tracking dolly with a 40 mm lens feel and slight handheld drift, side-on at their pace, Nyx placing each foot carefully, Ash behind.\nThe shot cuts ahead to the door for Shot 3: a locked-off frame with a 32 mm lens feel; Nyx crouch-walks in and stops beside the doorway, still crouched, while far behind Ash reaches the corner and stands.\nThe shot cuts to Nyx's point of view for Shot 4: handheld at crouched eye height with a 32 mm lens feel, the door frame at the edges; inside, the Guard walks past the shelves.\nThe shot cuts to Ash for Shot 5: a locked profile medium close-up with an 85 mm lens feel; Ash holds still, then turns the head toward the gate.\nThe shot cuts high over the wall to Shot 6: a locked high wide with a 40 mm lens feel; Nyx rises and slips through the door into the dark, while Ash stays at the corner.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only quiet city ambience, <soft footsteps on concrete> and <the Guard's footsteps> inside. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image4.\n\n【Maintain Consistency】\nKeep all three identities and clothing, Nyx at the door, Ash at the corner, the Guard inside and unaware, and the courtyard and warehouse layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Nyx: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Ash: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "the Guard: appearance and clothing"
+    },
+    {
+     "ref": "@Image4",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC09-StandoffDebris": {
+   "prompt": "【Generation Goal】\nGenerate a live-action six-shot stand-off on a frontier street: Cole and Reyes hold pistols on each other, then Cole fires into the powder kegs beside Reyes and the blast slows time.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Its speed ramps and frozen moments are kept. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Cole's appearance and clothing.\n@Image2 is used for Reyes's appearance and clothing.\n@Image3 is used for the powder kegs's structure, material and colour.\n@Image4 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe sand-coloured mannequin in @Video1 corresponds to Cole, the slate mannequin corresponds to Reyes, and the group of dark barrels and crates in the street corresponds to the powder kegs. Cole and Reyes face each other down the street between false-front shops and boardwalks, each holding a pistol in both hands aimed at the other. The kegs sit between them, much nearer Reyes.\n\n【Camera and Event Script】\nShot 1: a low locked-off profile wide with a 24 mm lens feel: Cole on the left, Reyes on the right, the kegs between them.\nThe shot cuts in to Cole for Shot 2: a slow, creeping dolly push with a 75 mm lens feel from a medium shot to a close-up.\nThe shot cuts to Reyes for Shot 3: the matched push from the other side, at the same lens and pace.\nThe shot cuts to Shot 4: an extreme close-up of Cole's eyes with a flat, compressed 135 mm lens feel.\nThe shot cuts wider as Cole's arms move to Shot 5: a locked medium shot with a 50 mm lens feel; Cole swings the aim off Reyes onto the kegs and fires.\nThe shot cuts wide on the blast to Shot 6: a low dolly with a 24 mm lens feel creeping slowly sideways. The kegs explode, barrels and crates flying outward and up in billowing smoke, and the blast throws Reyes off the feet to the ground. Time slows to about a fifth of real speed for a few moments, then returns to real speed.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only dry wind, <a single gunshot>, <a deep explosion> and <debris crashing down>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image4.\n\n【Maintain Consistency】\nKeep both identities and clothing, Cole left and Reyes right, the kegs nearer Reyes, the single shot into the kegs and the street layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Cole: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "Reyes: appearance and clothing"
+    },
+    {
+     "ref": "@Image3",
+     "for": "the powder kegs: structure, material and colour"
+    },
+    {
+     "ref": "@Image4",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  },
+  "SC10-CarCrashBarrier": {
+   "prompt": "【Generation Goal】\nGenerate a live-action six-shot crash scene: a car speeds down a city street and smashes through a roadblock of crates and barrels while Lena watches from the sidewalk.\n\n【Reference Asset Roles】\n@Video1 is a coarse-blockout reference. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use it only for blocking: where each person is, which way they move, and when each action happens; do not copy the mannequins' body motion, which is a rough placeholder. Its speed ramps and frozen moments are kept. Every object in @Video1 is a simple grey stand-in: take each subject's and object's shape, material and look only from its reference image and this description, never from the blockout's shapes. Do not adopt its clay figures, grey materials, empty set or floating specks.\n@Image1 is used for Lena's appearance and clothing.\n@Image2 is used for the car's structure, material and colour.\n@Image3 is used for the barrier's structure, material and colour.\n@Image4 is used only for the scene's space, materials and lighting; do not use any people in it.\n\n【Subjects and Relationships】\nThe rose mannequin in @Video1 corresponds to Lena, the sand-coloured car corresponds to the car, and the roadblock of stacked crates, barrels and a plank on trestles across the road corresponds to the barrier. Lena stands on the sidewalk just short of the barrier, on the side the car approaches from. Every camera is on Lena's side of the road.\n\n【Camera and Event Script】\nShot 1: a locked-off wide with a 24 mm lens feel down the street: the barrier, Lena on the sidewalk and the car far off.\nThe shot cuts low beside the car to Shot 2: a low-mount tracking shot with a 20 mm lens feel just above the road, matched to the car's speed with light shake, lamp posts streaming past.\nThe shot cuts to Lena for Shot 3: a locked medium close-up with a 65 mm lens feel as Lena's head turns toward the car.\nThe shot cuts up the road to Shot 4: a locked-off wide with a 35 mm lens feel from beyond the barrier; the car smashes through it toward the lens in real time, crates and barrels bursting apart, and Lena flinches.\nThe shot cuts back in time to Shot 5: a locked replay beside the barrier with a 24 mm lens feel, the hit again at about a fifth of real speed, crates and barrels flying, dust spreading.\nThe shot cuts behind Lena to Shot 6: a locked wide with a 32 mm lens feel; the wreckage settles, the car stopped beyond it, as Lena steps back a few paces and watches.\nEvery action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.\nCharacters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.\nThe sound includes only street ambience, <the car's engine at speed>, <a violent crash of wood and metal> and <debris clattering down>. There is no music.\nThe final visuals are live-action and photographic, with natural light matching the scene reference @Image4.\n\n【Maintain Consistency】\nKeep Lena's identity and clothing, the car, the barrier's makeup, the car's single direction through it and the street layout consistent with @Video1. Keep the lighting and time of day constant from start to end.",
+   "images": [
+    {
+     "ref": "@Image1",
+     "for": "Lena: appearance and clothing"
+    },
+    {
+     "ref": "@Image2",
+     "for": "the car: structure, material and colour"
+    },
+    {
+     "ref": "@Image3",
+     "for": "the barrier: structure, material and colour"
+    },
+    {
+     "ref": "@Image4",
+     "for": "scene: space, materials and lighting"
+    }
+   ]
+  }
+ }
+}

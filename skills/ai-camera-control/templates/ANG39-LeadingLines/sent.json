@@ -1,0 +1,16 @@
+{
+ "id": "ANG39-LeadingLines",
+ "best_job": null,
+ "why_best": "never sent; no job folder at all; locked-off angle: no camera motion, so the no-static-shots rule skips it",
+ "routes": {
+  "video": {
+   "was_run": false,
+   "sends": [],
+   "note": "locked-off angle: no camera motion, so the no-static-shots rule skips it"
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "pin",
+  "how_known": "rendered for this repo with the current engine"
+ }
+}

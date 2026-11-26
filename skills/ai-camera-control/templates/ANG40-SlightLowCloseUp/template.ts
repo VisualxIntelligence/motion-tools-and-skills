@@ -1,0 +1,15 @@
+// ANG40-SlightLowCloseUp
+// Copied from engine/cinematic/src/templates/angles.ts (lines 107-108 of that file).
+// The set builders, rigs and stand-ins it calls live in engine/cinematic/src and kit/.
+// Render it: cd engine/cinematic && tools/render-pill.sh ANG40-SlightLowCloseUp
+import * as THREE from "three";
+import { aimFor } from "../framer";
+import { framed, rig } from "../kit/rigs";
+import type { Cam } from "../shots";
+import { ALEX, V, make as baseMake } from "./cameras";
+import { stageFor } from "./studios";
+import type { Piece } from "../piece";
+import { LOCATIONS, ENVIRONMENTS } from "./locations";
+
+make({ id: "ANG40-SlightLowCloseUp", name: "Slight low-angle close-up", says: "We look up at a face a little: sure of itself, or looking at something above us.", use: "Awe, hope, a hero looking at the sky, a gentle sense of power.", numbers: "70 mm, CU from 0.35 m below eye level, looking up about 10 degrees.", avoid: "Going lower: it becomes a power shot and loses the tenderness." },
+    [stand(0, 0, 0.1)], hold("70mm  SLIGHT LOW CU", "TRIPOD", "CU", (P) => rig.locked(P("ALEX"), { size: "CU", mm: 70, deg: 15, rise: -0.35 }, 3))),

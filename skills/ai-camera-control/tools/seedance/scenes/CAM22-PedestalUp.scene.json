@@ -1,0 +1,30 @@
+{
+ "template": "CAM22-PedestalUp",
+ "person": {
+  "name": "Alex",
+  "pronoun": "he",
+  "face_traits": "hair and facial hair",
+  "photo_ignore": "its background, its lighting and its clothing",
+  "wears": "a navy overcoat over a white shirt without a tie, holding a paper cup of coffee"
+ },
+ "goal": "A long sterile hospital corridor. Alex waits outside a door, holding himself together, and tells the person beside him when he is allowed to go in and see someone he loves.",
+ "place": "Pale cyan glazed brick, grey floor polished and scuffed, numbered doors, a cream fluorescent ceiling with a soft glow and a faint bloom on every tube, cold and even, the shadows staying cyan-grey. Clinical but not crisp, light diffusion, fine film grain.",
+ "performance": "He has been given one fact and keeps repeating it because saying it keeps him upright. He stands very straight outside the door with both hands around the paper cup. He says it to the person beside him without turning his head, quiet and level, like handing over something fragile, and the last word comes out thinner than the first. Then his whole body gives a little, the way a held breath is let go, and he goes on looking at the door, his jaw tight, his eyes glistening as he swallows. {LINE}",
+ "sound": "The sound is only his quiet voice, the hum of fluorescent tubes, a trolley wheel far away and his breathing.",
+ "subject_position": "standing front-on in the centre of the frame, facing the lens",
+ "camera": "Shot 1, the only shot: the camera is on a pedestal with a 50 mm lens feel, facing Alex front-on at a steady distance, in a medium close-up with Alex's head and shoulders in the middle of the frame, with a little space above his head. It starts about 0.6 metres below his eye line looking slightly up, and over the six seconds it rises smoothly and steadily to about 0.9 metres above his eye line looking slightly down, with no change in distance: Alex stays the same size in the middle of the frame while the corridor behind him slides downward past him. It never pans or zooms.",
+ "camera_numbers": [
+  "50 mm",
+  "pedestal",
+  "0.6 metres",
+  "0.9 metres"
+ ],
+ "mood": {
+  "environment": "16",
+  "panel": 0
+ },
+ "line": {
+  "text": "They told me I could go in at five.",
+  "how": "quietly, steady, afraid"
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "id": "CAM26-DutchAngle",
+ "best_job": null,
+ "why_best": "never sent; no job folder at all; locked camera (Dutch angle): parked until given real motion",
+ "routes": {
+  "video": {
+   "was_run": false,
+   "sends": [],
+   "note": "locked camera (Dutch angle): parked until given real motion"
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "pin",
+  "how_known": "copied from render-pin"
+ }
+}

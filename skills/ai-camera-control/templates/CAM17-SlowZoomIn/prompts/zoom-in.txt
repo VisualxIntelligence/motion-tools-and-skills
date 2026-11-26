@@ -1,0 +1,31 @@
+【Generation Goal】
+Generate a live-action shot in one take in a small old bedroom in the afternoon: the camera never moves and the lens zooms slowly in on Alex as he stands in front of a lace-curtained window, a man with a grief he has kept to himself, and the zoom closes in as the one thing he regrets finally comes out of him in a single quiet line.
+
+【Dialogue, exact words】
+Shot 1, from about 3.2 seconds, Alex says exactly, softly and almost to himself: "I should have called you back."
+The film contains exactly this line and no other words.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which the person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as he is, standing exactly where he stands, with a round white dot on the side he faces, at eye height. Use it for the camera: positions, movements, lens feel, framing and their timing, and for where the person stands, how tall he is in frame and which way he faces. The capsule carries no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where something stands: take every shape, material and look from @image2 and this description. Never show a capsule: the capsule becomes the person it stands for. Do not adopt its grey clay set or its stand-in shapes.
+@image2 is the reference for the real place and its mood: four photographs of the same location from different angles, laid out as a two by two contact sheet. Take the architecture, materials, surface wear, the light sources and how they fall, the colour palette, the atmosphere and the film feel from it. It is never shown as a grid, as panels or with black gutters: the final video is one continuous shot inside that place, and the place in the video is that place. The reference holds no people.
+The set in @video1 is only a layout of crude placeholders: rebuild every wall, building, vehicle, light, piece of furniture and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, fabric or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsule's red and black stripes are only a label for where the person is: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, standing at the foot of the bed in front of a window. The grey block behind him is the old bed, the flat panel behind it is a window with a lace curtain, and the tall blocks at the sides are a wardrobe and a door.
+Alex, the man from @image1, wears a faded navy cotton shirt with the sleeves rolled to the forearm and creased dark trousers, barefoot on old wooden floorboards; his phone is in his left hand held loosely against his thigh. He looks at the window with wet eyes, calm on the surface.
+
+【Camera and Event Script】
+One continuous shot with no cuts, on a locked-off tripod, 7 seconds. The camera does not move at all: only the lens zooms, from about 35 mm to about 85 mm over 6 seconds, eased at the start and end.
+It opens in a medium shot, his body from the knees up, the bed, the lace window and the old wardrobe around him in a small cluttered room. As the lens zooms the frame tightens smoothly through a medium shot to a close-up on his face, and the room compresses and softens behind him; nothing else in the frame moves except what is described.
+Alex: he stands in front of the window looking at the curtain, and for the first seconds he is completely still. At about 2.5 seconds he turns his head slowly toward the lens, eyes red and wet. From about 3.2 seconds he says the line in a soft, low, unsteady voice, lips clearly forming every word, and on the last word his eyes drop and one tear runs down. After the line he swallows, looks up again, and holds the look to the end.
+Warm cream daylight comes through the lace and throws its pattern softly across the rumpled bedspread, with specks of dust floating in the light.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks.
+Alex is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment.
+Alex says only the line listed in the dialogue block and no other words; there is no narration, no other voice, and no subtitles or on-screen text appear.
+The sound includes only Alex's soft voice, a faint clock ticking, a curtain rustling a little, a quiet street far outside and the creak of old floorboards. There is no music of any kind: no score, no song, no singing and no humming, only these natural sounds.
+The final visuals are live-action and photographic: a real old small bedroom in the afternoon: muted warm cream daylight through a lace curtain, deep chocolate-brown shadows, faded rose and yellowed ivory wallpaper, a rumpled bedspread, an old wardrobe and worn floorboards, subtle film grain. The picture is photoreal live-action cinema: shot on an ARRI Alexa 35 with vintage anamorphic prime lenses, 2.39:1, natural 35mm film grain, a soft 1/4 Black Pro-Mist diffusion on the lights, gentle halation round every bright light source, shallow depth of field with oval anamorphic bokeh, real atmospheric haze and depth, motivated practical light with soft falloff, rich but natural contrast with colour kept in the shadows, and real textured materials everywhere. It must look like a still pulled from a feature film, never like a render, a game or a video effect.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the locked camera, the zoom from about 35 mm to 85 mm over 6 seconds from a medium shot to a close-up, the bed, window and wardrobe consistent with @video1 and @image2. Keep the lighting and time of day constant from start to end.

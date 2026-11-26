@@ -1,0 +1,28 @@
+【Generation Goal】
+Generate a live-action one-take shot that circles Alex and Sam in conversation, pushes in on Sam over Alex's shoulder, and racks focus to Alex when Alex looks down.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white dot on the side they face, at eye height. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the people, use the capsules only for blocking: where each person stands, how tall they are in frame, which way they face, and when they move, crouch, jump or fall. The capsules carry no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from @image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsules' red, yellow, green, blue, magenta, orange and cyan stripes are only labels for who is who: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, and the yellow-and-black striped capsule corresponds to Sam. They stand facing each other about a metre and a half apart on a paved plaza with columns, rocks and trees behind, and stay on their marks throughout.
+Alex, the man from @image1, wears a dark navy overcoat over a grey sweater. Sam is a woman in her thirties with long auburn hair, in a camel coat over a black turtleneck.
+
+【Camera and Event Script】
+One continuous shot with no cuts, a 40 mm lens feel at a wide aperture with soft backgrounds, in three stages.
+Stage 1, orbit, 0 to about 7 seconds: the shot opens on a brief held two-shot of both in profile from the knees up, Alex on the left facing right, Sam on the right facing left, the camera just above their eye line. At about 0.9 seconds it starts a smooth arc of a little over a quarter turn round the pair, travelling round behind Alex: Alex turns until Alex's back is to the camera, Sam is briefly hidden behind Alex, then appears on the left of Alex facing the lens, the plaza wheeling behind them.
+Stage 2, push, about 7 to 11 seconds: from the end of the orbit, a dolly pushes in smoothly about two metres, ending on Sam from the waist up, sharp on the left of frame, over Alex's left shoulder, the back of Alex's head and shoulder large and soft on the right.
+Stage 3, rack focus, about 11 seconds to the end: at about 10.6 seconds Alex looks down, and from about 11 to 12.2 seconds the focus pulls from Sam's face to Alex's head in the foreground, Sam softening behind. The frame holds.
+Action: from about 0.6 to 3.4 seconds Alex makes small open-handed gestures as if explaining; from about 3.6 to 10.4 seconds Sam answers with hands raised at chest height, pressing a point. They hold each other's gaze until Alex looks down.
+Emotion: it starts earnest and even. As Sam presses, Sam's brows lift and the hands grow more insistent, the eyes searching Alex's face. Alex goes quiet, the jaw tightening, then breaks the gaze, eyes dropping and shoulders sinking slightly. The mood turns from conversation to a quiet withdrawal.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.
+Every person in the video is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment. There are no floating dots or specks hanging in the air.
+Characters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.
+The sound includes only quiet outdoor ambience. There is no music.
+The final visuals are live-action and photographic: a real Mediterranean stone plaza of worn limestone paving, weathered limestone columns, tall Scots pines and leafy plane trees, in warm low late-afternoon sun. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep both identities and clothing, their fixed marks, the single take, the orbit, push and rack in that order and timing, and the plaza background consistent with @video1. Keep the lighting and time of day constant from start to end.

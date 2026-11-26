@@ -1,0 +1,23 @@
+【Generation Goal】
+Generate a live-action one-take drone shot: from high above a winding road through low hills, the drone dives down behind a moving car, rides close behind it, then climbs away and lets it go.
+
+【Reference Asset Roles】
+@image1 is a storyboard drawing, not a picture of the scene: twelve numbered panels drawn in thin black line on white paper, read left to right and top to bottom. Panels 1 to 12 are one continuous shot, sampled evenly from its start to its end. Read from it only where the camera is, how it is angled and framed, the cuts, and where each person is in frame, how big, and which way they face. Nothing in it shows what anything looks like. The drawing shows only the ground, the people and the few structures the action uses; the scenery is left out on purpose: place trees, plants, rocks, lamps, benches and every other detail of the real place freely, as the description below says. Every drawn shape marks only where a real thing stands and roughly how big it is, never its shape or outline: drawn pillars are where stone columns stand, drawn boxes and slabs where walls, blocks, crates, cars or buildings stand, and the dotted floor is real paving or ground. Every real thing has its own natural, irregular shape: trees have ragged, asymmetric crowns, uneven branches and gaps of sky, some lean, heights vary; nothing is a neat cone, a sphere, a clipped topiary or a symmetric form, and no outline in the drawing is traced. It is a drawing: do not adopt its line-drawing style, black outlines, white paper, simplified shapes, panel borders or numbers. No cone-shaped tree, smooth sphere, plain pillar, plain box, untextured surface or striped capsule ever appears; the final video is live-action and photographic.
+
+【Subjects and Relationships】
+The slate-blue stand-in car in @image1 corresponds to the car; there is only one, driving at a steady speed along a two-lane road with dashed centre lines that curves through open hills scattered with pines, broadleaf trees and rocks, a line of poles along the right verge.
+The car is a dark grey 1990s sports coupe with black wheels.
+
+【Camera and Event Script】
+One continuous shot with no cuts, from a drone on a gimbal with a 35 mm lens feel and deep focus, in three stages.
+Stage 1, dive, 0 to about 5.6 seconds: it opens about thirty metres up and far behind the car, looking steeply down; the car is small, about a tenth of the frame width, on the road curving up the frame between trees. Already flying at the car's speed, the drone dives smoothly down and forward without any jolt, a tall pine sweeping past close on the right at about 2 seconds, the gimbal tilting up as it descends, until it rides about two metres above the road just behind the car.
+Stage 2, chase, about 5.6 to 8.6 seconds: it holds there at the car's speed, the car large and centred from behind and slightly above, the road curving away ahead, poles flicking past on the right and the lane dashes streaming under the lens.
+Stage 3, rise, about 8.6 seconds to the end: the drone climbs and falls back in one eased move, the car shrinking on the winding road as the hills and trees spread out around it, ending high and wide.
+Mood: freedom and momentum, from a calm, distant overview to the rush of speed close behind the car, then a slow, open release.
+There are no floating specks hanging in the air. There is no narration, and no subtitles or on-screen text appear.
+The sound includes only open-air wind, <the car's engine> and <tyres on asphalt>, rising as the drone closes in and fading as it climbs away. There is no music.
+The final visuals are live-action and photographic: a real winding mountain road of grey asphalt through pine forest, low late-afternoon sun and long shadows. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+Cinematography: shot like a feature film on a large-format cinema camera with real lenses: low, warm sun from behind or the side with soft backlight on hair and shoulders, long shadows, atmospheric haze separating foreground, middle ground and background, natural lens falloff and gentle flare, a restrained film grade with deep, rich shadows and soft highlights.
+
+【Maintain Consistency】
+Keep the car's structure, colour and single count, its steady direction and speed, the single take, the dive, chase and rise in that order and timing, and the road layout consistent with @image1. Keep the lighting and time of day constant from start to end.

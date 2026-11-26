@@ -1,0 +1,23 @@
+【Generation Goal】
+Generate a live-action top-down spiral: the camera comes down out of the sky around a monolith in a ring of stones and ends low at its base, looking up at it.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set with simple stand-in shapes. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @video1 is a simple grey or tinted stand-in that only marks where things stand: take each subject's and object's shape, material and look only from this description, never from the blockout's shapes. Do not adopt its clay figures, grey clay set, stand-in shapes, empty set or floating specks.
+The set in @video1 is only a layout of crude placeholders, and its trees, plants, rocks, lamps and benches are left out on purpose: place them freely, as the description says, with natural, irregular shapes. Beyond that, rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The tall plum slab in @video1 corresponds to the monolith; there is only one, standing upright at the centre of a round paved circle, a thin ring set in the paving around its base, inside a wider ring of twelve rough stones, on an open plain with scattered rocks and trees far off.
+The monolith is a tall dark granite standing stone, weathered and lichen-spotted, at the centre of a ring of smaller rough stones.
+
+【Camera and Event Script】
+Top-down spiral: one continuous shot from a technocrane with a remote head, a wide lens of about 24 mm widening slightly to about 20 mm, and deep focus.
+It opens looking straight down from high above, about sixteen metres up. The paved circle, its joint lines, the ring of twelve stones and the monolith read like a map: the monolith's top is a small sliver at the centre, its long shadow reaching toward a stone. The camera holds still here for about half a second.
+It then spirals about three-quarters of a turn around the monolith, circling counter-clockwise as seen from above, so the whole map seems to rotate clockwise in frame. At the same time it descends steadily and swings outward, and its tilt turns gradually from straight down, to oblique, to level, and finally to looking up. The rotation starts gently, is quickest in the middle and eases out near the ground, so the paving never smears.
+At about three and a half seconds the camera is oblique above the stone: the circle tilts away and the monolith's top face rises toward the lens. At about four and a half seconds the camera passes beside the slab, the top of the monolith close and looming, the stones scattered around its base. Around five seconds the horizon appears: the plain, rocks and distant trees. From six seconds the camera is very low, almost at ground level just beside the base, looking up the monolith's full height: it rises from the bottom of the frame to its top edge, just left of centre, against open sky, with stones and trees along the bottom. It settles and holds for the last half second.
+The mood moves from a detached, quiet map view to awe and quiet dread as the stone rises to meet the lens: slow and deliberate, wide open light, the slab's dark face catching only a thin edge of sun.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only wind across an open plain, deepening as the camera comes down. There is no music.
+The final visuals are live-action and photographic: a real wide moorland of short grass and heather under a low, cloudy sky with a break of late sun. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the monolith's structure, colour and single count, the ring of twelve stones, the paved circle, the direction of the spiral, the final low angle looking up and the plain layout consistent with @video1. Keep the lighting and time of day constant from start to end.

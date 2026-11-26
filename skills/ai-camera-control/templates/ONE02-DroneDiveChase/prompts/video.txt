@@ -1,0 +1,23 @@
+【Generation Goal】
+Generate a live-action one-take drone shot: from high above a winding road through low hills, the drone dives down behind a moving car, rides close behind it, then climbs away and lets it go.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which every object is a simple grey stand-in that only marks where things stand. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the car, use it only for its position, direction, speed and the road it follows. Take every shape, material and look from this description. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The slate-blue stand-in car in @video1 corresponds to the car; there is only one, driving at a steady speed along a two-lane road with dashed centre lines that curves through open hills scattered with pines, broadleaf trees and rocks, a line of poles along the right verge.
+The car is a dark grey 1990s sports coupe with black wheels.
+
+【Camera and Event Script】
+One continuous shot with no cuts, from a drone on a gimbal with a 35 mm lens feel and deep focus, in three stages.
+Stage 1, dive, 0 to about 5.6 seconds: it opens about thirty metres up and far behind the car, looking steeply down; the car is small, about a tenth of the frame width, on the road curving up the frame between trees. Already flying at the car's speed, the drone dives smoothly down and forward without any jolt, a tall pine sweeping past close on the right at about 2 seconds, the gimbal tilting up as it descends, until it rides about two metres above the road just behind the car.
+Stage 2, chase, about 5.6 to 8.6 seconds: it holds there at the car's speed, the car large and centred from behind and slightly above, the road curving away ahead, poles flicking past on the right and the lane dashes streaming under the lens.
+Stage 3, rise, about 8.6 seconds to the end: the drone climbs and falls back in one eased move, the car shrinking on the winding road as the hills and trees spread out around it, ending high and wide.
+Mood: freedom and momentum, from a calm, distant overview to the rush of speed close behind the car, then a slow, open release.
+There are no floating specks hanging in the air. There is no narration, and no subtitles or on-screen text appear.
+The sound includes only open-air wind, <the car's engine> and <tyres on asphalt>, rising as the drone closes in and fading as it climbs away. There is no music.
+The final visuals are live-action and photographic: a real winding mountain road of grey asphalt through pine forest, low late-afternoon sun and long shadows. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the car's structure, colour and single count, its steady direction and speed, the single take, the dive, chase and rise in that order and timing, and the road layout consistent with @video1. Keep the lighting and time of day constant from start to end.

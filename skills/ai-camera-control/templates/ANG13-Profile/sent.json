@@ -1,0 +1,228 @@
+{
+ "id": "ANG13-Profile",
+ "best_job": "b-ang13-m",
+ "why_best": "latest sent job with a result; the author judged the locked-off ANG drafts stiff (\"0 acting\") so none is used; kept only as the record",
+ "routes": {
+  "video": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "job": "b-ang13",
+     "group": "b-series prompt-only job (no suffix; the -m twin adds one mood panel)",
+     "variant_code": "prompt-only-unsuffixed",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/b-ang13.txt",
+      "chars": 11134,
+      "sha256": "428d72b42b3425ff5bcae91aadb24c490868424e880020a820d20f6e4d809424",
+      "provenance": "NOT the sent text: capsule.json (and clip, refs) were rebuilt after the send; the sent prompt was not kept",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 2117542,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 6.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 6,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "7a0b4f22",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 874.8,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "b-ang13.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 6.042
+      }
+     ],
+     "verdict": [
+      "overall there is 0 acting it feels so stiff!!"
+     ]
+    },
+    {
+     "n": 2,
+     "job": "b-ang13-m",
+     "group": "the same prompt as the -t twin plus ONE mood panel as @image2",
+     "variant_code": "m-mood-twin",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": true,
+     "prompt": {
+      "file": "prompts/b-ang13-m.txt",
+      "chars": 9670,
+      "sha256": "761bccd9154b2e30299f1a43499a45926ae0c9db4e274acb5cfb5fb1b802a4c0",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 2117542,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 6.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "image",
+       "tag_in_prompt": "@image2",
+       "role": "ONE panel of the environment contact sheet (panel 1); prompt says: \"@image2 is a mood reference only: one photograph that shows the colour palette, the quality of the light, the haze, glow, softness and film feel.\"",
+       "file": "env-09-panel1.png",
+       "file_info": {
+        "bytes": 449214,
+        "pixels": [
+         768,
+         512
+        ]
+       }
+      },
+      {
+       "order": 4,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 6,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "9c3cbf00",
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 874.8,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "b-ang13-m.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 6.042
+      }
+     ],
+     "verdict": [
+      "overall there is 0 acting it feels so stiff!!"
+     ]
+    }
+   ]
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "capsule",
+  "how_known": "frame comparison of the clip that was sent"
+ }
+}

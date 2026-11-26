@@ -1,0 +1,23 @@
+【Generation Goal】
+Generate a live-action macro slider shot creeping past a suitcase resting on a crate, made precious by the slow move.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set with simple stand-in shapes. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @video1 is a simple grey or tinted stand-in that only marks where things stand: take each subject's and object's shape, material and look only from this description, never from the blockout's shapes. Do not adopt its clay figures, grey clay set, stand-in shapes, empty set or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The rose-coloured case in @video1 corresponds to the suitcase; there is only one, standing upright on a wooden crate, handle up, its narrow end panel turned slightly toward the light on the left. In front of it, close to the lens, a lower crate holds a few bottles and a small box. Behind it stand a long bench and a soft rounded object on the left, and a stack of crates on the right.
+The suitcase is a battered vintage brown leather suitcase with brass clasps, scuffed corners and old travel stickers.
+
+【Camera and Event Script】
+Macro slider: one continuous shot on a short camera slider with a 100 mm lens feel at a wide aperture. The lens sits just above the top of the suitcase, looking almost level and very slightly down at it, square to its front face. The depth of field is very shallow: the suitcase's front and handle are sharp, while everything in front and behind melts into soft shapes.
+It opens on a tight insert: the suitcase fills the right half of the frame, its handle arch rising near the top edge, its top edge in the upper third, and its lower part cut off by the bottom of the frame. To the left, out of focus, the long bench and a rounded soft shape sit in the background.
+The camera creeps sideways to the right very slowly and evenly for the whole shot, aimed straight ahead, never panning, never speeding up, with no shake. Because of this, the suitcase drifts from the right half toward the left of centre, crossing about a third of the frame. From about three seconds, the blurred stack of crates slides into the right side of the frame behind the suitcase, and from about four seconds the soft pale tops of the bottles on the near crate rise into the bottom edge of the frame as out-of-focus shapes, passing slowly through it. By the end the suitcase sits left of centre, its end panel at the left edge, crates soft on the right.
+Only the camera moves. The suitcase does not move, open or turn.
+The mood is quiet, intimate and reverent, as if the object holds a secret: an unhurried pace, soft window light grazing the leather and stitching, small highlights sliding gently along the handle and the metal fittings as the angle changes.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only a quiet room tone and <the faint smooth hum of the slider>. There is no music.
+The final visuals are live-action and photographic: a real Mediterranean stone plaza of worn limestone paving, weathered limestone columns, tall Scots pines and leafy plane trees, in soft late-afternoon light. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the suitcase's structure, colour and single count, its place on the crate, the foreground bottles, the background bench and crates, the slow left-to-right slide and the shallow focus consistent with @video1. Keep the lighting and time of day constant from start to end.

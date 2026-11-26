@@ -1,0 +1,21 @@
+【Generation Goal】
+Generate a live-action shot in one take. A cramped study at 2 am. Alex has been stuck for months on one problem, and tonight, pencil in hand, he suddenly sees the answer.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which the person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as he is, standing exactly where he stands, with a round white dot on the side he faces, at eye height. Use it for the camera: positions, movements, lens feel, framing, shot size and their timing, and for where Alex stands, how large he is in the frame and which way he faces. The capsule carries no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description. Never show a capsule: the capsule becomes Alex. Do not adopt its grey clay set or its stand-in shapes.
+The set in @video1 is only a layout of crude placeholders: rebuild every wall, window, piece of furniture, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, tile or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsule's red and black stripes are only a label for where Alex is: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; ignore its white background, its lighting and the black hoodie and microphone.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, sitting at his desk in the middle of the frame, facing the lens at a slight angle with his eyes on the desk. He wears a crumpled grey shirt with the sleeves rolled up. The place: A cramped old study: bottle-green walls and shadows, amber desk lamps, tobacco-brown wood, stacks of books and loose papers, pencils, notes pinned across the wall covered in illegible scribbles. Warm lamp pools against deep green, soft bloom on the lampshades, fine film grain.
+
+【Camera and Event Script】
+Shot 1, the only shot: the camera is fixed in place on a tripod; only the lens zooms out smoothly, with no dolly or push-back, from a 100 mm to a 35 mm feel over the seven seconds, eased at both ends. It opens on a close-up with Alex's face filling the middle of the frame, then widens to a medium shot with him from the head to the waist at his desk in the middle of the frame, the walls of the study with their pinned papers now fully visible around him.
+Alex's performance: He has been staring at the same page for hours, his eyes heavy and his jaw tight. He lifts the pencil, hesitates, and then freezes mid-line as the answer lands: his eyes widen, his breath catches and his lips part. Then he lowers his eyes and writes fast, a short disbelieving laugh escaping him, and shakes his head, grinning, as his shoulders drop and relax. He says nothing.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks. Alex is a real human being with natural skin, hair and clothing; no mannequin, clay figure, capsule or doll appears anywhere, at any moment.
+The sound is only a pencil scratching on paper, the tick of a desk clock, the hum of an old lamp, his breathing and one short laugh. There are no words. There is no music of any kind.
+The final visuals are live-action and photographic: photoreal cinema shot on an ARRI Alexa 35 with anamorphic lenses, natural film grain, soft diffusion and halation on the lights, shallow depth of field, motivated light and real atmospheric haze.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the place and its light, the camera move, the shot size and Alex's size and position in the frame consistent with @video1. Keep the lighting and time of day constant from start to end.

@@ -1,0 +1,25 @@
+【Generation Goal】
+Generate a live-action shot in one take. A cramped old shower room flooded with teal light. Alex stands alone under the water and says aloud what he has been practising for days.
+
+【Dialogue, exact words】
+Alex says exactly, low and rough: "I keep rehearsing what I'll say to him, and none of it sounds like me." The film contains exactly this line and no other words.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which the person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as he is, standing exactly where he stands, with a round white dot on the side he faces, at eye height. Use it for the camera: positions, movements, lens feel, framing, shot size and their timing, and for where Alex stands, how large he is in the frame and which way he faces. The capsule carries no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description. Never show a capsule: the capsule becomes Alex. Do not adopt its grey clay set or its stand-in shapes.
+The set in @video1 is only a layout of crude placeholders: rebuild every wall, window, piece of furniture, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, tile or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsule's red and black stripes are only a label for where Alex is: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; ignore its white background, its lighting and the black hoodie and microphone.
+@audio1 is Alex's own voice, a real recording: he speaks the line in that voice, with its timbre, pace and accent.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, standing front-on in the middle of the frame, facing the lens. He wears bare shoulders and wet dark hair, water running down his face. The place: Small worn square tiles with dark grout, wet and glossy, a basin with a dripping tap, deep cyan-teal light with navy-black corners and a tiny amber glint at the drain, thin steam near the water, soft bloom on the wet highlights. Claustrophobic and raw, fine film grain.
+
+【Camera and Event Script】
+Shot 1, the only shot: the camera is on a slow dolly with an 85 mm lens feel and shallow focus, level with Alex's eyes, facing him front-on. It opens on a medium close-up with his head and shoulders in the middle of the frame and his eyes on the upper third, then pushes straight toward him very slowly over the six seconds, easing in and out, until it arrives on a close-up with his face and neck filling the frame. The tiled wall behind him melts further into soft teal as the camera nears. It never pans, tilts or arcs; only the distance closes.
+Alex's performance: He has been rehearsing a speech for days and now, tired and alone, the truth comes out: none of it sounds like him. His shoulders rise and fall with each breath and his lips move silently around a rehearsed phrase before he gives up on it. He speaks low and rough, his lips unsteady, his head turning slightly away from his own words, and his voice breaks on "me". Then he stays under the water as it runs down his face, his eyes lowering and slowly lifting, raw and resigned. He says exactly: "I keep rehearsing what I'll say to him, and none of it sounds like me."
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks. Alex is a real human being with natural skin, hair and clothing; no mannequin, clay figure, capsule or doll appears anywhere, at any moment.
+The sound is only his low voice, a tap dripping, water in far-off pipes, his breathing and a small echo off the tiles. There is no music of any kind.
+The final visuals are live-action and photographic: photoreal cinema shot on an ARRI Alexa 35 with anamorphic lenses, natural film grain, soft diffusion and halation on the lights, shallow depth of field, motivated light and real atmospheric haze.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the place and its light, the camera move, the shot size and Alex's size and position in the frame consistent with @video1. Keep the lighting and time of day constant from start to end.

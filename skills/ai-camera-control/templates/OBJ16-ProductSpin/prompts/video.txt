@@ -1,0 +1,24 @@
+【Generation Goal】
+Generate a live-action product spin: a car on a studio turntable arrives spinning fast and brakes to a stop on its best angle.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set with simple stand-in shapes. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. For the subjects, use it only for their positions and the timing of what happens. Every object in @video1 is a simple grey or tinted stand-in that only marks where things stand: take each subject's and object's shape, material and look only from this description, never from the blockout's shapes. Do not adopt its clay figures, grey clay set, stand-in shapes, empty set or floating specks.
+The set in @video1 is only a layout of crude placeholders, and its trees, plants, rocks, lamps and benches are left out on purpose: place them freely, as the description says, with natural, irregular shapes. Beyond that, rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The slate-blue car in @video1 corresponds to the car; there is only one, parked at the centre of a large, low round turntable in an open studio with a seamless pale backdrop.
+The car is a sleek dark metallic-green modern grand tourer with slim headlights and polished alloy wheels.
+
+【Camera and Event Script】
+Product spin: one continuous shot from a low dolly with a 40 mm lens feel. The lens sits just below the car's roofline, about a metre above the floor, looking level at the car. The whole car and the full width of the turntable are in frame, the car centred, the turntable's rim a wide ellipse across the lower third, plenty of pale backdrop above.
+It opens with the turntable already spinning fast, turning counter-clockwise as seen from above: the side, the rear, the other side and the front of the car pass the lens in quick succession, wheels and edges blurred, reflections streaking along the bodywork.
+From about one and a half seconds the turntable brakes smoothly and progressively, each pass slower than the last. By about three seconds it is barely turning, and at about four and a half to five seconds the car comes to a dead stop on the three-quarter front view: the nose and headlamps toward the left of the frame, angled toward the lens, the full flank running back to the right, the front wheel nearest the camera. It then stays perfectly still to the end.
+Through the braking, the camera creeps slowly forward and slightly lower, easing to a stop at about five seconds, so the car grows a little in frame; the final three-quarter front frame holds steady for the last two seconds.
+The car does not drive and its wheels do not steer; only the turntable turns it.
+The mood moves from energy and speed to calm, confident stillness: a soft key light from the upper left, broad soft highlights sliding over the paint while it spins, then resting in one clean line along the flank when it stops.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only <the turntable motor's hum> winding down to silence and quiet studio room tone. There is no music.
+The final visuals are live-action and photographic: a real dark photo studio with a matte black turntable, a seamless dark backdrop and large soft key lights overhead. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the car's structure, colour and single count, the turntable and its direction of turn, the timing of the brake, the stop on the three-quarter front and the studio consistent with @video1. Keep the lighting and time of day constant from start to end.

@@ -1,0 +1,86 @@
+{
+ "id": "FAM03-TrunkShot",
+ "routes": {
+  "video": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "group": "video (recovered from the job folder t-trunk)",
+     "send_confirmed": true,
+     "send_confirmed_note": "a receipt file exists in the job folder",
+     "prompt": {
+      "file": "prompts/video-recovered-capsule.txt",
+      "chars": 7662,
+      "sha256": "08d584bd5ac9aa3dbe3296c10c084732c3432458ae7b6854e14e30d256162f57",
+      "provenance": "recovered from t-trunk/capsule.json",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "pill clip (the 3D blockout)",
+       "file": "capsule-clip.mp4",
+       "order": 1
+      },
+      {
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "person photo (face reference)",
+       "file": "your-photo.jpg",
+       "order": 2
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 10,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": null,
+      "queued_at": "2026-11-06",
+      "stage": "draft (480p preview)",
+      "http_status": null,
+      "receipt_note": "no request id was kept for this send"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 1458,
+       "was_draft": true,
+       "file": "capsule.mp4"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "other_attempts": null,
+ "provenance_legend": {
+  "logged": "read from a file written when the send happened (payload, receipt, result)",
+  "reconstructed": "worked out afterwards from other files",
+  "not found": "no file survives"
+ },
+ "stand_in": {
+  "in_pill_clip": "capsule",
+  "how_known": "the first gallery clips (the single striped capsule)"
+ }
+}

@@ -1,0 +1,456 @@
+{
+ "id": "STORY02-DiveToShutter",
+ "best_job": "story02-p",
+ "why_best": "v7 of the text-only plaza take is the one the author extended and asked to have in 4K (matched by request id); the folder itself holds v8",
+ "routes": {
+  "video": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "job": "story02-p",
+     "group": "text-only 30 s take: face photo + the author voice + prompt, NO @video1 (here \"p\" = prompt only; the folder was rebuilt after every send, so it holds the last version, v8)",
+     "variant_code": "p-prompt-only-30s",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": true,
+     "prompt": {
+      "file": "prompts/story02-p.txt",
+      "chars": 11563,
+      "sha256": "c1b0b0c4cf021af9e61bfb3e8131ac1105af149366374341f2425be90887cbcf",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 2,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 30,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "513bd57a",
+      "queued_at": "2026-11-07",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3666,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-p.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3666,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-p.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3666,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-p.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3666,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-p.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3666,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-p.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3666,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-p.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3666,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-p.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3666,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-p.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 20262,
+       "was_draft": null,
+       "stage": "draft upgraded to final (asked 4k, got ~1080p size)",
+       "file": "story02-p-final.mp4",
+       "size": [
+        2206,
+        946
+       ],
+       "duration_s": 30.042
+      }
+     ],
+     "verdict": [
+      "these are ,y faves, but now how does it continue the story? (the two 30 s takes with the key fixed)",
+      "v7 is the plaza take he chose to extend and to have in 4K (he asked for it by its request id; \"look at the clip you are extending it was great\")"
+     ]
+    },
+    {
+     "n": 2,
+     "job": "story02-p-4k",
+     "group": "same text-only prompt as story02-p (v7 wording) sent as a fresh 4K generation, no video input",
+     "variant_code": "p-4k-fresh",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/story02-p-4k.txt",
+      "chars": 11563,
+      "sha256": "c1b0b0c4cf021af9e61bfb3e8131ac1105af149366374341f2425be90887cbcf",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 2,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 30,
+       "resolution": "4k",
+       "is_draft": false,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4",
+       "is_draft_note": "field absent in capsule.json (4K fresh generation); receipt says is_draft=False"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format",
+       "is_draft_note": "is_draft_note"
+      },
+      "seed": "not supported"
+     },
+     "receipt": {
+      "request_hash": "026f9b70",
+      "queued_at": "2026-11-07",
+      "stage": "plain"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 32559,
+       "was_draft": null,
+       "stage": "fresh 4K generation (not a draft upgrade)",
+       "file": "story02-p-4k.mp4",
+       "size": [
+        4398,
+        1886
+       ],
+       "duration_s": 30.042
+      }
+     ],
+     "verdict": [
+      "THATS NOT WHAT I ASKED FOR / YOU CHOSE THE WRONG VIDEO (4K generated from the wrong inputs; two unwanted 4K takes, 66,209 credits)"
+     ]
+    },
+    {
+     "n": 3,
+     "job": "story02-t",
+     "group": "30 s take with the pill blockout film as @video1 (here \"t\" = template clip, the opposite of -t in the CAM series; folder holds the last version, v8)",
+     "variant_code": "t-blockout-30s",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/story02-t.txt",
+      "chars": 12870,
+      "sha256": "4d8863bcee0d6b5d2d94b1ee99000b8ff96483df01cca619ca3a8ec0c5d4d5d0",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "coarse blockout clip (grey clay set, striped capsule/pin stand-in); carries camera, framing, size and timing; no sound",
+       "file": "capsule-clip.mp4",
+       "file_info": {
+        "bytes": 7633489,
+        "width": 1280,
+        "height": 534,
+        "duration_s": 29.333,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "multi_reference",
+       "duration": 30,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "21:9",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "15390b89",
+      "queued_at": "2026-11-07",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4301.1,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4301.1,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4301.1,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4301.1,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4301.1,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4301.1,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 4301.1,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story02-t.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.042
+      }
+     ],
+     "verdict": [
+      "these are ,y faves, but now how does it continue the story? (the two 30 s takes with the key fixed)",
+      "blockout take followed the seven shots in order; text-only take was more dramatic but less controlled"
+     ]
+    }
+   ]
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "capsule",
+  "how_known": "the first gallery clips (the single striped capsule)"
+ }
+}

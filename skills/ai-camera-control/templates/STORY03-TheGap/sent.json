@@ -1,0 +1,287 @@
+{
+ "id": "STORY03-TheGap",
+ "best_job": "story03-ext",
+ "why_best": "v1 of the extension (shutter lifts, mother, ten lines) was the one the author loved to second 15; v2-v6 never reproduced it; the folder itself holds v6",
+ "routes": {
+  "video": {
+   "was_run": true,
+   "sends": [
+    {
+     "n": 1,
+     "job": "story03-ext",
+     "group": "extend mode: continues the last 12 s of the chosen plaza take; folder holds the last version (v6); v1 is the one the author loved",
+     "variant_code": "ext-extend-30s",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": true,
+     "prompt": {
+      "file": "prompts/story03-ext.txt",
+      "chars": 12030,
+      "sha256": "950859c4285865c95ae191f35ef0b32fd22273a1c700af9b0645df9202cd0d1d",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "continuation source: the last 12 s of the chosen plaza take, sound removed",
+       "file": "source-tail.mp4",
+       "file_info": {
+        "bytes": 1990346,
+        "width": 992,
+        "height": 432,
+        "duration_s": 12.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "extend",
+       "duration": 30,
+       "resolution": "1080p",
+       "is_draft": true,
+       "aspect_ratio": "adaptive",
+       "pass_faces": true,
+       "output_format": "mp4"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format"
+      },
+      "seed": "not supported",
+      "draft_note": "recorded with the earlier hosted API's names: resolution 1080p with is_draft rendered a 480p preview. On Tein: draft true, resolution 480p."
+     },
+     "receipt": {
+      "request_hash": "58372478",
+      "queued_at": "2026-11-07",
+      "stage": "draft (480p preview)"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3645,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story03-ext.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.0
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3645,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story03-ext.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.0
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3645,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story03-ext.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.0
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3645,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story03-ext.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.0
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3645,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story03-ext.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.0
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 3645,
+       "was_draft": true,
+       "stage": "draft (480p-class preview)",
+       "file": "story03-ext.mp4",
+       "size": [
+        992,
+        432
+       ],
+       "duration_s": 30.0
+      },
+      {
+       "status": "COMPLETED",
+       "cost_credits": 20305,
+       "was_draft": null,
+       "stage": "draft upgraded to final",
+       "file": "story03-ext-final.mp4",
+       "size": [
+        2188,
+        952
+       ],
+       "duration_s": 30.0
+      }
+     ],
+     "verdict": [
+      "up until sec 15 it is erfect (first extension, v1: shutter lifts, mother, ten lines)"
+     ]
+    },
+    {
+     "n": 2,
+     "job": "story03-ext-4k",
+     "group": "extend job sent at 4K (fresh generation, not a draft upgrade)",
+     "variant_code": "ext-4k-fresh",
+     "send_confirmed": true,
+     "is_the_take_in_the_gallery": false,
+     "prompt": {
+      "file": "prompts/story03-ext-4k.txt",
+      "chars": 10264,
+      "sha256": "107516ded830b080671f849dc87cfc717a0ed124fa68d165bd58d8a6586e9485",
+      "provenance": "capsule.json as sent (written at send time, media already swapped for upload links)",
+      "hash_note": "sha256 of the prompt file as shipped"
+     },
+     "references_in_send_order": [
+      {
+       "order": 1,
+       "kind": "video",
+       "tag_in_prompt": "@video1",
+       "role": "continuation source: the last 12 s of the chosen plaza take, sound removed",
+       "file": "source-tail.mp4",
+       "file_info": {
+        "bytes": 4471496,
+        "width": 2200,
+        "height": 944,
+        "duration_s": 12.0,
+        "has_audio": false
+       }
+      },
+      {
+       "order": 2,
+       "kind": "image",
+       "tag_in_prompt": "@image1",
+       "role": "Alex's face photo: identity only (features, hair, beard)",
+       "file": "your-photo.jpg",
+       "file_info": {
+        "bytes": 374425,
+        "pixels": [
+         2000,
+         1509
+        ]
+       }
+      },
+      {
+       "order": 3,
+       "kind": "audio",
+       "tag_in_prompt": "@audio1",
+       "role": "the author's voice recording (not included): timbre, pace and accent for Alex's spoken line",
+       "file": "your-voice-clip.wav",
+       "file_info": {
+        "bytes": 1278096
+       }
+      }
+     ],
+     "parameters": {
+      "sent_as": {
+       "mode": "extend",
+       "duration": 30,
+       "resolution": "4k",
+       "is_draft": false,
+       "aspect_ratio": "adaptive",
+       "pass_faces": true,
+       "output_format": "mp4",
+       "is_draft_note": "field absent in capsule.json (4K fresh generation); receipt says is_draft=False"
+      },
+      "tein_names": {
+       "mode": "omni_reference_task_type",
+       "duration": "duration",
+       "resolution": "resolution",
+       "is_draft": "draft",
+       "aspect_ratio": "ratio",
+       "pass_faces": "pass_faces",
+       "output_format": "output_format",
+       "is_draft_note": "is_draft_note"
+      },
+      "seed": "not supported"
+     },
+     "receipt": {
+      "request_hash": "8b5bf104",
+      "queued_at": "2026-11-07",
+      "stage": "plain"
+     },
+     "output": [
+      {
+       "status": "COMPLETED",
+       "cost_credits": 33650,
+       "was_draft": null,
+       "stage": "fresh 4K generation (not a draft upgrade)",
+       "file": "story03-ext-4k.mp4",
+       "size": [
+        4396,
+        1886
+       ],
+       "duration_s": 30.0
+      }
+     ],
+     "verdict": [
+      "THATS NOT WHAT I ASKED FOR / YOU CHOSE THE WRONG VIDEO (4K generated from the wrong inputs; two unwanted 4K takes, 66,209 credits)"
+     ]
+    }
+   ]
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "pin",
+  "how_known": "copied from render-pin"
+ }
+}

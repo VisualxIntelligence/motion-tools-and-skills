@@ -1,0 +1,16 @@
+{
+ "id": "CAM41-DroneOrbitHigh",
+ "best_job": null,
+ "why_best": "never sent; no job folder at all; pin too small for acting",
+ "routes": {
+  "video": {
+   "was_run": false,
+   "sends": [],
+   "note": "pin too small for acting"
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "pin",
+  "how_known": "copied from render-pin"
+ }
+}

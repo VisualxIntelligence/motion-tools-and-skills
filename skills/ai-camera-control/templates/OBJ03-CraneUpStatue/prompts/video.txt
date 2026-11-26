@@ -1,0 +1,24 @@
+【Generation Goal】
+Generate a live-action crane-up on a stone statue in an empty plaza: the camera starts low at its plinth, where the statue towers over the lens, and rises high above it until the statue stands small and alone in the middle of the square it watches over.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set with no people in it. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. Every object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description, never from the blockout's shapes. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The stone-grey figure on a square plinth in @video1 corresponds to the statue; there is only one. It faces the camera, one arm raised and reaching out toward the right of frame. Around it a loose ring of stone columns, tall pine trees, round-crowned trees, low benches and scattered rocks stands on a plaza paved with large square stones. A bench sits behind the statue to the left.
+The statue is a weathered bronze figure of a robed woman with a green patina, on a tall rough stone plinth.
+
+【Camera and Event Script】
+One continuous shot with no cuts. The camera is on a technocrane with a 28 mm wide-lens feel and deep focus, so the statue and every column behind it stay sharp.
+Opening: the lens is low, about a metre above the paving and a few metres in front of the plinth, level and tilted very slightly up. The statue stands in the centre of the frame, the top of its plinth across the lower part of the frame, its body and raised arm rising against the pines and columns behind. The horizon sits low, near the plinth top, so the statue reads heavy and tall. For the first second and a half the camera barely moves, a slow upward drift just beginning.
+The rise: the crane arm then lifts and accelerates. The camera climbs straight up and drifts slightly back, tilting down as it climbs to keep the statue near the centre. Between about two and four seconds the statue sinks down the frame and shrinks, the treetops and column capitals slide out of the top of the frame, and the paving grid opens out below, its lines converging toward the plinth.
+Arrival: by about four and a half seconds the camera is some six metres up, looking down at a steep angle, and it eases into a gentle settle that ends in a still hold to the last frame. The final frame is a high wide: the statue small and centred on its plinth, its shadow stretching to the lower right across the pale paving, the bases of the columns lining the top edge, a bench at the upper left.
+Mood: calm and reverent. The slow start gives the statue weight and authority; the rise turns it from imposing to solitary, one figure keeping watch over an empty square. The light is soft, even daylight with clean, defined shadows, and the pace is unhurried from start to end.
+Only the camera moves. Nothing in the scene moves except a faint breeze in the pine branches.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only open outdoor ambience and a light breeze. There is no music.
+The final visuals are live-action and photographic: a real Mediterranean stone plaza of worn limestone paving, weathered limestone columns, tall Scots pines and leafy plane trees, in soft early-morning light with a little mist. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the statue's structure, pose, colour and single count, its plinth, the ring of columns, trees and benches, and the plaza layout consistent with @video1. Keep the statue centred through the rise, and keep the lighting and time of day constant from start to end.

@@ -1,0 +1,25 @@
+【Generation Goal】
+Generate a live-action shot in one take. An empty city street at night under sodium streetlights. Alex runs down the pavement and calls back to someone he is leading to safety, out of breath but sure of the way.
+
+【Dialogue, exact words】
+Alex says exactly, breathless, urgent, encouraging: "Keep going, it's just around the next corner." The film contains exactly this line and no other words.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which the person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as he is, standing exactly where he stands, with a round white dot on the side he faces, at eye height. Use it for the camera: positions, movements, lens feel, framing, shot size and their timing, and for where Alex stands, how large he is in the frame and which way he faces. The capsule carries no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description. Never show a capsule: the capsule becomes Alex. Do not adopt its grey clay set or its stand-in shapes.
+The set in @video1 is only a layout of crude placeholders: rebuild every wall, window, piece of furniture, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Plain blocks become real stone, brick, wood, tile or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+The capsule's red and black stripes are only a label for where Alex is: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment, even far in the background or through a doorway.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; ignore its white background, its lighting and the black hoodie and microphone.
+@audio1 is Alex's own voice, a real recording: he speaks the line in that voice, with its timbre, pace and accent.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, running away from the lens down the middle of the street, centre-left of the frame. He wears a dark olive waxed jacket with the hood up, dark jeans and worn boots, a small bag clamped to his chest. The place: Mustard-amber sodium lamps, each a soft pool with a hazy halo and a faint cyan-green fringe, wet black asphalt with long lamp reflections, shuttered shopfronts, a thin mist catching the light, olive shadows. Soft and analog, light diffusion, fine film grain.
+
+【Camera and Event Script】
+Shot 1, the only shot: the camera is hand-held with a 28 mm lens feel and a strong shake, following Alex from behind at about three metres while he jogs at about 2.4 metres a second down the middle of the street. It frames him from behind in a medium wide shot, head to mid-thigh, centre-left, with the wet street and the lamps ahead of him bouncing and swaying with every stride. Alex is only partly in the frame at the very start and settles into it within about two seconds, and the shake never lets him sit still in the frame.
+Alex's performance: Someone behind him is slower and frightened, and because he cannot let them see his own fear, it comes out as encouragement. He runs hard with the bag clamped to his chest and the hood up, breath ragged, and twists his shoulders back toward them as he calls out between gulps of air, his voice cracking on the last word. Then he turns forward again and drives on, a short breath of relief leaving him as the way opens up. He says exactly: "Keep going, it's just around the next corner."
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, and loose, believable arms and shoulders. The written description of the action decides how it looks. Alex is a real human being with natural skin, hair and clothing; no mannequin, clay figure, capsule or doll appears anywhere, at any moment.
+The sound is only his breathless voice, his boots on wet pavement, a bag strap creaking, a faint buzz from the streetlights and a distant siren. There is no music of any kind.
+The final visuals are live-action and photographic: photoreal cinema shot on an ARRI Alexa 35 with anamorphic lenses, natural film grain, soft diffusion and halation on the lights, shallow depth of field, motivated light and real atmospheric haze.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the place and its light, the camera move, the shot size and Alex's size and position in the frame consistent with @video1. Keep the lighting and time of day constant from start to end.

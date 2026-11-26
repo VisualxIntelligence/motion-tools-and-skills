@@ -1,0 +1,24 @@
+【Generation Goal】
+Generate a live-action sideways truck along a plaza past crates and barrels close to the lens, with a tall monolith standing far beyond them: a layered parallax shot in which every distance travels at its own speed.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set with no people in it. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. Every object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from this description, never from the blockout's shapes. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+The set in @video1 is only a layout of crude placeholders: rebuild every tree, wall, building, column, vehicle and prop as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt. Cone-shaped trees become real trees with bark, branches and needles or leaves; ball-shaped trees become real broadleaf trees; plain blocks become real stone, brick, wood or metal. No cone, sphere, plain box or untextured surface appears in the final video.
+
+【Subjects and Relationships】
+The tall plum-coloured slab in @video1 corresponds to the monolith, standing upright more than ten metres from the lens. The two sand-coloured boxes close to the lens correspond to two crates, and the two grey cylinders to two barrels, all one to three metres from the lens and set in a loose row along the camera's path in this order from left to right: crate, barrel, crate, barrel. Stone columns, pine trees, round-crowned trees, a bench and low rocks stand between the row and the monolith and beyond it.
+The monolith is a tall slab of dark polished granite. The crates are old weathered wooden shipping crates; the barrels are rusted steel drums.
+
+【Camera and Event Script】
+One continuous shot with no cuts. The camera is on a dolly track at chest height, about 1.3 metres off the ground, with a 35 mm lens feel and deep focus. It is aimed straight ahead across the plaza, level with a very slight downward tilt, and it never pans: the aim stays parallel for the whole move.
+Opening: a crate fills the lower right corner of the frame, cut off by the bottom and right edges, so close that its lid edge and the band around its base fill a third of the frame width. Beyond it the plaza recedes in layers: columns on both sides, a bench at the far left, pines behind, and the plum monolith standing right of centre, about a quarter of the frame tall.
+Truck right: the camera eases into a sideways slide to the right, picks up a steady pace within the first second and a half, and holds it. The near objects sweep through the bottom of the frame from right to left, fast and slightly motion-blurred: the first crate slides out past the left edge at about two and a half seconds, a barrel crosses next, then the second crate enters from the right at about four seconds and leaves past the left edge, then the last barrel. The columns in the middle distance drift more slowly; the monolith travels slowest of all, gliding steadily from right of centre to the left side of the frame.
+Arrival: from about five seconds the slide eases off and comes to rest. The final frame holds with the last barrel in the lower foreground just right of centre, its base cut by the bottom edge, and the monolith standing at the far left, framed between columns, with pines and round trees behind.
+Mood: calm, curious travel through a deep, quiet space. The layered speeds carry the feeling of depth; the light is soft daylight with clear shadows on the paving, and the pace is smooth and even.
+Only the camera moves.
+There is no narration, and no subtitles or on-screen text appear.
+The sound includes only quiet outdoor ambience. There is no music.
+The final visuals are live-action and photographic: a real Mediterranean stone plaza of worn limestone paving, weathered limestone columns, tall Scots pines and leafy plane trees, in grey overcast light. The image is photorealistic and cinematic: a large-format digital cinema camera, natural film grain, shallow depth of field where the lens allows, real atmospheric haze and depth, motivated light with soft falloff and rich but natural contrast, and real textured materials everywhere.
+
+【Maintain Consistency】
+Keep the monolith's structure and colour, the count and order of the crates and barrels, their distances from the lens, the parallel aim and the plaza layout consistent with @video1. Keep the lighting and time of day constant from start to end.

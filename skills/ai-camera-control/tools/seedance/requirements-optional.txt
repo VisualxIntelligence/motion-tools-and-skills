@@ -1,0 +1,4 @@
+# qa_framing.py and qa_mouth.py (face detection and face landmarks). Tested on Python 3.10.12 with numpy 1.26.4.
+mediapipe==0.10.21
+# qa_speech.py (transcription). Tested on Python 3.14.6 with torch 2.10.0, model "small" on the CPU. Not tested on 3.10.
+openai-whisper==20250625

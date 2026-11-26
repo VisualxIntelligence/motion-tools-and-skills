@@ -1,0 +1,27 @@
+【Generation Goal】
+Generate a live-action bullet-time orbit: Alex leaps off a stone block, time freezes at the top of the leap while the camera circles Alex, then time resumes for the landing.
+
+【Reference Asset Roles】
+@video1 is a coarse-blockout reference: a grey clay set in which each person is replaced by a tall rounded capsule with loud diagonal stripes, as tall as they are, standing exactly where they stand, with a round white dot on the side they face, at eye height. Use it for the camera: positions, movements, lens feel, framing, cuts and their timing. Its speed ramps and its frozen moment are kept. For the people, use the capsules only for blocking: where each person stands, how tall they are in frame, which way they face, and when they move, crouch, jump or fall. The capsules carry no body or pose, so every pose, gesture and expression comes from this description. Every other object in it is a simple grey stand-in that only marks where things stand: take every shape, material and look from @image1 and this description. Never show a capsule: every capsule becomes the person it stands for. Do not adopt its grey clay set, its stand-in shapes or floating specks.
+@image1 is used only for Alex's facial features, short dark curly hair and beard; do not use the image's white background, the black hoodie or the microphone.
+
+【Subjects and Relationships】
+The red-and-black striped capsule in @video1 corresponds to Alex, the man from @image1 and the only person. The grey block in @video1 is a waist-high stone block in a plaza of columns, pines and round-crowned trees; Alex starts standing on top of the block and lands on the paving in front of it.
+Alex, the man from @image1, wears a black hoodie, grey joggers and white trainers.
+
+【Camera and Event Script】
+One continuous shot with a 28 mm wide-lens feel, Alex centred in a full shot throughout.
+It opens on Alex standing on the block, the camera at the height of its top edge, looking slightly up. Alex faces screen left, seen from Alex's front-left, close to profile. Alex is focused and calm, eyes fixed on the landing spot.
+At about half a second Alex crouches, arms swinging back. At about one and a quarter seconds Alex swings the arms forward and leaps forward and up. The camera rises with the jump to look level at Alex in the air.
+Bullet time: at the top of the leap, around one and a half seconds, time slows to a near stop within a split second. Alex hangs in mid-air, knees drawn up, arms spread wide, frozen, jaw set, eyes locked on the ground ahead.
+While time stays frozen, the camera travels a half circle around Alex at the same height, over about four seconds, easing in and out. It starts on Alex's front-left with Alex near profile facing screen left, swings round in front of Alex so that at about three and a half seconds Alex faces straight into the lens, continues past Alex's right side, and arrives just behind Alex's right shoulder, so Alex is seen from the back three-quarter, facing away toward screen right. Alex stays centred and the same size, while the columns and trees behind sweep across the frame from left to right. It is one continuous camera move with no cut.
+At about five and a half seconds time eases back to real speed: Alex drops and lands on both feet, knees bending deep to absorb the weight, while the camera lowers to waist height. Alex straightens and stands tall, shoulders dropping as a held breath goes out. The camera settles behind Alex's right shoulder and holds.
+The mood is hushed and suspended, in clear, even daylight.
+Every action is performed with natural, realistic human motion: real weight and balance, momentum carried through each movement, feet gripping the ground, and loose, believable arms and shoulders. The written description of the action decides how it looks.
+Every person in the video is a real human being with natural skin, hair and clothing. No mannequin, clay figure, capsule, faceless figure or doll appears anywhere, at any moment. There are no floating dots or specks hanging in the air.
+Characters keep their mouths naturally closed; there is no narration, and no subtitles or on-screen text appear.
+The sound includes only outdoor ambience, <the push-off>, a muffled hush while time is frozen and <feet landing on stone paving>. There is no music.
+The final visuals are live-action and photographic: a pale stone plaza with columns and pines in crisp late-morning sun.
+
+【Maintain Consistency】
+Keep Alex's identity and clothing, the single leap to the ground, the frozen pose during the orbit, the orbit from Alex's front-left, past the front, to behind Alex's right shoulder, and the plaza layout consistent with @video1. Keep the lighting and time of day constant from start to end.

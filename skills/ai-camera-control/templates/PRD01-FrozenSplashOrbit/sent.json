@@ -1,0 +1,13 @@
+{
+ "id": "PRD01-FrozenSplashOrbit",
+ "routes": {
+  "video": {
+   "was_run": false,
+   "note": "never sent: the first render was rejected because the splash half hid the pill; the shot was not taken further. Render it with tools/render-pill.sh and judge it yourself."
+  }
+ },
+ "stand_in": {
+  "in_pill_clip": "capsule",
+  "how_known": "rendered for this repo with --standin capsule"
+ }
+}

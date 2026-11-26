@@ -1,0 +1,17 @@
+【Goal】
+A vast abandoned plaza under a burnt-orange dust storm. Alex stands alone among the ruins, a man who has walked a long way to this place.
+
+【References】
+@video1 is the shot. The camera and every movement of it, the framing, how large Alex is in the frame and where he stands, and the timing all come exactly from @video1 and never from this text. In it the grey set and the striped capsule are only placeholders. The capsule is Alex. Every grey stand-in only marks where something stands: rebuild each as a real, fully detailed object of the same size in the same place, with real materials, textures, wear and dirt; no cone, sphere, plain box or untextured surface appears in the final video, and the grey clay set is not adopted. The capsule's red and black stripes are only a label: no clothing, skin, prop or surface takes those colours or stripes, and no striped capsule appears at any moment. Never show a capsule. @image1 is only for Alex's face, short dark curly hair and beard; ignore its background, lighting and clothes.
+
+【Place】
+Ruined brutalist concrete and old brick, colonnaded halls with dark arcades, cracked stone paving drifted with sand, a tall abandoned tower dissolving into the dust. Burnt orange, terracotta and ochre, the sun hidden so the whole sky is one soft orange glow, dust thickening with distance, warm bloom, lifted warm blacks, fine film grain.
+
+【Alex】
+The red-and-black capsule is Alex, who wears a long charcoal wool coat with the collar turned up and a grey scarf, dust in his hair.
+
+【Performance】
+He is tired and resolved, a man who has walked a long way. He stands in the dust with the wind dragging at his coat, and when a gust hits he turns his body into it, one forearm raised to shield his head, the scarf pulled up. As it passes he lowers his arm and takes one slow, deep breath, then straightens and looks out over the ruins, steady.
+
+【Sound and look】
+The sound is only a low steady wind, grit on fabric and stone, the flap of his coat and a distant metallic creak. No music. Photoreal live-action cinema shot on an ARRI Alexa 35, anamorphic look, soft diffusion and halation on the lights, natural film grain.
